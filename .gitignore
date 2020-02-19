@@ -316,6 +316,29 @@ mono_crash.*
 Generated\ Files/
 
 # MSTest test Results
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.log
+*.scc
 
 # NUnit
 nunit-*.xml
@@ -474,10 +497,9 @@ ServiceFabricBackup/
 *.odx.cs
 *.xsd.cs
 
-*/**/bin/Debug
-*/**/bin/Release
-*/**/obj/Debug
-*/**/obj/Release
+bin
+obj
+config
 
 # OpenCover UI analysis results
 OpenCover/
