@@ -13,8 +13,6 @@ namespace Help247.ViewModels.Account
         public string Email { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public bool IsAdmin { get; set; }
-        public bool IsDeleted { get; set; }
         public Enums.UserType UserType { get; set; }
         public Enums.HelperCategory HelperCategory { get; set; }
 

@@ -3,11 +3,15 @@ using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Data.Entities;
 using Help247.Service.BO.Security;
+using Help247.Service.Exceptions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,49 +40,95 @@ namespace Help247.Service.Services.Security
 
         public async Task<UserBO> CreateNewUserAsync(UserBO userBO)
         {
-            try
+            using (var transaction = appDbContext.Database.BeginTransaction())
             {
-                var checkUser = appDbContext.Users.SingleOrDefault(x => x.Email == userBO.Email && x.UserName == userBO.UserName);
-                if (checkUser != null)
+                try
                 {
-                    return null;
+                    var checkUser = appDbContext.Users.SingleOrDefault(x => x.Email == userBO.Email && x.UserName == userBO.UserName);
+                    if (checkUser != null)
+                    {
+                        return null;
+                    }
+                    var storeUser = mapper.Map<User>(userBO);
+                    var user = await userManager.CreateAsync(storeUser, userBO.Password);
+                    if (!user.Succeeded)
+                    {
+                        return new UserBO();
+                    }
+                    var userType = "Admin";
+                    switch (userBO.UserType)
+                    {
+                        case Enums.UserType.Helper:
+                            userType = "Helper";
+                            break;
+                        case Enums.UserType.Customer:
+                            userType = "Customer";
+                            break;
+                        default:
+                            break;
+                    }
+                    await userManager.AddToRoleAsync(storeUser, userType);
+                    transaction.Commit();
+                    return userBO;
                 }
-                var storeUser = mapper.Map<User>(userBO);
-                var user = await userManager.CreateAsync(storeUser, userBO.Password);
-                if (!user.Succeeded)
+                catch (Exception ex)
                 {
-                    return new UserBO();
+                    transaction.Rollback();
+                    throw new Exception(ex.Message);
                 }
-                var userType = "Admin";
-                switch (userBO.UserType)
-                {
-                    case Enums.UserType.Helper:
-                        userType = "Helper";
-                        break;
-                    case Enums.UserType.Customer:
-                        userType = "Customer";
-                        break;
-                    default:
-                        break;
-                }
-                await userManager.AddToRoleAsync(storeUser, userType);
-                return userBO;
             }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-            }
-
 
         }
 
-        //private void CheckRole(UserBO user)
-        //{
-        //    if (!user.HasRole("Supervisor"))
-        //    {
-        //        throw new NoSupervisorRoleException("User does not have supervisor role!");
-        //    }
-        //}
+        public async Task<LoginBO> LoginAsync(LoginBO loginBO)
+        {
+            try
+            {
+                var user = await userManager.FindByNameAsync(loginBO.UserName);
+                if (user != null && user.RecordState == Enums.RecordState.Active)
+                {
+                    var result = await signInManager.CheckPasswordSignInAsync(user, loginBO.Password, false);
+
+                    if (result.Succeeded)
+                    {
+                        //Create the token
+                        var claims = new[]
+                        {
+                            new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+                            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                            new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+                            new Claim("IsAdmin", user.IsAdmin.ToString())
+                        };
+
+                        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Tokens:Key"]));
+                        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                        var token = new JwtSecurityToken(
+                            configuration["Tokens:Issuer"],
+                            configuration["Tokens:Audience"],
+                            claims,
+                            expires: DateTime.UtcNow.AddDays(1),
+                            signingCredentials: creds
+                            );
+
+                        var results = new LoginBO
+                        {
+                            Token = new JwtSecurityTokenHandler().WriteToken(token),
+                            TokenExpiration = token.ValidTo,
+                            IsAdmin = user.IsAdmin
+                        };
+
+                        return results;
+                    }
+                }
+                return new LoginBO();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        
     }
 }

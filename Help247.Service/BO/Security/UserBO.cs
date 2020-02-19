@@ -13,6 +13,6 @@ namespace Help247.Service.BO.Security
         public string UserName { get; set; }
         public string Password { get; set; }
         public Enums.UserType UserType {get; set;}
-        public bool IsDeleted { get; set; }
+
     }
 }

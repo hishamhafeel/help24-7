@@ -9,5 +9,6 @@ namespace Help247.Service.Services.Security
     public interface ISecurityService
     {
         Task<UserBO> CreateNewUserAsync(UserBO userBO);
+        Task<LoginBO> LoginAsync(LoginBO loginBO);
     }
 }

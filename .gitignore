@@ -526,3 +526,12 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/dotnetcore,aspnetcore,visualstudio,visualstudiocode
+/Help247/bin
+/Help247/obj
+/Help247.Common/bin
+/Help247.Common/obj
+/Help247.Data/bin
+/Help247.Data/obj
+/Help247.Service/bin
+/Help247.Service/obj
+/.vs
