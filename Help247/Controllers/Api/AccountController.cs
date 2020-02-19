@@ -6,6 +6,7 @@ using AutoMapper;
 using Help247.Common.Utility;
 using Help247.Data.Entities;
 using Help247.Service.BO.Security;
+using Help247.Service.Exceptions;
 using Help247.Service.Services.Security;
 using Help247.ViewModels.Account;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -38,7 +39,7 @@ namespace Help247.Controllers.Api
             try
             {
                 var result = await securityService.CreateNewUserAsync(mapper.Map<UserBO>(registerViewModel));
-                if (result.UserName == null)
+                if (result == null)
                 {
                     return Conflict(new { message = "Username is already in use" });
                 }
@@ -47,10 +48,41 @@ namespace Help247.Controllers.Api
                     return Created(string.Empty, result);
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw ex;
+                throw new RegisterFailedException();
+            }
+        }
+
+        [Route("Authenticate")]
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody]LoginViewModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var modelMapped = mapper.Map<LoginBO>(model);
+                    var result = await securityService.LoginAsync(modelMapped);
+                    if (result.Token != null)
+                    {
+                        return Created("", result);
+                    }
+                    else
+                    {
+                        return Unauthorized();
+                    }
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception)
+            {
+                throw new LoginException();
             }
         }
     }
