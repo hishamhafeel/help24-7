@@ -4,6 +4,7 @@ import { AdminLayoutComponent } from './admin/layouts/admin-layout/admin-layout.
 
 
 const routes: Routes = [
+  { path: 'auth', loadChildren: './admin/auth/auth.module#AuthModule' },
   {
     path: '',
     redirectTo: 'dashboard',
