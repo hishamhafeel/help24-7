@@ -1,8 +1,0 @@
-D:\Training\ASP\Help247\Help247.Common\bin\Debug\netcoreapp2.2\Help247.Common.deps.json
-D:\Training\ASP\Help247\Help247.Common\bin\Debug\netcoreapp2.2\Help247.Common.dll
-D:\Training\ASP\Help247\Help247.Common\bin\Debug\netcoreapp2.2\Help247.Common.pdb
-D:\Training\ASP\Help247\Help247.Common\obj\Debug\netcoreapp2.2\Help247.Common.csprojAssemblyReference.cache
-D:\Training\ASP\Help247\Help247.Common\obj\Debug\netcoreapp2.2\Help247.Common.AssemblyInfoInputs.cache
-D:\Training\ASP\Help247\Help247.Common\obj\Debug\netcoreapp2.2\Help247.Common.AssemblyInfo.cs
-D:\Training\ASP\Help247\Help247.Common\obj\Debug\netcoreapp2.2\Help247.Common.dll
-D:\Training\ASP\Help247\Help247.Common\obj\Debug\netcoreapp2.2\Help247.Common.pdb

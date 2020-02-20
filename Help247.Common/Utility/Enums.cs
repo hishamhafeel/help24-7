@@ -7,7 +7,7 @@ namespace Help247.Common.Utility
 {
     public class Enums
     {
-        public enum RecordStatus : byte
+        public enum RecordState : byte
         {
             Active = 1,
             Inactive = 2

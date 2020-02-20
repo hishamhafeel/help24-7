@@ -14,10 +14,19 @@ namespace Help247.Data.Entities
         [Required]
         public string Name { get; set; }
         [Required]
-        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedOn { get; set; } 
         public string CreatedById { get; set; }
-        public DateTime? EditedOn { get; set; } = DateTime.UtcNow;
+        public DateTime? EditedOn { get; set; } 
         public string EditedById { get; set; }
-        public Enums.RecordStatus RecordState { get; set; }
+        public Enums.RecordState RecordState { get; set; } 
+        public bool IsAdmin { get; set; }
+
+        protected User()
+        {
+            IsAdmin = false;
+            RecordState = Enums.RecordState.Active;
+            CreatedOn = DateTime.UtcNow;
+            EditedOn= DateTime.UtcNow;
+        }
     }
 }
