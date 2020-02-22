@@ -306,6 +306,9 @@
     &[data-color="purple"]{
         @include set-background-color-button($brand-primary);
     }
+    &[data-color="theme"]{
+        @include set-background-color-button($brand-theme);
+    }
     &[data-color="azure"]{
         @include set-background-color-button($brand-info);
     }

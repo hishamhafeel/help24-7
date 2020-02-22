@@ -18,13 +18,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.initForm();
+    this.initLoginForm();
   }
 
-  initForm() {
+  initLoginForm() {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      username: [''],
+      password: ['']
     })
   }
 
