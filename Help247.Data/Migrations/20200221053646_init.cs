@@ -49,12 +49,12 @@ namespace Help247.Data.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    IsAdmin = table.Column<bool>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     CreatedById = table.Column<string>(nullable: true),
                     EditedOn = table.Column<DateTime>(nullable: true),
                     EditedById = table.Column<string>(nullable: true),
-                    RecordState = table.Column<byte>(nullable: false)
+                    RecordState = table.Column<byte>(nullable: false),
+                    IsAdmin = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,9 +73,9 @@ namespace Help247.Data.Migrations
                     EditedOn = table.Column<DateTime>(nullable: true),
                     EditedById = table.Column<int>(nullable: true),
                     RecordState = table.Column<byte>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    PhoneNo = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    PhoneNo = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
                     Country = table.Column<string>(nullable: true),
                     Province = table.Column<string>(nullable: true),
                     District = table.Column<string>(nullable: true),
@@ -98,14 +98,14 @@ namespace Help247.Data.Migrations
                     EditedOn = table.Column<DateTime>(nullable: true),
                     EditedById = table.Column<int>(nullable: true),
                     RecordState = table.Column<byte>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    PhoneNo = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    PhoneNo = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
                     Country = table.Column<string>(nullable: true),
                     Province = table.Column<string>(nullable: true),
                     District = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
-                    Category = table.Column<byte>(nullable: false)
+                    HelperCategory = table.Column<byte>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -333,6 +333,20 @@ namespace Help247.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Customers_Email",
+                schema: "Help247",
+                table: "Customers",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_PhoneNo",
+                schema: "Help247",
+                table: "Customers",
+                column: "PhoneNo",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Feedbacks_CustomerId",
                 schema: "Help247",
                 table: "Feedbacks",
@@ -343,6 +357,20 @@ namespace Help247.Data.Migrations
                 schema: "Help247",
                 table: "Feedbacks",
                 column: "HelperId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Helpers_Email",
+                schema: "Help247",
+                table: "Helpers",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Helpers_PhoneNo",
+                schema: "Help247",
+                table: "Helpers",
+                column: "PhoneNo",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_CustomerId",

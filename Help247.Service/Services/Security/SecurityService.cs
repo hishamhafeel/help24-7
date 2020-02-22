@@ -40,7 +40,7 @@ namespace Help247.Service.Services.Security
 
         public async Task<UserBO> CreateNewUserAsync(UserBO userBO)
         {
-            using (var transaction = appDbContext.Database.BeginTransaction())
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
                 try
                 {
@@ -60,13 +60,17 @@ namespace Help247.Service.Services.Security
                     {
                         case Enums.UserType.Helper:
                             userType = "Helper";
+                            await appDbContext.Helpers.AddAsync(mapper.Map<Help247.Data.Entities.Helper>(userBO));
                             break;
                         case Enums.UserType.Customer:
                             userType = "Customer";
+                            await appDbContext.Customers.AddAsync(mapper.Map<Customer>(userBO));
                             break;
                         default:
+                            storeUser.IsAdmin = true;
                             break;
                     }
+                   
                     await userManager.AddToRoleAsync(storeUser, userType);
                     transaction.Commit();
                     return userBO;
