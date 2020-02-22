@@ -16,14 +16,16 @@ namespace Help247.Data.Entities
         [Required]
         public string Name { get; set; }
         [Required]
+        [Phone]
         public string PhoneNo { get; set; }
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
         public string Country { get; set; }
         public string Province { get; set; }
         public string District { get; set; }
         public string City { get; set; }
-        public Enums.HelperCategory Category { get; set; } = Enums.HelperCategory.None;
+        public Enums.HelperCategory HelperCategory { get; set; } = Enums.HelperCategory.None;
 
         public List<Feedback> Feedbacks { get; set; }
         public List<Ticket> Tickets { get; set; }

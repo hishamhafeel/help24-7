@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200218162902_changes to models")]
-    partial class changestomodels
+    [Migration("20200221053646_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,12 @@ namespace Help247.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("PhoneNo")
+                        .IsUnique();
+
                     b.ToTable("Customers","Help247");
                 });
 
@@ -93,8 +99,6 @@ namespace Help247.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<byte>("Category");
-
                     b.Property<string>("City");
 
                     b.Property<string>("Country");
@@ -112,6 +116,8 @@ namespace Help247.Data.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
+                    b.Property<byte>("HelperCategory");
+
                     b.Property<string>("Name")
                         .IsRequired();
 
@@ -123,6 +129,12 @@ namespace Help247.Data.Migrations
                     b.Property<byte>("RecordState");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("PhoneNo")
+                        .IsUnique();
 
                     b.ToTable("Helpers","Help247");
                 });
