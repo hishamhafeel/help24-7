@@ -1,4 +1,5 @@
 ﻿using Help247.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,5 +18,23 @@ namespace Help247.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Helper>().HasIndex(x => x.Email).IsUnique();
+            builder.Entity<Helper>().HasIndex(x => x.PhoneNo).IsUnique();
+
+            builder.Entity<Customer>().HasIndex(x => x.Email).IsUnique();
+            builder.Entity<Customer>().HasIndex(x => x.PhoneNo).IsUnique();
+
+            builder.Entity<IdentityRole>().HasData(
+                    new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
+                    new IdentityRole { Id = "2", Name = "Helper", NormalizedName = "HELPER" },
+                    new IdentityRole { Id = "3", Name = "Customer", NormalizedName = "CUSTOMER" }
+                );
+        }
+
     }
 }

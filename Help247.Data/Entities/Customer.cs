@@ -15,8 +15,10 @@ namespace Help247.Data.Entities
         [Required]
         public string Name { get; set; }
         [Required]
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNo { get; set; }
         [Required]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public string Country { get; set; }
         public string Province { get; set; }

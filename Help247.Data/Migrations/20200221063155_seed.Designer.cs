@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200214151201_identity")]
-    partial class identity
+    [Migration("20200221063155_seed")]
+    partial class seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,12 @@ namespace Help247.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("PhoneNo")
+                        .IsUnique();
+
                     b.ToTable("Customers","Help247");
                 });
 
@@ -93,8 +99,6 @@ namespace Help247.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<byte>("Category");
-
                     b.Property<string>("City");
 
                     b.Property<string>("Country");
@@ -112,6 +116,8 @@ namespace Help247.Data.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
+                    b.Property<byte>("HelperCategory");
+
                     b.Property<string>("Name")
                         .IsRequired();
 
@@ -123,6 +129,12 @@ namespace Help247.Data.Migrations
                     b.Property<byte>("RecordState");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("PhoneNo")
+                        .IsUnique();
 
                     b.ToTable("Helpers","Help247");
                 });
@@ -181,8 +193,6 @@ namespace Help247.Data.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<bool>("IsAdmin");
-
-                    b.Property<bool>("IsDeleted");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -245,6 +255,29 @@ namespace Help247.Data.Migrations
                         .HasName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            ConcurrencyStamp = "c6a8fa1c-dd73-4de0-b463-34c779d7d3ab",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            ConcurrencyStamp = "317ce709-cf46-4bb8-8d42-8261e3d6d010",
+                            Name = "Helper",
+                            NormalizedName = "HELPER"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            ConcurrencyStamp = "543c9f09-6e95-400a-9cd6-82ebf01241bd",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

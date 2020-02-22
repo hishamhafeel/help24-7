@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Help247.Common.Utility
 {
@@ -15,5 +17,7 @@ namespace Help247.Common.Utility
         {
             return Mapper.Map<IEnumerable<TTo>>(value);
         }
+
+        
     }
 }

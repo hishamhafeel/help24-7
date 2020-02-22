@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
+using System.Linq;
 using System.Text;
 
 namespace Help247.Common.Utility
@@ -54,5 +56,6 @@ namespace Help247.Common.Utility
             Helper = 2,
             Customer = 3
         }
+
     }
 }
