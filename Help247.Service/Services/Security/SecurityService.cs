@@ -64,7 +64,7 @@ namespace Help247.Service.Services.Security
                             break;
                         case Enums.UserType.Customer:
                             userType = "Customer";
-                            await appDbContext.Customers.AddAsync(mapper.Map<Customer>(userBO));
+                            await appDbContext.Customers.AddAsync(mapper.Map<Help247.Data.Entities.Customer>(userBO));
                             break;
                         default:
                             storeUser.IsAdmin = true;

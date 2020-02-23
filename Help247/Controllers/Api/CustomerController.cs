@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Help247.Common.Pagination;
-using Help247.Service.BO.Helper;
-using Help247.Service.Services.Helper;
+using Help247.Service.BO.Customer;
+using Help247.Service.Services.Customer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Help247.Controllers.Api
@@ -16,35 +13,44 @@ namespace Help247.Controllers.Api
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class HelperController : ControllerBase
+    public class CustomerController : ControllerBase
     {
-        private readonly IHelperService helperService;
+        private readonly ICustomerService customerService;
         private readonly IMapper mapper;
 
-        public HelperController(IHelperService helperService, IMapper mapper)
+        public CustomerController(ICustomerService customerService, IMapper mapper)
         {
-            this.helperService = helperService;
+            this.customerService = customerService;
             this.mapper = mapper;
         }
 
-        // GET: api/HelperList
-        [Route("HelperList")]
+        // GET: api/Customer
+        [Route("CustomerList")]
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync([FromQuery]PaginationBase paginationBase)
+        public async Task<IActionResult> GetAllAsync([FromQuery] PaginationBase paginationBase)
         {
-            var result = await helperService.GetAllAsync(paginationBase);
-            return Ok(result);
+            try
+            {
+                var result = await customerService.GetAllAsync(paginationBase);
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        // GET: api/Helper/5
+        // GET: api/Customer/5
         [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAsync(int id)
         {
+
             try
             {
-                var result = await helperService.GetByIdAsync(id);
+                var result = await customerService.GetByIdAsync(id);
                 return Ok(result);
             }
             catch (Exception)
@@ -52,23 +58,20 @@ namespace Help247.Controllers.Api
 
                 return NotFound();
             }
-           
         }
 
-
-        // PUT: api/Helper/5
+        // PUT: api/Customer/5
         [AllowAnonymous]
         [HttpPut]
-        public async Task<IActionResult> PutAsync([FromBody]HelperBO helperBO)
+        public async Task<IActionResult> PutAsync([FromBody]CustomerBO customerBO)
         {
             try
             {
-                var result = await helperService.PutAsync(helperBO);
+                var result = await customerService.PutAsync(customerBO);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -80,7 +83,7 @@ namespace Help247.Controllers.Api
         {
             try
             {
-                await helperService.DeleteAsync(id);
+                await customerService.DeleteAsync(id);
                 return Ok();
 
             }
