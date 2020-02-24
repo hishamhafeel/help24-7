@@ -19,6 +19,11 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: './admin/dashboard/dashboard.module#DashboardModule',
         canActivate: [AuthGuardService]
+      },
+      {
+        path: 'helper',
+        loadChildren: './admin/helper/helper.module#HelperModule',
+        canActivate: [AuthGuardService]
       }
     ]
   }

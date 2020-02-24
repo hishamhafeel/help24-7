@@ -202,6 +202,15 @@
       background: linear-gradient(60deg, $red-400, $red-600);
     }
 
+    .card-header-theme .card-icon,
+    .card-header-theme .card-text,
+    .card-header-theme:not(.card-header-icon):not(.card-header-text),
+    &.bg-theme,
+    &.card-rotate.bg-theme .front,
+    &.card-rotate.bg-theme .back{
+      background: $brand-theme;
+    }
+
     .card-header-rose .card-icon,
     .card-header-rose .card-text,
     .card-header-rose:not(.card-header-icon):not(.card-header-text),
@@ -223,6 +232,12 @@
     .card-header-danger:not(.card-header-icon):not(.card-header-text),
     .card-header-danger .card-text{
         @include shadow-big-color($brand-danger);
+    }
+
+    .card-header-theme .card-icon,
+    .card-header-theme:not(.card-header-icon):not(.card-header-text),
+    .card-header-theme .card-text{
+        @include shadow-big-color($brand-theme);
     }
 
     .card-header-rose .card-icon,
