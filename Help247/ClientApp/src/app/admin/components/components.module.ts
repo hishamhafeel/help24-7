@@ -4,6 +4,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -11,11 +13,13 @@ import { RouterModule } from '@angular/router';
   declarations: [
     NavbarComponent, 
     FooterComponent, 
-    SidebarComponent
+    SidebarComponent, 
+    LayoutComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [
     NavbarComponent,

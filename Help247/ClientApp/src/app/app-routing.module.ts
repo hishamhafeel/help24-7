@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminLayoutComponent } from './admin/layouts/admin-layout/admin-layout.component';
+import { LayoutComponent } from './admin/components/layout/layout.component';
+import { AuthGuardService } from './admin/auth/helpers/auth-guard.service';
 
 
 const routes: Routes = [
   { path: 'auth', loadChildren: './admin/auth/auth.module#AuthModule' },
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  }, {
-    path: '',
-    component: AdminLayoutComponent,
-    children: [{
-      path: '',
-      loadChildren: './admin/layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-    }]
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard',
+      },
+      {
+        path: 'dashboard',
+        loadChildren: './admin/dashboard/dashboard.module#DashboardModule',
+        canActivate: [AuthGuardService]
+      }
+    ]
   }
 ];
 

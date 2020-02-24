@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
-  getTitle(){
+  getTitle() {
     // var titlee = this.location.prepareExternalUrl(this.location.path());
     // if(titlee.charAt(0) === '#'){
     //     titlee = titlee.slice( 1 );
@@ -24,5 +29,9 @@ export class NavbarComponent implements OnInit {
     //     }
     // }
     return 'Dashboard';
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }
