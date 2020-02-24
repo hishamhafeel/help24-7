@@ -27,7 +27,6 @@ namespace Help247.Controllers.Api
 
         // GET: api/Customer
         [Route("CustomerList")]
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAllAsync([FromQuery] PaginationBase paginationBase)
         {
@@ -44,7 +43,6 @@ namespace Help247.Controllers.Api
         }
 
         // GET: api/Customer/5
-        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAsync(int id)
         {
@@ -62,7 +60,6 @@ namespace Help247.Controllers.Api
         }
 
         // PUT: api/Customer/5
-        [AllowAnonymous]
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody]CustomerViewModel customerViewModel)
         {
@@ -78,7 +75,6 @@ namespace Help247.Controllers.Api
         }
 
         // DELETE: api/ApiWithActions/5
-        [AllowAnonymous]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
