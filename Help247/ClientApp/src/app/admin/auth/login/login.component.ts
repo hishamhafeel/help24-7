@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginModel } from '../models/login.model';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +11,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  loginModel: LoginModel;
   loginForm: FormGroup;
   hide = true;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -23,9 +27,23 @@ export class LoginComponent implements OnInit {
 
   initLoginForm() {
     this.loginForm = this.fb.group({
-      username: [''],
-      password: ['']
+      username: ['usamajumaloon'],
+      password: ['Admin@123']
     })
+  }
+
+  authenticateUser() {
+    this.loginModel = new LoginModel();
+    this.loginModel = Object.assign({}, this.loginModel, this.loginForm.value);
+    this.authService.authenticateUser(this.loginModel).subscribe(
+      user => {
+        localStorage.setItem('TokenId', JSON.stringify(user.token));
+        this.router.navigate(['/dashboard']);
+      },
+      error => {
+        alert('Invalid Login');
+      }
+    );
   }
 
   get username() {
@@ -35,7 +53,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  dashboard(){
+  dashboard() {
     this.router.navigate(['/dashboard']);
   }
 

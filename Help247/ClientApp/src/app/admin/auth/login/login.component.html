@@ -14,7 +14,7 @@
                     </button>
                     <mat-error *ngIf="password.invalid && password.touched">Your password is required</mat-error>
                 </mat-form-field>
-                <button class="login-btn" mat-raised-button color="primary" (click)="dashboard()">Login</button>
+                <button class="login-btn" mat-raised-button color="primary" (click)="authenticateUser()">Login</button>
                 <!-- [disabled]="loginForm.invalid" -->
             </div>
         </form>
