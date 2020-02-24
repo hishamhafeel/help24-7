@@ -4,6 +4,7 @@ using AutoMapper;
 using Help247.Common.Pagination;
 using Help247.Service.BO.Customer;
 using Help247.Service.Services.Customer;
+using Help247.ViewModels.Customer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -63,11 +64,11 @@ namespace Help247.Controllers.Api
         // PUT: api/Customer/5
         [AllowAnonymous]
         [HttpPut]
-        public async Task<IActionResult> PutAsync([FromBody]CustomerBO customerBO)
+        public async Task<IActionResult> PutAsync([FromBody]CustomerViewModel customerViewModel)
         {
             try
             {
-                var result = await customerService.PutAsync(customerBO);
+                var result = await customerService.PutAsync(mapper.Map<CustomerBO>(customerViewModel));
                 return Ok(result);
             }
             catch (Exception ex)
