@@ -4,6 +4,8 @@ using Help247.Service.BO.Customer;
 using Help247.Service.BO.Helper;
 using Help247.Service.BO.Security;
 using Help247.ViewModels.Account;
+using Help247.ViewModels.Customer;
+using Help247.ViewModels.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +26,11 @@ namespace Help247.Utilities.Configurations
 
             //Helper
             CreateMap<Helper, HelperBO>().ReverseMap();
+            CreateMap<HelperViewModel, HelperBO>().ReverseMap();
 
             //Customer
             CreateMap<Customer, CustomerBO>().ReverseMap();
+            CreateMap<CustomerViewModel, CustomerBO>().ReverseMap();
 
         }
     }

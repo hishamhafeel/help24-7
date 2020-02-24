@@ -6,6 +6,7 @@ using AutoMapper;
 using Help247.Common.Pagination;
 using Help247.Service.BO.Helper;
 using Help247.Service.Services.Helper;
+using Help247.ViewModels.Helper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -59,11 +60,11 @@ namespace Help247.Controllers.Api
         // PUT: api/Helper/5
         [AllowAnonymous]
         [HttpPut]
-        public async Task<IActionResult> PutAsync([FromBody]HelperBO helperBO)
+        public async Task<IActionResult> PutAsync([FromBody]HelperViewModel helperViewModel)
         {
             try
             {
-                var result = await helperService.PutAsync(helperBO);
+                var result = await helperService.PutAsync(mapper.Map<HelperBO>(helperViewModel));
                 return Ok(result);
             }
             catch (Exception ex)
