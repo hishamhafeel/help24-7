@@ -30,7 +30,6 @@ namespace Help247.Controllers.Api
 
         // GET: api/HelperList
         [Route("HelperList")]
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAllAsync([FromQuery]PaginationBase paginationBase)
         {
@@ -39,7 +38,6 @@ namespace Help247.Controllers.Api
         }
 
         // GET: api/Helper/5
-        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAsync(int id)
         {
@@ -58,7 +56,6 @@ namespace Help247.Controllers.Api
 
 
         // PUT: api/Helper/5
-        [AllowAnonymous]
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody]HelperViewModel helperViewModel)
         {
@@ -75,7 +72,6 @@ namespace Help247.Controllers.Api
         }
 
         // DELETE: api/ApiWithActions/5
-        [AllowAnonymous]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
