@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Help247.Data.Entities;
+using Help247.ListModels;
 using Help247.Service.BO.Customer;
 using Help247.Service.BO.Helper;
 using Help247.Service.BO.Security;
@@ -27,6 +28,7 @@ namespace Help247.Utilities.Configurations
             //Helper
             CreateMap<Helper, HelperBO>().ReverseMap();
             CreateMap<HelperViewModel, HelperBO>().ReverseMap();
+            CreateMap<HelperCategoryListModel, HelperCategoryListBO>().ReverseMap();
 
             //Customer
             CreateMap<Customer, CustomerBO>().ReverseMap();

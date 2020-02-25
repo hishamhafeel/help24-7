@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -15,26 +16,26 @@ namespace Help247.Common.Utility
             Inactive = 2
         }
 
-        public enum HelperCategory : byte
+        public enum HelperCategory 
         {
             [Description("Category not assigned")]
-            None = 0,
+            Nonee,
             [Description("CCTV Installation and Fixing")]
-            Cctv = 1,
+            Cctv,
             [Description("Network Planning and Troubleshooting")]
-            NetworkPlanning = 2,
+            NetworkPlanning,
             [Description("PABX - Private Automatic Issues")]
-            Pabx = 3,
+            Pabx,
             [Description("Cisco Routing - Service Maintenance")]
-            Cisco = 4,
+            Cisco,
             [Description("IT and other projects")]
-            IT = 5,
+            IT,
             [Description("Office Relocation IT Setup")]
-            OfficeRelocation = 6,
+            OfficeRelocation,
             [Description("Office New IT Setup")]
-            OfficeNewSetup = 7,
+            OfficeNewSetup,
             [Description("Basic Hardware Repairing")]
-            HardwareRepair = 8,
+            HardwareRepair,
 
         }
 
