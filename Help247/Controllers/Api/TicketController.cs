@@ -13,9 +13,9 @@ namespace Help247.Controllers.Api
     {
         // GET: api/Ticket
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> GetTicketStatusAsync(int id)
         {
-            return new string[] { "value1", "value2" };
+            return Ok();
         }
 
         // GET: api/Ticket/5

@@ -118,5 +118,30 @@ namespace Help247.Service.Services.Helper
                 }
             }
         }
+
+        public async Task<List<HelperCategoryListBO>> GetAllHelperCategoryAsync()
+        {
+            try
+            {
+                List <HelperCategoryListBO> helperCategoryList = new List<HelperCategoryListBO>();
+                Array values = Enum.GetValues(typeof(Enums.HelperCategory));
+
+                foreach (Enums.HelperCategory val in values)
+                {
+                    helperCategoryList.Add(new HelperCategoryListBO
+                    {
+                        Key = (int)val,
+                        Value = val.GetDescription()
+                    });
+                }
+                return helperCategoryList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
+        }
     }
 }
