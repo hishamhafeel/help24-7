@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   initLoginForm() {
     this.loginForm = this.fb.group({
-      username: ['usamajumaloon'],
+      username: ['admin'],
       password: ['Admin@123']
     })
   }
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.loginModel = Object.assign({}, this.loginModel, this.loginForm.value);
     this.authService.authenticateUser(this.loginModel).subscribe(
       user => {
-        localStorage.setItem('TokenId', JSON.stringify(user.token));
+        localStorage.setItem('TokenId', user.token);
         this.router.navigate(['/dashboard']);
       },
       error => {
