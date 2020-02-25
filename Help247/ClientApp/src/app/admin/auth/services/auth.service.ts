@@ -3,7 +3,6 @@ import { BaseService } from 'src/app/core/services/base.service';
 import { HttpClient } from '@angular/common/http';
 import { LoginModel } from '../models/login.model';
 import { catchError } from 'rxjs/operators';
-import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({

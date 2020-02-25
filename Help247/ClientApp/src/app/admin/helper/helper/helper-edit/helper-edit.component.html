@@ -1,0 +1,73 @@
+<div class="card">
+    <div class="card-header card-header-theme" style="display: flex;">
+        <mat-icon style="margin-right: 3px;">person_outline</mat-icon>
+        <h4 class="card-title">Edit Helper</h4>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="helperForm">
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field>
+                        <input matInput placeholder="Id (disabled)" formControlName="id">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <input matInput placeholder="Name" formControlName="name" type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <input matInput placeholder="E-mail" formControlName="email" type="email">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <input matInput placeholder="Phone No" formControlName="phoneNo" type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Country" formControlName="country" type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Province" formControlName="province" type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input matInput placeholder="District" formControlName="district" type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <input matInput placeholder="City" formControlName="city" type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Helper Category" formControlName="helperCategory" type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="updateHelper()">Update</button>
+            <button mat-raised-button type="button" class="btn btn-default pull-right"  (click)="onNoClick()">Cancel</button>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>
