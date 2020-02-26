@@ -13,6 +13,5 @@ namespace Help247.Service.Services.Helper
         Task<HelperBO> GetByIdAsync(int id);
         Task<HelperBO> PutAsync(HelperBO helperBO);
         Task DeleteAsync(int id);
-        Task<List<HelperCategoryListBO>> GetAllHelperCategoryAsync();
     }
 }
