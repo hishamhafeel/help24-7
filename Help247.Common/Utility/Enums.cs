@@ -16,29 +16,7 @@ namespace Help247.Common.Utility
             Inactive = 2
         }
 
-        public enum HelperCategory 
-        {
-            [Description("Category not assigned")]
-            Nonee,
-            [Description("CCTV Installation and Fixing")]
-            Cctv,
-            [Description("Network Planning and Troubleshooting")]
-            NetworkPlanning,
-            [Description("PABX - Private Automatic Issues")]
-            Pabx,
-            [Description("Cisco Routing - Service Maintenance")]
-            Cisco,
-            [Description("IT and other projects")]
-            IT,
-            [Description("Office Relocation IT Setup")]
-            OfficeRelocation,
-            [Description("Office New IT Setup")]
-            OfficeNewSetup,
-            [Description("Basic Hardware Repairing")]
-            HardwareRepair,
-
-        }
-
+        
         public enum TicketStatus : byte
         {
             [Description("Ticket not placed")]

@@ -90,21 +90,5 @@ namespace Help247.Controllers.Api
             }
         }
 
-        // GET: api/HelperCategoryList
-        [Route("HelperCategoryList")]
-        [HttpGet]
-        public async Task<IActionResult> GetHelperCategoryListAsync()
-        {
-            try
-            {
-                var result = await helperService.GetAllHelperCategoryAsync();
-                return Ok(mapper.Map<List<HelperCategoryListModel>>(result));
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
     }
 }
