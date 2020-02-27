@@ -118,5 +118,22 @@ namespace Help247.Service.Services.Helper
                 }
             }
         }
+
+        public async Task<List<HelperCategoryBO>> GetAllHelperCategoryAsync()
+        {
+            try
+            {
+                var query = appDbContext.HelperCategories.ToList().OrderBy(x => x.Id);
+                if(query == null)
+                {
+                    throw new HelperCategoryNotFoundException();
+                }
+                return mapper.Map<List<HelperCategoryBO>>(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

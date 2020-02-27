@@ -18,7 +18,7 @@ namespace Help247.ViewModels.Account
         public string District { get; set; }
         public string City { get; set; }
         public Enums.UserType UserType { get; set; }
-        public Enums.HelperCategory HelperCategory { get; set; }
+        public int HelperCategoryID { get; set; }
 
     }
 }

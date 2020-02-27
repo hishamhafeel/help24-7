@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Help247.ViewModels.Ticket;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,8 +29,19 @@ namespace Help247.Controllers.Api
 
         // POST: api/Ticket
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Authorize(Roles = "Customer")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Post([FromBody] TicketViewModel ticketViewModel)
         {
+            try
+            {
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         // PUT: api/Ticket/5
