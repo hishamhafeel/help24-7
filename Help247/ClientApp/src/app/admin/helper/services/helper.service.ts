@@ -28,11 +28,33 @@ export class HelperService extends BaseService {
       .pipe(catchError(this.server4xxError));
   }
 
+  getHelperCategoryList(pagination: PaginationBase) {
+    return this.http
+      .get<PaginationModel<HelperModel>>(
+        `${this.baseEndPoint}/api/Helper/HelperList?&skip=${
+        pagination.skip
+        }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
   updateHelper(helperModel: HelperModel) {
     return this.http
       .put(
         `${this.baseEndPoint}/api/Helper`,
         helperModel,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  deleteHelper(id: number) {
+    return this.http
+      .delete(
+        `${
+          this.baseEndPoint
+        }/api/Helper/${id}`,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));
