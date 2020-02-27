@@ -8,12 +8,6 @@ namespace Help247.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.EnsureSchema(
-                name: "Help247");
-
-            migrationBuilder.EnsureSchema(
-                name: "help247");
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -30,7 +24,6 @@ namespace Help247.Data.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
-                schema: "help247",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -63,7 +56,6 @@ namespace Help247.Data.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Customers",
-                schema: "Help247",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -87,29 +79,17 @@ namespace Help247.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Helpers",
-                schema: "Help247",
+                name: "HelperCategories",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    CreatedById = table.Column<int>(nullable: false),
-                    EditedOn = table.Column<DateTime>(nullable: true),
-                    EditedById = table.Column<int>(nullable: true),
-                    RecordState = table.Column<byte>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    PhoneNo = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    Country = table.Column<string>(nullable: true),
-                    Province = table.Column<string>(nullable: true),
-                    District = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
-                    HelperCategory = table.Column<byte>(nullable: false)
+                    CategoryName = table.Column<string>(nullable: true),
+                    CategoryDescription = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Helpers", x => x.Id);
+                    table.PrimaryKey("PK_HelperCategories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -149,7 +129,6 @@ namespace Help247.Data.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "help247",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -170,7 +149,6 @@ namespace Help247.Data.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "help247",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -195,7 +173,6 @@ namespace Help247.Data.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "help247",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -216,15 +193,44 @@ namespace Help247.Data.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "help247",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
+                name: "Helpers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    CreatedById = table.Column<int>(nullable: false),
+                    EditedOn = table.Column<DateTime>(nullable: true),
+                    EditedById = table.Column<int>(nullable: true),
+                    RecordState = table.Column<byte>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    PhoneNo = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Country = table.Column<string>(nullable: true),
+                    Province = table.Column<string>(nullable: true),
+                    District = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    HelperCategoryId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Helpers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Helpers_HelperCategories_HelperCategoryId",
+                        column: x => x.HelperCategoryId,
+                        principalTable: "HelperCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Feedbacks",
-                schema: "Help247",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -245,14 +251,12 @@ namespace Help247.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Feedbacks_Customers_CustomerId",
                         column: x => x.CustomerId,
-                        principalSchema: "Help247",
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Feedbacks_Helpers_HelperId",
                         column: x => x.HelperId,
-                        principalSchema: "Help247",
                         principalTable: "Helpers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -260,7 +264,6 @@ namespace Help247.Data.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Tickets",
-                schema: "Help247",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -280,18 +283,31 @@ namespace Help247.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Tickets_Customers_CustomerId",
                         column: x => x.CustomerId,
-                        principalSchema: "Help247",
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Tickets_Helpers_HelperId",
                         column: x => x.HelperId,
-                        principalSchema: "Help247",
                         principalTable: "Helpers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "1", "f4bfed01-e51e-4e09-80d9-bd689d6f1889", "Admin", "ADMIN" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "2", "7081d23d-3a63-443e-8070-3d663cdc2288", "Helper", "HELPER" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "3", "a3b62ab1-a47a-42e8-97f3-d87cbf26f638", "Customer", "CUSTOMER" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -321,66 +337,61 @@ namespace Help247.Data.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                schema: "help247",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                schema: "help247",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_Email",
-                schema: "Help247",
                 table: "Customers",
                 column: "Email",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_PhoneNo",
-                schema: "Help247",
                 table: "Customers",
                 column: "PhoneNo",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Feedbacks_CustomerId",
-                schema: "Help247",
                 table: "Feedbacks",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Feedbacks_HelperId",
-                schema: "Help247",
                 table: "Feedbacks",
                 column: "HelperId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Helpers_Email",
-                schema: "Help247",
                 table: "Helpers",
                 column: "Email",
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Helpers_HelperCategoryId",
+                table: "Helpers",
+                column: "HelperCategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Helpers_PhoneNo",
-                schema: "Help247",
                 table: "Helpers",
                 column: "PhoneNo",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_CustomerId",
-                schema: "Help247",
                 table: "Tickets",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_HelperId",
-                schema: "Help247",
                 table: "Tickets",
                 column: "HelperId");
         }
@@ -403,27 +414,25 @@ namespace Help247.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Feedbacks",
-                schema: "Help247");
+                name: "Feedbacks");
 
             migrationBuilder.DropTable(
-                name: "Tickets",
-                schema: "Help247");
+                name: "Tickets");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers",
-                schema: "help247");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Customers",
-                schema: "Help247");
+                name: "Customers");
 
             migrationBuilder.DropTable(
-                name: "Helpers",
-                schema: "Help247");
+                name: "Helpers");
+
+            migrationBuilder.DropTable(
+                name: "HelperCategories");
         }
     }
 }

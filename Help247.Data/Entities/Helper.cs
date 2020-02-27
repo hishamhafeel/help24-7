@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Help247.Data.Entities
 {
-    [Table("Helpers", Schema = "Help247")]
+    [Table("Helpers")]
     public class Helper : AuditableEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -25,11 +25,14 @@ namespace Help247.Data.Entities
         public string Province { get; set; }
         public string District { get; set; }
         public string City { get; set; }
-        public Enums.HelperCategory HelperCategory { get; set; } = Enums.HelperCategory.Nonee;
 
         public List<Feedback> Feedbacks { get; set; }
         public List<Ticket> Tickets { get; set; }
 
+        #region foreign key
+        public int HelperCategoryId { get; set; }
+        public HelperCategory HelperCategory { get; set; }
+        #endregion
 
     }
 }

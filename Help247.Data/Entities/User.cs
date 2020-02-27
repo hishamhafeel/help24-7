@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Help247.Data.Entities
 {
-    [Table("Users", Schema = "help247")]
+    [Table("Users")]
     public class User : IdentityUser
     {
         [Required]

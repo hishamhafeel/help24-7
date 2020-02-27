@@ -19,6 +19,6 @@ namespace Help247.ViewModels.Helper
         public string Province { get; set; }
         public string District { get; set; }
         public string City { get; set; }
-        public Enums.HelperCategory HelperCategory { get; set; } 
+        public int HelperCategoryId { get; set; } 
     }
 }

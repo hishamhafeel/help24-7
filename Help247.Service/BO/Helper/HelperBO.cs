@@ -15,6 +15,6 @@ namespace Help247.Service.BO.Helper
         public string Province { get; set; }
         public string District { get; set; }
         public string City { get; set; }
-        public Enums.HelperCategory HelperCategory { get; set; } = Enums.HelperCategory.Nonee;
+        public int HelperCategoryId { get; set; }
     }
 }

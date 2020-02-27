@@ -3,14 +3,16 @@ using System;
 using Help247.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200226162755_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,62 +193,6 @@ namespace Help247.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HelperCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryDescription = "Category not assigned",
-                            CategoryName = "None"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryDescription = "CCTV Installation and Fixing",
-                            CategoryName = "Cctv"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryDescription = "Network Planning and Troubleshooting",
-                            CategoryName = "NetworkPlanning"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryDescription = "PABX - Private Automatic Issues",
-                            CategoryName = "Pabx"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryDescription = "Cisco Routing - Service Maintenance",
-                            CategoryName = "Cisco"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CategoryDescription = "IT and other projects",
-                            CategoryName = "IT"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CategoryDescription = "Office Relocation IT Setup",
-                            CategoryName = "OfficeRelocation"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CategoryDescription = "Office New IT Setup",
-                            CategoryName = "OfficeNewSetup"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CategoryDescription = "Basic Hardware Repairing",
-                            CategoryName = "HardwareRepair"
-                        });
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.Ticket", b =>
@@ -403,21 +349,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "af9d93b2-647a-4d4d-87d6-edba8c0d10a4",
+                            ConcurrencyStamp = "f4bfed01-e51e-4e09-80d9-bd689d6f1889",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "8d3a8f5d-41ed-40c7-9eec-b4514ddc1c58",
+                            ConcurrencyStamp = "7081d23d-3a63-443e-8070-3d663cdc2288",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "8cbbff90-dc4c-451a-8e31-897699955f02",
+                            ConcurrencyStamp = "a3b62ab1-a47a-42e8-97f3-d87cbf26f638",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Help247.Data.Entities
 {
-    [Table("Customers", Schema = "Help247")]
+    [Table("Customers")]
     public class Customer : AuditableEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
