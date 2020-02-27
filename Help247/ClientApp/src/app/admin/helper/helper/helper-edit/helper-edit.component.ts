@@ -23,6 +23,7 @@ export class HelperEditComponent implements OnInit {
 
   ngOnInit() {
     this.initHelperForm();
+    this.getHelperCategories();
   }
 
   initHelperForm() {
@@ -54,13 +55,17 @@ export class HelperEditComponent implements OnInit {
     });
   }
 
+  getHelperCategories(){
+    
+  }
+
   updateHelper() {
     this.helperModel = Object.assign({}, this.helperForm.value);
     this.helperModel.id = this.helperForm.getRawValue().id;
 
     this.helperService.updateHelper(this.helperModel).subscribe(
       () => {
-        this.onNoClick();
+        this.closeDialog();
       },
       error => {
 
@@ -68,7 +73,7 @@ export class HelperEditComponent implements OnInit {
     );
   }
 
-  onNoClick(): void {
+  closeDialog(): void {
     this.dialogRef.close();
   }
 
