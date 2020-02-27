@@ -17,16 +17,19 @@
                 <div class="col-md-4">
                     <mat-form-field>
                         <input matInput placeholder="Name" formControlName="name" type="text">
+                        <mat-error *ngIf="name.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <mat-form-field>
                         <input matInput placeholder="E-mail" formControlName="email" type="email">
+                        <mat-error *ngIf="email.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <mat-form-field>
                         <input matInput placeholder="Phone No" formControlName="phoneNo" type="text">
+                        <mat-error *ngIf="phoneNo.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -35,11 +38,13 @@
                 <div class="col-md-6">
                     <mat-form-field>
                         <input matInput placeholder="Country" formControlName="country" type="text">
+                        <mat-error *ngIf="country.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field>
                         <input matInput placeholder="Province" formControlName="province" type="text">
+                        <mat-error *ngIf="province.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -48,25 +53,42 @@
                 <div class="col-md-6">
                     <mat-form-field>
                         <input matInput placeholder="District" formControlName="district" type="text">
+                        <mat-error *ngIf="district.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field>
                         <input matInput placeholder="City" formControlName="city" type="text">
+                        <mat-error *ngIf="city.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-5">
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Helper Category" formControlName="helperCategory" type="text">
+                    <mat-form-field>
+                        <mat-label>Helper Category</mat-label>
+                        <mat-select formControlName="helperCategoryId">
+                            <mat-option *ngFor="let item of helperCategories" [value]="item.id" 
+                            matTooltip="{{item.categoryDescription}}"
+                            matTooltipPosition="right">
+                                {{item.categoryName}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="helperCategoryId.invalid">You must select a value</mat-error>
                     </mat-form-field>
                 </div>
             </div>
 
-            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="updateHelper()">Update</button>
-            <button mat-raised-button type="button" class="btn btn-default pull-right"  (click)="closeDialog()">Cancel</button>
+            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="updateHelper()"
+                [disabled]="helperForm.invalid || isBlocked">
+                {{ isBlocked ? "Updating" : "Update" }}
+                <mat-icon [hidden]="!isBlocked">
+                    <mat-spinner diameter="20"></mat-spinner>
+                </mat-icon>
+            </button>
+            <button mat-raised-button type="button" class="btn btn-default pull-right"
+                (click)="closeDialog()">Cancel</button>
             <div class="clearfix"></div>
         </form>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { HelperModel } from '../../models/helper.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HelperModel, HelperCategoryModel } from '../../models/helper.model';
 import { HelperService } from '../../services/helper.service';
 
 @Component({
@@ -13,6 +13,8 @@ export class HelperEditComponent implements OnInit {
 
   helperForm: FormGroup;
   helperModel: HelperModel;
+  helperCategories: Array<HelperCategoryModel>;
+  isBlocked: boolean = false;
 
   constructor(
     private helperService: HelperService,
@@ -28,17 +30,41 @@ export class HelperEditComponent implements OnInit {
 
   initHelperForm() {
     this.helperForm = this.fb.group({
-      id: [{value: '', disabled: true}],
-      name: [''],
-      phoneNo: [''],
-      email: [''],
-      country: [''],
-      province: [''],
-      district: [''],
-      city: [''],
-      helperCategory: []
+      id: [{ value: '', disabled: true }],
+      name: ['', Validators.required],
+      phoneNo: ['', Validators.required],
+      email: ['', Validators.required],
+      country: ['', Validators.required],
+      province: ['', Validators.required],
+      district: ['', Validators.required],
+      city: ['', Validators.required],
+      helperCategoryId: [, [Validators.required]]
     });
     this.patchHelperForm();
+  }
+  get name() {
+    return this.helperForm.get('name');
+  }
+  get phoneNo() {
+    return this.helperForm.get('phoneNo');
+  }
+  get email() {
+    return this.helperForm.get('email');
+  }
+  get country() {
+    return this.helperForm.get('country');
+  }
+  get province() {
+    return this.helperForm.get('province');
+  }
+  get district() {
+    return this.helperForm.get('district');
+  }
+  get city() {
+    return this.helperForm.get('city');
+  }
+  get helperCategoryId() {
+    return this.helperForm.get('helperCategoryId');
   }
 
   patchHelperForm() {
@@ -51,15 +77,23 @@ export class HelperEditComponent implements OnInit {
       province: this.data.province,
       district: this.data.district,
       city: this.data.city,
-      helperCategory: this.data.helperCategory
+      helperCategoryId: this.data.helperCategory.id
     });
   }
 
-  getHelperCategories(){
-    
+  getHelperCategories() {
+    this.helperService.getHelperCategoryList().subscribe(
+      result => {
+        this.helperCategories = result;
+      },
+      error => {
+
+      }
+    );
   }
 
   updateHelper() {
+    this.isBlocked = true;
     this.helperModel = Object.assign({}, this.helperForm.value);
     this.helperModel.id = this.helperForm.getRawValue().id;
 
@@ -68,7 +102,7 @@ export class HelperEditComponent implements OnInit {
         this.closeDialog();
       },
       error => {
-
+        this.isBlocked = false;
       }
     );
   }

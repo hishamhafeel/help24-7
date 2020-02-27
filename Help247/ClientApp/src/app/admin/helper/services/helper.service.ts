@@ -4,7 +4,7 @@ import { PaginationBase } from 'src/app/shared/models/pagination-base.model';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { PaginationModel } from 'src/app/shared/models/paginationModel';
-import { HelperModel } from '../models/helper.model';
+import { HelperModel, HelperCategoryModel } from '../models/helper.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +28,10 @@ export class HelperService extends BaseService {
       .pipe(catchError(this.server4xxError));
   }
 
-  getHelperCategoryList(pagination: PaginationBase) {
+  getHelperCategoryList() {
     return this.http
-      .get<PaginationModel<HelperModel>>(
-        `${this.baseEndPoint}/api/Helper/HelperList?&skip=${
-        pagination.skip
-        }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
+      .get<Array<HelperCategoryModel>>(
+        `${this.baseEndPoint}/api/Helper/HelperCategoryList`,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));

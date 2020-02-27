@@ -11,7 +11,8 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatDialogModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatSelectModule
 }
   from '@angular/material';
 
@@ -32,7 +33,8 @@ import {
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSelectModule
   ],
   exports: [
     MatTooltipModule,
@@ -46,7 +48,8 @@ import {
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSelectModule
   ]
 })
 export class SharedModule { }

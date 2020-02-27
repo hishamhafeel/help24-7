@@ -28,7 +28,7 @@ namespace Help247.Service.Services.Helper
         {
             try
             {
-                var query = appDbContext.Helpers.AsQueryable().Where(x => x.RecordState == Enums.RecordState.Active);
+                var query = appDbContext.Helpers.AsQueryable().Include(x => x.HelperCategory).Where(x => x.RecordState == Enums.RecordState.Active);
                 if (paginationBase.SearchQuery != null && paginationBase.SearchQuery.Length > 0)
                 {
                     query = query.Where(x => EF.Functions.Like(x.PhoneNo, paginationBase.SearchQuery + "%") ||
