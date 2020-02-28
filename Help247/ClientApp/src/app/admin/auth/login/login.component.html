@@ -1,6 +1,8 @@
 <div class="login-form-wrapper">
     <mat-card>
-        <div class="title"><mat-icon>lock_open</mat-icon> <span class="text">Login</span></div>
+        <div class="title">
+            <mat-icon>lock_open</mat-icon> <span class="text">Login</span>
+        </div>
         <form [formGroup]="loginForm">
             <div class="form-wrapper">
                 <mat-form-field appearance="outline">
@@ -8,14 +10,20 @@
                     <mat-error *ngIf="username.invalid && username.touched">Please enter your username</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <input placeholder="Enter your password" matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" >
+                    <input placeholder="Enter your password" matInput [type]="hide ? 'password' : 'text'"
+                        formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                     <mat-error *ngIf="password.invalid && password.touched">Your password is required</mat-error>
                 </mat-form-field>
-                <button class="login-btn" mat-raised-button color="primary" (click)="authenticateUser()">Login</button>
-                <!-- [disabled]="loginForm.invalid" -->
+                <button class="login-btn" mat-raised-button color="primary" [disabled]="loginForm.invalid || isBlocked"
+                    (click)="authenticateUser()">
+                    {{ isBlocked ? "Logging in" : "Login" }}
+                    <mat-icon [hidden]="!isBlocked">
+                        <mat-spinner diameter="20"></mat-spinner>
+                    </mat-icon>
+                </button>
             </div>
         </form>
     </mat-card>

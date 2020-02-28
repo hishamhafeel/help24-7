@@ -7,5 +7,13 @@ export class HelperModel {
     province: string;
     district: string;
     city: string;
-    helperCategory: number;
+    helperCategory: HelperCategoryModel;
+    helperCategoryId: number;
+}
+
+
+export class HelperCategoryModel {
+    id: number;
+    categoryName: string;
+    categoryDescription: string;
 }

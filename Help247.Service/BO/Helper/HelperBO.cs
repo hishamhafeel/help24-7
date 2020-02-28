@@ -16,5 +16,6 @@ namespace Help247.Service.BO.Helper
         public string District { get; set; }
         public string City { get; set; }
         public int HelperCategoryId { get; set; }
+        public HelperCategoryBO HelperCategory { get; set; }
     }
 }

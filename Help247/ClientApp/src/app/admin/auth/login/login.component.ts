@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loginModel: LoginModel;
   loginForm: FormGroup;
   hide = true;
+  isBlocked = false;
 
   constructor(
     private fb: FormBuilder,
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
   }
 
   authenticateUser() {
+    this.isBlocked = true;
     this.loginModel = new LoginModel();
     this.loginModel = Object.assign({}, this.loginModel, this.loginForm.value);
     this.authService.authenticateUser(this.loginModel).subscribe(
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         alert('Invalid Login');
+        this.isBlocked = false;
       }
     );
   }
