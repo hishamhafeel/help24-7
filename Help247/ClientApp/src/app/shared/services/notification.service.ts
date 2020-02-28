@@ -10,7 +10,15 @@ export class NotificationService {
 
   constructor() { }
 
-  errorMessage() {
-    this.notificationComponent.showNotification();
+  successMessage(message: string) {
+    this.notificationComponent.successMessage(message);
+  }
+
+  errorMessage(message: string) {
+    this.notificationComponent.errorMessage(message);
+  }
+
+  warningMessage(message: string) {
+    this.notificationComponent.warningMessage(message);
   }
 }

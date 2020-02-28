@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hide = true;
   isBlocked = false;
+  openLock: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -42,10 +43,13 @@ export class LoginComponent implements OnInit {
     this.authService.authenticateUser(this.loginModel).subscribe(
       user => {
         localStorage.setItem('TokenId', user.token);
-        this.router.navigate(['/dashboard']);
+        this.openLock = true;
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 1500);
       },
       error => {
-        this.notificationService.errorMessage();
+        this.notificationService.errorMessage(error.message);
         this.isBlocked = false;
       }
     );

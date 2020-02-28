@@ -4,6 +4,7 @@ import { HelperService } from '../services/helper.service';
 import { HelperModel } from '../models/helper.model';
 import { MatTableDataSource, MatDialog, MatPaginator } from '@angular/material';
 import { HelperEditComponent } from './helper-edit/helper-edit.component';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-helper',
@@ -38,6 +39,7 @@ export class HelperComponent implements OnInit {
 
   constructor(
     private helperService: HelperService,
+    private notificationService: NotificationService,
     public dialog: MatDialog
   ) {
     this.pagination = new PaginationBase();
@@ -61,6 +63,7 @@ export class HelperComponent implements OnInit {
       },
       error => {
         this.isLoadingResults = false;
+        this.notificationService.errorMessage(error.message);
       }
     );
   }
@@ -107,7 +110,7 @@ export class HelperComponent implements OnInit {
         this.getAllHelper();
       },
         error => {
-          alert("Something went wrong");
+          this.notificationService.errorMessage(error.message);
         });
   }
 }
