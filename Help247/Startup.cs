@@ -42,6 +42,7 @@ namespace Help247
 
             //Identity
             services.AddIdentity<Help247.Data.Entities.User, IdentityRole>()
+                        .AddRoles<IdentityRole>()
                         .AddEntityFrameworkStores<AppDbContext>();
 
             //JWT

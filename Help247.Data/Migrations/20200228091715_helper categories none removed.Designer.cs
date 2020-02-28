@@ -3,14 +3,16 @@ using System;
 using Help247.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200228091715_helper categories none removed")]
+    partial class helpercategoriesnoneremoved
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -282,38 +284,6 @@ namespace Help247.Data.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("Help247.Data.Entities.TicketStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TicketStatuses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Status = "Help has been equested"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Status = "Help is under process"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Status = "Help has been completed successfully"
-                        });
-                });
-
             modelBuilder.Entity("Help247.Data.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -429,21 +399,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "8d97b669-7544-46a0-90cf-77f72b6a0d2e",
+                            ConcurrencyStamp = "8ffae757-ee58-45ec-aae8-a27407a694b9",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "5ba6557b-1fae-4926-9c63-fd86fcf38bfc",
+                            ConcurrencyStamp = "ee902007-25a9-4ab1-8d3c-e172dff7f594",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "4ee3926b-d20b-4121-9b3f-9b8fb0684404",
+                            ConcurrencyStamp = "802b7964-078d-4b96-91bf-47ed54e0dff7",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });

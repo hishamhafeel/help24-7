@@ -68,6 +68,7 @@ namespace Help247.Service.Services.Security
                             break;
                         default:
                             storeUser.IsAdmin = true;
+                            await userManager.UpdateAsync(storeUser);
                             break;
                     }
                    
@@ -95,14 +96,21 @@ namespace Help247.Service.Services.Security
 
                     if (result.Succeeded)
                     {
+                        var roles = await userManager.GetRolesAsync(user);
+                        var _options = new IdentityOptions();
                         //Create the token
                         var claims = new[]
                         {
                             new Claim(JwtRegisteredClaimNames.Sub, user.Id),
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
-                            new Claim("IsAdmin", user.IsAdmin.ToString())
+                            new Claim("IsAdmin", user.IsAdmin.ToString()),
                         };
+
+                        ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token");
+                        // Adding roles code
+                        // Roles property is string collection but you can modify Select code if it it's not
+                        claimsIdentity.AddClaims(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Tokens:Key"]));
                         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -110,7 +118,7 @@ namespace Help247.Service.Services.Security
                         var token = new JwtSecurityToken(
                             configuration["Tokens:Issuer"],
                             configuration["Tokens:Audience"],
-                            claims,
+                            claimsIdentity.Claims,
                             expires: DateTime.UtcNow.AddDays(1),
                             signingCredentials: creds
                             );

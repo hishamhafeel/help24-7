@@ -52,7 +52,6 @@ namespace Help247.Controllers.Api
            
         }
 
-
         // PUT: api/Helper/5
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody]HelperViewModel helperViewModel)
