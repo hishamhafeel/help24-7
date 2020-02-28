@@ -1,7 +1,7 @@
 <div class="login-form-wrapper">
     <mat-card>
         <div class="title">
-            <mat-icon>lock_open</mat-icon> <span class="text">Login</span>
+            <mat-icon>{{ openLock ? "lock_open" : "lock" }}</mat-icon> <span class="text">Login</span>
         </div>
         <form [formGroup]="loginForm">
             <div class="form-wrapper">

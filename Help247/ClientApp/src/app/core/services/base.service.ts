@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +53,6 @@ export abstract class BaseService {
       };
     }
     const errorMsg = Object.assign({}, this.errorMessage);
-    return Observable.throw(errorMsg);
+    return throwError(errorMsg);
   }
 }

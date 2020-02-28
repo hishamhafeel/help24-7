@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelperModel, HelperCategoryModel } from '../../models/helper.model';
 import { HelperService } from '../../services/helper.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-helper-edit',
@@ -18,6 +19,7 @@ export class HelperEditComponent implements OnInit {
 
   constructor(
     private helperService: HelperService,
+    private notificationService: NotificationService,
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<HelperEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: HelperModel
@@ -87,7 +89,7 @@ export class HelperEditComponent implements OnInit {
         this.helperCategories = result;
       },
       error => {
-
+        this.notificationService.errorMessage(error.message);
       }
     );
   }
@@ -100,9 +102,11 @@ export class HelperEditComponent implements OnInit {
     this.helperService.updateHelper(this.helperModel).subscribe(
       () => {
         this.closeDialog();
+        this.notificationService.successMessage("Successfully updated helper");
       },
       error => {
         this.isBlocked = false;
+        this.notificationService.errorMessage(error.message);
       }
     );
   }
