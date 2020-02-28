@@ -19,6 +19,7 @@ namespace Help247.Data
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<HelperCategory> HelperCategories { get; set; }
+        public DbSet<TicketStatus> TicketStatuses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -44,6 +45,11 @@ namespace Help247.Data
                     new HelperCategory { Id = 6, CategoryName = "OfficeRelocation", CategoryDescription = "Office Relocation IT Setup" },
                     new HelperCategory { Id = 7, CategoryName = "OfficeNewSetup", CategoryDescription = "Office New IT Setup" },
                     new HelperCategory { Id = 8, CategoryName = "HardwareRepair", CategoryDescription = "Basic Hardware Repairing" }
+                );
+            builder.Entity<TicketStatus>().HasData(
+                    new TicketStatus { Id = 1, Status = "Help has been equested" },
+                    new TicketStatus { Id = 2, Status = "Help is under process" },
+                    new TicketStatus { Id = 3, Status = "Help has been completed successfully" }
                 );
         }
 
