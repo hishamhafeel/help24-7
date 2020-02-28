@@ -28,6 +28,7 @@ namespace Help247.Controllers.Api
         // GET: api/Customer
         [Route("CustomerList")]
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllAsync([FromQuery] PaginationBase paginationBase)
         {
             try

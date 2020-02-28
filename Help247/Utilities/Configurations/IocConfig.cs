@@ -1,6 +1,7 @@
 ﻿using Help247.Service.Services.Customer;
 using Help247.Service.Services.Helper;
 using Help247.Service.Services.Security;
+using Help247.Service.Services.Ticket;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Help247.Utilities.Configurations
@@ -12,6 +13,7 @@ namespace Help247.Utilities.Configurations
             services.AddScoped<ISecurityService, SecurityService>();
             services.AddScoped<IHelperService, HelperService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<ITicketService, TicketService>();
         }
     }
 }
