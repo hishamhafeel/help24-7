@@ -36,15 +36,14 @@ namespace Help247.Data
                     new IdentityRole { Id = "3", Name = "Customer", NormalizedName = "CUSTOMER" }
                 );
             builder.Entity<HelperCategory>().HasData(
-                    new HelperCategory { Id = 1, CategoryName = "None", CategoryDescription = "Category not assigned" },
-                    new HelperCategory { Id = 2, CategoryName = "Cctv", CategoryDescription = "CCTV Installation and Fixing" },
-                    new HelperCategory { Id = 3, CategoryName = "NetworkPlanning", CategoryDescription = "Network Planning and Troubleshooting" },
-                    new HelperCategory { Id = 4, CategoryName = "Pabx", CategoryDescription = "PABX - Private Automatic Issues" },
-                    new HelperCategory { Id = 5, CategoryName = "Cisco", CategoryDescription = "Cisco Routing - Service Maintenance" },
-                    new HelperCategory { Id = 6, CategoryName = "IT", CategoryDescription = "IT and other projects" },
-                    new HelperCategory { Id = 7, CategoryName = "OfficeRelocation", CategoryDescription = "Office Relocation IT Setup" },
-                    new HelperCategory { Id = 8, CategoryName = "OfficeNewSetup", CategoryDescription = "Office New IT Setup" },
-                    new HelperCategory { Id = 9, CategoryName = "HardwareRepair", CategoryDescription = "Basic Hardware Repairing" }
+                    new HelperCategory { Id = 1, CategoryName = "Cctv", CategoryDescription = "CCTV Installation and Fixing" },
+                    new HelperCategory { Id = 2, CategoryName = "NetworkPlanning", CategoryDescription = "Network Planning and Troubleshooting" },
+                    new HelperCategory { Id = 3, CategoryName = "Pabx", CategoryDescription = "PABX - Private Automatic Issues" },
+                    new HelperCategory { Id = 4, CategoryName = "Cisco", CategoryDescription = "Cisco Routing - Service Maintenance" },
+                    new HelperCategory { Id = 5, CategoryName = "IT", CategoryDescription = "IT and other projects" },
+                    new HelperCategory { Id = 6, CategoryName = "OfficeRelocation", CategoryDescription = "Office Relocation IT Setup" },
+                    new HelperCategory { Id = 7, CategoryName = "OfficeNewSetup", CategoryDescription = "Office New IT Setup" },
+                    new HelperCategory { Id = 8, CategoryName = "HardwareRepair", CategoryDescription = "Basic Hardware Repairing" }
                 );
         }
 

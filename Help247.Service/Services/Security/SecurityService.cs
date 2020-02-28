@@ -68,6 +68,7 @@ namespace Help247.Service.Services.Security
                             break;
                         default:
                             storeUser.IsAdmin = true;
+                            await userManager.UpdateAsync(storeUser);
                             break;
                     }
                    
