@@ -1,7 +1,5 @@
 <div class="main-content">
-    <div class="spinner-shade" *ngIf="isLoadingResults">
-        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-    </div>
+    <app-loader *ngIf="isLoadingResults"></app-loader>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
