@@ -8,9 +8,9 @@ namespace Help247.Service.BO.Ticket
     public class TicketBO
     {
         public int Id { get; set; }
-        public string Status { get; set; }
+        public int TicketStatusId { get; set; }
         public DateTime CreatedOn { get; set; }
-        public int CreatedById { get; set; }
+        public string CreatedById { get; set; }
         public int HelperId { get; set; }
         public int CustomerId { get; set; }
 

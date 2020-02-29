@@ -9,6 +9,6 @@ namespace Help247.Data.Application
         DateTime CreatedOn { get; set; }
         string CreatedById { get; set; }
         DateTime? EditedOn { get; set; }
-        int? EditedById { get; set; }
+        string? EditedById { get; set; }
     }
 }

@@ -10,5 +10,7 @@ namespace Help247.Service.Services.Ticket
     public interface ITicketService
     {
         Task<TicketBO> AssignTicketAsync(TicketBO ticketBO, string userID);
+        Task<TicketBO> ApproveTicketAsync(int ticketId, string userID);
+        Task<TicketBO> TerminateTicketAsync(int ticketId, string userID);
     }
 }

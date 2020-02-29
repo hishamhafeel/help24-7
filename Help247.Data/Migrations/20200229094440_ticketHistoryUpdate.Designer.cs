@@ -3,14 +3,16 @@ using System;
 using Help247.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200229094440_ticketHistoryUpdate")]
+    partial class ticketHistoryUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,8 +41,8 @@ namespace Help247.Data.Migrations
                     b.Property<string>("District")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("EditedById")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int?>("EditedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("EditedOn")
                         .HasColumnType("datetime(6)");
@@ -93,8 +95,8 @@ namespace Help247.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("EditedById")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int?>("EditedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("EditedOn")
                         .HasColumnType("datetime(6)");
@@ -139,8 +141,8 @@ namespace Help247.Data.Migrations
                     b.Property<string>("District")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("EditedById")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int?>("EditedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("EditedOn")
                         .HasColumnType("datetime(6)");
@@ -262,8 +264,8 @@ namespace Help247.Data.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("EditedById")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int?>("EditedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("EditedOn")
                         .HasColumnType("datetime(6)");
@@ -307,8 +309,8 @@ namespace Help247.Data.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("EditedById")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int?>("EditedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("EditedOn")
                         .HasColumnType("datetime(6)");
@@ -474,21 +476,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "a4ccc0be-f40f-4995-be82-38414830a5d0",
+                            ConcurrencyStamp = "a625963d-95c5-431e-930b-f38e453cf526",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "3fe29017-d43f-4aaa-b45a-2286690eee33",
+                            ConcurrencyStamp = "d4564c8e-56bc-4b1c-86cd-f7c145158b2f",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "efc381e3-780d-47fe-aa65-9a33094d3147",
+                            ConcurrencyStamp = "e4e7da37-3a99-413c-9c9a-61e851b2a320",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
