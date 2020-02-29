@@ -1,0 +1,86 @@
+<div class="main-content">
+    <div class="spinner-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-theme">
+                        <h4 class="card-title mt-0"> Customer List</h4>
+                    </div>
+
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> Id </th>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="phoneNo">
+                            <th mat-header-cell *matHeaderCellDef> Phone No </th>
+                            <td mat-cell *matCellDef="let element"> {{element.phoneNo}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef> Email </th>
+                            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="country">
+                            <th mat-header-cell *matHeaderCellDef> Country </th>
+                            <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="province">
+                            <th mat-header-cell *matHeaderCellDef> Province </th>
+                            <td mat-cell *matCellDef="let element"> {{element.province}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="district">
+                            <th mat-header-cell *matHeaderCellDef> District </th>
+                            <td mat-cell *matCellDef="let element"> {{element.district}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="city">
+                            <th mat-header-cell *matHeaderCellDef> City </th>
+                            <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="edit">
+                            <th mat-header-cell *matHeaderCellDef> </th>
+                            <td mat-cell *matCellDef="let element" (click)="openDialog(element)">
+                                <mat-icon style="cursor: pointer;">edit</mat-icon>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="delete">
+                            <th mat-header-cell *matHeaderCellDef> </th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-icon style="cursor: pointer;" (click)="openDeleteDialog(element.id)">delete_outline
+                                </mat-icon>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons [length]="paginator.length"
+                        (page)="getPagedCustomers($event)"></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #deleteDialog>
+    <h2 matDialogTitle>Are you sure you want to delete this Customer? This cannot be undone</h2>
+    <mat-dialog-actions align="end">
+        <button mat-flat-button matDialogClose="no">No</button>
+        <button mat-flat-button color="warn" matDialogClose="yes">Yes</button>
+    </mat-dialog-actions>
+</ng-template>
