@@ -106,11 +106,13 @@ namespace Help247.Service.Services.Security
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
                             new Claim("IsAdmin", user.IsAdmin.ToString()),
                         };
-
-                        ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token");
+                        ClaimsIdentity claimsIdentity = new ClaimsIdentity();
                         // Adding roles code
                         // Roles property is string collection but you can modify Select code if it it's not
                         claimsIdentity.AddClaims(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+                        claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
+                        ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Tokens:Key"]));
                         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -118,7 +120,7 @@ namespace Help247.Service.Services.Security
                         var token = new JwtSecurityToken(
                             configuration["Tokens:Issuer"],
                             configuration["Tokens:Audience"],
-                            claimsIdentity.Claims,
+                            claimsPrincipal.Identities.First().Claims,
                             expires: DateTime.UtcNow.AddDays(1),
                             signingCredentials: creds
                             );

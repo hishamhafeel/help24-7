@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Help247.Data.Entities
 {
+    [Table("TicketStatuses")]
     public class TicketStatus
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

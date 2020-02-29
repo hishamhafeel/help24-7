@@ -11,7 +11,7 @@ namespace Help247.ViewModels.Ticket
     {
         public int Id { get; set; }
         [Required]
-        public Enums.TicketStatus Status { get; set; }
+        public int TicketStatusId { get; set; }
         public DateTime CreatedOn { get; set; }
         public int CreatedById { get; set; }
         [Required]

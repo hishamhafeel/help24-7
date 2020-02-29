@@ -3,14 +3,16 @@ using System;
 using Help247.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200228142529_ticketUpdate2")]
+    partial class ticketUpdate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,9 +31,8 @@ namespace Help247.Data.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -80,9 +81,8 @@ namespace Help247.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -129,9 +129,8 @@ namespace Help247.Data.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -252,9 +251,8 @@ namespace Help247.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -294,9 +292,8 @@ namespace Help247.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -474,21 +471,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "2c680665-a9c3-44cc-be7f-75731b972b42",
+                            ConcurrencyStamp = "8ebd0203-76d6-48d1-ade9-49183e8efca9",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "92b60bec-bc86-4b42-8c1a-74add3aee74f",
+                            ConcurrencyStamp = "9c0a01e8-2883-4077-9b63-5d5abd4ef40c",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "10ed211d-f01b-4425-96d3-f29b87efede0",
+                            ConcurrencyStamp = "eb104db6-557c-4c0d-8014-0aab91fefbc3",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });

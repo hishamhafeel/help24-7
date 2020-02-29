@@ -7,7 +7,7 @@ namespace Help247.Data.Application
     public interface IAuditableEntity
     {
         DateTime CreatedOn { get; set; }
-        int CreatedById { get; set; }
+        string CreatedById { get; set; }
         DateTime? EditedOn { get; set; }
         int? EditedById { get; set; }
     }
