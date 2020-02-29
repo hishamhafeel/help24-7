@@ -11,7 +11,6 @@ namespace Help247.Data.Application
     {
         [Required]
         public DateTime CreatedOn { get; set; }
-        [Required]
         public string CreatedById { get; set; }
         public DateTime? EditedOn { get; set; }
         public string EditedById { get; set; }
