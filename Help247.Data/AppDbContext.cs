@@ -13,13 +13,13 @@ namespace Help247.Data
         public AppDbContext(DbContextOptions<AppDbContext>  options) : base(options)
         {
         }
-
+        public DbSet<TicketStatus> TicketStatuses { get; set; }
         public DbSet<Helper> Helpers { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<HelperCategory> HelperCategories { get; set; }
-        public DbSet<TicketStatus> TicketStatuses { get; set; }
+        public DbSet<TicketHistory> TicketHistories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

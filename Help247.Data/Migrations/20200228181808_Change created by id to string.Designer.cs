@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200226162755_init")]
-    partial class init
+    [Migration("20200228181808_Change created by id to string")]
+    partial class Changecreatedbyidtostring
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,8 +31,9 @@ namespace Help247.Data.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -81,8 +82,9 @@ namespace Help247.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -129,8 +131,9 @@ namespace Help247.Data.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -193,6 +196,56 @@ namespace Help247.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HelperCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryDescription = "CCTV Installation and Fixing",
+                            CategoryName = "Cctv"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryDescription = "Network Planning and Troubleshooting",
+                            CategoryName = "NetworkPlanning"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryDescription = "PABX - Private Automatic Issues",
+                            CategoryName = "Pabx"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryDescription = "Cisco Routing - Service Maintenance",
+                            CategoryName = "Cisco"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryDescription = "IT and other projects",
+                            CategoryName = "IT"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryDescription = "Office Relocation IT Setup",
+                            CategoryName = "OfficeRelocation"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryDescription = "Office New IT Setup",
+                            CategoryName = "OfficeNewSetup"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryDescription = "Basic Hardware Repairing",
+                            CategoryName = "HardwareRepair"
+                        });
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.Ticket", b =>
@@ -201,8 +254,9 @@ namespace Help247.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime(6)");
@@ -222,8 +276,8 @@ namespace Help247.Data.Migrations
                     b.Property<byte>("RecordState")
                         .HasColumnType("tinyint unsigned");
 
-                    b.Property<byte>("Status")
-                        .HasColumnType("tinyint unsigned");
+                    b.Property<int>("TicketStatusId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -231,7 +285,80 @@ namespace Help247.Data.Migrations
 
                     b.HasIndex("HelperId");
 
+                    b.HasIndex("TicketStatusId");
+
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("Help247.Data.Entities.TicketHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("CurrentTicketStatus")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EditedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EditedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("HelperId")
+                        .HasColumnType("int");
+
+                    b.Property<byte>("RecordState")
+                        .HasColumnType("tinyint unsigned");
+
+                    b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TicketHistories");
+                });
+
+            modelBuilder.Entity("Help247.Data.Entities.TicketStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TicketStatuses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Status = "Help has been equested"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Status = "Help is under process"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Status = "Help has been completed successfully"
+                        });
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.User", b =>
@@ -349,21 +476,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "f4bfed01-e51e-4e09-80d9-bd689d6f1889",
+                            ConcurrencyStamp = "2c680665-a9c3-44cc-be7f-75731b972b42",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "7081d23d-3a63-443e-8070-3d663cdc2288",
+                            ConcurrencyStamp = "92b60bec-bc86-4b42-8c1a-74add3aee74f",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "a3b62ab1-a47a-42e8-97f3-d87cbf26f638",
+                            ConcurrencyStamp = "10ed211d-f01b-4425-96d3-f29b87efede0",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -506,6 +633,12 @@ namespace Help247.Data.Migrations
                     b.HasOne("Help247.Data.Entities.Helper", "Helper")
                         .WithMany("Tickets")
                         .HasForeignKey("HelperId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Help247.Data.Entities.TicketStatus", "TicketStatus")
+                        .WithMany()
+                        .HasForeignKey("TicketStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

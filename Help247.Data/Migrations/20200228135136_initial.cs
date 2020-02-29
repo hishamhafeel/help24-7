@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Help247.Data.Migrations
 {
-    public partial class init : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -90,6 +90,19 @@ namespace Help247.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HelperCategories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TicketStatuses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Status = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TicketStatuses", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -297,17 +310,37 @@ namespace Help247.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "1", "f4bfed01-e51e-4e09-80d9-bd689d6f1889", "Admin", "ADMIN" });
+                values: new object[,]
+                {
+                    { "1", "cd6327f9-6612-4cd8-af5f-4c26a88a179e", "Admin", "ADMIN" },
+                    { "2", "965b918e-9ded-4b6a-affd-0a67f28556ff", "Helper", "HELPER" },
+                    { "3", "df8d8236-9fa8-46e5-97cd-597ce3e8905b", "Customer", "CUSTOMER" }
+                });
 
             migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2", "7081d23d-3a63-443e-8070-3d663cdc2288", "Helper", "HELPER" });
+                table: "HelperCategories",
+                columns: new[] { "Id", "CategoryDescription", "CategoryName" },
+                values: new object[,]
+                {
+                    { 1, "CCTV Installation and Fixing", "Cctv" },
+                    { 2, "Network Planning and Troubleshooting", "NetworkPlanning" },
+                    { 3, "PABX - Private Automatic Issues", "Pabx" },
+                    { 4, "Cisco Routing - Service Maintenance", "Cisco" },
+                    { 5, "IT and other projects", "IT" },
+                    { 6, "Office Relocation IT Setup", "OfficeRelocation" },
+                    { 7, "Office New IT Setup", "OfficeNewSetup" },
+                    { 8, "Basic Hardware Repairing", "HardwareRepair" }
+                });
 
             migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "3", "a3b62ab1-a47a-42e8-97f3-d87cbf26f638", "Customer", "CUSTOMER" });
+                table: "TicketStatuses",
+                columns: new[] { "Id", "Status" },
+                values: new object[,]
+                {
+                    { 1, "Help has been equested" },
+                    { 2, "Help is under process" },
+                    { 3, "Help has been completed successfully" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -418,6 +451,9 @@ namespace Help247.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tickets");
+
+            migrationBuilder.DropTable(
+                name: "TicketStatuses");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
