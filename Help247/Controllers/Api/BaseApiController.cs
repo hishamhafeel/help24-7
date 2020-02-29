@@ -20,7 +20,7 @@ namespace Help247.Controllers.Api
             {
                 try
                 {
-                    var res = int.TryParse(GetClaims().First(c => c.Type == "sub").Value, out var userid);
+                    var res = int.TryParse(GetClaims().First(c => c. Type == ClaimTypes.NameIdentifier).Value, out var userid);
                     return userid;
                 }
                 catch

@@ -14,6 +14,6 @@ namespace Help247.Data.Entities
         public int TicketId { get; set; }
         public int HelperId { get; set; }
         public int CustomerId { get; set; }
-        public string CurrentTicketStatus { get; set; }
+        public int CurrentTicketStatusId { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Help247.Data.Application
         [Required]
         public string CreatedById { get; set; }
         public DateTime? EditedOn { get; set; }
-        public int? EditedById { get; set; }
+        public string EditedById { get; set; }
         public Enums.RecordState RecordState { get; set; } = Enums.RecordState.Active;
 
 

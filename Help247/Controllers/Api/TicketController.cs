@@ -53,12 +53,12 @@ namespace Help247.Controllers.Api
         {
             try
             {
-                var userId = UserId;
                 if (ticketViewModel.TicketStatusId != 1) 
                 {
                     throw new ArgumentException("Ticket status must be HelpRequest.");
                 }
-                var result = await ticketService.AssignTicketAsync(mapper.Map<TicketBO>(ticketViewModel), "");
+                var userId = User.GetClaim();
+                var result = await ticketService.AssignTicketAsync(mapper.Map<TicketBO>(ticketViewModel), userId);
                 if (result == null)
                 {
                     return Conflict(result);
@@ -72,16 +72,49 @@ namespace Help247.Controllers.Api
             }
         }
 
-        // PUT: api/Ticket/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // POST: api/Ticket/ApproveTicket/1
+        [Route("ApproveTicket")]
+        [HttpPost]
+        public async Task<IActionResult> ApproveTicket([FromQuery]int id)
         {
+            try
+            {
+                if (id == 0)
+                {
+                    throw new ArgumentException("Ticket ID not found.");
+                }
+                var userId = User.GetClaim();
+                var result = await ticketService.ApproveTicketAsync(id, userId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // POST: api/Ticket/TerminateTicket/1
+        [Route("TerminateTicket")]
+        [HttpPost]
+        public async Task<IActionResult> TerminateTicket([FromQuery]int id)
         {
+            try
+            {
+                if (id == 0)
+                {
+                    throw new ArgumentException("Ticket ID not found.");
+                }
+                var userId = User.GetClaim();
+                var result = await ticketService.TerminateTicketAsync(id, userId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
+
     }
 }
