@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200228091715_helper categories none removed")]
-    partial class helpercategoriesnoneremoved
+    [Migration("20200228142322_ticketUpdate")]
+    partial class ticketUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -275,13 +275,88 @@ namespace Help247.Data.Migrations
                     b.Property<byte>("Status")
                         .HasColumnType("tinyint unsigned");
 
+                    b.Property<int>("TicketStatusId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("HelperId");
 
+                    b.HasIndex("TicketStatusId");
+
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("Help247.Data.Entities.TicketHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("CurrentTicketStatus")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EditedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EditedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("HelperId")
+                        .HasColumnType("int");
+
+                    b.Property<byte>("RecordState")
+                        .HasColumnType("tinyint unsigned");
+
+                    b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TicketHistories");
+                });
+
+            modelBuilder.Entity("Help247.Data.Entities.TicketStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TicketStatuses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Status = "Help has been equested"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Status = "Help is under process"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Status = "Help has been completed successfully"
+                        });
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.User", b =>
@@ -399,21 +474,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "8ffae757-ee58-45ec-aae8-a27407a694b9",
+                            ConcurrencyStamp = "2da79d81-133e-426d-a2b7-7e8638c1bd07",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "ee902007-25a9-4ab1-8d3c-e172dff7f594",
+                            ConcurrencyStamp = "1127c0c3-7df3-45a8-b9ec-eb4e2ec79b17",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "802b7964-078d-4b96-91bf-47ed54e0dff7",
+                            ConcurrencyStamp = "9ede7f85-ab71-49d4-b73e-eec81e7b1e12",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -556,6 +631,12 @@ namespace Help247.Data.Migrations
                     b.HasOne("Help247.Data.Entities.Helper", "Helper")
                         .WithMany("Tickets")
                         .HasForeignKey("HelperId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Help247.Data.Entities.TicketStatus", "TicketStatus")
+                        .WithMany()
+                        .HasForeignKey("TicketStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

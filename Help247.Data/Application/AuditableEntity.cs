@@ -12,7 +12,7 @@ namespace Help247.Data.Application
         [Required]
         public DateTime CreatedOn { get; set; }
         [Required]
-        public int CreatedById { get; set; }
+        public string CreatedById { get; set; }
         public DateTime? EditedOn { get; set; }
         public int? EditedById { get; set; }
         public Enums.RecordState RecordState { get; set; } = Enums.RecordState.Active;
@@ -26,7 +26,6 @@ namespace Help247.Data.Application
         protected AuditableEntity(User user)
         {
                 CreatedOn = DateTime.UtcNow;
-                CreatedById = Int32.Parse(user.Id);
                 EditedOn = DateTime.UtcNow;
                 RecordState = Enums.RecordState.Active;
             

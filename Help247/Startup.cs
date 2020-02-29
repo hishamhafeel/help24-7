@@ -68,6 +68,7 @@ namespace Help247
 
             //Dependency Injection
             IocConfig.InjectServices(services);
+            services.AddHttpContextAccessor();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
             //OR).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);

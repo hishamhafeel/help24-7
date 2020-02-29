@@ -2,6 +2,7 @@
 using Help247.Service.Services.Helper;
 using Help247.Service.Services.Security;
 using Help247.Service.Services.Ticket;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Help247.Utilities.Configurations
@@ -14,6 +15,7 @@ namespace Help247.Utilities.Configurations
             services.AddScoped<IHelperService, HelperService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<ITicketService, TicketService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }
 }
