@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginModel } from '../models/login.model';
 import { AuthService } from '../services/auth.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +16,13 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hide = true;
   isBlocked = false;
+  openLock: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -40,10 +43,13 @@ export class LoginComponent implements OnInit {
     this.authService.authenticateUser(this.loginModel).subscribe(
       user => {
         localStorage.setItem('TokenId', user.token);
-        this.router.navigate(['/dashboard']);
+        this.openLock = true;
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 1500);
       },
       error => {
-        alert('Invalid Login');
+        this.notificationService.errorMessage(error.message);
         this.isBlocked = false;
       }
     );

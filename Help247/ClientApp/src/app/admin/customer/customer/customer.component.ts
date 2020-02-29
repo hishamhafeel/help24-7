@@ -1,23 +1,23 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
+import { CustomerModel } from '../models/customer.model';
 import { PaginationBase } from 'src/app/shared/models/pagination-base.model';
-import { HelperService } from '../services/helper.service';
-import { HelperModel } from '../models/helper.model';
-import { MatTableDataSource, MatDialog, MatPaginator } from '@angular/material';
-import { HelperEditComponent } from './helper-edit/helper-edit.component';
+import { CustomerService } from '../services/customer.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 
 @Component({
-  selector: 'app-helper',
-  templateUrl: './helper.component.html',
-  styleUrls: ['./helper.component.scss']
+  selector: 'app-customer',
+  templateUrl: './customer.component.html',
+  styleUrls: ['./customer.component.scss']
 })
-export class HelperComponent implements OnInit {
+export class CustomerComponent implements OnInit {
 
-  @ViewChild('deleteDialog', { static: false }) deleteDialog: TemplateRef<HelperComponent>;
+  @ViewChild('deleteDialog', { static: false }) deleteDialog: TemplateRef<CustomerComponent>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   dataSource = new MatTableDataSource();
-  HELPER_DETAILS: Array<HelperModel>;
+  CUSTOMER_DETAILS: Array<CustomerModel>;
   pagination: PaginationBase;
   pageSize = 10;
   isLoadingResults: boolean = false;
@@ -31,14 +31,12 @@ export class HelperComponent implements OnInit {
     'province',
     'district',
     'city',
-    'helperCategory',
     'edit',
     'delete'
   ];
 
-
   constructor(
-    private helperService: HelperService,
+    private customerService: CustomerService,
     private notificationService: NotificationService,
     public dialog: MatDialog
   ) {
@@ -47,16 +45,16 @@ export class HelperComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getAllHelper();
+    this.getAllCustomer();
   }
 
-  getAllHelper() {
+  getAllCustomer() {
     this.isLoadingResults = true;
-    this.helperService.getHelper(this.pagination).subscribe(
+    this.customerService.getCustomer(this.pagination).subscribe(
       result => {
-        this.HELPER_DETAILS = result.details;
-        this.dataSource = new MatTableDataSource<HelperModel>(
-          this.HELPER_DETAILS
+        this.CUSTOMER_DETAILS = result.details;
+        this.dataSource = new MatTableDataSource<CustomerModel>(
+          this.CUSTOMER_DETAILS
         );
         this.paginator.length = result.totalRecords;
         this.isLoadingResults = false;
@@ -68,24 +66,24 @@ export class HelperComponent implements OnInit {
     );
   }
 
-  getPagedHelpers(event?: MatPaginator) {
+  getPagedCustomers(event?: MatPaginator) {
     if (event !== undefined && event !== null) {
       this.pagination.skip = event.pageIndex * event.pageSize;
       this.pagination.take = event.pageSize;
     } else {
       this.pagination.take = this.pageSize;
     }
-    this.getAllHelper();
+    this.getAllCustomer();
   }
 
-  openDialog(model: HelperModel): void {
-    const dialogRef = this.dialog.open(HelperEditComponent, {
+  openDialog(model: CustomerModel): void {
+    const dialogRef = this.dialog.open(CustomerEditComponent, {
       width: 'auto',
       data: model
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getAllHelper();
+      this.getAllCustomer();
     });
   }
 
@@ -96,7 +94,7 @@ export class HelperComponent implements OnInit {
       // Note: If the user clicks outside the dialog or presses the escape key, there'll be no result
       if (result !== undefined) {
         if (result === 'yes') {
-          this.deleteHelper(id);
+          this.deleteCustomer(id);
         } else if (result === 'no') {
           //Do nothing
         }
@@ -104,10 +102,10 @@ export class HelperComponent implements OnInit {
     })
   }
 
-  deleteHelper(id) {
-    this.helperService.deleteHelper(id)
+  deleteCustomer(id) {
+    this.customerService.deleteCustomer(id)
       .subscribe(result => {
-        this.getAllHelper();
+        this.getAllCustomer();
       },
         error => {
           this.notificationService.errorMessage(error.message);

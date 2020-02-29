@@ -15,11 +15,12 @@ import {
   MatSelectModule
 }
   from '@angular/material';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [NotificationsComponent],
   imports: [
     CommonModule,
     MatTooltipModule,
