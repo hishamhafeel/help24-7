@@ -27,6 +27,7 @@
     "chartist": "^0.11.4",
     "error-ex": "git+https://github.com/Qix-/node-error-ex.git",
     "jquery": "^3.4.1",
+    "perfect-scrollbar": "^1.5.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
