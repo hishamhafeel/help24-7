@@ -9,26 +9,19 @@ namespace Help247.Data.Application
 {
     public class AuditableEntity : IAuditableEntity
     {
-        [Required]
-        public DateTime CreatedOn { get; set; }
-        [Required]
-        public string CreatedById { get; set; }
-        public DateTime? EditedOn { get; set; }
-        public string EditedById { get; set; }
+        public virtual DateTime CreatedOn { get; set; }
+        public virtual string CreatedById { get; set; }
+        public virtual DateTime? EditedOn { get; set; }
+        public virtual string EditedById { get; set; }
         public Enums.RecordState RecordState { get; set; } = Enums.RecordState.Active;
 
 
         protected AuditableEntity()
         {
-
+            CreatedOn = DateTime.UtcNow;
+            EditedOn = DateTime.UtcNow;
+            RecordState = Enums.RecordState.Active;
         }
 
-        protected AuditableEntity(User user)
-        {
-                CreatedOn = DateTime.UtcNow;
-                EditedOn = DateTime.UtcNow;
-                RecordState = Enums.RecordState.Active;
-            
-        }
     }
 }

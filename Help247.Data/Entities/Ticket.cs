@@ -24,5 +24,10 @@ namespace Help247.Data.Entities
         public int TicketStatusId { get; set; }
         public TicketStatus TicketStatus { get; set; }
         #endregion
+
+        #region overrides
+        [Required]
+        public override string CreatedById { get; set; }
+        #endregion
     }
 }

@@ -38,7 +38,7 @@ namespace Help247
             services.AddCors();
 
             //Connection String
-            services.AddDbContext<AppDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Identity
             services.AddIdentity<Help247.Data.Entities.User, IdentityRole>()
