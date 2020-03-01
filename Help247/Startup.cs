@@ -38,7 +38,7 @@ namespace Help247
             services.AddCors();
 
             //Connection String
-            services.AddDbContext<AppDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Identity
             services.AddIdentity<Help247.Data.Entities.User, IdentityRole>()
@@ -131,17 +131,28 @@ namespace Help247
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseHttpsRedirection();
-            app.UseCors(builder => builder.WithOrigins("*")/*.AllowAnyOrigin()*/.AllowAnyHeader().AllowAnyMethod());
-            app.UseEndpoints(endpoints =>
+
+            app.UseStaticFiles();
+            if (!env.IsDevelopment())
             {
-                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
-            });
+                app.UseSpaStaticFiles();
+            }
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Help24/7 API V1");
                 c.RoutePrefix = "swagger";
             });
+
+            app.UseCors(builder => builder.WithOrigins("*")/*.AllowAnyOrigin()*/.AllowAnyHeader().AllowAnyMethod());
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+            });
+
             app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
@@ -154,6 +165,8 @@ namespace Help247
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            
         }
     }
 }

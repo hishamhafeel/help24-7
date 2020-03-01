@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseEndPoint: 'https://localhost:44396'
+  baseEndPoint: 'http://usamajumaloon-001-site1.ftempurl.com'
 };
