@@ -45,6 +45,7 @@ namespace Help247.Service.Services.Ticket
                     ticketBO.CreatedOn = dateOfCreation;
                     var result = await appDbContext.Tickets.AddAsync(mapper.Map<Help247.Data.Entities.Ticket>(ticketBO));
                     await appDbContext.SaveChangesAsync();
+                    ticketBO.Id = result.Entity.Id;
                     if (result == null)
                     {
                         return new TicketBO();
@@ -81,14 +82,18 @@ namespace Help247.Service.Services.Ticket
                 {
                     var dateOfEdit = DateTime.UtcNow;
                     var query = appDbContext.Tickets.AsNoTracking().FirstOrDefault(x => x.Id == ticketId);
-                    if (query == null)
+                    switch (query.TicketStatusId)
                     {
-                        throw new ArgumentException("Ticket not found in database");
+                        case (int)Enums.TicketStatus.None:
+                            throw new ArgumentException("Ticket not found in database");
+                        case (int)Enums.TicketStatus.TicketRequest:
+                            break;
+                        case (int)Enums.TicketStatus.TicketApproval:
+                            throw new ArgumentException("Ticket already approved and Help on progress");
+                        case (int)Enums.TicketStatus.TicketTerminate:
+                            throw new ArgumentException("Ticket has already been terminated");
                     }
-                    else if (query.TicketStatusId == 2)
-                    {
-                        throw new ArgumentException("Ticket already approved and Help on progress");
-                    }
+                   
                     var ticket = new Help247.Data.Entities.Ticket
                     {
                         Id = query.Id,
