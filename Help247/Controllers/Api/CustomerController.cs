@@ -12,9 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Help247.Controllers.Api
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class CustomerController : ControllerBase
+    public class CustomerController : BaseApiController
     {
         private readonly ICustomerService customerService;
         private readonly IMapper mapper;
@@ -28,7 +26,6 @@ namespace Help247.Controllers.Api
         // GET: api/Customer
         [Route("CustomerList")]
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllAsync([FromQuery] PaginationBase paginationBase)
         {
             try
@@ -36,10 +33,9 @@ namespace Help247.Controllers.Api
                 var result = await customerService.GetAllAsync(paginationBase);
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return HandleException(ex);
             }
         }
 
@@ -53,10 +49,9 @@ namespace Help247.Controllers.Api
                 var result = await customerService.GetByIdAsync(id);
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return NotFound();
+                return HandleException(ex);
             }
         }
 
@@ -71,7 +66,7 @@ namespace Help247.Controllers.Api
             }
             catch (Exception ex)
             {
-                throw ex;
+                return HandleException(ex);
             }
         }
 
@@ -83,12 +78,10 @@ namespace Help247.Controllers.Api
             {
                 await customerService.DeleteAsync(id);
                 return Ok();
-
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return HandleException(ex);
             }
         }
     }

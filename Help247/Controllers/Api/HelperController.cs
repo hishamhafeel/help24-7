@@ -13,9 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Help247.Controllers.Api
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class HelperController : ControllerBase
+    public class HelperController : BaseApiController
     {
         private readonly IHelperService helperService;
         private readonly IMapper mapper;
@@ -44,10 +42,9 @@ namespace Help247.Controllers.Api
                 var result = await helperService.GetByIdAsync(id);
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return NotFound();
+                return HandleException(ex);
             }
            
         }
@@ -63,8 +60,7 @@ namespace Help247.Controllers.Api
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return HandleException(ex);
             }
         }
 
@@ -80,8 +76,7 @@ namespace Help247.Controllers.Api
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return HandleException(ex);
             }
         }
 
@@ -96,8 +91,7 @@ namespace Help247.Controllers.Api
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return HandleException(ex);
             }
         }
 

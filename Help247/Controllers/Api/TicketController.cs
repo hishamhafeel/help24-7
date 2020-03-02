@@ -47,8 +47,7 @@ namespace Help247.Controllers.Api
         // POST: api/Ticket/AssignTicket
         [Route("AssignTicket")]
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Customer")]
+        [Authorize(Roles = "Admin, Customer")]
         public async Task<IActionResult> AssignTicket([FromBody] TicketViewModel ticketViewModel)
         {
             try
@@ -59,22 +58,18 @@ namespace Help247.Controllers.Api
                 }
                 var userId = User.GetClaim();
                 var result = await ticketService.AssignTicketAsync(mapper.Map<TicketBO>(ticketViewModel), userId);
-                if (result == null)
-                {
-                    return Conflict(result);
-                }
                 return Ok(result);
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return HandleException(ex);
             }
         }
 
         // POST: api/Ticket/ApproveTicket/1
         [Route("ApproveTicket")]
         [HttpPost]
+        [Authorize(Roles = "Admin, Helper")]
         public async Task<IActionResult> ApproveTicket([FromQuery]int id)
         {
             try
@@ -89,14 +84,14 @@ namespace Help247.Controllers.Api
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return HandleException(ex);
             }
         }
 
         // POST: api/Ticket/TerminateTicket/1
         [Route("TerminateTicket")]
         [HttpPost]
+        [Authorize(Roles = "Admin, Customer")]
         public async Task<IActionResult> TerminateTicket([FromQuery]int id)
         {
             try
@@ -111,8 +106,7 @@ namespace Help247.Controllers.Api
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return HandleException(ex);
             }
         }
 
