@@ -47,13 +47,13 @@ namespace Help247.Controllers.Api
         // POST: api/Ticket/AssignTicket
         [Route("AssignTicket")]
         [HttpPost]
-        //[Authorize(Roles = "Customer")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> AssignTicket([FromBody] TicketViewModel ticketViewModel)
         {
             try
             {
-                if (ticketViewModel.TicketStatusId != 1) 
+                if (ticketViewModel.TicketStatusId != (int)Enums.TicketStatus.TicketRequest) 
                 {
                     throw new ArgumentException("Ticket status must be HelpRequest.");
                 }

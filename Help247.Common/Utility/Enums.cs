@@ -21,15 +21,15 @@ namespace Help247.Common.Utility
         {
             [Description("Ticket not placed")]
             None = 0,
-            [Description("Customer has requested a help")]
-            HelpRequest = 1,
-            [Description("Helper has accepted the help")]
-            HelpAccepted = 2,
-            [Description("Help is completed successfully")]
-            HelpCompleted = 3
+            [Description("Ticket has been reqested")]
+            TicketRequest = 1,
+            [Description("Ticket has been approved")]
+            TicketApproval = 2,
+            [Description("Ticket has been terminated")]
+            TicketTerminate = 3
         }
 
-        public enum UserType : byte
+        public enum UserType : int
         {
             Admin = 1,
             Helper = 2,
