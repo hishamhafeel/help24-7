@@ -18,9 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Help247.Controllers.Api
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class AccountController : ControllerBase
+    public class AccountController : BaseApiController
     {
         private readonly ISecurityService securityService;
         private readonly IMapper mapper;
@@ -48,10 +46,9 @@ namespace Help247.Controllers.Api
                     return Created(string.Empty, result);
                 }
             }
-            catch (Exception )
+            catch (Exception ex)
             {
-
-                throw new RegisterFailedException();
+                return HandleException(ex);
             }
         }
 
@@ -80,9 +77,9 @@ namespace Help247.Controllers.Api
                     return BadRequest();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new LoginException();
+                return HandleException(ex);
             }
         }
     }
