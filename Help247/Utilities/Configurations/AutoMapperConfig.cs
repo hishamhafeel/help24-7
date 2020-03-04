@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Help247.Data.Entities;
 using Help247.Service.BO.Customer;
+using Help247.Service.BO.Feedback;
 using Help247.Service.BO.Helper;
 using Help247.Service.BO.Security;
 using Help247.Service.BO.Ticket;
 using Help247.ViewModels.Account;
 using Help247.ViewModels.Customer;
+using Help247.ViewModels.Feedback;
 using Help247.ViewModels.Helper;
 using Help247.ViewModels.Ticket;
 
@@ -32,10 +34,13 @@ namespace Help247.Utilities.Configurations
             CreateMap<Customer, CustomerBO>().ReverseMap();
             CreateMap<CustomerViewModel, CustomerBO>().ReverseMap();
 
-            //Ticker
+            //Ticket
             CreateMap<TicketViewModel, TicketBO>().ReverseMap();
             CreateMap<Ticket, TicketBO>().ReverseMap();
 
+            //Feedback
+            CreateMap<Feedback, FeedbackBO>().ReverseMap();
+            CreateMap<FeedbackViewModel, FeedbackBO>().ReverseMap();
 
         }
     }
