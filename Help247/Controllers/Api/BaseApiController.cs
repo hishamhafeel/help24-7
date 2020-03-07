@@ -50,7 +50,7 @@ namespace Help247.Controllers.Api
                 //*****  status code 500 range *********
                 case ExceptionType.SqlException:
                 default: return StatusCode(500, ex.Message);
-                    //*****  end status code 500 range *********
+                //*****  end status code 500 range *********
 
             }
         }
