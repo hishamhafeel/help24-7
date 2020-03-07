@@ -481,21 +481,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "29d1ec8f-374f-4b5e-8046-dcefa8e293a3",
+                            ConcurrencyStamp = "5d1a1b1c-f25a-451e-b92f-26f864255a24",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "608046a0-52a9-4ba5-a35a-e9e9c5846624",
+                            ConcurrencyStamp = "abda33f0-1db1-4b45-8c7b-10f9fda8a6a6",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "5d4cc63f-c20b-4d93-97f9-45305fb19217",
+                            ConcurrencyStamp = "96596d89-1427-4e16-94a2-5b87421d8bb7",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
