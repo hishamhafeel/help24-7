@@ -19,6 +19,7 @@ namespace Help247.ViewModels.Account
         public string City { get; set; }
         public Enums.UserType UserType { get; set; }
         public int HelperCategoryID { get; set; }
+        public string ProfilePicUrl { get; set; }
 
     }
 }

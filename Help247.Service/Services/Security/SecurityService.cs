@@ -1,15 +1,20 @@
 ﻿using AutoMapper;
+using Help247.Common;
+using Help247.Common.Constants;
+using Help247.Common.Mailer;
 using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Data.Entities;
 using Help247.Service.BO.Security;
-using Help247.Service.Exceptions;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -24,21 +29,24 @@ namespace Help247.Service.Services.Security
         private readonly IConfiguration configuration;
         private readonly AppDbContext appDbContext;
         private readonly IMapper mapper;
+        private readonly IHostingEnvironment hostingEnvironment;
 
         public SecurityService(SignInManager<User> signInManager,
                                UserManager<User> userManager, 
                                IConfiguration configuration,
                                AppDbContext appDbContext,
-                               IMapper mapper)
+                               IMapper mapper,
+                               IHostingEnvironment hostingEnvironment)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
             this.configuration = configuration;
             this.appDbContext = appDbContext;
             this.mapper = mapper;
+            this.hostingEnvironment = hostingEnvironment;
         }
 
-        public async Task<UserBO> CreateNewUserAsync(UserBO userBO)
+        public async Task<UserBO> CreateNewUserAsync(UserBO userBO /*IFormFileCollection files*/)
         {
             using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
@@ -49,6 +57,25 @@ namespace Help247.Service.Services.Security
                     {
                         return null;
                     }
+                    //var fileSaveResult = new FileSaveResult();
+                    //var filenames = new List<string>();
+                    //foreach (var Image in files)
+                    //{
+                    //    if (Image != null && Image.Length > 0)
+                    //    {
+                    //        var imageStream = Image.OpenReadStream();
+
+                    //        var uploads = Path.Combine(this.hostingEnvironment.WebRootPath, FolderPath.HelperImages);
+                    //        if (Image.Length > 0)
+                    //        {
+                    //            var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(Image.FileName);
+                                
+                    //            filenames.Add(fileName);
+                    //            //fileSaveResult.FileIsThere = true;
+                    //        }
+                    //    }
+                    //}
+                   
                     var storeUser = mapper.Map<User>(userBO);
                     var user = await userManager.CreateAsync(storeUser, userBO.Password);
                     if (!user.Succeeded)
@@ -60,6 +87,7 @@ namespace Help247.Service.Services.Security
                     {
                         case Enums.UserType.Helper:
                             userType = "Helper";
+                            //userBO.ProfilePic = filenames[0];
                             await appDbContext.Helpers.AddAsync(mapper.Map<Help247.Data.Entities.Helper>(userBO));
                             break;
                         case Enums.UserType.Customer:
@@ -71,10 +99,34 @@ namespace Help247.Service.Services.Security
                             await userManager.UpdateAsync(storeUser);
                             break;
                     }
-                   
+                    var token = await userManager.GenerateEmailConfirmationTokenAsync(storeUser);
+                    var confirmPasswordLink = string.Concat(GlobalConfig.APIBaseUrl, $"/api/account/confirmemail?token={Base64UrlEncoder.Encode(token)}&email={storeUser.Email}");
+                    var messageBuilder = new EmailBuilder(configuration)
+                    {
+                        To = new[] { storeUser.Email },
+                        Subject = "Welcome To Help 24/7",
+                        IsBodyHtml = true,
+                        Body = $"Hi {storeUser.UserName} , please click on the link below so that we can confirm your email address. <br/><br/>" +
+                        $"{confirmPasswordLink} <br/><br/>" +
+                        $"Happy Help!!!"
+
+                    };
+                    await EmailBuilder.SendEmailAsync(messageBuilder);
+
                     await userManager.AddToRoleAsync(storeUser, userType);
-                    transaction.Commit();
-                    return userBO;
+
+                    var image = new Image()
+                    {
+                        ImageType = ImageType.ProfilePicture,
+                        ImageUrl = userBO.ProfilePicUrl,
+                        UserName = userBO.UserName 
+                    };
+                    await appDbContext.Images.AddAsync(image);
+                    await appDbContext.SaveChangesAsync();
+
+                    transaction.Commit();     
+                     return userBO;
+
                 }
                 catch (Exception ex)
                 {
@@ -82,7 +134,21 @@ namespace Help247.Service.Services.Security
                     throw new Exception(ex.Message);
                 }
             }
+        }
 
+        public async Task ConfirmEmailAsync(ConfirmEmailBO confirmEmailBO)
+        {
+            var user = await userManager.FindByEmailAsync(confirmEmailBO.Email);
+            if (user != null)
+            {
+
+                var result = await userManager.ConfirmEmailAsync(user, Base64UrlEncoder.Decode(confirmEmailBO.Token));
+                if (!result.Succeeded)
+                {
+                    var error = result.Errors.FirstOrDefault();
+                    throw new ArgumentException(error.Description);
+                }
+            }
         }
 
         public async Task<LoginBO> LoginAsync(LoginBO loginBO)
@@ -93,7 +159,10 @@ namespace Help247.Service.Services.Security
                 if (user != null && user.RecordState == Enums.RecordState.Active)
                 {
                     var result = await signInManager.CheckPasswordSignInAsync(user, loginBO.Password, false);
-
+                    if (result.IsNotAllowed)
+                    {
+                        throw new UnauthorizedAccessException("Your email has not been confirmed, please confirm your email address");
+                    }
                     if (result.Succeeded)
                     {
                         var roles = await userManager.GetRolesAsync(user);
@@ -112,7 +181,6 @@ namespace Help247.Service.Services.Security
                         claimsIdentity.AddClaims(roles.Select(role => new Claim(ClaimTypes.Role, role)));
                         claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Tokens:Key"]));
                         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -143,6 +211,49 @@ namespace Help247.Service.Services.Security
             }
         }
 
-        
+        public async Task Logout()
+        {
+            await signInManager.SignOutAsync();
+        }
+
+        public async Task ForgotPasswordAsync(ForgotPasswordBO forgotPasswordBO)
+        {
+            var user = await userManager.FindByEmailAsync(forgotPasswordBO.Email);
+            if (user != null)
+            {
+                var token = await userManager.GeneratePasswordResetTokenAsync(user);
+                var passwordReseLink = string.Concat(GlobalConfig.APIBaseUrl, $"/api/account/resetpassword?token={Base64UrlEncoder.Encode(token)}&email={user.Email}");
+
+                var messageBuilder = new EmailBuilder(configuration)
+                {
+                    To = new[] { user.Email },
+                    Subject = "Reset Password",
+                    IsBodyHtml = true,
+                    Body = $"Hi {user.UserName} , please click on the link below reset your password. <br/><br/>" +
+                    $"{passwordReseLink} <br/><br/>" +
+                    $"Happy Help!!!"
+                };
+                await EmailBuilder.SendEmailAsync(messageBuilder);
+            }
+            else if (user == null)
+            {
+                throw new NullReferenceException("This email does not belong to any acccount");
+            }
+        }
+
+        public async Task ResetPasswordAsync(ResetPassowordBO resetPassowordBO)
+        {
+            var user = await userManager.FindByEmailAsync(resetPassowordBO.Email);
+            if (user != null)
+            {
+                var result = await userManager.ResetPasswordAsync(user, Base64UrlEncoder.Decode(resetPassowordBO.Token), resetPassowordBO.NewPassword);
+                if (!result.Succeeded)
+                {
+                    var error = result.Errors.FirstOrDefault();
+                    throw new ArgumentException(error.Description);
+                }
+            }
+        }
+
     }
 }
