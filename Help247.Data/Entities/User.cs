@@ -11,8 +11,8 @@ namespace Help247.Data.Entities
     [Table("Users")]
     public class User : IdentityUser
     {
-        [Required]
-        public string Name { get; set; }
+        //[Required]
+        //public string UserName { get; set; }
         [Required]
         public DateTime CreatedOn { get; set; } 
         public string CreatedById { get; set; }

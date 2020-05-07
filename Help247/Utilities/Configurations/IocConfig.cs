@@ -1,6 +1,7 @@
 ﻿using Help247.Service.Services.Customer;
 using Help247.Service.Services.Feedback;
 using Help247.Service.Services.Helper;
+using Help247.Service.Services.HelperCategory;
 using Help247.Service.Services.Security;
 using Help247.Service.Services.Ticket;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +19,7 @@ namespace Help247.Utilities.Configurations
             services.AddScoped<ITicketService, TicketService>();
             services.AddScoped<IFeedbackService, FeedbackService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IHelperCategoryService, HelperCategoryService>();
         }
     }
 }

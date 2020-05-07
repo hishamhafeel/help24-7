@@ -13,7 +13,7 @@ namespace Help247.Data.Application
         public virtual string CreatedById { get; set; }
         public virtual DateTime? EditedOn { get; set; }
         public virtual string EditedById { get; set; }
-        public Enums.RecordState RecordState { get; set; } = Enums.RecordState.Active;
+        public Enums.RecordState RecordState { get; set; }
 
 
         protected AuditableEntity()

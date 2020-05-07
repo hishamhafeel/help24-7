@@ -42,9 +42,10 @@ namespace Help247
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Identity
-            services.AddIdentity<Help247.Data.Entities.User, IdentityRole>()
+            services.AddIdentity<Help247.Data.Entities.User, IdentityRole>(opt => opt.SignIn.RequireConfirmedEmail = true)
                         .AddRoles<IdentityRole>()
-                        .AddEntityFrameworkStores<AppDbContext>();
+                        .AddEntityFrameworkStores<AppDbContext>()
+                        .AddDefaultTokenProviders();
 
             //JWT
             services.AddAuthentication()

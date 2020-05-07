@@ -36,5 +36,11 @@ namespace Help247.Common.Utility
             Customer = 3
         }
 
+        public enum HelpCentre : int
+        {
+            TermsAndConditions = 1,
+            PrivacyPolicy = 2,
+            FAQ = 3
+        }
     }
 }

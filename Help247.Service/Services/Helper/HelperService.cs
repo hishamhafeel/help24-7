@@ -32,7 +32,8 @@ namespace Help247.Service.Services.Helper
                 if (paginationBase.SearchQuery != null && paginationBase.SearchQuery.Length > 0)
                 {
                     query = query.Where(x => EF.Functions.Like(x.PhoneNo, paginationBase.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.Name.ToLower(), paginationBase.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.FirstName.ToLower(), paginationBase.SearchQuery + "%") ||
+                                              EF.Functions.Like(x.LastName.ToLower(), paginationBase.SearchQuery + "%") ||
                                              EF.Functions.Like(x.Id.ToString(), paginationBase.SearchQuery + "%") ||
                                              EF.Functions.Like(x.Email.ToLower(), paginationBase.SearchQuery + "%"));
                 }
@@ -119,21 +120,21 @@ namespace Help247.Service.Services.Helper
             }
         }
 
-        public async Task<List<HelperCategoryBO>> GetAllHelperCategoryAsync()
-        {
-            try
-            {
-                var query = appDbContext.HelperCategories.ToList().OrderBy(x => x.Id);
-                if(query == null)
-                {
-                    throw new HelperCategoryNotFoundException();
-                }
-                return mapper.Map<List<HelperCategoryBO>>(query);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public async Task<List<HelperCategoryBO>> GetAllHelperCategoryAsync()
+        //{
+        //    try
+        //    {
+        //        var query = appDbContext.HelperCategories.ToList().OrderBy(x => x.Id);
+        //        if(query == null)
+        //        {
+        //            throw new HelperCategoryNotFoundException();
+        //        }
+        //        return mapper.Map<List<HelperCategoryBO>>(query);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
     }
 }

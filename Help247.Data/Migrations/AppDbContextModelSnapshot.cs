@@ -126,10 +126,21 @@ namespace Help247.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AboutMe")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedById")
@@ -137,9 +148,6 @@ namespace Help247.Data.Migrations
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("District")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EditedById")
                         .HasColumnType("nvarchar(max)");
@@ -151,22 +159,41 @@ namespace Help247.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("Experience")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("HelperCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MobileNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("MyService")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Province")
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte>("RecordState")
                         .HasColumnType("tinyint");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -175,8 +202,12 @@ namespace Help247.Data.Migrations
 
                     b.HasIndex("HelperCategoryId");
 
-                    b.HasIndex("PhoneNo")
+                    b.HasIndex("MobileNo")
                         .IsUnique();
+
+                    b.HasIndex("PhoneNo")
+                        .IsUnique()
+                        .HasFilter("[PhoneNo] IS NOT NULL");
 
                     b.ToTable("Helpers");
                 });
@@ -188,65 +219,94 @@ namespace Help247.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CategoryDescription")
+                    b.Property<string>("CreatedById")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CategoryName")
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EditedById")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EditedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IconUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LongDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
+
+                    b.Property<byte>("RecordState")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("ServicesProvided")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("HelperCategories");
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryDescription = "CCTV Installation and Fixing",
-                            CategoryName = "Cctv"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryDescription = "Network Planning and Troubleshooting",
-                            CategoryName = "NetworkPlanning"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryDescription = "PABX - Private Automatic Issues",
-                            CategoryName = "Pabx"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryDescription = "Cisco Routing - Service Maintenance",
-                            CategoryName = "Cisco"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryDescription = "IT and other projects",
-                            CategoryName = "IT"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CategoryDescription = "Office Relocation IT Setup",
-                            CategoryName = "OfficeRelocation"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CategoryDescription = "Office New IT Setup",
-                            CategoryName = "OfficeNewSetup"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CategoryDescription = "Basic Hardware Repairing",
-                            CategoryName = "HardwareRepair"
-                        });
+                    b.ToTable("HelperCategories");
+                });
+
+            modelBuilder.Entity("Help247.Data.Entities.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SubServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("Help247.Data.Entities.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("HelperId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SkillName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HelperId");
+
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.Ticket", b =>
@@ -404,10 +464,6 @@ namespace Help247.Data.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -481,21 +537,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "5d1a1b1c-f25a-451e-b92f-26f864255a24",
+                            ConcurrencyStamp = "090dc98e-4034-4696-a65e-a33b90b6f862",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "abda33f0-1db1-4b45-8c7b-10f9fda8a6a6",
+                            ConcurrencyStamp = "0178c388-f2b1-4cc3-aec1-13c51c34cc8a",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "96596d89-1427-4e16-94a2-5b87421d8bb7",
+                            ConcurrencyStamp = "2b734625-2f8c-48d4-92a5-f52e0a32e03c",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -625,6 +681,15 @@ namespace Help247.Data.Migrations
                     b.HasOne("Help247.Data.Entities.HelperCategory", "HelperCategory")
                         .WithMany()
                         .HasForeignKey("HelperCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Help247.Data.Entities.Skill", b =>
+                {
+                    b.HasOne("Help247.Data.Entities.Helper", "Helper")
+                        .WithMany("Skills")
+                        .HasForeignKey("HelperId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

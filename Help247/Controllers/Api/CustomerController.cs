@@ -70,7 +70,7 @@ namespace Help247.Controllers.Api
             }
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/Customer/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
