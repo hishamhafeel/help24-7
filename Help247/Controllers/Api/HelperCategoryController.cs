@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Help247.Common.Pagination;
@@ -8,7 +6,6 @@ using Help247.Service.BO.HelperCategory;
 using Help247.Service.Services.HelperCategory;
 using Help247.ViewModels.HelperCategory;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Help247.Controllers.Api
@@ -35,7 +32,7 @@ namespace Help247.Controllers.Api
             try
             {
                 var result = await helperCategoryService.GetAllAsync(paginationBase);
-                return Ok();
+                return Ok(mapper.Map<HelperCategoryViewModel>(result));
             }
             catch (Exception ex)
             {
