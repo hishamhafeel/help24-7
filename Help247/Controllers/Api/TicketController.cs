@@ -21,28 +21,26 @@ namespace Help247.Controllers.Api
     {
         private readonly ITicketService ticketService;
         private readonly IMapper mapper;
-        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public TicketController(ITicketService ticketService, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public TicketController(ITicketService ticketService, IMapper mapper)
         {
             this.ticketService = ticketService;
             this.mapper = mapper;
-            this.httpContextAccessor = httpContextAccessor;
         }
 
         // GET: api/Ticket
-        [HttpGet]
-        public async Task<IActionResult> GetTicketStatusAsync(int id)
-        {
-            return Ok();
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetTicketStatusAsync(int id)
+        //{
+        //    return Ok();
+        //}
 
         // GET: api/Ticket/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[HttpGet("{id}", Name = "Get")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST: api/Ticket/AssignTicket
         [Route("AssignTicket")]

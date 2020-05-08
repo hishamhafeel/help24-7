@@ -1,5 +1,6 @@
 ﻿using Help247.Service.Services.Customer;
 using Help247.Service.Services.Feedback;
+using Help247.Service.Services.HelpCentre;
 using Help247.Service.Services.Helper;
 using Help247.Service.Services.HelperCategory;
 using Help247.Service.Services.Security;
@@ -20,6 +21,7 @@ namespace Help247.Utilities.Configurations
             services.AddScoped<IFeedbackService, FeedbackService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IHelperCategoryService, HelperCategoryService>();
+            services.AddScoped<IHelpCentreService, HelpCentreService>();
         }
     }
 }
