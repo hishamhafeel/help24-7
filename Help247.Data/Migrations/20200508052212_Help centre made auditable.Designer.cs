@@ -4,14 +4,16 @@ using Help247.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200508052212_Help centre made auditable")]
+    partial class Helpcentremadeauditable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,35 +157,6 @@ namespace Help247.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HelpCentres");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedOn = new DateTime(2020, 5, 8, 5, 34, 37, 616, DateTimeKind.Utc).AddTicks(4766),
-                            EditedOn = new DateTime(2020, 5, 8, 5, 34, 37, 616, DateTimeKind.Utc).AddTicks(5600),
-                            RecordState = (byte)1,
-                            Title = "Terms & Conditions",
-                            Topics = "{}"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedOn = new DateTime(2020, 5, 8, 5, 34, 37, 616, DateTimeKind.Utc).AddTicks(8502),
-                            EditedOn = new DateTime(2020, 5, 8, 5, 34, 37, 616, DateTimeKind.Utc).AddTicks(8509),
-                            RecordState = (byte)1,
-                            Title = "Privacy Policy",
-                            Topics = "{}"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedOn = new DateTime(2020, 5, 8, 5, 34, 37, 616, DateTimeKind.Utc).AddTicks(8517),
-                            EditedOn = new DateTime(2020, 5, 8, 5, 34, 37, 616, DateTimeKind.Utc).AddTicks(8518),
-                            RecordState = (byte)1,
-                            Title = "FAQ",
-                            Topics = "{}"
-                        });
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.Helper", b =>
@@ -604,21 +577,21 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "be4bb90c-719f-4145-b4eb-b7509104d2b0",
+                            ConcurrencyStamp = "201f5c9a-8594-4ed4-a52c-865dd338319f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "af024297-5499-4c89-88f4-2889b7770fac",
+                            ConcurrencyStamp = "8ddf26f7-05d3-4e25-a1e8-5d32836d3030",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "1c507d21-106e-4a41-b23e-4d9a4c5e1a2a",
+                            ConcurrencyStamp = "eb59e0c5-2100-4b2d-ad1c-f0ea35bc356e",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
