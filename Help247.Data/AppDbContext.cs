@@ -23,6 +23,7 @@ namespace Help247.Data
         public DbSet<TicketHistory> TicketHistories { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<HelpCentre> HelpCentres { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -49,17 +50,23 @@ namespace Help247.Data
                     new TicketStatus { Id = 3, Status = "Help has been completed successfully" }
                 );
 
-            //builder.Entity<HelperCategory>().Property(x => x._ServicesProvided).HasColumnName("ServicesProvided");
-
             builder.Entity<HelperCategory>()
                 .Property(b => b.ServicesProvided)
                 .HasConversion(
                 v => JsonConvert.SerializeObject(v),
                 v => JsonConvert.DeserializeObject<Dictionary<string, string>>(v));
 
-            //builder.Entity<HelperCategory>().HasData(
-            //        new HelperCategory { Id = 1, Name = "IT", ShortDescription = "IT & Telecommunication", LongDescription="This is for testing purpose", Title="IT Services provided for you..", ServicesProvided = { Name ="web development", Description="Develop web pages"} }
-            //    );
+            builder.Entity<HelpCentre>()
+                 .Property(b => b.Topics)
+                 .HasConversion(
+                 v => JsonConvert.SerializeObject(v),
+                 v => JsonConvert.DeserializeObject<Dictionary<string, string>>(v));
+
+            builder.Entity<HelpCentre>().HasData(
+                   new HelpCentre { Id = 1, Title = "Terms & Conditions" },
+                   new HelpCentre { Id = 2, Title = "Privacy Policy" },
+                   new HelpCentre { Id = 3, Title = "FAQ" }
+               );
         }
 
     }
