@@ -64,7 +64,7 @@ namespace Help247.Controllers.Api
             }
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: apiHelper/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
@@ -80,20 +80,20 @@ namespace Help247.Controllers.Api
             }
         }
 
-        [Route("HelperCategoryList")]
-        [HttpGet]
-        public async Task<IActionResult> GetHelperCategoryListAsync()
-        {
-            try
-            {
-                var result = await helperService.GetAllHelperCategoryAsync();
-                return Ok(mapper.Map<List<HelperCategoryViewModel>>(result));
-            }
-            catch (Exception ex)
-            {
-                return HandleException(ex);
-            }
-        }
+        //[Route("HelperCategoryList")]
+        //[HttpGet]
+        //public async Task<IActionResult> GetHelperCategoryListAsync()
+        //{
+        //    try
+        //    {
+        //        var result = await helperService.GetAllHelperCategoryAsync();
+        //        return Ok(mapper.Map<List<HelperCategoryViewModel>>(result));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return HandleException(ex);
+        //    }
+        //}
 
     }
 }
