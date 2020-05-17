@@ -44,7 +44,7 @@ namespace Help247.Controllers.Api
         //PUT: api/HelpCentre/
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> PutCentreTopicsAsync([FromBody] HelpCentreViewModel helpCentreViewModel)
+        public async Task<IActionResult> PutCentreTopicsAsync([FromBody] HelpCentreUpdateViewModel helpCentreViewModel)
         {
             try
             {
@@ -52,8 +52,8 @@ namespace Help247.Controllers.Api
                 {
                     throw new ArgumentException();
                 }
-                var result = await helpCentreService.PutCentreTopicsAsync(mapper.Map<HelpCentreBO>(helpCentreViewModel));
-                return Ok(mapper.Map<HelpCentreViewModel>(result));
+                var result = await helpCentreService.PutCentreTopicsAsync(mapper.Map<HelpCentreUpdateBo>(helpCentreViewModel));
+                return Ok(result);
             }
             catch (Exception ex)
             {

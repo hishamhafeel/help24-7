@@ -10,7 +10,9 @@ import { CommonModule } from '@angular/common'; import {
   MatProgressSpinnerModule,
   MatSelectModule,
   MatCardModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatTabsModule,
+  MatExpansionModule
 }
   from '@angular/material';
 
@@ -29,6 +31,8 @@ import { CommonModule } from '@angular/common'; import {
     MatCardModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatTabsModule,
+    MatExpansionModule
   ],
   exports: [
     MatTooltipModule,
@@ -41,7 +45,9 @@ import { CommonModule } from '@angular/common'; import {
     MatPaginatorModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule,
+    MatExpansionModule
   ]
 })
 export class MaterialModule { }

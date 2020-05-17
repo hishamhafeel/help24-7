@@ -1,0 +1,51 @@
+<div class="main-content">
+    <app-loader *ngIf="isLoadingResults"></app-loader>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-theme">
+                        <h4 class="card-title mt-0">Help Center</h4>
+                    </div>
+                    <mat-tab-group>
+                        <mat-tab *ngFor="let model of helpCenterModel" label="{{ model.title}}">
+                            {{ model.description}}
+                            <mat-accordion class="example-headers-align">
+                                <mat-expansion-panel *ngFor="let item of model.topics | keyvalue">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            {{item.key}}
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    {{item.value}}
+                                </mat-expansion-panel>
+
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            <strong>Add</strong>
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+
+                                    <mat-form-field>
+                                        <mat-label>Title:</mat-label>
+                                        <input matInput [formControl]="title">
+                                    </mat-form-field>
+
+                                    <mat-form-field>
+                                        <mat-label>Description: </mat-label>
+                                        <textarea matInput [formControl]="description"></textarea>
+                                    </mat-form-field>
+
+                                    <mat-action-row>
+                                        <button mat-button color="primary" (click)="addValue(model)">Add</button>
+                                    </mat-action-row>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

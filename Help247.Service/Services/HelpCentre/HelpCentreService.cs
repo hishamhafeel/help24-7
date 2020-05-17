@@ -4,6 +4,7 @@ using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Service.BO.HelpCentre;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,14 +38,15 @@ namespace Help247.Service.Services.HelpCentre
 
         }
 
-        public async Task<HelpCentreBO> PutCentreTopicsAsync(HelpCentreBO helpCentreBO)
+        public async Task<HelpCentreUpdateBo> PutCentreTopicsAsync(HelpCentreUpdateBo helpCentreBO)
         {
             var query = await appDbContext.HelpCentres.FirstOrDefaultAsync(x => x.Id == helpCentreBO.Id);
             if (query == null)
             {
                 throw new ArgumentException("Help Centre does not exist");
             }
-            query.Topics = helpCentreBO.Topics;
+            var newTopicsObj = JsonConvert.DeserializeObject<Dictionary<string, string>>(helpCentreBO.Topics);
+            query.Topics = newTopicsObj;
             appDbContext.HelpCentres.Update(query);
             await appDbContext.SaveChangesAsync();
             return helpCentreBO;

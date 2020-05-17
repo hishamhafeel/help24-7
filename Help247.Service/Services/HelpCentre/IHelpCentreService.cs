@@ -7,6 +7,6 @@ namespace Help247.Service.Services.HelpCentre
     public interface IHelpCentreService
     {
         Task<PaginationModel<HelpCentreBO>> GetAllAsync(PaginationBase paginationBase);
-        Task<HelpCentreBO> PutCentreTopicsAsync(HelpCentreBO helpCentreBO);
+        Task<HelpCentreUpdateBo> PutCentreTopicsAsync(HelpCentreUpdateBo helpCentreBO);
     }
 }

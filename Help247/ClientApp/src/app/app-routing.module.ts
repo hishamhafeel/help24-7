@@ -29,6 +29,11 @@ const routes: Routes = [
         path: 'customer',
         loadChildren: './admin/customer/customer.module#CustomerModule',
         canActivate: [AuthGuardService]
+      },
+      {
+        path: 'help-center',
+        loadChildren: './admin/help-center/help-center.module#HelpCenterModule',
+        canActivate: [AuthGuardService]
       }
     ]
   }

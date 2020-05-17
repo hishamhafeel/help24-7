@@ -10,8 +10,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/helper', title: 'Helpers',  icon:'assistant', class: '' },
     { path: '/customer', title: 'Customers',  icon:'person', class: '' },
-    { path: '/typography', title: 'Tickets',  icon:'info', class: '' },
-    { path: '/icons', title: 'Feedbacks',  icon:'feedback', class: '' }
+    // { path: '/typography', title: 'Tickets',  icon:'info', class: '' },
+    // { path: '/icons', title: 'Feedbacks',  icon:'feedback', class: '' },
+    { path: '/help-center', title: 'Help Center',  icon:'feedback', class: '' }
 ];
 
 @Component({

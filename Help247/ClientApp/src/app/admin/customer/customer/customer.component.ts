@@ -30,9 +30,9 @@ export class CustomerComponent implements OnInit {
     'country',
     'province',
     'district',
-    'city',
-    'edit',
-    'delete'
+    'city'
+    // 'edit',
+    // 'delete'
   ];
 
   constructor(

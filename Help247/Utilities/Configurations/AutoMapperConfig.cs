@@ -55,6 +55,7 @@ namespace Help247.Utilities.Configurations
             //HelpCentre
             CreateMap<HelpCentre, HelpCentreBO>().ReverseMap();
             CreateMap<HelpCentreViewModel, HelpCentreBO>().ReverseMap();
+            CreateMap<HelpCentreUpdateViewModel, HelpCentreUpdateBo>().ReverseMap();
 
         }
     }

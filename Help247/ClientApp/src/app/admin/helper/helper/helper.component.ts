@@ -31,9 +31,9 @@ export class HelperComponent implements OnInit {
     'province',
     'district',
     'city',
-    'helperCategory',
-    'edit',
-    'delete'
+    'helperCategory'
+    // 'edit',
+    // 'delete'
   ];
 
 
