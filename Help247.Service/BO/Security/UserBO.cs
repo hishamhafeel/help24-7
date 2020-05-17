@@ -14,6 +14,7 @@ namespace Help247.Service.BO.Security
         public Enums.UserType UserType { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Name { get; set; }
         [Phone]
         public string PhoneNo { get; set; }
         [Phone]
