@@ -24,8 +24,8 @@ namespace Help247.Controllers.Api
             this.mapper = mapper;
         }
 
-        // GET: api/HelperList
-        [Route("HelperList")]
+        // GET: api/helper/list
+        [Route("list")]
         [HttpGet]
         public async Task<IActionResult> GetAllAsync([FromQuery]PaginationBase paginationBase)
         {
@@ -33,7 +33,7 @@ namespace Help247.Controllers.Api
             return Ok(result);
         }
 
-        // GET: api/Helper/5
+        // GET: api/helper/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAsync(int id)
         {
@@ -49,7 +49,7 @@ namespace Help247.Controllers.Api
            
         }
 
-        // PUT: api/Helper/5
+        // PUT: api/helper/5
         [HttpPut]
         public async Task<IActionResult> PutAsync([FromBody]HelperViewModel helperViewModel)
         {
@@ -64,7 +64,7 @@ namespace Help247.Controllers.Api
             }
         }
 
-        // DELETE: apiHelper/5
+        // DELETE: api/helper/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

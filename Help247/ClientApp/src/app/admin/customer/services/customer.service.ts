@@ -20,7 +20,7 @@ export class CustomerService extends BaseService {
   getCustomer(pagination: PaginationBase) {
     return this.http
       .get<PaginationModel<CustomerModel>>(
-        `${this.baseEndPoint}/api/Customer/CustomerList?&skip=${
+        `${this.baseEndPoint}/api/Customer/list?&skip=${
         pagination.skip
         }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
         this.httpOptions

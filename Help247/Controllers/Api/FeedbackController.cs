@@ -23,8 +23,8 @@ namespace Help247.Controllers.Api
             this.mapper = mapper;
         }
 
-        // GET: api/FeedbackList
-        [Route("FeedbackList")]
+        // GET: api/feedback/list
+        [Route("list")]
         [HttpGet]
         public async Task<IActionResult> GetAllAsync([FromQuery]PaginationBase paginationBase)
         {

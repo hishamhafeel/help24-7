@@ -20,7 +20,7 @@ export class HelperService extends BaseService {
   getHelper(pagination: PaginationBase) {
     return this.http
       .get<PaginationModel<HelperModel>>(
-        `${this.baseEndPoint}/api/Helper/HelperList?&skip=${
+        `${this.baseEndPoint}/api/Helper/list?&skip=${
         pagination.skip
         }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
         this.httpOptions
@@ -31,7 +31,7 @@ export class HelperService extends BaseService {
   getHelperCategoryList() {
     return this.http
       .get<Array<HelperCategoryModel>>(
-        `${this.baseEndPoint}/api/Helper/HelperCategoryList`,
+        `${this.baseEndPoint}/api/Helper/lList`,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));
@@ -51,7 +51,7 @@ export class HelperService extends BaseService {
     return this.http
       .delete(
         `${
-          this.baseEndPoint
+        this.baseEndPoint
         }/api/Helper/${id}`,
         this.httpOptions
       )

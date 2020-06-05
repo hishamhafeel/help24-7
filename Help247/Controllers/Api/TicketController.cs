@@ -42,15 +42,15 @@ namespace Help247.Controllers.Api
         //    return "value";
         //}
 
-        // POST: api/Ticket/AssignTicket
-        [Route("AssignTicket")]
+        // POST: api/ticker/assign
+        [Route("assign")]
         [HttpPost]
         [Authorize(Roles = "Admin, Customer")]
-        public async Task<IActionResult> AssignTicket([FromBody] TicketViewModel ticketViewModel)
+        public async Task<IActionResult> AssignTicketAsync([FromBody] TicketViewModel ticketViewModel)
         {
             try
             {
-                if (ticketViewModel.TicketStatusId != (int)Enums.TicketStatus.TicketRequest) 
+                if (ticketViewModel.TicketStatusId != (int)Enums.TicketStatus.HelpRequest) 
                 {
                     throw new ArgumentException("Ticket status must be HelpRequest.");
                 }
@@ -64,11 +64,11 @@ namespace Help247.Controllers.Api
             }
         }
 
-        // POST: api/Ticket/ApproveTicket/1
-        [Route("ApproveTicket")]
-        [HttpPost]
+        // POST: api/ticker/approve/1
+        [Route("approve")]
+        [HttpPut]
         [Authorize(Roles = "Admin, Helper")]
-        public async Task<IActionResult> ApproveTicket([FromQuery]int id)
+        public async Task<IActionResult> ApproveTicketAsync([FromQuery]int id)
         {
             try
             {
@@ -86,11 +86,11 @@ namespace Help247.Controllers.Api
             }
         }
 
-        // POST: api/Ticket/TerminateTicket/1
-        [Route("TerminateTicket")]
-        [HttpPost]
+        // POST: api/ticket/complete/1
+        [Route("complete")]
+        [HttpPut]
         [Authorize(Roles = "Admin, Customer")]
-        public async Task<IActionResult> TerminateTicket([FromQuery]int id)
+        public async Task<IActionResult> CompleteTicketAsync([FromQuery]int id)
         {
             try
             {
@@ -99,7 +99,29 @@ namespace Help247.Controllers.Api
                     throw new ArgumentException("Ticket ID not found.");
                 }
                 var userId = User.GetClaim();
-                var result = await ticketService.TerminateTicketAsync(id, userId);
+                var result = await ticketService.CompleteTicketAsync(id, userId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        // POST: api/ticket/cancel/1
+        [Route("cancel")]
+        [HttpPut]
+        [Authorize(Roles = "Admin, Helper")]
+        public async Task<IActionResult> CancelTicketAsync([FromQuery]int id)
+        {
+            try
+            {
+                if (id == 0)
+                {
+                    throw new ArgumentException("Ticket ID not found.");
+                }
+                var userId = User.GetClaim();
+                var result = await ticketService.CancelTicketAsync(id, userId);
                 return Ok(result);
             }
             catch (Exception ex)

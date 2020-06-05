@@ -38,6 +38,8 @@ namespace Help247.Data
 
             builder.Entity<HelperCategory>().HasIndex(x => x.Name).IsUnique();
 
+            builder.Entity<Image>().HasIndex(x => x.ImageUrl).IsUnique();
+
             builder.Entity<IdentityRole>().HasData(
                     new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
                     new IdentityRole { Id = "2", Name = "Helper", NormalizedName = "HELPER" },
@@ -45,9 +47,10 @@ namespace Help247.Data
                 );
             
             builder.Entity<TicketStatus>().HasData(
-                    new TicketStatus { Id = 1, Status = "Help has been equested" },
+                    new TicketStatus { Id = 1, Status = "Help has been requested" },
                     new TicketStatus { Id = 2, Status = "Help is under process" },
-                    new TicketStatus { Id = 3, Status = "Help has been completed successfully" }
+                    new TicketStatus { Id = 3, Status = "Help has been completed successfully" },
+                    new TicketStatus { Id = 4, Status = "Help has been cancelled" }
                 );
 
             builder.Entity<HelperCategory>()

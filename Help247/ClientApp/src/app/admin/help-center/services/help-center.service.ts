@@ -20,7 +20,7 @@ export class HelpCenterService extends BaseService {
   getHelpCenter(pagination: PaginationBase) {
     return this.http
       .get<PaginationModel<HelpCenterModel>>(
-        `${this.baseEndPoint}/api/HelpCentre/List?&skip=${
+        `${this.baseEndPoint}/api/HelpCentre/list?&skip=${
         pagination.skip
         }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
         this.httpOptions

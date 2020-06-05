@@ -24,7 +24,7 @@ namespace Help247.Controllers.Api
         }
 
         //GET: api/HelpCentre/List
-        [Route("List")]
+        [Route("list")]
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> GetAllAsync([FromQuery] PaginationBase paginationBase)

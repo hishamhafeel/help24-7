@@ -86,12 +86,14 @@ namespace Help247.Service.Services.Ticket
                     {
                         case (int)Enums.TicketStatus.None:
                             throw new ArgumentException("Ticket not found in database");
-                        case (int)Enums.TicketStatus.TicketRequest:
+                        case (int)Enums.TicketStatus.HelpRequest:
                             break;
-                        case (int)Enums.TicketStatus.TicketApproval:
-                            throw new ArgumentException("Ticket already approved and Help on progress");
-                        case (int)Enums.TicketStatus.TicketTerminate:
-                            throw new ArgumentException("Ticket has already been terminated");
+                        case (int)Enums.TicketStatus.HelpProcess:
+                            throw new ArgumentException("Help already on progress");
+                        case (int)Enums.TicketStatus.HelpComplete:
+                            throw new ArgumentException("Help completed successfully");
+                        case (int)Enums.TicketStatus.HelpCancel:
+                            throw new ArgumentException("Help has been cancelled");
                     }
                    
                     var ticket = new Help247.Data.Entities.Ticket
@@ -134,7 +136,7 @@ namespace Help247.Service.Services.Ticket
             }
         }
 
-        public async Task<TicketBO> TerminateTicketAsync(int ticketId, string userId)
+        public async Task<TicketBO> CompleteTicketAsync(int ticketId, string userId)
         {
             using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
@@ -145,6 +147,10 @@ namespace Help247.Service.Services.Ticket
                     if (query == null)
                     {
                         throw new ArgumentException("Ticket not found in database");
+                    }
+                    else if(query.TicketStatusId == 1)
+                    {
+                        throw new ArgumentException("Ticket has not been approved yet");
                     }
                     else if (query.TicketStatusId == 3)
                     {
@@ -159,6 +165,62 @@ namespace Help247.Service.Services.Ticket
                         CustomerId = query.CustomerId,
                         HelperId = query.HelperId,
                         TicketStatusId = 3,
+                        EditedById = userId,
+                        EditedOn = dateOfEdit,
+                        RecordState = query.RecordState
+                    };
+                    appDbContext.Tickets.Update(ticket);
+                    await appDbContext.SaveChangesAsync();
+
+                    var ticketHistory = new TicketHistory()
+                    {
+                        HelperId = ticket.HelperId,
+                        CustomerId = ticket.CustomerId,
+                        TicketId = ticket.Id,
+                        CurrentTicketStatusId = ticket.TicketStatusId,
+                        CreatedById = ticket.CreatedById,
+                        CreatedOn = ticket.CreatedOn,
+                        EditedById = ticket.EditedById,
+                        EditedOn = ticket.EditedOn
+                    };
+                    await appDbContext.TicketHistories.AddAsync(ticketHistory);
+                    await appDbContext.SaveChangesAsync();
+
+                    transaction.Commit();
+                    return mapper.Map<TicketBO>(ticket);
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+            }
+        }
+
+        public async Task<TicketBO> CancelTicketAsync(int ticketId, string userId)
+        {
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    var dateOfEdit = DateTime.UtcNow;
+                    var query = appDbContext.Tickets.AsNoTracking().FirstOrDefault(x => x.Id == ticketId);
+                    if (query == null)
+                    {
+                        throw new ArgumentException("Ticket not found in database");
+                    }
+                    else if (query.TicketStatusId != 1)
+                    {
+                        throw new ArgumentException("Ticket status is not valid. Ticket must be in HelpRequest status.");
+                    }
+                    var ticket = new Help247.Data.Entities.Ticket
+                    {
+                        Id = query.Id,
+                        CreatedById = query.CreatedById,
+                        CreatedOn = query.CreatedOn,
+                        CustomerId = query.CustomerId,
+                        HelperId = query.HelperId,
+                        TicketStatusId = 4,
                         EditedById = userId,
                         EditedOn = dateOfEdit,
                         RecordState = query.RecordState

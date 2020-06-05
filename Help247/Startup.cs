@@ -20,6 +20,8 @@ using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace Help247
 {
@@ -76,10 +78,11 @@ namespace Help247
             //OR).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
+            //services.AddSpaStaticFiles(configuration =>
+            //{
+            //    configuration.RootPath = "ClientApp/dist";
+            //});
+
 
             services.AddSwaggerGen(c =>
             {
@@ -136,10 +139,10 @@ namespace Help247
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
-            if (!env.IsDevelopment())
-            {
-                app.UseSpaStaticFiles();
-            }
+            //if (!env.IsDevelopment())
+            //{
+            //    app.UseSpaStaticFiles();
+            //}
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -156,20 +159,133 @@ namespace Help247
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
             });
 
-            app.UseSpa(spa =>
+            //app.UseSpa(spa =>
+            //{
+            //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
+            //    // see https://go.microsoft.com/fwlink/?linkid=864501
+
+            //    spa.Options.SourcePath = "ClientApp";
+
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseAngularCliServer(npmScript: "start");
+            //    }
+            //});
+
+            // for each angular client we want to host. 
+            app.Map(new PathString("/admin"), client =>
             {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
-                spa.Options.SourcePath = "ClientApp";
-
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    StaticFileOptions clientApp1Dist = new StaticFileOptions()
+                    {
+                        FileProvider = new PhysicalFileProvider(
+                                Path.Combine(
+                                    Directory.GetCurrentDirectory(),
+                                    @"ClientApp"
+                                )
+                            )
+                    };
+                    client.UseSpaStaticFiles(clientApp1Dist);
+                    client.UseSpa(spa =>
+                    {
+                        spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
+                        spa.Options.SourcePath = "ClientApp";
+
+                        // it will use package.json & will search for start command to run
+                        spa.UseAngularCliServer(npmScript: "start");
+                    });
+
                 }
+                else
+                {
+                    // Each map gets its own physical path
+                    // for it to map the static files to. 
+                    StaticFileOptions clientAppDist = new StaticFileOptions()
+                    {
+                        FileProvider = new PhysicalFileProvider(
+                                Path.Combine(
+                                    Directory.GetCurrentDirectory(),
+                                    @"ClientApp/dist"
+                                )
+                            )
+                    };
+
+                    // Each map its own static files otherwise
+                    // it will only ever serve index.html no matter the filename 
+                    client.UseSpaStaticFiles(clientAppDist);
+
+                    // Each map will call its own UseSpa where
+                    // we give its own sourcepath
+                    client.UseSpa(spa =>
+                    {
+                        spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
+                        spa.Options.SourcePath = "ClientApp";
+                        spa.Options.DefaultPageStaticFileOptions = clientAppDist;
+                    });
+
+                }
+
             });
 
-            
+            // for each angular client we want to host. 
+            app.Map(new PathString("/home"), client =>
+            {
+                if (env.IsDevelopment())
+                {
+                    StaticFileOptions helpWebDist = new StaticFileOptions()
+                    {
+                        FileProvider = new PhysicalFileProvider(
+                                Path.Combine(
+                                    Directory.GetCurrentDirectory(),
+                                    @"HelpWeb"
+                                )
+                            )
+                    };
+                    client.UseSpaStaticFiles(helpWebDist);
+                    client.UseSpa(spa =>
+                    {
+                        spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
+                        spa.Options.SourcePath = "HelpWeb";
+
+                        // it will use package.json & will search for start command to run
+                        spa.UseAngularCliServer(npmScript: "start");
+                    });
+
+                }
+                else
+                {
+                    // Each map gets its own physical path
+                    // for it to map the static files to. 
+                    StaticFileOptions helpWebDist = new StaticFileOptions()
+                    {
+                        FileProvider = new PhysicalFileProvider(
+                                Path.Combine(
+                                    Directory.GetCurrentDirectory(),
+                                    @"HelpWeb/dist"
+                                )
+                            )
+                    };
+
+                    // Each map its own static files otherwise
+                    // it will only ever serve index.html no matter the filename 
+                    client.UseSpaStaticFiles(helpWebDist);
+
+                    // Each map will call its own UseSpa where
+                    // we give its own sourcepath
+                    client.UseSpa(spa =>
+                    {
+                        spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
+                        spa.Options.SourcePath = "HelpWeb";
+                        spa.Options.DefaultPageStaticFileOptions = helpWebDist;
+                    });
+
+                }
+
+            });
+
+
+
         }
     }
 }

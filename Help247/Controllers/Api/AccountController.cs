@@ -151,6 +151,27 @@ namespace Help247.Controllers.Api
             }
         }
 
+        [Route("checkuser")]
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> CheckUserExistAsync([FromQuery] string email)
+        {
+            try
+            {
+                if (!RegexUtilities.IsValidEmail(email))
+                {
+                    throw new ArgumentException("Invalid email address format");
+                }
+
+                var result = await securityService.CheckUserExistAsync(email);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+
+        }
 
     }
 }

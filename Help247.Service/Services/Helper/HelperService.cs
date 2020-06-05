@@ -2,6 +2,7 @@
 using Help247.Common.Pagination;
 using Help247.Common.Utility;
 using Help247.Data;
+using Help247.Data.Entities;
 using Help247.Service.BO.Helper;
 using Help247.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -75,21 +76,39 @@ namespace Help247.Service.Services.Helper
 
         public async Task<HelperBO> PutAsync(HelperBO helperBO)
         {
-            try
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
-                var query = await appDbContext.Helpers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == helperBO.Id);
-                if (query == null)
+                try
                 {
-                    throw new HelperNotFoundException();
-                }
-                appDbContext.Helpers.Update(mapper.Map<Help247.Data.Entities.Helper>(helperBO));
-                await appDbContext.SaveChangesAsync();
-                return helperBO;
-            }
-            catch (Exception ex)
-            {
+                    var query = await appDbContext.Helpers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == helperBO.Id);
+                    var imageQuery = await appDbContext.Images.AsNoTracking().FirstOrDefaultAsync(x => x.ImageUrl == helperBO.ProfilePic);
+                    if (query == null)
+                    {
+                        throw new HelperNotFoundException();
+                    }
+                    else if(imageQuery == null)
+                    {
+                        var existingImage = await appDbContext.Images.AsNoTracking().FirstAsync(x => x.UserName == helperBO.Email);
+                        var newImage = new Image()
+                        {
+                            Id = existingImage.Id,
+                            ImageUrl = helperBO.ProfilePic
+                        };
+                        appDbContext.Images.Update(newImage);
+                        await appDbContext.SaveChangesAsync();
+                    }
 
-                throw ex;
+                    appDbContext.Helpers.Update(mapper.Map<Help247.Data.Entities.Helper>(helperBO));
+                    await appDbContext.SaveChangesAsync();
+
+                    transaction.Commit();
+                    return helperBO;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
         }
 

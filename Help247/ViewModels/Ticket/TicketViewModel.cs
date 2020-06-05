@@ -11,6 +11,22 @@ namespace Help247.ViewModels.Ticket
     {
         public int Id { get; set; }
         [Required]
+        public DateTime HelpDateFrom { get; set; }
+        public DateTime HelpDateTo { get; set; }
+        [Required]
+        public string State { get; set; }
+        [Required]
+        public string City { get; set; }
+        [Required]
+        public string Address { get; set; }
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        public string ContactNo1 { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public string ContactNo2 { get; set; }
+        public string OtherRequirements { get; set; }
+
+        [Required]
         public int TicketStatusId { get; set; }
         public DateTime CreatedOn { get; set; }
         public int CreatedById { get; set; }

@@ -19,14 +19,15 @@ namespace Help247.Common.Utility
         
         public enum TicketStatus : byte
         {
-            [Description("Ticket not placed")]
             None = 0,
-            [Description("Ticket has been reqested")]
-            TicketRequest = 1,
-            [Description("Ticket has been approved")]
-            TicketApproval = 2,
-            [Description("Ticket has been terminated")]
-            TicketTerminate = 3
+            [Description("Help has been reqested")]
+            HelpRequest = 1,
+            [Description("Help is under process")]
+            HelpProcess = 2,
+            [Description("Help has been completed successfully")]
+            HelpComplete = 3,
+            [Description("Help has been cancelled")]
+            HelpCancel = 4
         }
 
         public enum UserType : int

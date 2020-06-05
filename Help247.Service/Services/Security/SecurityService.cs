@@ -46,7 +46,7 @@ namespace Help247.Service.Services.Security
             this.hostingEnvironment = hostingEnvironment;
         }
 
-        public async Task<UserBO> CreateNewUserAsync(UserBO userBO /*IFormFileCollection files*/)
+        public async Task<UserBO> CreateNewUserAsync(UserBO userBO)
         {
             using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
@@ -57,37 +57,19 @@ namespace Help247.Service.Services.Security
                     {
                         return null;
                     }
-                    //var fileSaveResult = new FileSaveResult();
-                    //var filenames = new List<string>();
-                    //foreach (var Image in files)
-                    //{
-                    //    if (Image != null && Image.Length > 0)
-                    //    {
-                    //        var imageStream = Image.OpenReadStream();
-
-                    //        var uploads = Path.Combine(this.hostingEnvironment.WebRootPath, FolderPath.HelperImages);
-                    //        if (Image.Length > 0)
-                    //        {
-                    //            var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(Image.FileName);
-                                
-                    //            filenames.Add(fileName);
-                    //            //fileSaveResult.FileIsThere = true;
-                    //        }
-                    //    }
-                    //}
-                   
+                    
                     var storeUser = mapper.Map<User>(userBO);
                     var user = await userManager.CreateAsync(storeUser, userBO.Password);
                     if (!user.Succeeded)
                     {
                         return new UserBO();
                     }
+
                     var userType = "Admin";
                     switch (userBO.UserType)
                     {
                         case Enums.UserType.Helper:
                             userType = "Helper";
-                            //userBO.ProfilePic = filenames[0];
                             await appDbContext.Helpers.AddAsync(mapper.Map<Help247.Data.Entities.Helper>(userBO));
                             break;
                         case Enums.UserType.Customer:
@@ -119,7 +101,7 @@ namespace Help247.Service.Services.Security
                     {
                         ImageType = ImageType.ProfilePicture,
                         ImageUrl = userBO.ProfilePicUrl,
-                        UserName = userBO.UserName 
+                        UserName = userBO.Email 
                     };
                     await appDbContext.Images.AddAsync(image);
                     await appDbContext.SaveChangesAsync();
@@ -252,6 +234,19 @@ namespace Help247.Service.Services.Security
                     var error = result.Errors.FirstOrDefault();
                     throw new ArgumentException(error.Description);
                 }
+            }
+        }
+
+        public async Task<bool> CheckUserExistAsync(string email)
+        {
+            var query = await userManager.FindByEmailAsync(email);
+            if (query == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
