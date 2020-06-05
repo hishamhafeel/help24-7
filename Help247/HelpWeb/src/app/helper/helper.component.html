@@ -1,0 +1,687 @@
+<div class="content-box-wrap appwrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="appcontainer">
+                    <div class="row">
+                        <div class="col-lg-4 sb">
+                            <div class="sidebar boxshadow">
+                                <div class="sidebar-header">
+                                    <div class="profileimg">
+                                        <img src="../../assets/images/user-profile-img.png" class="img-fluid">
+                                    </div>
+                                    <div class="profile-info">
+                                        <h3>John Doe</h3>
+                                        <p>Last login was 4th June 2020</p>
+                                    </div>
+
+                                </div>
+                                <div class="sidebar-links">
+                                    <div class="mobiledrop">
+                                        <p class="mdroptext">Select</p>
+                                        <ul>
+                                            <li><a (click)="showDashboard()"><i
+                                                        class="sprite sprite-dashboard-icon"></i> Dashboard</a>
+                                            </li>
+                                            <li><a (click)="showMyJobs()"><i class="sprite sprite-mytickets-icon"></i>
+                                                    My Jobs</a>
+                                            </li>
+                                            <li><a (click)="showSettings()"><i class="sprite sprite-settings-icon"></i>
+                                                    Settings</a></li>
+                                            <li><a (click)="showRatings()"><i
+                                                        class="sprite sprite-reviewsrate-icon"></i> Reviews &
+                                                    Ratings</a></li>
+                                            <li><a (click)="logout()"><i class="sprite sprite-logout-icon"></i> Log
+                                                    out</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-8 dbb" *ngIf="isDashboardClicked">
+                            <div class="dashboardwrap tech">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h5>Dashboard</h5>
+                                        <h6>Hello, John Doe</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="dashinfo">
+                                            <div class="row">
+                                                <div class="col-lg-7">
+                                                    <div class="statusbox boxshadow">
+                                                        <h5>Feedback of the last ticket you completed</h5>
+                                                        <p>At vero eos accusam et justo lorem ipsum dolor sit amet, at
+                                                            accusam lorem, amet et ipsum justo dolor, sit amet at vero
+                                                            eos</p>
+                                                        <div class="statusinfo">
+                                                            <a href="" class="btn-red ">View</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <div class="seekingbox boxshadow text-center">
+                                                        <h5>You have a new job waiting</h5>
+                                                        <p>A new job is waiting for you. View the job and accept or
+                                                            reject it</p>
+                                                        <a href="" class="btn-red">VIEW JOB</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="jobwrap">
+                                            <div class="jobbox boxshadow text-center">
+                                                <h4>Completed Jobs</h4>
+                                                <h5 class="completed-lbl">
+                                                    <div class="job-number1"></div>
+                                                </h5>
+                                            </div>
+                                            <div class="jobbox boxshadow text-center">
+                                                <h4>Accepted Jobs</h4>
+                                                <h5 class="accept-lbl">
+                                                    <div class="job-number2"></div>
+                                                </h5>
+                                            </div>
+                                            <div class="jobbox boxshadow text-center">
+                                                <h4>Pending Jobs</h4>
+                                                <h5 class="pending-lbl">
+                                                    <div class="job-number3"></div>
+                                                </h5>
+                                            </div>
+                                            <div class="jobbox boxshadow text-center">
+                                                <h4>Rejected Jobs</h4>
+                                                <h5 class="reject-lbl">
+                                                    <div class="job-number4"></div>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="jobsection">
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <div class="pending-jobs boxshadow text-center">
+                                                    <h5>You have two Pending Jobs</h5>
+                                                    <p>At vero eos accusam et justo lorem ipsum dolor sit
+                                                        lorem, amet et ipsum justo dolor.</p>
+                                                    <hr />
+                                                    <p>At vero eos accusam et justo lorem ipsum dolor sit lorem, amet et
+                                                        ipsum justo dolor.</p>
+
+                                                    <a href="" class="btn-red large">VIEW</a>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <div class="reminder boxshadow">
+                                                    <h4>Reminder! </h4>
+                                                    <h5>You have two more days to complete this accepted job</h5>
+                                                    <p>At vero eos accusam et justo lorem ipsum dolor sit amet, at
+                                                        accusamlorem, amet et ipsum justo dolor, sit amet at vero eos
+                                                    </p>
+                                                    <p>Help date : 10 Jan 2020</p>
+                                                    <div class="remind">
+                                                        <a href="" class="btn-red large">VIEW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 dbb heighfix" *ngIf="isMyJobsClicked">
+                            <div class="dashboardwrap">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h5>Dashboard/ My Jobs</h5>
+                                        <h6>My Jobs</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap t2">
+                                            <h2 class="subtitle3">Pending Jobs</h2>
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Category</th>
+                                                        <th scope="col">Customer</th>
+                                                        <th scope="col">Help Date</th>
+                                                        <th scope="col">Help Time</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus accept">Accepted</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Accept</a>
+                                                            <a href="" class="btn-red small">Reject</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus accept">Accepted</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Accept</a>
+                                                            <a href="" class="btn-red small">Reject</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus pending">Pending</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Accept</a>
+                                                            <a href="" class="btn-red small">Reject</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus reject">Reject</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Accept</a>
+                                                            <a href="" class="btn-red small">Reject</a>
+                                                        </td>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="pagiarrow">
+                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="img/pagiarrow-next.png"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap t2">
+                                            <h2 class="subtitle3">Completed Tickets</h2>
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Category</th>
+                                                        <th scope="col">Customer</th>
+                                                        <th scope="col">Help Date</th>
+                                                        <th scope="col">Help Time</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view">View</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view">View</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view">View</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view">View</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="pagiarrow">
+                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="img/pagiarrow-next.png"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-8 dbb" *ngIf="isSettingsClicked">
+                            <div class="dashboardwrap">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h5>Dashboard/Settings</h5>
+                                        <h6>Settings</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="settings">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="settingwrap boxshadow">
+                                                        <h4>Personal Settings</h4>
+                                                        <div class="setting-form">
+                                                            <form>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>First Name</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Full name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>Last Name</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Last Name">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>Phone</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="+94">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>Mobile</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="+94">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>E mail Address</label>
+                                                                            <input type="email" class="form-control"
+                                                                                placeholder="Your Email">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>Address</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Address">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>Country </label>
+                                                                            <select class="form-control">
+                                                                                <option>Sri Lanka</option>
+                                                                                <option>USA</option>
+                                                                                <option>England</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>State</label>
+                                                                            <select class="form-control">
+                                                                                <option>Select State</option>
+                                                                                <option>State 1</option>
+                                                                                <option>State 2</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>City </label>
+                                                                            <select class="form-control">
+                                                                                <option>Select City</option>
+                                                                                <option>State 1</option>
+                                                                                <option>State 2</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>Postal Code</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col">
+                                                                        <div class="form-group field-chk">
+                                                                            <label>Field of Expertise</label>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input
+                                                                                        class="form-check-input fieldcheck"
+                                                                                        type="checkbox" value="" id="">
+                                                                                    IT & Telecommunication
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input
+                                                                                        class="form-check-input fieldcheck"
+                                                                                        type="checkbox" value="" id="">
+                                                                                    Hospitality & Tourism
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input
+                                                                                        class="form-check-input fieldcheck"
+                                                                                        type="checkbox" value="" id="">
+                                                                                    Vehicle Maintenance
+                                                                                </label>
+                                                                            </div>
+
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input
+                                                                                        class="form-check-input fieldcheck"
+                                                                                        type="checkbox" value="" id="">
+                                                                                    Healthcare/ Hospitals
+                                                                                </label>
+                                                                            </div>
+
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input
+                                                                                        class="form-check-input fieldcheck"
+                                                                                        type="checkbox" value="" id="">
+                                                                                    Hot Jobs
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input
+                                                                                        class="form-check-input fieldcheck"
+                                                                                        type="checkbox" value="" id="">
+                                                                                    Education
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input
+                                                                                        class="form-check-input fieldcheck"
+                                                                                        type="checkbox" value="" id="">
+                                                                                    Massmedia /Entertainment
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input
+                                                                                        class="form-check-input fieldcheck"
+                                                                                        type="checkbox" value="" id="">
+                                                                                    Financial Services
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>Skills</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>Years of Experience</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Years of Experience">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>Profile Picture</label>
+                                                                            <label class="file">
+                                                                                <input type="file"
+                                                                                    class="form-control-file">
+                                                                                <span class="file-custom"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>About Me</label>
+                                                                            <textarea class="form-control set-text"
+                                                                                placeholder="Description About your self"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>About My Service</label>
+                                                                            <textarea class="form-control set-text"
+                                                                                placeholder="Description about the service provided"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <button type="submit" class="btn redbtn">Save</button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="accsetting">
+                                                            <h4>Account Settings</h4>
+                                                            <div class="form-row">
+                                                                <div class="col cgap">
+                                                                    <div class="form-group">
+                                                                        <label>Password</label>
+                                                                        <input type="password" class="form-control"
+                                                                            placeholder="Enter Your Password">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label>Verify Password</label>
+                                                                        <input type="password" class="form-control"
+                                                                            placeholder="Re-enter Password">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="submit" class="btn redbtn mt-3">Change
+                                                                Password</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-8 dbb heighfix" *ngIf="isRatingClicked">
+                            <div class="dashboardwrap">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h5>Dashboard/ Reviews & Ratings</h5>
+                                        <h6>Reviews & Ratings</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap">
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Helper</th>
+                                                        <th scope="col">Review</th>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

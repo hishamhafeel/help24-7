@@ -1,0 +1,779 @@
+<div class="content-box-wrap appwrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="appcontainer">
+                    <div class="row">
+                        <div class="col-lg-4 sb">
+                            <div class="sidebar boxshadow">
+                                <div class="sidebar-header">
+                                    <div class="profileimg">
+                                        <img src="../../../assets/images/user-profile-img.png" class="img-fluid">
+                                    </div>
+                                    <div class="profile-info">
+                                        <h3>John Doe</h3>
+                                        <p>Last login was 4th June 2020</p>
+                                    </div>
+
+                                </div>
+                                <div class="sidebar-links">
+                                    <div class="mobiledrop">
+                                        <p class="mdroptext">Select</p>
+                                        <ul>
+                                            <li><a (click)="showDashboard()"><i
+                                                        class="sprite sprite-dashboard-icon"></i> Dashboard</a>
+                                            </li>
+                                            <li><a (click)="showMyTickets()"><i
+                                                        class="sprite sprite-mytickets-icon"></i> My Tickets</a>
+                                            </li>
+                                            <li><a (click)="showSettings()"><i class="sprite sprite-settings-icon"></i>
+                                                    Settings</a></li>
+                                            <li><a (click)="showRatings()"><i
+                                                        class="sprite sprite-reviewsrate-icon"></i> Reviews &
+                                                    Ratings</a></li>
+                                            <li><a (click)="logout()"><i class="sprite sprite-logout-icon"></i> Log
+                                                    out</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 dbb" *ngIf="isDashboardClicked">
+                            <div class="dashboardwrap">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h5>Dashboard</h5>
+                                        <h6>Hello, John Doe</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="dashinfo">
+                                            <div class="row">
+                                                <div class="col-lg-7">
+                                                    <div class="statusbox boxshadow">
+                                                        <h5>Status of the last ticket you created...</h5>
+                                                        <p>At vero eos accusam et justo</p>
+                                                        <p>Date : 25 Nov 2019 copy 7</p>
+                                                        <div class="statusinfo">
+                                                            <span>Pending</span>
+                                                            <a href="" class="btn-red ">View Ticket</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <div class="seekingbox boxshadow text-center">
+                                                        <h5>Seeking for help?</h5>
+                                                        <p>Select the technician and create your ticket now.</p>
+                                                        <a href="" class="btn-red">Open Ticket</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="toprate-tec boxshadow">
+                                            <h3 class="subtitle">Top Rated Techniciaons</h3>
+                                            <div class="toptechslider-wrap">
+                                                <div class="owl-carousel owl-theme owl-sl" id="toptech">
+                                                    <div class="item">
+                                                        <div class="tech-item">
+                                                            <div class="techimg">
+                                                                <img src="../../../assets/images/tech-img.jpg"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="techdetail">
+                                                                <h5>Jack Dou</h5>
+                                                                <div class="tech-points">
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-field-icon"></i>
+                                                                        <h6><a href="">IT & Telecommunication</a>
+                                                                        </h6>
+                                                                    </span>
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-city-icon"></i>
+                                                                        <h6>City</h6>
+                                                                    </span>
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-country-icon"></i>
+                                                                        <h6>Country</h6>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="techbtn-wrap">
+                                                                    <span class="availablel-label">Available</span>
+                                                                    <a href="" class="btn-hire">Hire Me</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="tech-item">
+                                                            <div class="techimg">
+                                                                <img src="../../../assets/images/tech-img.jpg"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="techdetail">
+                                                                <h5>Jack Dou</h5>
+                                                                <div class="tech-points">
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-field-icon"></i>
+                                                                        <h6><a href="">IT & Telecommunication</a>
+                                                                        </h6>
+                                                                    </span>
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-city-icon"></i>
+                                                                        <h6>City</h6>
+                                                                    </span>
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-country-icon"></i>
+                                                                        <h6>Country</h6>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="techbtn-wrap">
+                                                                    <span class="availablel-label not-av">Not
+                                                                        Available</span>
+                                                                    <a href="" class="btn-hire">Hire Me</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="tech-item">
+                                                            <div class="techimg">
+                                                                <img src="../../../assets/images/tech-img.jpg"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="techdetail">
+                                                                <h5>Jack Dou</h5>
+                                                                <div class="tech-points">
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-field-icon"></i>
+                                                                        <h6><a href="">IT & Telecommunication</a>
+                                                                        </h6>
+                                                                    </span>
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-city-icon"></i>
+                                                                        <h6>City</h6>
+                                                                    </span>
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-country-icon"></i>
+                                                                        <h6>Country</h6>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="techbtn-wrap">
+                                                                    <span class="availablel-label">Available</span>
+                                                                    <a href="" class="btn-hire">Hire Me</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="tech-item">
+                                                            <div class="techimg">
+                                                                <img src="../../../assets/images/tech-img.jpg"
+                                                                    class="img-fluid">
+                                                            </div>
+                                                            <div class="techdetail">
+                                                                <h5>Jack Dou</h5>
+                                                                <div class="tech-points">
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-field-icon"></i>
+                                                                        <h6><a href="">IT & Telecommunication</a>
+                                                                        </h6>
+                                                                    </span>
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-city-icon"></i>
+                                                                        <h6>City</h6>
+                                                                    </span>
+                                                                    <span class="tech-field">
+                                                                        <i class="sprite sprite-country-icon"></i>
+                                                                        <h6>Country</h6>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="techbtn-wrap">
+                                                                    <span class="availablel-label">Available</span>
+                                                                    <a href="" class="btn-hire">Hire Me</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="vbtnwrap text-center">
+                                                <a href="" class="btn-red">View More</a>
+                                            </div>
+                                        </div>
+                                        <div class="service-provide boxshadow">
+                                            <h3 class="subtitle">Services we provide</h3>
+                                            <div class="toptechslider-wrap">
+                                                <div class="owl-carousel owl-theme owl-sl set2" id="service">
+                                                    <div class="item">
+                                                        <div class="serivce-item boxshadow">
+                                                            <div class="serv-text">
+                                                                <h4>IT & Telecommunication</h4>
+                                                                <p>Lorem ipsum dolor sit ametnam liber tempor cum
+                                                                    solutanobis eleifend optio nconguenihil
+                                                                    imperdiet
+                                                                    liber tempor </p>
+                                                            </div>
+                                                            <div class="serv-box">
+                                                                <div class="serv-img">
+                                                                    <img src="../../../assets/images/service-icon1.png"
+                                                                        class="img-fluid">
+                                                                </div>
+                                                                <a href="" class="btn-hire">Select</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="serivce-item boxshadow">
+                                                            <div class="serv-text">
+                                                                <h4>IT & Telecommunication</h4>
+                                                                <p>Lorem ipsum dolor sit ametnam liber tempor cum
+                                                                    solutanobis eleifend optio nconguenihil
+                                                                    imperdiet
+                                                                    liber tempor </p>
+                                                            </div>
+                                                            <div class="serv-box">
+                                                                <div class="serv-img">
+                                                                    <img src="../../../assets/images/service-icon2.png"
+                                                                        class="img-fluid">
+                                                                </div>
+                                                                <a href="" class="btn-hire">Select</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="serivce-item boxshadow">
+                                                            <div class="serv-text">
+                                                                <h4>IT & Telecommunication</h4>
+                                                                <p>Lorem ipsum dolor sit ametnam liber tempor cum
+                                                                    solutanobis eleifend optio nconguenihil
+                                                                    imperdiet
+                                                                    liber tempor </p>
+                                                            </div>
+                                                            <div class="serv-box">
+                                                                <div class="serv-img">
+                                                                    <img src="../../../assets/images/service-icon2.png"
+                                                                        class="img-fluid">
+                                                                </div>
+                                                                <a href="" class="btn-hire">Select</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="vbtnwrap text-center">
+                                                <a href="" class="btn-red">View More</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 dbb heighfix" *ngIf="isMyTicketsClicked">
+                            <div class="dashboardwrap">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h5>Dashboard/ My Tickets</h5>
+                                        <h6>My Tickets</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap t2">
+                                            <h2 class="subtitle3">Pending Tickets</h2>
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Category</th>
+                                                        <th scope="col">Helper</th>
+                                                        <th scope="col">Help Date</th>
+                                                        <th scope="col">Help Time</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo
+                                                            <div class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus accept">Accepted</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo
+                                                            <div class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus accept">Accepted</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo
+                                                            <div class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus reject">reject</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo
+                                                            <div class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus pending">pending</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="pagiarrow">
+                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="img/pagiarrow-next.png"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap t2">
+                                            <h2 class="subtitle3">Ongoing Tickets</h2>
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Category</th>
+                                                        <th scope="col">Helper</th>
+                                                        <th scope="col">Help Date</th>
+                                                        <th scope="col">Help Time</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo
+                                                            <div class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus accept">Accepted</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo
+                                                            <div class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus accept">Accepted</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo
+                                                            <div class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus reject">reject</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo
+                                                            <div class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus pending">pending</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="pagiarrow">
+                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="img/pagiarrow-next.png"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap t2">
+                                            <h2 class="subtitle3">Completed Tickets</h2>
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Category</th>
+                                                        <th scope="col">Helper</th>
+                                                        <th scope="col">Help Date</th>
+                                                        <th scope="col">Help Time</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view">View</a>
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#rates">+ Review</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view">View</a>
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#rates">+ Review</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view">View</a>
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#rates">+ Review</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Title">At vero eos accusam et justo<div
+                                                                class="titledate">Date : 25 Nov 2019</div>
+                                                        </td>
+                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Help Date">10 Jan 2020</td>
+                                                        <td data-label="Help Time">07 : 00 : 00</td>
+                                                        <td data-label="Status"><span
+                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Action">
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view">View</a>
+                                                            <a href="" class="btn-red small" data-toggle="modal"
+                                                                data-target="#rates">+ Review</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="pagiarrow">
+                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="img/pagiarrow-next.png"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-8 dbb" *ngIf="isSettingsClicked">
+                            <div class="dashboardwrap">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h5><a href="">Dashboard</a>/<a href="">Settings</a></h5>
+                                        <h6>Settings</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="settings">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="settingwrap boxshadow">
+                                                        <h4>Personal Settings</h4>
+                                                        <div class="setting-form">
+                                                            <form>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>Name</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Full name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>Phone</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="+94">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>Email Address</label>
+                                                                            <input type="email" class="form-control"
+                                                                                placeholder="Your Email">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>Address</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Address">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>Country </label>
+                                                                            <select class="form-control">
+                                                                                <option>Sri Lanka</option>
+                                                                                <option>USA</option>
+                                                                                <option>England</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>State</label>
+                                                                            <select class="form-control">
+                                                                                <option>Select State</option>
+                                                                                <option>State 1</option>
+                                                                                <option>State 2</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>City </label>
+                                                                            <select class="form-control">
+                                                                                <option>Select City</option>
+                                                                                <option>State 1</option>
+                                                                                <option>State 2</option>
+                                                                            </select>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label>Postal Code</label>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="col cgap">
+                                                                        <div class="form-group">
+                                                                            <label>Profile Picture</label>
+                                                                            <label class="file">
+                                                                                <input type="file"
+                                                                                    class="form-control-file">
+                                                                                <span class="file-custom"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                    </div>
+                                                                </div>
+                                                                <button type="submit" class="btn redbtn">Save</button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="accsetting">
+                                                            <h4>Account Settings</h4>
+                                                            <div class="form-row">
+                                                                <div class="col cgap">
+                                                                    <div class="form-group">
+                                                                        <label>Password</label>
+                                                                        <input type="password" class="form-control"
+                                                                            placeholder="Enter Your Password">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label>Verify Password</label>
+                                                                        <input type="password" class="form-control"
+                                                                            placeholder="Re-enter Password">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="submit" class="btn redbtn mt-3">Change
+                                                                Password</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-8 dbb heighfix" *ngIf="isRatingClicked">
+                            <div class="dashboardwrap">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h5><a href="#">Dashboard</a>/ <a href="#">Reviews & Ratings</a></h5>
+                                        <h6>Reviews & Ratings</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap">
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Helper</th>
+                                                        <th scope="col">Review</th>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-label="Helper">John Jack</td>
+                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
+                                                            dolar sit amet</td>
+                                                        <td data-label="Date">10 Jan 2020</td>
+                                                        <td data-label=""><a href="" class="btn-red small"
+                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

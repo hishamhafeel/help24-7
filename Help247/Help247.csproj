@@ -53,6 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="HelpWeb\" />
     <Folder Include="wwwroot\App_Data\Log4Net\" />
   </ItemGroup>
 

@@ -1,0 +1,28 @@
+<header class="header-wrap"
+    [ngClass]="{appui: router.url.includes('hire-me') || router.url.includes('customer') || router.url.includes('helper') || router.url.includes('helper-details') || router.url.includes('auth'), 'hdinner':router.url !== '/home' && router.url !== '/hire-me'}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="logo-wrap">
+                    <a href="#"><img src="../../../assets/images/logo.png" class="img-fluid" /></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <!-- <li class="active"><a href="">Home</a></li>  -->
+
+                        <li><a [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a></li>
+                        <li><a [routerLink]="['/about-us']" routerLinkActive="router-link-active">About Us</a></li>
+                        <li><a [routerLink]="['/services']" routerLinkActive="router-link-active">Services</a></li>
+                        <li><a [routerLink]="['/hire-me']" routerLinkActive="router-link-active">Hire Me</a></li>
+                        <li><a [routerLink]="['/contact-us']" routerLinkActive="router-link-active">Contact Us</a></li>
+                        <li><a [routerLink]="['/auth/signup']" routerLinkActive="router-link-active">Register</a></li>
+                    </ul>
+                    <!-- <a class="call" href=""></a> -->
+                    <button class="navbar-toggler mobilemenu">
+                        <div class="animated-icon1"><span></span><span></span><span></span></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

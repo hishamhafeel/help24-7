@@ -1,0 +1,1063 @@
+@media only screen and (max-width: 1024px) {
+  .tech-points h6 {
+    font-size: 10px;
+  }
+  span.tech-field {
+    width: 100%;
+  }
+  .techbtn-wrap {
+    text-align: center;
+  }
+  .sprite-country-icon {
+    width: 24px;
+    background-position: -12px -399px;
+  }
+  .techbtn-wrap a.btn-hire {
+    float: none;
+    margin: 10px auto;
+  }
+  .techbtn-wrap span.availablel-label {
+    float: none;
+  }
+  .jobbox {
+    width: 146px;
+  }
+  .opentick .tech-points h6 {
+    font-size: 12px;
+  }
+  .h-datewrap h6 {
+    margin-left: 0;
+  }
+  .h-datewrap .fromdate,
+  .h-datewrap .todate {
+    width: 93px;
+    margin: 0 8px;
+  }
+  .h-datewrap input.form-control {
+    padding: 0;
+    text-indent: 3px;
+  }
+  .service-box h4 {
+    font-size: 14px;
+  }
+  .service-content p {
+    font-size: 13px;
+    min-height: 50px;
+  }
+  .service-lists .media {
+    margin-bottom: 35px;
+  }
+  .col-tech {
+    width: 30%;
+  }
+  .btn.hiresearch {
+    margin: 0 21px 0 -61px;
+  }
+  .bannertext {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 90px;
+    top: 36%;
+  }
+  .introimg img {
+    border-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .sidebar-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile-info {
+    margin-left: 0;
+  }
+  .seekingbox {
+    margin-top: 20px;
+  }
+  .techbtn-wrap span.availablel-label {
+    width: 100%;
+  }
+  .profile-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .field-chk .form-check {
+    width: 206px;
+  }
+  a.btn-red.rem {
+    padding: 8px 53px;
+  }
+  .pending-jobs {
+    margin-bottom: 25px;
+  }
+  .remind {
+    text-align: center;
+  }
+  /*.jobbox {
+	    width: 46%;
+	    padding: 13px;
+	    margin: 10px 8px;
+	}*/
+  .jobbox {
+    width: 47%;
+    padding: 13px;
+    margin: 10px 12px;
+  }
+  .jobwrap {
+    margin: 30px 0 10px 0;
+  }
+  .jobbox h5 {
+    font-size: 50px;
+  }
+  .rs-row {
+    width: 50%;
+    float: left;
+  }
+  .rs-row:last-child {
+    width: 100%;
+  }
+  .right-sidebar {
+    position: relative;
+    top: 0;
+    height: 100%;
+  }
+  .rs-row a.btn-hire {
+    margin-top: 0;
+  }
+  .techwrap {
+    margin-bottom: 50px;
+  }
+  .opentick h2 {
+    font-size: 21px;
+  }
+  .h-datewrap {
+    width: 172px;
+    margin-bottom: 11px;
+  }
+  .h-datewrap h6 {
+    width: 40px;
+  }
+  .h-datewrap .fromdate,
+  .h-datewrap .todate {
+    width: 106px;
+    margin: 0 8px;
+  }
+  .abt-content img {
+    float: none;
+    margin: 0 auto 20px auto;
+    display: block;
+    width: 100%;
+  }
+  .visionwrapbox {
+    float: none;
+    padding: 45px 22px;
+    max-width: initial;
+    margin-right: 0px;
+    flex-direction: column;
+  }
+  .visionwrapbox.vis {
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .vs-img {
+    margin-bottom: 25px;
+  }
+  .serv .abt-intro {
+    margin: 70px 0 0;
+  }
+  .abt-content h3 {
+    font-size: 28px;
+    text-align: center;
+  }
+  .service-box h4 {
+    min-height: auto;
+  }
+  .serv-sub .abt-intro img {
+    width: 100%;
+  }
+  .serv-sub .abt-intro {
+    margin-bottom: 0;
+  }
+  .infobanner-content p {
+    padding: 0;
+  }
+  .contact .abt-content h3 {
+    text-align: left;
+  }
+  .contactwrap {
+    padding-right: 0;
+  }
+  .contact-info {
+    padding-left: 0;
+  }
+  .help-tabwrap {
+    padding-left: 0;
+  }
+  a.hc-tab {
+    margin: 0 10px;
+  }
+  .tabcontents-wrap .card-body {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
+  .search-items .form-check-label {
+    font-size: 10px;
+  }
+  .col-tech {
+    width: 32%;
+    margin-right: 6px;
+  }
+  .hiresearcwrap .form-inline .form-control {
+    font-size: 13px;
+  }
+  .btn.hiresearch {
+    margin: 0 31px 0 0;
+    position: absolute;
+    top: 0;
+    right: -30px;
+  }
+  .hiresearcwrap a.btnclr {
+    margin: 0 8px;
+    position: absolute;
+    right: 0;
+    bottom: -23px;
+  }
+  .search-items .form-group.form-check {
+    margin-bottom: 6px;
+  }
+  .thecounter {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .whychoose-title p {
+    padding: 0 5px;
+  }
+  .introimg:before {
+    top: 0;
+    left: 15px;
+    bottom: 0;
+    right: 15px;
+  }
+  .counterwrap {
+    padding: 50px 0;
+  }
+  .introimg img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+  .info-contents {
+    padding-left: 0;
+    margin-top: 30px;
+  }
+  .hm-search input.form-control {
+    width: 425px;
+  }
+  .bannertext h2 {
+    font-size: 39px;
+    padding-right: 46%;
+    line-height: 53px;
+  }
+  .hm-search {
+    margin-left: 50px;
+  }
+  .service-box {
+    height: 100%;
+  }
+  .service-boxwrap .col-lg-3 {
+    margin-bottom: 20px;
+  }
+  .info-contents h3 {
+    text-align: center;
+  }
+  .info-contents .readmore {
+    display: block;
+    margin: 0 auto;
+    width: 130px;
+  }
+  .hmtiotech .owl-sl .owl-nav {
+    top: 36%;
+  }
+  .nletter-col1 {
+    position: relative;
+    display: block;
+    width: 50%;
+    float: left;
+  }
+  .nletter-col2 {
+    position: relative;
+    display: block;
+    width: 50%;
+    float: left;
+  }
+  .c-order {
+    order: 1;
+  }
+  .l-order {
+    order: 2;
+  }
+  .s-order {
+    order: 3;
+  }
+  .flogo-wrap {
+    margin: -125px auto 20px auto;
+    text-align: center;
+    z-index: 99;
+  }
+  .menu>ul>li.active a:after,
+  .menu>ul>li>a:hover:after {
+    display: none;
+  }
+  .hdinner .menu>ul>li>a {
+    font-size: 14px;
+  }
+  .abt-intro {
+    margin: 30px 0;
+  }
+  .s-avlble {
+    display: none !important;
+  }
+  .tablewrap table td {
+    padding: 26px 8px;
+  }
+  a.btn-red.small {
+    padding: 5px 16px;
+    font-size: 13px;
+  }
+  .accsetting:before {
+    width: 113%;
+  }
+  .tablewrap.t2 table th:nth-child(1) {
+    width: 103px;
+  }
+  .tablewrap.t2 table th:nth-child(2) {
+    display: none;
+  }
+  .tablewrap.t2 table td:nth-child(2) {
+    display: none;
+  }
+  .tablewrap.t2 table th:nth-child(3) {
+    width: 58px;
+  }
+  .tablewrap.t2 table th:nth-child(6) {
+    width: 73px;
+  }
+  .col-lg-8.dbb.heighfix {
+    padding-bottom: 0px;
+  }
+  .col-lg-8.dbb {
+    flex: 0 0 73%;
+    max-width: 72.666667%;
+  }
+  .statusbox {
+    padding: 17px 22px 15px;
+  }
+  .jobbox:first-child,
+  .jobbox:nth-child(3) {
+    margin-left: 0;
+  }
+  .jobbox:nth-child(2),
+  .jobbox:nth-child(4) {
+    margin-right: 0;
+  }
+  .tablewrap table th,
+  .tablewrap table td {
+    font-size: 13px;
+  }
+  .mobilside {
+    display: block;
+    margin: 20px auto;
+  }
+  .right-sidebar {
+    display: none;
+  }
+  .mobilside .right-sidebar {
+      display: inline-block;
+      height: 100%;
+      border: 0;
+      background: #fff;
+      margin-bottom: 0;
+  }
+  .opentick {
+    padding: 30px 40px 40px 40px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+}
+
+@media only screen and (max-width: 767px) {
+  .menu>ul {
+    width: 103%;
+  }
+  /*.menu>ul.open-menu {
+	    margin-top: 32px;
+	}*/
+  .menu>ul.open-menu {
+    transform: translateX(-1%);
+  }
+  .menu>ul li {
+    text-align: center;
+  }
+  /*.scrolled .menu>ul {	   
+	    top: 64px;
+	}*/
+  .col-lg-4.sb {
+    max-width: 100%;
+  }
+  .col-lg-8.dbb {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .f-social {
+    padding-left: 0;
+    text-align: center;
+  }
+  .copyright {
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  ul.f-contacts {
+    text-align: center;
+  }
+  .sidebar-header {
+    padding: 15px 10px;
+  }
+  .flogo-wrap {
+    margin: 0 auto 20px auto;
+    text-align: center;
+  }
+  .dashboardwrap {
+    position: relative;
+    margin: 40px auto;
+  }
+  .dashboardwrap h5,
+  .dashboardwrap h6 {
+    text-align: center;
+  }
+  .dashboardwrap.tech {
+    margin: 40px auto 5px auto;
+  }
+  .serivce-item {
+    align-items: center;
+    flex-direction: column;
+  }
+  .owl-sl.set2 .owl-nav {
+    top: 34%;
+  }
+  .service-provide {
+    margin: 45px 0 0;
+  }
+  .serv-text h4 {
+    text-align: center;
+  }
+  .serivce-item {
+    padding: 20px 14px 18px;
+  }
+  .footerwrap h5 {
+    text-align: center;
+  }
+  .fcol-1 {
+    padding-right: 0;
+  }
+  .sidebar-links ul {
+    /* margin-top: 53px; */
+    background: #fff;
+    transform: translateY(21px);
+  }
+  .mobiledrop {
+    position: relative;
+    display: block;
+    max-height: 54px;
+    overflow: hidden;
+    background: #f5f5f5;
+    transition: 0.5s;
+  }
+  .sidebar-links.open .mobiledrop {
+    max-height: 500px;
+    overflow: visible;
+  }
+  .mdroptext {
+    display: block;
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-left: 16px;
+  }
+  .mobiledrop:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    top: 23px;
+    right: 24px;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+  .sidebar-links.open .mobiledrop:after {
+    transform: rotate(-136deg);
+  }
+  .modelcol1 {
+    margin-right: 0;
+  }
+  .modelcol2 {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+  .feedback {
+    margin-top: 28px;
+  }
+  .feedback h5 {
+    padding-left: 0;
+    text-align: center;
+  }
+  .settingwrap .form-row {
+    flex-direction: column;
+  }
+  .jobbox {
+    width: 46%;
+    margin: 10px 10px;
+  }
+  .jobbox h4 {
+    font-size: 14px;
+  }
+  .tech .statusinfo {
+    justify-content: center;
+  }
+  .statusinfo a.btn-red {
+    padding: 8px 53px;
+  }
+  .reminder {
+    text-align: center;
+  }
+  .owl-tech img {
+    width: 100%;
+  }
+  .owl-tech .owl-nav {
+    top: 26px;
+  }
+  .des-content {
+    padding: 10px;
+  }
+  .description-wrap {
+    margin-bottom: 0;
+  }
+  .tech-detail-wrap h2 {
+    text-align: center;
+  }
+  .techinfo {
+    margin: 5px 0;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+  .techinfo-img {
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-left: auto;
+    margin-top: 12px;
+  }
+ 
+  .mobilside .right-sidebar {
+      display: block;
+      padding-bottom: 2px;
+  }
+
+
+
+
+  .tech-silder .owl-tech .owl-nav {
+    top: 83px;
+  }
+  .toptechslider-wrap {
+    padding: 0 10px;
+  }
+  .description-wrap h5,
+  .about-tech h5,
+  .recommend-wrap h5,
+  .review-rate-wrap h5 {
+    text-align: center;
+  }
+  .about-techwrap h3,
+  .about-techwrap h6 {
+    text-align: center;
+  }
+  .about-techwrap {
+    padding: 20px 24px;
+  }
+  .rs-row {
+    width: 100%;
+    float: none;
+  }
+  .rs-row a.btn-hire {
+    margin-top: 0;
+  }
+  .right-sidebar {
+    text-align: center;
+  }
+  .rs-row span.availablel-label {
+    display: block;
+    float: none;
+  }
+  .signbox {
+    width: 100%;
+  }
+  .signbox h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .login-info {
+    margin-bottom: 0;
+  }
+  .opentick h2 {
+    text-align: center;
+  }
+  .opentick .settingwrap {
+    margin-top: 0;
+    padding: 5px;
+  }
+  .opentick {
+    padding: 20px;
+  }
+  .h-datewrap .fromdate,
+  .h-datewrap .todate {
+    width: 100%;
+    margin: 0;
+  }
+  .h-datewrap {
+    width: 100%;
+  }
+  .dashboardwrap h5,
+  .dashboardwrap h6 {
+    text-align: center;
+  }
+  .dashboardwrap h6 {
+    margin-bottom: 28px;
+  }
+  .h-datewrap input.form-control {
+    padding: 0 15px;
+  }
+  .h-datewrap .form-control {
+    background-position: 95% center;
+  }
+  .infobanner-content p {
+    padding: 0 5px;
+  }
+  .infobanner-content h3 {
+    font-size: 24px;
+  }
+  .visionwrapbox {
+    margin-bottom: 25px;
+  }
+  .service-box h4 {
+    min-height: auto;
+  }
+  .contact .abt-content h3 {
+    text-align: center;
+  }
+  .content-box-wrap.contact {
+    margin-top: 0;
+  }
+  .contact .abt-intro {
+    margin-bottom: 25px;
+    margin-top: 35px;
+  }
+  .contact-info {
+    padding-left: 0;
+    margin-top: 35px;
+    text-align: center;
+  }
+  button.btn.contacts {
+    display: block;
+    margin: 0 auto;
+  }
+  .tabcontents-wrap .accordion>.card>.card-header {
+    padding: 30px 0;
+  }
+  .tabcontents-wrap h3 {
+    margin-bottom: 19px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 43px;
+  }
+  .help-tabwrap {
+    flex-direction: column;
+    width: 100%;
+  }
+  a.hc-tab {
+    margin: 15px 0;
+    width: 100%;
+  }
+  .inner-header h1 {
+    font-size: 38px;
+  }
+  .hc-tab h5 {
+    font-size: 24px;
+  }
+  .inner-header.hireme {
+    text-align: center;
+  }
+  .hiretech-wrap {
+    margin-top: 0;
+  }
+  .ht-search {
+    margin-bottom: 25px;
+  }
+  .tech-lists {
+    margin-top: 120px;
+  }
+  .btn.hiresearch {
+    position: relative;
+    bottom: -83px;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 9;
+  }
+  .col-tech {
+    width: 100%;
+    margin-right: 0;
+  }
+  .techdetail h5 {
+    font-size: 21px;
+  }
+  .tech-points h6 {
+    margin-bottom: 0;
+      font-size: 14px;
+  }
+  span.availablel-label {
+    font-size: 17px;
+  }
+  .techbtn-wrap a.btn-hire {
+    float: none;
+    margin: 10px auto;
+    width: 100%;
+    font-size: 17px;
+  }
+  .search-items .form-check-label {
+    font-size: 12px;
+  }
+  .bannertext {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    top: 36%;
+    text-align: center;
+    padding: 0 23px;
+  }
+  .bannertext h2 {
+    font-size: 19px;
+    padding-right: 0;
+    line-height: 28px;
+    padding-top: 22px;
+  }
+  .bannertext p {
+    color: #fff;
+    font-size: 17px;
+    padding-right: 0;
+    line-height: 30px;
+    padding: 0 50px;
+  }
+  .banneritem {
+    height: 525px;
+  }
+  .hm-search button.btn {
+    position: relative;
+    width: 100%;
+    font-size: 18px;
+    right: 0;
+  }
+  .hm-search input.form-control {
+    min-width: 100%;
+    width: 333px;
+  }
+  .hm-search .form-group {
+    width: 100%;
+  }
+  .hm-search input.form-control {
+    width: 100%;
+    border: 1px solid #ccc;
+  }
+  .logo-wrap {
+    width: 56px;
+  }
+  .appui.scrolled .logo-wrap {
+    width: 50px;
+  }
+  .hm-search {
+    margin-left: 0;
+  }
+  .hmbanner .owl-nav {
+    position: absolute;
+    top: 55%;
+    left: 0;
+    width: 100%;
+  }
+  .bannersearch {
+    margin-top: -119px;
+  }
+  .section-title h3 {
+    font-size: 28px;
+  }
+  .section-title p {
+    font-size: 13px;
+  }
+  .service-box h4 {
+    font-size: 16px;
+  }
+  .service-content p {
+    min-height: auto;
+  }
+  .service-box {
+    height: auto;
+    margin-bottom: 0;
+  }
+  .infoblock {
+    margin: 10px 0 50px 0;
+  }
+  .service-boxwrap {
+    margin-bottom: 0;
+  }
+  .infobanner {
+    background-attachment: scroll;
+  }
+  .nletter-col1,
+  .nletter-col2 {
+    width: 100%;
+  }
+  .f-social ul li {
+    margin: 0 8px;
+  }
+  .visionwrapbox p {
+    padding-left: 0;
+  }
+  .visionwrapbox {
+    padding: 40px 22px;
+  }
+  .con1 {
+    order: 2;
+  }
+  .con2 {
+    order: 1;
+  }
+  .mobifilter {
+    position: relative;
+    display: block;
+    background: #0e2a55;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 4px 10px;
+    margin: 0 auto;
+    width: 150px;
+  }
+  .hire-sidebar {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+  .hire-sidebar.open {
+    max-height: 400px;
+    overflow: visible;
+  }
+  span.mobifilter:before {
+    content: '+';
+    position: absolute;
+    top: 4px;
+    left: 9px;
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+  span.mobifilter.open:before {
+    content: '-';
+  }
+  .col-lg-8.dbb.heighfix {
+    padding-bottom: 0px;
+  }
+  .accsetting:before {
+    width: 119%;
+  }
+  .techwrap {
+    padding-top: 115px;
+  }
+
+  .opentick .techimg {
+      max-width: 100%;
+  }
+
+  .opentick .techimg {
+    max-width: 100%;
+    text-align: center;
+}
+
+
+
+
+}
+
+@media only screen and (max-width: 640px) {
+  .bannersearch {
+    margin-top: -95px;
+  }
+  .hm-search .form-group {
+    width: 69%;
+  }
+  .hm-search button.btn {
+    position: absolute;
+    width: 34%;
+    font-size: 18px;
+    right: 0;
+  }
+  .banner-wrap.hm {
+    margin-top: -196px;
+    height: 500px;
+    margin-bottom: 16px;
+  }
+  .sbb {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+  .service-box {
+    height: 100%;
+  }
+  .hiresearcwrap .form-inline .form-control {
+    width: 100%;
+  }
+  .col-tech {
+    width: 47%;
+    float: left;
+    margin: 0 7px 20px;
+  }
+  .techimg {
+    max-width: 100%;
+  }
+  .techimg img {
+    width: 100%;
+  }
+  .accsetting:before {
+    width: 113%;
+  }
+  .jobbox {
+      width: 46%;
+      margin: 10px 10px;
+  }
+  .toptechslider-wrap {
+      padding: 0 32px;
+  }
+
+  .tech-detail-wrap .toptechslider-wrap {
+      padding: 0 6px;
+  }
+
+  .jobbox {
+      width: 47%;
+      margin: 10px 13px;
+  }
+
+
+
+
+
+
+}
+
+@media only screen and (max-width: 480px) {
+  .bannersearch {
+    margin-top: -119px;
+  }
+  .hm-search .form-group {
+    width: 100%;
+  }
+  .hm-search button.btn {
+    position: relative;
+    width: 100%;
+  }
+  .banner-wrap.hm {
+    height: 674px;
+  }
+  .sbb {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  /*	.service-box {
+	    height: auto;
+	}*/
+  .col-tech {
+    width: 100%;
+    float: none;
+    margin: 10px auto;
+  }
+  .accsetting:before {
+    width: 121%;
+  }
+  .tech-silder .owl-tech .owl-nav {
+    top: 30px;
+  }
+   .jobwrap {
+      margin: 30px 0 6px 0;
+  }
+
+  .jobbox {
+      width: 46%;
+      margin: 10px 11px;
+  }
+
+}
+
+@media only screen and (max-width: 320px) {
+  .toptechslider-wrap {
+    padding: 0;
+  }
+  .owl-sl button.owl-prev {
+    left: -33px;
+  }
+  .owl-sl button.owl-next {
+    right: -35px;
+  }
+  .accsetting:before {
+    width: 125%;
+  }
+  .jobbox {
+      width: 46%;
+      margin: 10px 9px;
+  }
+
+  .statusinfo {    
+      margin: 17px 0 10px 0;
+      flex-direction: column;
+  }
+  .statusinfo a.btn-red {
+    padding: 8px 53px;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+}
+
