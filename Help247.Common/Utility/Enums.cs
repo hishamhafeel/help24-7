@@ -34,7 +34,9 @@ namespace Help247.Common.Utility
         {
             Admin = 1,
             Helper = 2,
-            Customer = 3
+            Customer = 3,
+            SuperAdmin = 4
+
         }
 
         public enum HelpCentre : int

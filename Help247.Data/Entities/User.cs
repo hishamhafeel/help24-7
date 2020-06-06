@@ -11,8 +11,6 @@ namespace Help247.Data.Entities
     [Table("Users")]
     public class User : IdentityUser
     {
-        //[Required]
-        //public string UserName { get; set; }
         [Required]
         public DateTime CreatedOn { get; set; } 
         public string CreatedById { get; set; }
@@ -21,7 +19,7 @@ namespace Help247.Data.Entities
         public Enums.RecordState RecordState { get; set; } 
         public bool IsAdmin { get; set; }
 
-        protected User()
+        public User()
         {
             IsAdmin = false;
             RecordState = Enums.RecordState.Active;
