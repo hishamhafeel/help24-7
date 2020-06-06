@@ -43,7 +43,7 @@ namespace Help247.Controllers.Api
 
         //PUT: api/HelpCentre/
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> PutCentreTopicsAsync([FromBody] HelpCentreUpdateViewModel helpCentreViewModel)
         {
             try

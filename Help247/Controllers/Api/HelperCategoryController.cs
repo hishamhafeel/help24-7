@@ -43,7 +43,7 @@ namespace Help247.Controllers.Api
 
         //POST: api/HelperCategory/
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> PostCategoryAsync([FromBody] HelperCategoryViewModel helperCategoryViewModel)
         {
             try
@@ -64,7 +64,7 @@ namespace Help247.Controllers.Api
 
         //PUT: api/HelperCategory/
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> PutCategoryAsync([FromBody] HelperCategoryViewModel helperCategoryViewModel)
         {
             try
@@ -80,7 +80,7 @@ namespace Help247.Controllers.Api
 
         // DELETE: api/HelperCategory/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             try
