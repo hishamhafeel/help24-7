@@ -340,7 +340,8 @@ namespace Help247.Data.Migrations
                 {
                     { "1", "29d1ec8f-374f-4b5e-8046-dcefa8e293a3", "Admin", "ADMIN" },
                     { "2", "608046a0-52a9-4ba5-a35a-e9e9c5846624", "Helper", "HELPER" },
-                    { "3", "5d4cc63f-c20b-4d93-97f9-45305fb19217", "Customer", "CUSTOMER" }
+                    { "3", "5d4cc63f-c20b-4d93-97f9-45305fb19217", "Customer", "CUSTOMER" },
+                    { "4", "", "SuperAdmin", "SUPERADMIN" }
                 });
 
             migrationBuilder.InsertData(
