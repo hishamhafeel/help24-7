@@ -151,10 +151,10 @@ namespace Help247.Controllers.Api
             }
         }
 
-        [Route("checkuser")]
+        [Route("checkemail")]
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> CheckUserExistAsync([FromQuery] string email)
+        public async Task<IActionResult> CheckEmailExistAsync([FromQuery] string email)
         {
             try
             {
@@ -163,7 +163,24 @@ namespace Help247.Controllers.Api
                     throw new ArgumentException("Invalid email address format");
                 }
 
-                var result = await securityService.CheckUserExistAsync(email);
+                var result = await securityService.CheckEmailExistAsync(email);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+
+        }
+
+        [Route("checkusername")]
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> CheckUsernameExistAsync([FromQuery] string username)
+        {
+            try
+            {
+                var result = await securityService.CheckUsernameExistAsync(username);
                 return Ok(result);
             }
             catch (Exception ex)

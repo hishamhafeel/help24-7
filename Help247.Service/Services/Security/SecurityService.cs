@@ -237,9 +237,23 @@ namespace Help247.Service.Services.Security
             }
         }
 
-        public async Task<bool> CheckUserExistAsync(string email)
+        public async Task<bool> CheckEmailExistAsync(string email)
         {
             var query = await userManager.FindByEmailAsync(email);
+            if (query == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public async Task<bool> CheckUsernameExistAsync(string username)
+        {
+            
+            var query = await userManager.FindByNameAsync(username.ToLower());
             if (query == null)
             {
                 return false;
