@@ -27,6 +27,7 @@ namespace Help247.Common.Mailer
                 Port = 587,
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
                 Credentials = new System.Net.NetworkCredential(From, configuration["Email:credentials:password"]),
                 Timeout = 10000,
             };

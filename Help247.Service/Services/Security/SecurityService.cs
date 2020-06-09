@@ -97,7 +97,7 @@ namespace Help247.Service.Services.Security
 
                     await userManager.AddToRoleAsync(storeUser, userType);
 
-                    var image = new Image()
+                    var image = new Help247.Data.Entities.Image()
                     {
                         ImageType = ImageType.ProfilePicture,
                         ImageUrl = userBO.ProfilePicUrl,

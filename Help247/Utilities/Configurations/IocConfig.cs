@@ -3,6 +3,7 @@ using Help247.Service.Services.Feedback;
 using Help247.Service.Services.HelpCentre;
 using Help247.Service.Services.Helper;
 using Help247.Service.Services.HelperCategory;
+using Help247.Service.Services.Image;
 using Help247.Service.Services.Security;
 using Help247.Service.Services.Ticket;
 using Microsoft.AspNetCore.Http;
@@ -22,6 +23,7 @@ namespace Help247.Utilities.Configurations
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IHelperCategoryService, HelperCategoryService>();
             services.AddScoped<IHelpCentreService, HelpCentreService>();
+            services.AddScoped<IImageService, ImageService>();
         }
     }
 }

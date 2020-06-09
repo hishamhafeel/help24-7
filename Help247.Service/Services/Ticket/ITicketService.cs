@@ -13,5 +13,6 @@ namespace Help247.Service.Services.Ticket
         Task<TicketBO> ApproveTicketAsync(int ticketId, string userID);
         Task<TicketBO> CompleteTicketAsync(int ticketId, string userID);
         Task<TicketBO> CancelTicketAsync(int ticketId, string userID);
+        Task<int> GetTicketStatusAsync(int id);
     }
 }
