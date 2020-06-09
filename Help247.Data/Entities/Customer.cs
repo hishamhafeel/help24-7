@@ -21,9 +21,10 @@ namespace Help247.Data.Entities
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public string Country { get; set; }
-        public string Province { get; set; }
-        public string District { get; set; }
+        public string State { get; set; }
         public string City { get; set; }
+        public string PostalCode { get; set; }
+        public string AddressLine { get; set; }
 
         public List<Ticket> Tickets { get; set; }
         public List<Feedback> Feedbacks { get; set; }

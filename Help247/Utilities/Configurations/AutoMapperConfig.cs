@@ -5,6 +5,7 @@ using Help247.Service.BO.Feedback;
 using Help247.Service.BO.HelpCentre;
 using Help247.Service.BO.Helper;
 using Help247.Service.BO.HelperCategory;
+using Help247.Service.BO.Image;
 using Help247.Service.BO.Security;
 using Help247.Service.BO.Ticket;
 using Help247.ViewModels.Account;
@@ -13,6 +14,7 @@ using Help247.ViewModels.Feedback;
 using Help247.ViewModels.HelpCentre;
 using Help247.ViewModels.Helper;
 using Help247.ViewModels.HelperCategory;
+using Help247.ViewModels.Image;
 using Help247.ViewModels.Ticket;
 
 namespace Help247.Utilities.Configurations
@@ -56,6 +58,11 @@ namespace Help247.Utilities.Configurations
             CreateMap<HelpCentre, HelpCentreBO>().ReverseMap();
             CreateMap<HelpCentreViewModel, HelpCentreBO>().ReverseMap();
             CreateMap<HelpCentreUpdateViewModel, HelpCentreUpdateBo>().ReverseMap();
+
+            //Image
+            CreateMap<ImageViewModel, ImageBO>().ReverseMap();
+            CreateMap<ImageUrlViewModel, ImageUrlBO>().ReverseMap();
+
 
         }
     }
