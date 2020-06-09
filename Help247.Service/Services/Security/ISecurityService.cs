@@ -12,6 +12,7 @@ namespace Help247.Service.Services.Security
         Task Logout();
         Task ForgotPasswordAsync(ForgotPasswordBO forgotPasswordBO);
         Task ResetPasswordAsync(ResetPassowordBO resetPassowordBO);
-        Task<bool> CheckUserExistAsync(string email);
+        Task<bool> CheckEmailExistAsync(string email);
+        Task<bool> CheckUsernameExistAsync(string username);
     }
 }
