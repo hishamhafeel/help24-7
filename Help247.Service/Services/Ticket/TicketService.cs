@@ -252,5 +252,15 @@ namespace Help247.Service.Services.Ticket
                 }
             }
         }
+
+        public async Task<int> GetTicketStatusAsync(int id)
+        {
+            var query = await appDbContext.Tickets.FirstOrDefaultAsync(x => x.Id == id);
+            if (query == null)
+            {
+                throw new ArgumentException("Record not found");
+            }
+            return query.TicketStatusId;
+        }
     }
 }

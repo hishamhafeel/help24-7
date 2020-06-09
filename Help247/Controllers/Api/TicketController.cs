@@ -28,12 +28,29 @@ namespace Help247.Controllers.Api
             this.mapper = mapper;
         }
 
-        // GET: api/Ticket
-        //[HttpGet]
-        //public async Task<IActionResult> GetTicketStatusAsync(int id)
-        //{
-        //    return Ok();
-        //}
+        // GET: api/Ticket/status/1
+        [Route("status")]
+        [HttpGet]
+        public async Task<IActionResult> GetTicketStatusAsync([FromQuery]int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentException("Invalid Ticket Id");
+                }
+                var result = await ticketService.GetTicketStatusAsync(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                return HandleException(ex);
+            }
+
+
+        }
+
 
         // GET: api/Ticket/5
         //[HttpGet("{id}", Name = "Get")]

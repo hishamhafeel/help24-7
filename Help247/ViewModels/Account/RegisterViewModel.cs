@@ -14,7 +14,6 @@ namespace Help247.ViewModels.Account
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNo { get; set; }
-        public string Name { get; set; }
         public string MobileNo { get; set; }
         public string Email { get; set; }
         public string Country { get; set; }
@@ -27,5 +26,9 @@ namespace Help247.ViewModels.Account
         public string AboutMe { get; set; }
         public string MyService { get; set; }
         public int HelperCategoryId { get; set; }
+
+        //for customer
+        public string Name { get; set; }
+
     }
 }
