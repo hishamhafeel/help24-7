@@ -1,17 +1,14 @@
 ﻿using AutoMapper;
+using Help247.Common.Pagination;
 using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Data.Entities;
 using Help247.Service.BO.Ticket;
 using Help247.Service.Exceptions;
-using Help247.Service.Services.Security;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Help247.Service.Services.Ticket
@@ -288,5 +285,50 @@ namespace Help247.Service.Services.Ticket
             return mapper.Map<List<TicketBO>>(query);
         }
 
+        public async Task<PaginationModel<TicketBO>> GetAllAsync(TicketSearchBO ticketSearchBO)
+        {
+            try
+            {
+                var query = appDbContext.Tickets.AsQueryable()
+                    .Include(x => x.Customer)
+                    .Include(x => x.Helper)
+                    .Where(x => x.RecordState == Enums.RecordState.Active);
+
+                query = (ticketSearchBO.TicketStatusId > 0)
+                    ? query.Where(x => x.TicketStatusId == ticketSearchBO.TicketStatusId)
+                    : query;
+
+                query = (ticketSearchBO.HelperId > 0)
+                    ? query.Where(x => x.HelperId == ticketSearchBO.HelperId)
+                    : query;
+
+                query = (ticketSearchBO.CustomerId > 0)
+                    ? query.Where(x => x.CustomerId == ticketSearchBO.CustomerId)
+                    : query;
+
+                query = (!string.IsNullOrEmpty(ticketSearchBO.SearchQuery))
+                    ? query.Where(x => EF.Functions.Like(x.City.ToLower(), ticketSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.Address.ToLower(), ticketSearchBO.SearchQuery + "%") ||
+                                              EF.Functions.Like(x.ContactNo1, ticketSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.ContactNo2, ticketSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.Id.ToString(), ticketSearchBO.SearchQuery + "%"))
+                    : query;
+
+                var totalNumberOfRecords = await query.AsNoTracking().CountAsync();
+                query.OrderByDescending(x => x.Id).Skip(ticketSearchBO.Skip).Take(ticketSearchBO.Take);
+                var result = await query.AsNoTracking().ToListAsync();
+                var resultSet = new PaginationModel<TicketBO>()
+                {
+                    TotalRecords = totalNumberOfRecords,
+                    Details = mapper.Map<List<TicketBO>>(result)
+                };
+                return resultSet;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Help247.Common.Constants;
-using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Service.BO.Image;
 using Microsoft.EntityFrameworkCore;

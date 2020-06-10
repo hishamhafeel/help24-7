@@ -7,6 +7,7 @@ using Help247.Service.BO.Helper;
 using Help247.Service.BO.HelperCategory;
 using Help247.Service.BO.Image;
 using Help247.Service.BO.Security;
+using Help247.Service.BO.Skill;
 using Help247.Service.BO.Ticket;
 using Help247.ViewModels.Account;
 using Help247.ViewModels.Customer;
@@ -15,6 +16,7 @@ using Help247.ViewModels.HelpCentre;
 using Help247.ViewModels.Helper;
 using Help247.ViewModels.HelperCategory;
 using Help247.ViewModels.Image;
+using Help247.ViewModels.Skill;
 using Help247.ViewModels.Ticket;
 
 namespace Help247.Utilities.Configurations
@@ -36,6 +38,7 @@ namespace Help247.Utilities.Configurations
             //Helper
             CreateMap<Helper, HelperBO>().ReverseMap();
             CreateMap<HelperViewModel, HelperBO>().ReverseMap();
+            CreateMap<HelperSearchViewModel, HelperSearchBO>().ReverseMap();
             
 
             //Customer
@@ -45,6 +48,7 @@ namespace Help247.Utilities.Configurations
             //Ticket
             CreateMap<TicketViewModel, TicketBO>().ReverseMap();
             CreateMap<Ticket, TicketBO>().ReverseMap();
+            CreateMap<TicketSearchViewModel, TicketSearchBO>().ReverseMap();
 
             //Feedback
             CreateMap<Feedback, FeedbackBO>().ReverseMap();
@@ -61,7 +65,14 @@ namespace Help247.Utilities.Configurations
 
             //Image
             CreateMap<ImageViewModel, ImageBO>().ReverseMap();
+            CreateMap<Image, ImageBO>().ReverseMap();
             CreateMap<ImageUrlViewModel, ImageUrlBO>().ReverseMap();
+
+            //Skill
+            //CreateMap<SkillViewModel, SkillBO>().ReverseMap();
+            CreateMap<Skill, SkillBO>().ReverseMap();
+            CreateMap<SkillListViewModel, SkillListBO>().ReverseMap();
+
 
 
         }

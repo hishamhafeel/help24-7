@@ -26,6 +26,14 @@ namespace Help247.Service.Services.HelperCategory
         public async Task<PaginationModel<HelperCategoryBO>> GetAllAsync(PaginationBase paginationBase)
         {
             var query = appDbContext.HelperCategories.AsQueryable().Where(x => x.RecordState == Enums.RecordState.Active);
+            if (paginationBase.SearchQuery != null && paginationBase.SearchQuery.Length > 0)
+            {
+                query = query.Where(x => EF.Functions.Like(x.Name.ToLower(), paginationBase.SearchQuery + "%") ||
+                                         EF.Functions.Like(x.ShortDescription.ToLower(), paginationBase.SearchQuery + "%") ||
+                                          EF.Functions.Like(x.Title.ToLower(), paginationBase.SearchQuery + "%") ||
+                                         EF.Functions.Like(x.Id.ToString(), paginationBase.SearchQuery + "%"));
+            }
+
             var totalNumberOfRecords = await query.AsNoTracking().CountAsync();
             query.OrderByDescending(x => x.Id).Skip(paginationBase.Skip).Take(paginationBase.Take);
             var result = await query.AsNoTracking().ToListAsync();

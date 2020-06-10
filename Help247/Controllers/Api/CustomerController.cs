@@ -5,8 +5,6 @@ using Help247.Common.Pagination;
 using Help247.Service.BO.Customer;
 using Help247.Service.Services.Customer;
 using Help247.ViewModels.Customer;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Help247.Controllers.Api
@@ -41,7 +39,7 @@ namespace Help247.Controllers.Api
 
         // GET: api/Customer/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAsync(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
 
             try
