@@ -9,7 +9,7 @@ namespace Help247.Service.Services.Helper
 {
     public interface IHelperService
     {
-        Task<PaginationModel<HelperBO>> GetAllAsync(PaginationBase paginationBase);
+        Task<PaginationModel<HelperBO>> GetAllAsync(HelperSearchBO helperSearchBO);
         Task<HelperBO> GetByIdAsync(int id);
         Task<HelperBO> PutAsync(HelperBO helperBO);
         Task DeleteAsync(int id);

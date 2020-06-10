@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using Help247.Common.Pagination;
 using Help247.Common.Utility;
-using Help247.Data.Entities;
 using Help247.Service.BO.Ticket;
 using Help247.Service.Services.Ticket;
 using Help247.ViewModels.Ticket;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Help247.Controllers.Api
@@ -26,6 +22,21 @@ namespace Help247.Controllers.Api
         {
             this.ticketService = ticketService;
             this.mapper = mapper;
+        }
+
+        [Route("list")]
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync([FromQuery] TicketSearchViewModel ticketSearchViewModel)
+        {
+            try
+            {
+                var result = await ticketService.GetAllAsync(mapper.Map<TicketSearchBO>(ticketSearchViewModel));
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
         }
 
         // GET: api/Ticket/status/1
@@ -47,27 +58,25 @@ namespace Help247.Controllers.Api
 
                 return HandleException(ex);
             }
-
-
         }
 
 
         //GET: api/Ticket/user/
-        [Route("list/email")]
-        [HttpGet]
-        public async Task<IActionResult> GetTicketsForEmailAsync([FromQuery]string email)
-        {
-            try
-            {
-                var result = await ticketService.GetTicketsForEmailAsync(email);
-                return Ok(mapper.Map<List<TicketViewModel>>(result));
-            }
-            catch (Exception ex)
-            {
+        //[Route("list/email")]
+        //[HttpGet]
+        //public async Task<IActionResult> GetTicketsForEmailAsync([FromQuery]string email)
+        //{
+        //    try
+        //    {
+        //        var result = await ticketService.GetTicketsForEmailAsync(email);
+        //        return Ok(mapper.Map<List<TicketViewModel>>(result));
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                return HandleException(ex);
-            }
-        }
+        //        return HandleException(ex);
+        //    }
+        //}
 
         // POST: api/ticker/assign
         [Route("assign")]

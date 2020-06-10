@@ -6,10 +6,10 @@ namespace Help247.Common.Pagination
 {
     public class PaginationBase
     {
-        public int Skip { get; set; } = 0;
-        public int Take { get; set; } = 10;
-        public string SearchQuery { get; set; }
-        public bool IsAdmin { get; set; }
-        public string OrderBy { get; set; }
+        public virtual int Skip { get; set; } = 0;
+        public virtual int Take { get; set; } = 10;
+        public virtual string SearchQuery { get; set; }
+        public virtual bool IsAdmin { get; set; }
+        public virtual string OrderBy { get; set; }
     }
 }

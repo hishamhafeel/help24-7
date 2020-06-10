@@ -27,9 +27,9 @@ namespace Help247.Controllers.Api
         // GET: api/helper/list
         [Route("list")]
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync([FromQuery]PaginationBase paginationBase)
+        public async Task<IActionResult> GetAllAsync([FromQuery]HelperSearchViewModel helperSearch)
         {
-            var result = await helperService.GetAllAsync(paginationBase);
+            var result = await helperService.GetAllAsync(mapper.Map<HelperSearchBO>(helperSearch));
             return Ok(result);
         }
 

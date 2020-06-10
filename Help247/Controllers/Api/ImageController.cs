@@ -38,7 +38,7 @@ namespace Help247.Controllers.Api
             }
         }
 
-        [Route("profile/skills")]
+        [Route("skills")]
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> PostImageForProfileSkillsAsync([FromBody] ImageUrlViewModel imageUrls, string username)

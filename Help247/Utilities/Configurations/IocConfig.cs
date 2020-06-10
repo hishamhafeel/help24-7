@@ -5,6 +5,7 @@ using Help247.Service.Services.Helper;
 using Help247.Service.Services.HelperCategory;
 using Help247.Service.Services.Image;
 using Help247.Service.Services.Security;
+using Help247.Service.Services.Skill;
 using Help247.Service.Services.Ticket;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,7 @@ namespace Help247.Utilities.Configurations
             services.AddScoped<IHelperCategoryService, HelperCategoryService>();
             services.AddScoped<IHelpCentreService, HelpCentreService>();
             services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<ISkillService, SkillService>();
         }
     }
 }
