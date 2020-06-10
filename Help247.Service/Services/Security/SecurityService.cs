@@ -93,7 +93,7 @@ namespace Help247.Service.Services.Security
                         $"Happy Help!!!"
 
                     };
-                    await EmailBuilder.SendEmailAsync(messageBuilder);
+                    EmailBuilder.SendEmail(messageBuilder);
 
                     await userManager.AddToRoleAsync(storeUser, userType);
 
@@ -101,7 +101,7 @@ namespace Help247.Service.Services.Security
                     {
                         ImageType = ImageType.ProfilePicture,
                         ImageUrl = userBO.ProfilePicUrl,
-                        UserName = userBO.Email 
+                        UserName = userBO.UserName 
                     };
                     await appDbContext.Images.AddAsync(image);
                     await appDbContext.SaveChangesAsync();
@@ -215,7 +215,7 @@ namespace Help247.Service.Services.Security
                     $"{passwordReseLink} <br/><br/>" +
                     $"Happy Help!!!"
                 };
-                await EmailBuilder.SendEmailAsync(messageBuilder);
+                EmailBuilder.SendEmail(messageBuilder);
             }
             else if (user == null)
             {

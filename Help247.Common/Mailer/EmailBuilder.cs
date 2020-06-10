@@ -1,36 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using MailKit.Net.Smtp;
+using MimeKit;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
+using MailKit.Security;
 
 namespace Help247.Common.Mailer
 {
     public class EmailBuilder
     {
-        private static MailMessage mailMessage;
-        private static SmtpClient smtpClient;
+       
         private static string From;
 
         private static string DisplayName => "Help 24/7";
 
+        private static string Pwd;
 
         public EmailBuilder(IConfiguration configuration)
         {
 
             From = configuration["Email:credentials:username"];
-
-            smtpClient = new SmtpClient()
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new System.Net.NetworkCredential(From, configuration["Email:credentials:password"]),
-                Timeout = 10000,
-            };
+            Pwd = configuration["Email:credentials:password"];
         }
 
         public string Subject { get; set; }
@@ -41,21 +35,42 @@ namespace Help247.Common.Mailer
 
         public string[] To { get; set; }
 
-        public static async Task SendEmailAsync(EmailBuilder messageBuilder)
+        public static void SendEmail(EmailBuilder messageBuilder)
         {
-            mailMessage = new MailMessage
+            try
             {
-                IsBodyHtml = messageBuilder.IsBodyHtml,
-                Subject = messageBuilder.Subject,
-                Body = messageBuilder.Body
-            };
-            mailMessage.From = new MailAddress(From, DisplayName);
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress(DisplayName, From));
+                foreach (var emailAddress in messageBuilder.To)
+                {
+                    message.To.Add(new MailboxAddress(DisplayName, emailAddress));
+                }
+                message.Subject = messageBuilder.Subject;
+                message.Body = new TextPart("plain")
+                {
+                    Text = messageBuilder.Body
+                };
 
-            foreach (var emailAddress in messageBuilder.To)
-                mailMessage.To.Add(emailAddress);
+                using (var client = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                    client.Connect("smtp.gmail.com", 587, SecureSocketOptions.Auto);
 
-            await smtpClient.SendMailAsync(mailMessage);
-            mailMessage.Dispose();
+                    //SMTP server authentication if needed
+                    client.Authenticate(From, Pwd);
+
+                    client.Send(message);
+
+                    client.Disconnect(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+   
         }
+
+       
     }
 }
