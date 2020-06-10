@@ -52,17 +52,27 @@ namespace Help247.Controllers.Api
         }
 
 
-        // GET: api/Ticket/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        //GET: api/Ticket/user/
+        [Route("list/email")]
+        [HttpGet]
+        public async Task<IActionResult> GetTicketsForEmailAsync([FromQuery]string email)
+        {
+            try
+            {
+                var result = await ticketService.GetTicketsForEmailAsync(email);
+                return Ok(mapper.Map<List<TicketViewModel>>(result));
+            }
+            catch (Exception ex)
+            {
+
+                return HandleException(ex);
+            }
+        }
 
         // POST: api/ticker/assign
         [Route("assign")]
         [HttpPost]
-        [Authorize(Roles = "Admin, Customer, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin, Customer")]
         public async Task<IActionResult> AssignTicketAsync([FromBody] TicketViewModel ticketViewModel)
         {
             try
