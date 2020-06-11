@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-namespace Help247.Controllers
+namespace Help247.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController]

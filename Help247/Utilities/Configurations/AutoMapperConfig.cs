@@ -67,6 +67,7 @@ namespace Help247.Utilities.Configurations
             CreateMap<ImageViewModel, ImageBO>().ReverseMap();
             CreateMap<Image, ImageBO>().ReverseMap();
             CreateMap<ImageUrlViewModel, ImageUrlBO>().ReverseMap();
+            CreateMap<ImageHelperCategoryViewModel, ImageHelperCatergoryBO>().ReverseMap();
 
             //Skill
             //CreateMap<SkillViewModel, SkillBO>().ReverseMap();

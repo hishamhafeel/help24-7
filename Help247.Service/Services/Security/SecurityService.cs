@@ -101,7 +101,7 @@ namespace Help247.Service.Services.Security
                     {
                         ImageType = ImageType.ProfilePicture,
                         ImageUrl = userBO.ProfilePicUrl,
-                        UserName = userBO.UserName 
+                        Email = userBO.Email 
                     };
                     await appDbContext.Images.AddAsync(image);
                     await appDbContext.SaveChangesAsync();
