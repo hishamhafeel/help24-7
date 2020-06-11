@@ -60,6 +60,27 @@ namespace Help247.Controllers.Api
             }
         }
 
+        [Route("count")]
+        [HttpGet]
+        [Authorize(Roles = "Helper, SuperAdmin, Admin")]
+        public async Task<IActionResult> GetCountAllAsync([FromQuery]int helperId)
+        {
+            try
+            {
+                if (helperId <= 0)
+                {
+                    throw new ArgumentException("Invalid Helper Id");
+                }
+
+                var result = await ticketService.GetCountAllAsync(helperId);
+                return Ok(mapper.Map<TicketCountViewModel>(result));
+            }
+            catch (Exception ex)
+            {
+
+                return HandleException(ex);
+            }
+        }
 
         //GET: api/Ticket/user/
         //[Route("list/email")]
