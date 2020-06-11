@@ -25,22 +25,39 @@ namespace Help247.Service.Services.Helper
             this.mapper = mapper;
         }
 
-        public async Task<PaginationModel<HelperBO>> GetAllAsync(PaginationBase paginationBase)
+        public async Task<PaginationModel<HelperBO>> GetAllAsync(HelperSearchBO helperSearchBO)
         {
             try
             {
                 var query = appDbContext.Helpers.AsQueryable().Include(x => x.HelperCategory).Where(x => x.RecordState == Enums.RecordState.Active);
-                if (paginationBase.SearchQuery != null && paginationBase.SearchQuery.Length > 0)
+                if (helperSearchBO.HelperCategoryId != 0)
                 {
-                    query = query.Where(x => EF.Functions.Like(x.PhoneNo, paginationBase.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.FirstName.ToLower(), paginationBase.SearchQuery + "%") ||
-                                              EF.Functions.Like(x.LastName.ToLower(), paginationBase.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.Id.ToString(), paginationBase.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.Email.ToLower(), paginationBase.SearchQuery + "%"));
+                   query = query.Where(x => x.HelperCategoryId == helperSearchBO.HelperCategoryId);
                 }
+
+                query = (!string.IsNullOrEmpty(helperSearchBO.SearchQuery))
+                    ? query.Where(x => EF.Functions.Like(x.PhoneNo, helperSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.FirstName.ToLower(), helperSearchBO.SearchQuery + "%") ||
+                                              EF.Functions.Like(x.LastName.ToLower(), helperSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.Id.ToString(), helperSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.Email.ToLower(), helperSearchBO.SearchQuery + "%"))
+                    : query;
+
+                query = (!string.IsNullOrEmpty(helperSearchBO.Country)) 
+                    ? query.Where(x => EF.Functions.Like(x.City, helperSearchBO.City + "%")) 
+                    : query;
+
+                query = (!string.IsNullOrEmpty(helperSearchBO.State))
+                    ? query.Where(x => EF.Functions.Like(x.City, helperSearchBO.State + "%"))
+                    : query;
+
+                query = (!string.IsNullOrEmpty(helperSearchBO.City))
+                   ? query.Where(x => EF.Functions.Like(x.City, helperSearchBO.City + "%"))
+                   : query;
+
                 var totalNumberOfRecord = await query.AsNoTracking().CountAsync();
 
-                query = query.OrderByDescending(x => x.Id).Skip(paginationBase.Skip).Take(paginationBase.Take);
+                query = query.OrderByDescending(x => x.Id).Skip(helperSearchBO.Skip).Take(helperSearchBO.Take);
                 var result = await query.AsNoTracking().ToListAsync();
                 var resultSet = new PaginationModel<HelperBO>()
                 {
@@ -88,7 +105,7 @@ namespace Help247.Service.Services.Helper
                     }
                     else if(imageQuery == null)
                     {
-                        var existingImage = await appDbContext.Images.AsNoTracking().FirstAsync(x => x.UserName == helperBO.Email);
+                        var existingImage = await appDbContext.Images.AsNoTracking().FirstAsync(x => x.Email == helperBO.Email);
                         var newImage = new Help247.Data.Entities.Image()
                         {
                             Id = existingImage.Id,

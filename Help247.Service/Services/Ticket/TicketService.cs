@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
+using Help247.Common.Pagination;
 using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Data.Entities;
 using Help247.Service.BO.Ticket;
 using Help247.Service.Exceptions;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Help247.Service.Services.Ticket
@@ -18,15 +17,13 @@ namespace Help247.Service.Services.Ticket
     {
         private readonly AppDbContext appDbContext;
         private readonly IMapper mapper;
-        private readonly UserManager<User> userManager;
-        private readonly IHttpContextAccessor httpContextAccessor;
+       
 
-        public TicketService(AppDbContext appDbContext, IMapper mapper, UserManager<User> userManager, IHttpContextAccessor httpContextAccessor)
+        public TicketService(AppDbContext appDbContext, IMapper mapper)
         {
             this.appDbContext = appDbContext;
             this.mapper = mapper;
-            this.userManager = userManager;
-            this.httpContextAccessor = httpContextAccessor;
+            
         }
 
         public async Task<TicketBO> AssignTicketAsync(TicketBO ticketBO, string userId)
@@ -36,7 +33,7 @@ namespace Help247.Service.Services.Ticket
                 try
                 {
                     var dateOfCreation = DateTime.UtcNow;
-                    var query = appDbContext.Tickets.AsNoTracking().FirstOrDefault(x => x.Id == ticketBO.Id);
+                    var query = await appDbContext.Tickets.AsNoTracking().FirstOrDefaultAsync(x => x.Id == ticketBO.Id);
                     if (query != null)
                     {
                         throw new TicketAssignedException();
@@ -81,7 +78,7 @@ namespace Help247.Service.Services.Ticket
                 try
                 {
                     var dateOfEdit = DateTime.UtcNow;
-                    var query = appDbContext.Tickets.AsNoTracking().FirstOrDefault(x => x.Id == ticketId);
+                    var query = await appDbContext.Tickets.AsNoTracking().FirstOrDefaultAsync(x => x.Id == ticketId);
                     switch (query.TicketStatusId)
                     {
                         case (int)Enums.TicketStatus.None:
@@ -106,7 +103,12 @@ namespace Help247.Service.Services.Ticket
                         TicketStatusId = 2,
                         EditedById =userId,
                         EditedOn = dateOfEdit,
-                        RecordState = query.RecordState
+                        RecordState = query.RecordState,
+                        City = query.City,
+                        State= query.State,
+                        Address= query.Address,
+                        ContactNo1 = query.ContactNo1,
+                        ContactNo2 = query.ContactNo2
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -143,7 +145,7 @@ namespace Help247.Service.Services.Ticket
                 try
                 {
                     var dateOfEdit = DateTime.UtcNow;
-                    var query = appDbContext.Tickets.AsNoTracking().FirstOrDefault(x => x.Id == ticketId);
+                    var query = await appDbContext.Tickets.AsNoTracking().FirstOrDefaultAsync(x => x.Id == ticketId);
                     if (query == null)
                     {
                         throw new ArgumentException("Ticket not found in database");
@@ -167,7 +169,12 @@ namespace Help247.Service.Services.Ticket
                         TicketStatusId = 3,
                         EditedById = userId,
                         EditedOn = dateOfEdit,
-                        RecordState = query.RecordState
+                        RecordState = query.RecordState,
+                        City = query.City,
+                        State = query.State,
+                        Address = query.Address,
+                        ContactNo1 = query.ContactNo1,
+                        ContactNo2 = query.ContactNo2
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -223,7 +230,12 @@ namespace Help247.Service.Services.Ticket
                         TicketStatusId = 4,
                         EditedById = userId,
                         EditedOn = dateOfEdit,
-                        RecordState = query.RecordState
+                        RecordState = query.RecordState,
+                        City = query.City,
+                        State = query.State,
+                        Address = query.Address,
+                        ContactNo1 = query.ContactNo1,
+                        ContactNo2 = query.ContactNo2
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -261,6 +273,81 @@ namespace Help247.Service.Services.Ticket
                 throw new ArgumentException("Record not found");
             }
             return query.TicketStatusId;
+        }
+
+        public async Task<List<TicketBO>> GetTicketsForEmailAsync(string email)
+        {
+            var query = appDbContext.Tickets
+                .Include(x => x.Customer)
+                .Include(x => x.Helper)
+                .AsQueryable().Where(x => x.Customer.Email == email || x.Helper.Email == email);
+
+            return mapper.Map<List<TicketBO>>(query);
+        }
+
+        public async Task<PaginationModel<TicketBO>> GetAllAsync(TicketSearchBO ticketSearchBO)
+        {
+            try
+            {
+                var query = appDbContext.Tickets.AsQueryable()
+                    .Include(x => x.Customer)
+                    .Include(x => x.Helper)
+                    .Where(x => x.RecordState == Enums.RecordState.Active);
+
+                query = (ticketSearchBO.TicketStatusId > 0)
+                    ? query.Where(x => x.TicketStatusId == ticketSearchBO.TicketStatusId)
+                    : query;
+
+                query = (ticketSearchBO.HelperId > 0)
+                    ? query.Where(x => x.HelperId == ticketSearchBO.HelperId)
+                    : query;
+
+                query = (ticketSearchBO.CustomerId > 0)
+                    ? query.Where(x => x.CustomerId == ticketSearchBO.CustomerId)
+                    : query;
+
+                query = (!string.IsNullOrEmpty(ticketSearchBO.SearchQuery))
+                    ? query.Where(x => EF.Functions.Like(x.City.ToLower(), ticketSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.Address.ToLower(), ticketSearchBO.SearchQuery + "%") ||
+                                              EF.Functions.Like(x.ContactNo1, ticketSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.ContactNo2, ticketSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.Id.ToString(), ticketSearchBO.SearchQuery + "%"))
+                    : query;
+
+                var totalNumberOfRecords = await query.AsNoTracking().CountAsync();
+                query.OrderByDescending(x => x.Id).Skip(ticketSearchBO.Skip).Take(ticketSearchBO.Take);
+                var result = await query.AsNoTracking().ToListAsync();
+                var resultSet = new PaginationModel<TicketBO>()
+                {
+                    TotalRecords = totalNumberOfRecords,
+                    Details = mapper.Map<List<TicketBO>>(result)
+                };
+                return resultSet;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<TicketCountBO> GetCountAllAsync(int helperId)
+        {
+            var query = appDbContext.Tickets.AsQueryable().Where(x => x.HelperId == helperId);
+
+            var pendingJobs = query.Where(x => x.TicketStatusId == (int)Enums.TicketStatus.HelpRequest).Count();
+            var acceptedJobs = query.Where(x => x.TicketStatusId == (int)Enums.TicketStatus.HelpProcess).Count();
+            var completedJobs = query.Where(x => x.TicketStatusId == (int)Enums.TicketStatus.HelpComplete).Count();
+            var rejectedJobs = query.Where(x => x.TicketStatusId == (int)Enums.TicketStatus.HelpCancel).Count();
+
+            return new TicketCountBO()
+            {
+                HelperId = helperId,
+                PendingJobs = pendingJobs,
+                AcceptedJobs = acceptedJobs,
+                CompletedJobs = completedJobs,
+                RejectedJobs = rejectedJobs
+            };
         }
     }
 }

@@ -6,7 +6,9 @@ namespace Help247.Service.Services.Image
 {
     public interface IImageService
     {
-        Task<ImageBO> GetImageForProfileAsync(string username);
-        Task<List<ImageBO>> PostImageForProfileSkillsAsync(ImageUrlBO imageUrls, string username);
+        Task<ImageBO> GetImageForProfileAsync(string email);
+        Task<List<ImageBO>> PostImageForProfileSkillsAsync(ImageUrlBO imageUrls);
+        Task<List<ImageBO>> PostImageForHelperCategoryAsync(ImageHelperCatergoryBO imageBO);
+        Task<List<ImageBO>> GetImageForHelperCategoryAsync(int id);
     }
 }

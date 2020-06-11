@@ -11,5 +11,9 @@ namespace Help247.Service.BO.Feedback
         public decimal Rating { get; set; }
         public int HelperId { get; set; }
         public int CustomerId { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string CreatedById { get; set; }
+        public DateTime? EditedOn { get; set; }
+        public string EditedById { get; set; }
     }
 }

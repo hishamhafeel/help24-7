@@ -8,7 +8,7 @@ namespace Help247.Service.BO.Image
     {
         public int Id { get; set; }
         public string ImageUrl { get; set; }
-        public string UserName { get; set; }
+        public string Email { get; set; }
         public string ImageType { get; set; }
         public int SubServiceId { get; set; }
     }

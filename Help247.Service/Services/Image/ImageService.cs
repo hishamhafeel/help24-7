@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Help247.Common.Constants;
-using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Service.BO.Image;
 using Microsoft.EntityFrameworkCore;
@@ -22,9 +21,9 @@ namespace Help247.Service.Services.Image
             this.mapper = mapper;
         }
 
-        public async Task<ImageBO> GetImageForProfileAsync(string username)
+        public async Task<ImageBO> GetImageForProfileAsync(string email)
         {
-            var query = await appDbContext.Images.Where(x => x.ImageType == ImageType.ProfilePicture).FirstOrDefaultAsync(x => x.UserName == username);
+            var query = await appDbContext.Images.Where(x => x.ImageType == ImageType.ProfilePicture).FirstOrDefaultAsync(x => x.Email == email);
             if (query == null)
             {
                 throw new ArgumentException("Username not found");
@@ -33,12 +32,19 @@ namespace Help247.Service.Services.Image
             return mapper.Map<ImageBO>(query);
         }
 
-        public async Task<List<ImageBO>> PostImageForProfileSkillsAsync(ImageUrlBO imageUrls, string username)
+        public async Task<List<ImageBO>> GetImageForHelperCategoryAsync(int id)
         {
-            if (imageUrls.ImageUrls.Count > 5)
+            var query = await appDbContext.Images.AsQueryable().Where(x => x.SubServiceId == id).ToListAsync();
+            if (query == null)
             {
-                throw new ArgumentException("Number of Image Url's exceeded. Limit is 5.");
+                throw new ArgumentException("Id not found");
             }
+            
+            return mapper.Map<List<ImageBO>>(query);
+        }
+
+        public async Task<List<ImageBO>> PostImageForProfileSkillsAsync(ImageUrlBO imageUrls)
+        {
             var images = new List<Help247.Data.Entities.Image>();
 
             foreach (var item in imageUrls.ImageUrls)
@@ -47,11 +53,34 @@ namespace Help247.Service.Services.Image
                 {
                     ImageType = ImageType.ProfileSkillsPicture,
                     ImageUrl = item,
-                    UserName = username
+                    Email = imageUrls.Email
 
                 };
                 images.Add(image);
             }
+
+            await appDbContext.AddRangeAsync(images);
+            await appDbContext.SaveChangesAsync();
+            return mapper.Map<List<ImageBO>>(images);
+        }
+
+        public async Task<List<ImageBO>> PostImageForHelperCategoryAsync(ImageHelperCatergoryBO imageBO)
+        {
+            var images = new List<Help247.Data.Entities.Image>();
+            images.Add(new Data.Entities.Image()
+            {
+                ImageUrl = imageBO.IconUrl,
+                ImageType = ImageType.SubServicesIcon,
+                SubServiceId = imageBO.HelperCategoryId
+            });
+
+            images.Add(new Data.Entities.Image()
+            {
+                ImageUrl = imageBO.ImageUrl,
+                ImageType = ImageType.SubServiceImage,
+                SubServiceId = imageBO.HelperCategoryId
+            });
+
 
             await appDbContext.AddRangeAsync(images);
             await appDbContext.SaveChangesAsync();
