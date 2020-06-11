@@ -49,6 +49,7 @@ namespace Help247.Utilities.Configurations
             CreateMap<TicketViewModel, TicketBO>().ReverseMap();
             CreateMap<Ticket, TicketBO>().ReverseMap();
             CreateMap<TicketSearchViewModel, TicketSearchBO>().ReverseMap();
+            CreateMap<TicketCountViewModel, TicketCountBO>().ReverseMap();
 
             //Feedback
             CreateMap<Feedback, FeedbackBO>().ReverseMap();

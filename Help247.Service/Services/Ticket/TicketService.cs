@@ -330,5 +330,24 @@ namespace Help247.Service.Services.Ticket
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<TicketCountBO> GetCountAllAsync(int helperId)
+        {
+            var query = appDbContext.Tickets.AsQueryable().Where(x => x.HelperId == helperId);
+
+            var pendingJobs = query.Where(x => x.TicketStatusId == (int)Enums.TicketStatus.HelpRequest).Count();
+            var acceptedJobs = query.Where(x => x.TicketStatusId == (int)Enums.TicketStatus.HelpProcess).Count();
+            var completedJobs = query.Where(x => x.TicketStatusId == (int)Enums.TicketStatus.HelpComplete).Count();
+            var rejectedJobs = query.Where(x => x.TicketStatusId == (int)Enums.TicketStatus.HelpCancel).Count();
+
+            return new TicketCountBO()
+            {
+                HelperId = helperId,
+                PendingJobs = pendingJobs,
+                AcceptedJobs = acceptedJobs,
+                CompletedJobs = completedJobs,
+                RejectedJobs = rejectedJobs
+            };
+        }
     }
 }

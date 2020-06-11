@@ -69,7 +69,34 @@ namespace Help247.Service.Services.Feedback
             }
         }
 
-        public async Task<FeedbackBO> PutAsync(FeedbackBO feedbackBO)
+        public async Task<List<FeedbackBO>> GetByHelperAsync(int id)
+        {
+            try
+            {
+                var query = await appDbContext.Feedbacks.AsQueryable().Where(x => x.HelperId == id).OrderByDescending(x => x.Id).ToListAsync();
+                if (query == null)
+                {
+                    throw new FeedbackNotFoundException();
+                }
+                
+                return mapper.Map<List<FeedbackBO>>(query);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task PostAsync(FeedbackBO feedbackBO, string userId)
+        {
+            feedbackBO.CreatedById = userId;
+            feedbackBO.CreatedOn = DateTime.UtcNow;
+            await appDbContext.Feedbacks.AddAsync(mapper.Map<Help247.Data.Entities.Feedback>(feedbackBO));
+            await appDbContext.SaveChangesAsync();
+        }
+
+        public async Task<FeedbackBO> PutAsync(FeedbackBO feedbackBO, string userId)
         {
             try
             {
@@ -78,6 +105,9 @@ namespace Help247.Service.Services.Feedback
                 {
                     throw new FeedbackNotFoundException();
                 }
+
+                feedbackBO.EditedById = userId;
+                feedbackBO.EditedOn = DateTime.UtcNow;
                 appDbContext.Feedbacks.Update(mapper.Map<Help247.Data.Entities.Feedback>(feedbackBO));
                 await appDbContext.SaveChangesAsync();
                 return feedbackBO;

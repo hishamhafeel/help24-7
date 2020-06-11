@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Help247.Common.Pagination;
+using Help247.Common.Utility;
 using Help247.Service.BO.Feedback;
 using Help247.Service.Services.Feedback;
 using Help247.ViewModels.Feedback;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -48,13 +50,62 @@ namespace Help247.Controllers.Api
 
         }
 
+        // GET: api/Feedback/helper
+        [Route("helper")]
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetByHelperAsync([FromQuery]int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentException("Invalid helper id");
+                }
+                var result = await feedbackService.GetByHelperAsync(id);
+                return Ok(mapper.Map<List<FeedbackViewModel>>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+
+        }
+
+        //POST: api/Feedback
+        [HttpPost]
+        [Authorize(Roles = "Customer, SuperAdmin")]
+        public async Task<IActionResult> PostAsync([FromBody]FeedbackViewModel feedbackViewModel)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    throw new ArgumentException();
+                }
+                else if (feedbackViewModel.Rating <= 0)
+                {
+                    throw new ArgumentException("Rating must be greater than 0.");
+                }
+                var userId = User.GetClaim();
+                await feedbackService.PostAsync(mapper.Map<FeedbackBO>(feedbackViewModel), userId);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
         // PUT: api/Feedback/5
         [HttpPut]
+        [Authorize(Roles = "Customer, SuperAdmin")]
         public async Task<IActionResult> PutAsync([FromBody]FeedbackViewModel feedbackViewModel)
         {
             try
             {
-                var result = await feedbackService.PutAsync(mapper.Map<FeedbackBO>(feedbackViewModel));
+                var userId = User.GetClaim();
+                var result = await feedbackService.PutAsync(mapper.Map<FeedbackBO>(feedbackViewModel), userId);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -65,6 +116,7 @@ namespace Help247.Controllers.Api
 
         // DELETE: api/Feedback/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Customer, SuperAdmin, Admin")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             try
