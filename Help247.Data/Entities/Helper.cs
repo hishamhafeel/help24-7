@@ -14,9 +14,9 @@ namespace Help247.Data.Entities
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+        [Required]
         [Phone]
         public string PhoneNo { get; set; }
-        [Required]
         [Phone]
         public string MobileNo { get; set; }
         [Required]

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using Help247.Common.Utility;
 using Help247.Service.BO.Image;
 using Help247.Service.Services.Image;
 using Help247.ViewModels.Image;
@@ -25,12 +26,36 @@ namespace Help247.Controllers.Api
         [Route("profile")]
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> GetImageForProfileAsync([FromQuery] string username)
+        public async Task<IActionResult> GetImageForProfileAsync([FromQuery] string email)
         {
             try
             {
-                var result = await imageService.GetImageForProfileAsync(username);
+                if (!RegexUtilities.IsValidEmail(email))
+                {
+                    throw new ArgumentException("Invalid Email");
+                }
+                var result = await imageService.GetImageForProfileAsync(email);
                 return Ok(mapper.Map<ImageViewModel>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        [Route("helpercategory")]
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> GetImageForHelperCategoryAsync([FromQuery] int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentException("Invalid Id");
+                }
+                var result = await imageService.GetImageForHelperCategoryAsync(id);
+                return Ok(mapper.Map<List<ImageViewModel>>(result));
             }
             catch (Exception ex)
             {
@@ -40,12 +65,35 @@ namespace Help247.Controllers.Api
 
         [Route("skills")]
         [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> PostImageForProfileSkillsAsync([FromBody] ImageUrlViewModel imageUrls, string username)
+        public async Task<IActionResult> PostImageForProfileSkillsAsync([FromBody] ImageUrlViewModel imageUrls)
         {
             try
             {
-               var result = await imageService.PostImageForProfileSkillsAsync(mapper.Map<ImageUrlBO>(imageUrls), username);
+                if (imageUrls.ImageUrls.Count > 5)
+                {
+                    throw new ArgumentException("Number of Image Url's exceeded. Limit is 5.");
+                }
+                var result = await imageService.PostImageForProfileSkillsAsync(mapper.Map<ImageUrlBO>(imageUrls));
+                return Ok(mapper.Map<List<ImageViewModel>>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        [Route("helpercategory")]
+        [HttpPost]
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public async Task<IActionResult> PostImageForHelperCategoryAsync([FromBody] ImageHelperCategoryViewModel imageModel)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(imageModel.IconUrl) && string.IsNullOrEmpty(imageModel.ImageUrl))
+                {
+                    throw new ArgumentException("Image or Icon Url not found.");
+                }
+                var result = await imageService.PostImageForHelperCategoryAsync(mapper.Map<ImageHelperCatergoryBO>(imageModel));
                 return Ok(mapper.Map<List<ImageViewModel>>(result));
             }
             catch (Exception ex)

@@ -105,7 +105,7 @@ namespace Help247.Service.Services.Helper
                     }
                     else if(imageQuery == null)
                     {
-                        var existingImage = await appDbContext.Images.AsNoTracking().FirstAsync(x => x.UserName == helperBO.Email);
+                        var existingImage = await appDbContext.Images.AsNoTracking().FirstAsync(x => x.Email == helperBO.Email);
                         var newImage = new Help247.Data.Entities.Image()
                         {
                             Id = existingImage.Id,
