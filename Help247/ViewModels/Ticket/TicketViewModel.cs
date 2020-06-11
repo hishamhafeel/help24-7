@@ -34,5 +34,9 @@ namespace Help247.ViewModels.Ticket
         public int HelperId { get; set; }
         [Required]
         public int CustomerId { get; set; }
+
+        public string HelpTime { get; set; }
+        public string Title { get; set; }
+        public string Country { get; set; }
     }
 }

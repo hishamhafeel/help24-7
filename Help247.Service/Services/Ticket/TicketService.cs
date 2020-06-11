@@ -108,7 +108,10 @@ namespace Help247.Service.Services.Ticket
                         State= query.State,
                         Address= query.Address,
                         ContactNo1 = query.ContactNo1,
-                        ContactNo2 = query.ContactNo2
+                        ContactNo2 = query.ContactNo2,
+                        Title = query.Title,
+                        Country = query.Country,
+                        HelpTime = query.HelpTime
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -174,7 +177,10 @@ namespace Help247.Service.Services.Ticket
                         State = query.State,
                         Address = query.Address,
                         ContactNo1 = query.ContactNo1,
-                        ContactNo2 = query.ContactNo2
+                        ContactNo2 = query.ContactNo2,
+                        Title = query.Title,
+                        Country = query.Country,
+                        HelpTime = query.HelpTime
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();

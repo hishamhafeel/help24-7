@@ -16,6 +16,11 @@ namespace Help247.Service.BO.Ticket
         public string ContactNo1 { get; set; }
         public string ContactNo2 { get; set; }
         public string OtherRequirements { get; set; }
+        public string HelpTime { get; set; }
+        public string Title { get; set; }
+        public string Country { get; set; }
+
+
 
         public int TicketStatusId { get; set; }
         public DateTime CreatedOn { get; set; }

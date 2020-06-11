@@ -13,9 +13,13 @@ namespace Help247.Data.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public string Title { get; set; }
         [Required]
         public DateTime HelpDateFrom { get; set; }
         public DateTime HelpDateTo { get; set; }
+        public string HelpTime { get; set; }
+
+        public string Country { get; set; }
         [Required]
         public string State { get; set; }
         [Required]
@@ -28,6 +32,7 @@ namespace Help247.Data.Entities
         [DataType(DataType.PhoneNumber)]
         public string ContactNo2 { get; set; }
         public string OtherRequirements { get; set; }
+        
 
         #region foreign key
         public int HelperId { get; set; }
