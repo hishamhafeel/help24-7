@@ -32,7 +32,7 @@ namespace Help247.Controllers.Api
             try
             {
                 var result = await helperCategoryService.GetAllAsync(paginationBase);
-                return Ok(mapper.Map<HelperCategoryViewModel>(result));
+                return Ok(result);
             }
             catch (Exception ex)
             {

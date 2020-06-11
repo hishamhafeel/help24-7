@@ -5,19 +5,43 @@
                 <div class="signbox">
                     <h2>Sign up with 24/7 Helps</h2>
                     <p>Sign up to manage personal details and tickets. Access data from any device</p>
-                    <form>
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
-                            <input type="email" class="form-control userbx" id="" placeholder="Enter E mail">
+                            <input type="email" class="form-control userbx" id="" placeholder="Enter E mail"
+                                formControlName="email" [ngClass]="{ 'is-invalid': f.email.errors && f.email.dirty }">
+                            <div *ngIf="f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                <div *ngIf="f.email.errors?.emailInUse">Email is already taken!</div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control passbx" id="" placeholder="Password">
+                            <input type="text" class="form-control" id="" placeholder="Enter Username"
+                                formControlName="userName"
+                                [ngClass]="{ 'is-invalid': f.userName.errors && f.userName.dirty }">
+                            <div *ngIf="f.userName.errors" class="invalid-feedback">
+                                <div *ngIf="f.userName.errors.required">Username is required</div>
+                                <div *ngIf="f.userName.errors?.usernameInUse">Username is already taken!</div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <select class="form-control" id="" style="color: #999;">
-                                <option value="" disabled selected>I need to be a ....</option>
-                                <option value="helper">Helper</option>
-                                <option value="customer">Customer</option>
+                            <input type="password" class="form-control passbx" id="" placeholder="Password"
+                                formControlName="password"
+                                [ngClass]="{ 'is-invalid': f.password.errors && f.password.dirty }">
+                            <div *ngIf="f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="" style="color: #999;" formControlName="userType"
+                                [ngClass]="{ 'is-invalid': f.userType.errors && f.userType.dirty }">
+                                <option value=0 disabled selected>I need to be a ....</option>
+                                <option value=2>Helper</option>
+                                <option value=3>Customer</option>
                             </select>
+                            <div *ngIf="f.userType.errors" class="invalid-feedback">
+                                <div *ngIf="f.userType.errors.required">User Type is required</div>
+                            </div>
                         </div>
                         <div class="form-group form-check">
                             <label class="form-check-label">
