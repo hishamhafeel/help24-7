@@ -1,4 +1,5 @@
 ﻿using Help247.Common.Utility;
+using Help247.Service.BO.HelperCategory;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,6 @@ namespace Help247.Service.BO.Helper
         public string ProfilePic { get; set; }
         public string AboutMe { get; set; }
         public string MyService { get; set; }
-        public int HelperCategoryId { get; set; }
+        public HelperCategoryBO HelperCategory { get; set; }
     }
 }

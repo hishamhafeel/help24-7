@@ -1,4 +1,5 @@
 ﻿using Help247.Common.Utility;
+using Help247.ViewModels.HelperCategory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -28,5 +29,6 @@ namespace Help247.ViewModels.Helper
         public string AboutMe { get; set; }
         public string MyService { get; set; }
         public int HelperCategoryId { get; set; }
+        public HelperCategoryViewModel HelperCategory { get; set; }
     }
 }

@@ -28,5 +28,6 @@ namespace Help247.Data.Entities
 
         public List<Ticket> Tickets { get; set; }
         public List<Feedback> Feedbacks { get; set; }
+        public string UserId { get; set; }
     }
 }

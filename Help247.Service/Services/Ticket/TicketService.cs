@@ -50,7 +50,7 @@ namespace Help247.Service.Services.Ticket
 
                     var ticketHistory = new TicketHistory()
                     {
-                        HelperId = ticketBO.HelperId,
+                        HelperId = ticketBO.Helper.Id,
                         CustomerId = ticketBO.CustomerId,
                         TicketId = result.Entity.Id,
                         CurrentTicketStatusId = ticketBO.TicketStatusId,
@@ -297,7 +297,7 @@ namespace Help247.Service.Services.Ticket
             {
                 var query = appDbContext.Tickets.AsQueryable()
                     .Include(x => x.Customer)
-                    .Include(x => x.Helper)
+                    .Include(x => x.Helper).ThenInclude(a => a.HelperCategory)
                     .Where(x => x.RecordState == Enums.RecordState.Active);
 
                 query = (ticketSearchBO.TicketStatusId > 0)

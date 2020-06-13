@@ -1,4 +1,5 @@
 ﻿using Help247.Common.Utility;
+using Help247.ViewModels.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,9 +11,12 @@ namespace Help247.ViewModels.Ticket
     public class TicketViewModel
     {
         public int Id { get; set; }
+        public string Title { get; set; }
         [Required]
         public DateTime HelpDateFrom { get; set; }
         public DateTime HelpDateTo { get; set; }
+        public string HelpTime { get; set; }
+        public string Country { get; set; }
         [Required]
         public string State { get; set; }
         [Required]
@@ -35,8 +39,6 @@ namespace Help247.ViewModels.Ticket
         [Required]
         public int CustomerId { get; set; }
 
-        public string HelpTime { get; set; }
-        public string Title { get; set; }
-        public string Country { get; set; }
+        public HelperViewModel Helper { get; set; }
     }
 }
