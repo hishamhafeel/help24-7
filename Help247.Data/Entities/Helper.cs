@@ -48,6 +48,9 @@ namespace Help247.Data.Entities
         #region foreign key
         public int HelperCategoryId { get; set; }
         public HelperCategory HelperCategory { get; set; }
+
+        public string UserId { get; set; }
+        // public Image Image { get; set; }
         #endregion
 
     }

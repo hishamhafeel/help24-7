@@ -15,6 +15,7 @@ namespace Help247.Data.Entities
         public string Email { get; set; }
         public string ImageType { get; set; }
         public int SubServiceId { get; set; }
+        public int? HelperId { get; set; }
 
     }
 }
