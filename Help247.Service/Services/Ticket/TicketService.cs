@@ -50,7 +50,7 @@ namespace Help247.Service.Services.Ticket
 
                     var ticketHistory = new TicketHistory()
                     {
-                        HelperId = ticketBO.Helper.Id,
+                        HelperId = ticketBO.HelperId,
                         CustomerId = ticketBO.CustomerId,
                         TicketId = result.Entity.Id,
                         CurrentTicketStatusId = ticketBO.TicketStatusId,
@@ -281,14 +281,17 @@ namespace Help247.Service.Services.Ticket
             return query.TicketStatusId;
         }
 
-        public async Task<List<TicketBO>> GetTicketsForEmailAsync(string email)
+        public async Task<TicketBO> GetTicketsById(int id)
         {
-            var query = appDbContext.Tickets
+            var query = await appDbContext.Tickets
                 .Include(x => x.Customer)
-                .Include(x => x.Helper)
-                .AsQueryable().Where(x => x.Customer.Email == email || x.Helper.Email == email);
-
-            return mapper.Map<List<TicketBO>>(query);
+                .Include(x => x.Helper).ThenInclude(a => a.HelperCategory)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            if (query == null)
+            {
+                throw new ArgumentException("Record not found");
+            }
+            return mapper.Map<TicketBO>(query);
         }
 
         public async Task<PaginationModel<TicketBO>> GetAllAsync(TicketSearchBO ticketSearchBO)
