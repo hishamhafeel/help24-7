@@ -1,4 +1,5 @@
 ﻿using Help247.Common.Utility;
+using Help247.ViewModels.Customer;
 using Help247.ViewModels.Helper;
 using System;
 using System.Collections.Generic;
@@ -33,11 +34,12 @@ namespace Help247.ViewModels.Ticket
         [Required]
         public int TicketStatusId { get; set; }
         public DateTime CreatedOn { get; set; }
-        public int CreatedById { get; set; }
-        [Required]
-        public int HelperId { get; set; }
-        [Required]
+        public string CreatedById { get; set; }
+
         public int CustomerId { get; set; }
+
+        public CustomerViewModel Customer { get; set; }
+        public int HelperId { get; set; }
 
         public HelperViewModel Helper { get; set; }
     }

@@ -82,22 +82,21 @@ namespace Help247.Controllers.Api
             }
         }
 
-        //GET: api/Ticket/user/
-        //[Route("list/email")]
-        //[HttpGet]
-        //public async Task<IActionResult> GetTicketsForEmailAsync([FromQuery]string email)
-        //{
-        //    try
-        //    {
-        //        var result = await ticketService.GetTicketsForEmailAsync(email);
-        //        return Ok(mapper.Map<List<TicketViewModel>>(result));
-        //    }
-        //    catch (Exception ex)
-        //    {
+        //GET: api/Ticket/1
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTicketsById(int id)
+        {
+            try
+            {
+                var result = await ticketService.GetTicketsById(id);
+                return Ok(mapper.Map<TicketViewModel>(result));
+            }
+            catch (Exception ex)
+            {
 
-        //        return HandleException(ex);
-        //    }
-        //}
+                return HandleException(ex);
+            }
+        }
 
         // POST: api/ticker/assign
         [Route("assign")]
