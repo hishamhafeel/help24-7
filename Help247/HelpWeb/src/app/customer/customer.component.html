@@ -297,66 +297,17 @@
                                                         <th scope="col">Helper</th>
                                                         <th scope="col">Help Date</th>
                                                         <th scope="col">Help Time</th>
-                                                        <th scope="col">Status</th>
-                                                        <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo
-                                                            <div class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
+                                                    <tr *ngFor="let data of ticketList">
+                                                        <td data-label="Title">At vero eos accusam et justo</td>
                                                         <td data-label="Category">IT & Telecommunication</td>
                                                         <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus accept">Accepted</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo
-                                                            <div class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus accept">Accepted</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo
-                                                            <div class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus reject">reject</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo
-                                                            <div class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus pending">pending</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Delete</a>
-                                                        </td>
+                                                        <td data-label="Help Date">
+                                                            {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                        <td data-label="Help Time">
+                                                            {{data.helpDateTo | date: 'mediumDate'}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -380,65 +331,20 @@
                                                         <th scope="col">Helper</th>
                                                         <th scope="col">Help Date</th>
                                                         <th scope="col">Help Time</th>
-                                                        <th scope="col">Status</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo
-                                                            <div class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
+                                                    <tr *ngFor="let data of ticketList">
+                                                        <td data-label="Title">At vero eos accusam et justo</td>
                                                         <td data-label="Category">IT & Telecommunication</td>
                                                         <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus accept">Accepted</span></td>
+                                                        <td data-label="Help Date">
+                                                            {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                        <td data-label="Help Time">
+                                                            {{data.helpDateTo | date: 'mediumDate'}}</td>
                                                         <td data-label="Action">
-                                                            <a href="" class="btn-red small">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo
-                                                            <div class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus accept">Accepted</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo
-                                                            <div class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus reject">reject</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo
-                                                            <div class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus pending">pending</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Delete</a>
+                                                            <a href="" class="btn-red small">Complete</a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -464,75 +370,22 @@
                                                         <th scope="col">Helper</th>
                                                         <th scope="col">Help Date</th>
                                                         <th scope="col">Help Time</th>
-                                                        <th scope="col">Status</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
+                                                    <tr *ngFor="let data of ticketList">
+                                                        <td data-label="Title">At vero eos accusam et justo</td>
                                                         <td data-label="Category">IT & Telecommunication</td>
                                                         <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus completed">completed</span></td>
+                                                        <td data-label="Help Date">
+                                                            {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                        <td data-label="Help Time">
+                                                            {{data.helpDateTo | date: 'mediumDate'}}</td>
                                                         <td data-label="Action">
                                                             <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view">View</a>
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#rates">+ Review</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus completed">completed</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view">View</a>
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#rates">+ Review</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus completed">completed</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view">View</a>
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#rates">+ Review</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus completed">completed</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view">View</a>
+                                                                data-target="#view"
+                                                                (click)="openModal(template, data)">View</a>
                                                             <a href="" class="btn-red small" data-toggle="modal"
                                                                 data-target="#rates">+ Review</a>
                                                         </td>
@@ -546,6 +399,33 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <ng-template #template>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title pull-left">Ticket Details</h4>
+                                        <button type="button" class="close pull-right" aria-label="Close"
+                                            (click)="modalRef.hide()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            Title: At vero eos accusam et justo
+                                        </div>
+                                        <div class="row">
+                                            Category: At vero eos accusam et justo
+                                        </div>
+                                        <div class="row">
+                                            Helper: At vero eos accusam et justo
+                                        </div>
+                                        <div class="row">
+                                            Help Date: {{ticketModel.helpDateFrom | date: 'mediumDate'}}
+                                        </div>
+                                        <div class="row">
+                                            Help Time: {{ticketModel.helpDateTo | date: 'mediumDate'}}
+                                        </div>
+                                    </div>
+                                </ng-template>
 
                             </div>
                         </div>

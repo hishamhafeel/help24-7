@@ -10,7 +10,7 @@ const routes: Routes = [
     component: HireMeComponent
   },
   {
-    path: 'open-ticket',
+    path: 'open-ticket/:id',
     component: OpenTicketComponent
   }
 ];

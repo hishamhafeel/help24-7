@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerRegisterModel, RegisterModel, HelperRegisterModel } from '../models/register.model';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   helperCategoryList: Array<HelperCategoryModel>
   pagination: PaginationBase;
 
-  constructor(private helperService: HelperService, private route: ActivatedRoute, private fb: FormBuilder, private authService: AuthService) {
+  constructor(private helperService: HelperService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
     this.pagination = new PaginationBase();
   }
 
@@ -51,14 +51,14 @@ export class RegisterComponent implements OnInit {
   initCustomerForm() {
     this.customerForm = this.fb.group({
       name: ['Test Customer', [Validators.required]],
-      phoneNo: ['+94774065416', [Validators.required]],
+      phoneNo: ['+94772563489', [Validators.required]],
       email: [null, [Validators.required]],
       addressLine: ['311/1/A Malay Colony Ambalantota', [Validators.required]],
       country: ['Sri Lanka', [Validators.required]],
       city: ['Ambalantota', [Validators.required]],
       state: ['Hambantota', [Validators.required]],
       postalCode: ['82100', [Validators.required]],
-      profilePicUrl: ['http://www.google.com', [Validators.required]]
+      profilePicUrl: ['http://www.google5.com', [Validators.required]]
     });
   }
 
@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
       city: ['Ambalantota', [Validators.required]],
       state: ['Hambantota', [Validators.required]],
       postalCode: ['82100', [Validators.required]],
-      profilePicUrl: ['http://www.google.com', [Validators.required]],
+      profilePicUrl: ['http://www.rgoogle.com', [Validators.required]],
       experience: [2, [Validators.required]],
       aboutMe: ['I am Sri lankan', [Validators.required]],
       myService: ['About my service description', [Validators.required]],
@@ -106,6 +106,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.customerModel).subscribe(
       result => {
         console.log('result', result);
+        this.router.navigate(['auth/login']);
       },
       error => {
         console.log('error', error);
@@ -122,14 +123,15 @@ export class RegisterComponent implements OnInit {
     this.helperModel.password = this.registerModel.password;
     this.helperModel.userType = this.userType;
 
-    // this.authService.register(this.helperModel).subscribe(
-    //   result => {
-    //     console.log('result', result);
-    //   },
-    //   error => {
-    //     console.log('error', error);
-    //   }
-    // );
+    this.authService.register(this.helperModel).subscribe(
+      result => {
+        console.log('result', result);
+        this.router.navigate(['auth/login']);
+      },
+      error => {
+        console.log('error', error);
+      }
+    );
   }
 
 }

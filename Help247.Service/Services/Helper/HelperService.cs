@@ -77,7 +77,7 @@ namespace Help247.Service.Services.Helper
         {
             try
             {
-                var query = await appDbContext.Helpers.FirstOrDefaultAsync(x => x.Id == id);
+                var query = await appDbContext.Helpers.Include(x=>x.HelperCategory).FirstOrDefaultAsync(x => x.Id == id);
                 if (query == null)
                 {
                     throw new HelperNotFoundException();

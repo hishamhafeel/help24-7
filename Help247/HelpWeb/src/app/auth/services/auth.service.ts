@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseService } from 'src/app/core/services/base.service';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
+import { LoginModel } from '../models/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,16 @@ export class AuthService extends BaseService {
       .post(
         `${this.baseEndPoint}/api/Account/register`,
         model,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  authenticateUser(loginModel: LoginModel) {
+    return this.http
+      .post<LoginModel>(
+        `${this.baseEndPoint}/api/Account/Authenticate`,
+        loginModel,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));
