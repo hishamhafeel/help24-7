@@ -28,8 +28,7 @@ export class HelperComponent implements OnInit {
     'phoneNo',
     'email',
     'country',
-    'province',
-    'district',
+    'state',
     'city',
     'helperCategory'
     // 'edit',

@@ -11,5 +11,7 @@ namespace Help247.ViewModels.Ticket
         public int TicketStatusId { get; set; }
         public int HelperId { get; set; }
         public int CustomerId { get; set; }
+        public string HelperName { get; set; }
+        public string CustomerName { get; set; }
     }
 }

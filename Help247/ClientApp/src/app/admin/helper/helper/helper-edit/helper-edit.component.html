@@ -43,8 +43,8 @@
                 </div>
                 <div class="col-md-6">
                     <mat-form-field>
-                        <input matInput placeholder="Province" formControlName="province" type="text">
-                        <mat-error *ngIf="province.invalid">You must enter a value</mat-error>
+                        <input matInput placeholder="State" formControlName="state" type="text">
+                        <mat-error *ngIf="state.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -52,14 +52,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <mat-form-field>
-                        <input matInput placeholder="District" formControlName="district" type="text">
-                        <mat-error *ngIf="district.invalid">You must enter a value</mat-error>
+                        <input matInput placeholder="City" formControlName="city" type="text">
+                        <mat-error *ngIf="city.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field>
-                        <input matInput placeholder="City" formControlName="city" type="text">
-                        <mat-error *ngIf="city.invalid">You must enter a value</mat-error>
+                        <input matInput placeholder="Address" formControlName="addressLine" type="text">
+                        <mat-error *ngIf="addressLine.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -69,9 +69,8 @@
                     <mat-form-field>
                         <mat-label>Helper Category</mat-label>
                         <mat-select formControlName="helperCategoryId">
-                            <mat-option *ngFor="let item of helperCategories" [value]="item.id" 
-                            matTooltip="{{item.categoryDescription}}"
-                            matTooltipPosition="right">
+                            <mat-option *ngFor="let item of helperCategories" [value]="item.id"
+                                matTooltip="{{item.categoryDescription}}" matTooltipPosition="right">
                                 {{item.categoryName}}
                             </mat-option>
                         </mat-select>

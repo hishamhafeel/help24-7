@@ -4,7 +4,8 @@ export class CustomerModel {
     phoneNo: string;
     email: string;
     country: string;
-    province: string;
-    district: string;
+    state: string;
     city: string;
+    addressLine: string;
+    postalCode: string;
 }

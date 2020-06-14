@@ -1,19 +1,29 @@
 export class HelperModel {
     id: number;
-    name: string;
+    firstName: string;
+    lastName: string;
     phoneNo: string;
+    mobileNo: string;
     email: string;
     country: string;
-    province: string;
-    district: string;
+    state: string;
     city: string;
+    addressLine: string;
+    postalCode: string;
+    profilePicUrl: string;
+    aboutMe: string;
+    myService: string;
     helperCategory: HelperCategoryModel;
-    helperCategoryId: number;
+    // helperCategoryId: number;
 }
 
 
 export class HelperCategoryModel {
     id: number;
-    categoryName: string;
-    categoryDescription: string;
+    name: string;
+    title: string;
+    shortDescription: string;
+    longDescription: string;
+    iconUrl: string;
+    imageUrl: string;
 }
