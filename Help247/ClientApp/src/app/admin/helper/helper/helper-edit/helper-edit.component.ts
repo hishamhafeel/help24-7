@@ -37,15 +37,18 @@ export class HelperEditComponent implements OnInit {
       phoneNo: ['', Validators.required],
       email: ['', Validators.required],
       country: ['', Validators.required],
-      province: ['', Validators.required],
-      district: ['', Validators.required],
+      state: ['', Validators.required],
       city: ['', Validators.required],
+      addressLine: ['', Validators.required],
       helperCategoryId: [, [Validators.required]]
     });
     this.patchHelperForm();
   }
-  get name() {
-    return this.helperForm.get('name');
+  get firstName() {
+    return this.helperForm.get('firstName');
+  }
+  get lastName() {
+    return this.helperForm.get('lastName');
   }
   get phoneNo() {
     return this.helperForm.get('phoneNo');
@@ -56,14 +59,14 @@ export class HelperEditComponent implements OnInit {
   get country() {
     return this.helperForm.get('country');
   }
-  get province() {
-    return this.helperForm.get('province');
-  }
-  get district() {
-    return this.helperForm.get('district');
+  get state() {
+    return this.helperForm.get('state');
   }
   get city() {
     return this.helperForm.get('city');
+  }
+  get addressLine() {
+    return this.helperForm.get('addressLine');
   }
   get helperCategoryId() {
     return this.helperForm.get('helperCategoryId');
@@ -72,13 +75,14 @@ export class HelperEditComponent implements OnInit {
   patchHelperForm() {
     this.helperForm.patchValue({
       id: this.data.id,
-      name: this.data.name,
+      firstName: this.data.firstName,
+      lastName: this.data.lastName,
       phoneNo: this.data.phoneNo,
       email: this.data.email,
       country: this.data.country,
-      province: this.data.province,
-      district: this.data.district,
+      state: this.data.state,
       city: this.data.city,
+      addressLine: this.data.addressLine,
       helperCategoryId: this.data.helperCategory.id
     });
   }

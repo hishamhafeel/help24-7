@@ -30,7 +30,8 @@ namespace Help247.Controllers.Api
         {
             try
             {
-                var result = await ticketService.GetAllAsync(mapper.Map<TicketSearchBO>(ticketSearchViewModel));
+                var ticketsearchBO = mapper.Map<TicketSearchBO>(ticketSearchViewModel);
+                var result = await ticketService.GetAllAsync(ticketsearchBO);
                 return Ok(result);
             }
             catch (Exception ex)

@@ -11,8 +11,10 @@ namespace Help247.Service.BO.Customer
         public string PhoneNo { get; set; }
         public string Email { get; set; }
         public string Country { get; set; }
-        public string Province { get; set; }
-        public string District { get; set; }
+        public string State { get; set; }
         public string City { get; set; }
+        public string AddressLine { get; set; }
+        public string PostalCode { get; set; }
+        public string UserId { get; set; }
     }
 }
