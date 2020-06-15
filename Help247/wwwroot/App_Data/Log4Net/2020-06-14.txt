@@ -157,3 +157,49 @@ npm WARN Local package.json exists, but node_modules missing, did you mean to in
  Your global Angular CLI version (9.1.7) is greater than your local
  ********** 
  
+
+ 
+ ************ 2020-06-14 21:10:41,026 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 21:16:01,589 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 22:27:40,603 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(5,31): error TS2724: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesFlatNode'. Did you mean 'SubServiceFlatNode'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(28,37): error TS2304: Cannot find name 'ExampleFlatNode'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 22:27:45,790 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(5,31): error TS2724: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesFlatNode'. Did you mean 'SubServiceFlatNode'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(28,37): error TS2304: Cannot find name 'ExampleFlatNode'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 22:43:54,376 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(5,31): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesFlatNode'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(5,52): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesNode'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(28,37): error TS2304: Cannot find name 'ExampleFlatNode'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 22:44:00,186 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(5,31): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesFlatNode'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(5,52): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesNode'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(5,69): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServiceFlatNode'.
+    
+ ********** 
+ 

@@ -12,6 +12,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/customer', title: 'Customers', icon: 'person', class: '' },
   { path: '/ticket', title: 'Tickets', icon: 'info', class: '' },
   // { path: '/icons', title: 'Feedbacks',  icon:'feedback', class: '' },
+  { path: '/service', title: 'Services', icon: 'category', class: '' },
   { path: '/help-center', title: 'Help Center', icon: 'feedback', class: '' }
 ];
 
