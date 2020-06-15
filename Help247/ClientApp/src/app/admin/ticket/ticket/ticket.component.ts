@@ -40,7 +40,7 @@ export class TicketComponent implements OnInit {
   hasHelperRecords: boolean = false;
 
   displayedColumns: string[] = [
-    'id',
+    // 'id',
     'helper',
     'customer',
     'title',
@@ -53,6 +53,7 @@ export class TicketComponent implements OnInit {
     'contactNo1'
   ];
 
+  noData: string;
 
   constructor(
     private ticketService: TicketService,

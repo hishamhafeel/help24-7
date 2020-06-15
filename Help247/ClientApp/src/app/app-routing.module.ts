@@ -39,6 +39,11 @@ const routes: Routes = [
         path: 'ticket',
         loadChildren: './admin/ticket/ticket.module#TicketModule',
         canActivate: [AuthGuardService]
+      },
+      {
+        path: 'service',
+        loadChildren: './admin/helper-category/helper-category.module#HelperCategoryModule',
+        canActivate: [AuthGuardService]
       }
     ]
   }

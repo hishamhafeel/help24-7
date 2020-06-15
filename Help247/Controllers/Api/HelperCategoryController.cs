@@ -32,13 +32,29 @@ namespace Help247.Controllers.Api
             try
             {
                 var result = await helperCategoryService.GetAllAsync(paginationBase);
-                return Ok(mapper.Map<HelperCategoryViewModel>(result));
+                return Ok(result);
             }
             catch (Exception ex)
             {
 
                 return HandleException(ex);
             }
+        }
+
+        //GET: api/HelperCategory
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAsync(int id)
+        {
+            try
+            {
+                var result = await helperCategoryService.GetByIdAsync(id);
+                return Ok(mapper.Map<HelperCategoryViewModel>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+
         }
 
         //POST: api/HelperCategory/
