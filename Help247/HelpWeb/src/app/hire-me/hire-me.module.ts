@@ -5,6 +5,7 @@ import { HireMeRoutingModule } from './hire-me-routing.module';
 import { HireMeComponent } from './hire-me/hire-me.component';
 import { OpenTicketComponent } from './open-ticket/open-ticket.component';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
@@ -18,7 +19,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     HireMeRoutingModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot()
   ]
 })
 export class HireMeModule { }

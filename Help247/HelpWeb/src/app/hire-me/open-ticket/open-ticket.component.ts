@@ -4,6 +4,7 @@ import { HireMeService } from '../services/hire-me.service';
 import { HelperModel } from 'src/app/helper/models/helper.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TicketModel } from '../models/ticket.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-open-ticket',
@@ -39,12 +40,15 @@ export class OpenTicketComponent implements OnInit {
 
   initOpenTicketForm(){
     this.openTicketForm = this.fb.group({
+      title: ['NewTitle', [Validators.required]],
+      country: ['Sri Lanka', [Validators.required]],
       state: ['Hambantota', [Validators.required]],
       city: ['Ambalantota', [Validators.required]],
       address: ['311/1/A Malay Colony, Ambalantota', [Validators.required]],
       contactNo1: ['+94552226589', [Validators.required]],
       contactNo2: ['+94772256634', [Validators.required]],
       otherRequirements: ['All other requirements', [Validators.required]],
+      helpTime: [new Date(), [Validators.required]],
       ticketStatusId: [1, [Validators.required]],
       customerId: [3, [Validators.required]]
     });
@@ -61,7 +65,7 @@ export class OpenTicketComponent implements OnInit {
     );
   }
 
-  onSubmit(){
+  async onSubmit(){
     if (this.openTicketForm.invalid) {
       return;
     }
@@ -69,6 +73,8 @@ export class OpenTicketComponent implements OnInit {
     this.ticketModel.helpDateFrom = this.fromDate;
     this.ticketModel.helpDateTo = this.toDate;
     this.ticketModel.helperId = this.id;
+
+    this.ticketModel.helpTime = await this.formatAMPM(this.openTicketForm.value.helpTime);
 
     this.hireMeService.assignTicket(this.ticketModel).subscribe(
       result => {
@@ -79,6 +85,17 @@ export class OpenTicketComponent implements OnInit {
         console.log('error', error);
       }
     );
+  }
+
+  async formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
   }
 
 }

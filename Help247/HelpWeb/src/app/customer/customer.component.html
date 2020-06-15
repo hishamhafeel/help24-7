@@ -301,13 +301,13 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr *ngFor="let data of ticketList">
-                                                        <td data-label="Title">At vero eos accusam et justo</td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
+                                                        <td data-label="Title">{{data.title}}</td>
+                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
                                                         <td data-label="Helper">John Jacson</td>
                                                         <td data-label="Help Date">
                                                             {{data.helpDateFrom | date: 'mediumDate'}}</td>
                                                         <td data-label="Help Time">
-                                                            {{data.helpDateTo | date: 'mediumDate'}}</td>
+                                                            {{data.helpTime}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -336,13 +336,13 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr *ngFor="let data of ticketList">
-                                                        <td data-label="Title">At vero eos accusam et justo</td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Title">{{data.title}}</td>
+                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
+                                                        <td data-label="Helper">{{data.helper.firstName}} {{data.helper.lastName}}</td>
                                                         <td data-label="Help Date">
                                                             {{data.helpDateFrom | date: 'mediumDate'}}</td>
                                                         <td data-label="Help Time">
-                                                            {{data.helpDateTo | date: 'mediumDate'}}</td>
+                                                            {{data.helpTime}}</td>
                                                         <td data-label="Action">
                                                             <a href="" class="btn-red small">Complete</a>
                                                         </td>
@@ -375,13 +375,13 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr *ngFor="let data of ticketList">
-                                                        <td data-label="Title">At vero eos accusam et justo</td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
+                                                        <td data-label="Title">{{data.title}}</td>
+                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
+                                                        <td data-label="Helper">{{data.helper.firstName}} {{data.helper.lastName}}</td>
                                                         <td data-label="Help Date">
                                                             {{data.helpDateFrom | date: 'mediumDate'}}</td>
                                                         <td data-label="Help Time">
-                                                            {{data.helpDateTo | date: 'mediumDate'}}</td>
+                                                            {{data.helpTime}}</td>
                                                         <td data-label="Action">
                                                             <a href="" class="btn-red small" data-toggle="modal"
                                                                 data-target="#view"

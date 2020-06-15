@@ -1,5 +1,10 @@
+import { HelperModel } from 'src/app/helper/models/helper.model';
+
 export class TicketModel {
     id: number;
+    title: string;
+    helpTime: string;
+    country: string;
     helpDateFrom: Date;
     helpDateTo: Date;
     state: string;
@@ -11,4 +16,5 @@ export class TicketModel {
     ticketStatusId: number;
     helperId: number;
     customerId: number;
+    helper: HelperModel;
 }
