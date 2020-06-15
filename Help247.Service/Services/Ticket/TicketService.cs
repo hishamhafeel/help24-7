@@ -108,7 +108,10 @@ namespace Help247.Service.Services.Ticket
                         State= query.State,
                         Address= query.Address,
                         ContactNo1 = query.ContactNo1,
-                        ContactNo2 = query.ContactNo2
+                        ContactNo2 = query.ContactNo2,
+                        Title = query.Title,
+                        Country = query.Country,
+                        HelpTime = query.HelpTime
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -174,7 +177,10 @@ namespace Help247.Service.Services.Ticket
                         State = query.State,
                         Address = query.Address,
                         ContactNo1 = query.ContactNo1,
-                        ContactNo2 = query.ContactNo2
+                        ContactNo2 = query.ContactNo2,
+                        Title = query.Title,
+                        Country = query.Country,
+                        HelpTime = query.HelpTime
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -275,14 +281,17 @@ namespace Help247.Service.Services.Ticket
             return query.TicketStatusId;
         }
 
-        public async Task<List<TicketBO>> GetTicketsForEmailAsync(string email)
+        public async Task<TicketBO> GetTicketsById(int id)
         {
-            var query = appDbContext.Tickets
+            var query = await appDbContext.Tickets
                 .Include(x => x.Customer)
-                .Include(x => x.Helper)
-                .AsQueryable().Where(x => x.Customer.Email == email || x.Helper.Email == email);
-
-            return mapper.Map<List<TicketBO>>(query);
+                .Include(x => x.Helper).ThenInclude(a => a.HelperCategory)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            if (query == null)
+            {
+                throw new ArgumentException("Record not found");
+            }
+            return mapper.Map<TicketBO>(query);
         }
 
         public async Task<PaginationModel<TicketBO>> GetAllAsync(TicketSearchBO ticketSearchBO)
@@ -291,29 +300,44 @@ namespace Help247.Service.Services.Ticket
             {
                 var query = appDbContext.Tickets.AsQueryable()
                     .Include(x => x.Customer)
-                    .Include(x => x.Helper)
+                    .Include(x => x.Helper).ThenInclude(a => a.HelperCategory)
                     .Where(x => x.RecordState == Enums.RecordState.Active);
 
-                query = (ticketSearchBO.TicketStatusId > 0)
-                    ? query.Where(x => x.TicketStatusId == ticketSearchBO.TicketStatusId)
-                    : query;
+                if (!string.IsNullOrEmpty(ticketSearchBO.CustomerName))
+                {
+                    query = (!string.IsNullOrEmpty(ticketSearchBO.CustomerName))
+                        ? query.Where(x => EF.Functions.Like(x.Customer.Name.ToLower(), ticketSearchBO.CustomerName.ToLower() + "%"))
+                        : query;
+                }
+                else if (!string.IsNullOrEmpty(ticketSearchBO.HelperName))
+                {
+                    query = (!string.IsNullOrEmpty(ticketSearchBO.HelperName)) 
+                        ? query.Where(x => EF.Functions.Like(x.Helper.FirstName.ToLower(), ticketSearchBO.HelperName.ToLower() + "%") ||
+                                             EF.Functions.Like(x.Helper.LastName.ToLower(), ticketSearchBO.HelperName.ToLower() + "%"))
+                        : query;
+                }
+                else
+                {
+                    query = (ticketSearchBO.TicketStatusId > 0)
+                        ? query.Where(x => x.TicketStatusId == ticketSearchBO.TicketStatusId)
+                        : query;
 
-                query = (ticketSearchBO.HelperId > 0)
-                    ? query.Where(x => x.HelperId == ticketSearchBO.HelperId)
-                    : query;
+                    query = (ticketSearchBO.HelperId > 0)
+                        ? query.Where(x => x.HelperId == ticketSearchBO.HelperId)
+                        : query;
 
-                query = (ticketSearchBO.CustomerId > 0)
-                    ? query.Where(x => x.CustomerId == ticketSearchBO.CustomerId)
-                    : query;
+                    query = (ticketSearchBO.CustomerId > 0)
+                        ? query.Where(x => x.CustomerId == ticketSearchBO.CustomerId)
+                        : query;
 
-                query = (!string.IsNullOrEmpty(ticketSearchBO.SearchQuery))
-                    ? query.Where(x => EF.Functions.Like(x.City.ToLower(), ticketSearchBO.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.Address.ToLower(), ticketSearchBO.SearchQuery + "%") ||
-                                              EF.Functions.Like(x.ContactNo1, ticketSearchBO.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.ContactNo2, ticketSearchBO.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.Id.ToString(), ticketSearchBO.SearchQuery + "%"))
-                    : query;
-
+                    query = (!string.IsNullOrEmpty(ticketSearchBO.SearchQuery))
+                        ? query.Where(x => EF.Functions.Like(x.City.ToLower(), ticketSearchBO.SearchQuery.ToLower() + "%") ||
+                                                 EF.Functions.Like(x.Address.ToLower(), ticketSearchBO.SearchQuery.ToLower() + "%") ||
+                                                  EF.Functions.Like(x.ContactNo1, ticketSearchBO.SearchQuery + "%") ||
+                                                 EF.Functions.Like(x.ContactNo2, ticketSearchBO.SearchQuery + "%") ||
+                                                 EF.Functions.Like(x.Id.ToString(), ticketSearchBO.SearchQuery + "%"))
+                        : query;
+                }
                 var totalNumberOfRecords = await query.AsNoTracking().CountAsync();
                 query.OrderByDescending(x => x.Id).Skip(ticketSearchBO.Skip).Take(ticketSearchBO.Take);
                 var result = await query.AsNoTracking().ToListAsync();

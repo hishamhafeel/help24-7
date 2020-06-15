@@ -53,14 +53,17 @@ export class CustomerEditComponent implements OnInit {
   get country() {
     return this.customerForm.get('country');
   }
-  get province() {
-    return this.customerForm.get('province');
-  }
-  get district() {
-    return this.customerForm.get('district');
+  get state() {
+    return this.customerForm.get('state');
   }
   get city() {
     return this.customerForm.get('city');
+  }
+  get addressLine() {
+    return this.customerForm.get('addressLine');
+  }
+  get postalCode() {
+    return this.customerForm.get('postalCode');
   }
 
   patchCustomerForm() {
@@ -70,9 +73,11 @@ export class CustomerEditComponent implements OnInit {
       phoneNo: this.data.phoneNo,
       email: this.data.email,
       country: this.data.country,
-      province: this.data.province,
-      district: this.data.district,
-      city: this.data.city
+      state: this.data.state,
+      city: this.data.city,
+      addressLine: this.data.addressLine,
+      postalCode: this.data.postalCode,
+
     });
   }
 

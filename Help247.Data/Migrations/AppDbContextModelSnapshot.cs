@@ -68,6 +68,9 @@ namespace Help247.Data.Migrations
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
@@ -163,8 +166,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2020, 6, 11, 5, 19, 49, 627, DateTimeKind.Utc).AddTicks(7694),
-                            EditedOn = new DateTime(2020, 6, 11, 5, 19, 49, 627, DateTimeKind.Utc).AddTicks(8223),
+                            CreatedOn = new DateTime(2020, 6, 13, 14, 39, 41, 520, DateTimeKind.Utc).AddTicks(5540),
+                            EditedOn = new DateTime(2020, 6, 13, 14, 39, 41, 520, DateTimeKind.Utc).AddTicks(7167),
                             RecordState = (byte)1,
                             Title = "Terms & Conditions",
                             Topics = "{}"
@@ -172,8 +175,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2020, 6, 11, 5, 19, 49, 627, DateTimeKind.Utc).AddTicks(9745),
-                            EditedOn = new DateTime(2020, 6, 11, 5, 19, 49, 627, DateTimeKind.Utc).AddTicks(9750),
+                            CreatedOn = new DateTime(2020, 6, 13, 14, 39, 41, 521, DateTimeKind.Utc).AddTicks(2277),
+                            EditedOn = new DateTime(2020, 6, 13, 14, 39, 41, 521, DateTimeKind.Utc).AddTicks(2294),
                             RecordState = (byte)1,
                             Title = "Privacy Policy",
                             Topics = "{}"
@@ -181,8 +184,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2020, 6, 11, 5, 19, 49, 627, DateTimeKind.Utc).AddTicks(9796),
-                            EditedOn = new DateTime(2020, 6, 11, 5, 19, 49, 627, DateTimeKind.Utc).AddTicks(9797),
+                            CreatedOn = new DateTime(2020, 6, 13, 14, 39, 41, 521, DateTimeKind.Utc).AddTicks(2378),
+                            EditedOn = new DateTime(2020, 6, 13, 14, 39, 41, 521, DateTimeKind.Utc).AddTicks(2383),
                             RecordState = (byte)1,
                             Title = "FAQ",
                             Topics = "{}"
@@ -265,6 +268,9 @@ namespace Help247.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
@@ -345,6 +351,9 @@ namespace Help247.Data.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("HelperId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageType")
                         .HasColumnType("nvarchar(max)");
 
@@ -405,6 +414,9 @@ namespace Help247.Data.Migrations
                     b.Property<string>("ContactNo2")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CreatedById")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -427,6 +439,9 @@ namespace Help247.Data.Migrations
                     b.Property<DateTime>("HelpDateTo")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("HelpTime")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("HelperId")
                         .HasColumnType("int");
 
@@ -442,6 +457,9 @@ namespace Help247.Data.Migrations
 
                     b.Property<int>("TicketStatusId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -616,22 +634,22 @@ namespace Help247.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f34dadaa-8fa1-48a9-a148-fc6dda5294c5",
+                            Id = "08ae07b7-f766-4950-ae48-16f3e60fc2ab",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "be5ab070-277e-4f2f-82c8-ab9ad450163a",
-                            CreatedOn = new DateTime(2020, 6, 11, 5, 19, 49, 606, DateTimeKind.Utc).AddTicks(6713),
-                            EditedOn = new DateTime(2020, 6, 11, 5, 19, 49, 606, DateTimeKind.Utc).AddTicks(7191),
+                            ConcurrencyStamp = "83256ad7-ab1d-4d0f-9370-d1820ca0fff0",
+                            CreatedOn = new DateTime(2020, 6, 13, 14, 39, 41, 477, DateTimeKind.Utc).AddTicks(9854),
+                            EditedOn = new DateTime(2020, 6, 13, 14, 39, 41, 478, DateTimeKind.Utc).AddTicks(735),
                             Email = "superadmin@admin.com",
                             EmailConfirmed = true,
                             IsAdmin = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@ADMIN.COM",
                             NormalizedUserName = "SUPERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHJPDbmEY6vrbf37fSueIeRkJTtiCXK03Hzt2HDEuXMpXl0AL3iKc3iP4NWsSnkqTQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELU7zb4g1VAreBvoRuJEXCql9yiNDYKhwLRDnI8AqqkQ9CXq7/JDMdQXEkAVQH3t9A==",
                             PhoneNumber = "123456789",
                             PhoneNumberConfirmed = false,
                             RecordState = (byte)1,
-                            SecurityStamp = "24066966-a258-412a-b2f3-5597f1d5bbfb",
+                            SecurityStamp = "b27e2d74-4b07-4152-b762-55695e0cbd7a",
                             TwoFactorEnabled = false,
                             UserName = "superadmin"
                         });
@@ -667,28 +685,28 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "9ceac298-4cd8-4d1f-9a80-d9b5d3da834d",
+                            ConcurrencyStamp = "cf9d1447-fe8d-45a1-93bc-dc7ab33edd63",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "b395d023-8fff-4ecd-8aab-3817a3b68939",
+                            ConcurrencyStamp = "159fb6ba-76fd-4017-b98b-200a137644c3",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "94a560f1-b6b1-4955-95eb-c1b4a550f50d",
+                            ConcurrencyStamp = "a12c1d66-a46d-4c7e-8268-657a0b65e689",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "4cf7cadd-c573-47b4-aecb-ee0fe2bed3ed",
+                            ConcurrencyStamp = "fa42a1ef-b668-4958-92b5-6470d92634ae",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -781,7 +799,7 @@ namespace Help247.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "f34dadaa-8fa1-48a9-a148-fc6dda5294c5",
+                            UserId = "08ae07b7-f766-4950-ae48-16f3e60fc2ab",
                             RoleId = "4"
                         });
                 });

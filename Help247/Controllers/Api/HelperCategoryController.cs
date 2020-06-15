@@ -41,6 +41,22 @@ namespace Help247.Controllers.Api
             }
         }
 
+        //GET: api/HelperCategory
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAsync(int id)
+        {
+            try
+            {
+                var result = await helperCategoryService.GetByIdAsync(id);
+                return Ok(mapper.Map<HelperCategoryViewModel>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+
+        }
+
         //POST: api/HelperCategory/
         [HttpPost]
         [Authorize(Roles = "Admin, SuperAdmin")]

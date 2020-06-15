@@ -1,0 +1,205 @@
+
+ 
+ ************ 2020-06-14 09:41:23,151 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 09:41:24,631 [11] ERROR App  
+ An unhandled exception occurred: Cannot find module '@angular-devkit/build-angular/package.json'
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 09:41:24,681 [11] ERROR App  
+ Require stack:
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\node_modules\@angular-devkit\architect\node\node-modules-architect-host.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\node_modules\@angular-devkit\architect\node\index.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\models\architect-command.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\commands\serve-impl.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\node_modules\@angular-devkit\schematics\tools\export-ref.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\node_modules\@angular-devkit\schematics\tools\index.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\utilities\json-schema.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\models\command-runner.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\lib\cli\index.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\lib\init.js
+- C:\Users\hisha\AppData\Roaming\npm\node_modules\@angular\cli\bin\ng
+See "C:\Users\hisha\AppData\Local\Temp\ng-8fIRjf\angular-errors.log" for further details.
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 09:41:24,749 [11] ERROR App  
+ npm ERR! code ELIFECYCLE
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 09:41:24,771 [11] ERROR App  
+ npm ERR! syscall spawn
+npm ERR! file C:\WINDOWS\system32\cmd.exe
+npm ERR! errno ENOENT
+npm ERR! help247@0.0.0 start: `ng serve --servePath / --baseHref /admin/ "--port" "60843"`
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 09:41:24,789 [11] ERROR App  
+ npm ERR! spawn ENOENT
+npm ERR! 
+npm ERR! Failed at the help247@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+npm WARN Local package.json exists, but node_modules missing, did you mean to install?
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 10:04:31,532 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 10:14:27,500 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 11:01:38,326 [6] ERROR App  
+ ERROR in src/app/admin/ticket/ticket/ticket.component.ts:75:7 - error TS1005: ',' expected.
+
+75       });
+         ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 11:01:46,318 [6] ERROR App  
+     ERROR in src/app/admin/ticket/ticket/ticket.component.ts(73,13): error TS2304: Cannot find name 's'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 11:02:16,580 [6] ERROR App  
+ ERROR in src/app/admin/ticket/ticket/ticket.component.ts:74:7 - error TS1005: ',' expected.
+
+74       });
+         ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 11:12:13,790 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 11:19:18,787 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 11:34:27,049 [11] ERROR App  
+ ERROR in src/app/admin/ticket/ticket/ticket.component.ts:78:10 - error TS1128: Declaration or statement expected.
+
+78         });
+            ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 11:45:13,061 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 11:59:30,200 [8] ERROR App  
+     ERROR in src/app/admin/ticket/ticket/ticket.component.ts(224,14): error TS2339: Property 'getHelpersTicket' does not exist on type 'TicketComponent'.
+    src/app/admin/ticket/ticket/ticket.component.ts(228,14): error TS2339: Property 'getCustomerTicket' does not exist on type 'TicketComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 12:10:03,439 [10] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 12:16:06,136 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 12:36:02,867 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 12:38:09,050 [7] ERROR App  
+ An error occurred using the connection to database 'help247' on server '(localdb)\MSSQLLocalDB'. ********** 
+ 
+
+ 
+ ************ 2020-06-14 12:47:23,151 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 21:10:41,026 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 21:16:01,589 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 22:27:40,603 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(5,31): error TS2724: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesFlatNode'. Did you mean 'SubServiceFlatNode'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(28,37): error TS2304: Cannot find name 'ExampleFlatNode'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 22:27:45,790 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(5,31): error TS2724: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesFlatNode'. Did you mean 'SubServiceFlatNode'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(28,37): error TS2304: Cannot find name 'ExampleFlatNode'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 22:43:54,376 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(5,31): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesFlatNode'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(5,52): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesNode'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(28,37): error TS2304: Cannot find name 'ExampleFlatNode'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-14 22:44:00,186 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(5,31): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesFlatNode'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(5,52): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServicesNode'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(5,69): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'SubServiceFlatNode'.
+    
+ ********** 
+ 

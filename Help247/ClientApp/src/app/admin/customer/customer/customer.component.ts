@@ -28,9 +28,9 @@ export class CustomerComponent implements OnInit {
     'phoneNo',
     'email',
     'country',
-    'province',
-    'district',
-    'city'
+    'state',
+    'city',
+    'addressLine'
     // 'edit',
     // 'delete'
   ];

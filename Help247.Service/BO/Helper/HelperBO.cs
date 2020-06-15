@@ -23,7 +23,6 @@ namespace Help247.Service.BO.Helper
         public string ProfilePic { get; set; }
         public string AboutMe { get; set; }
         public string MyService { get; set; }
-        public int HelperCategoryId { get; set; }
         public HelperCategoryBO HelperCategory { get; set; }
     }
 }

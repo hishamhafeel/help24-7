@@ -1,0 +1,769 @@
+
+ 
+ ************ 2020-06-15 07:37:14,709 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 07:46:18,859 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(45,10): error TS2339: Property 'patchHelperForm' does not exist on type 'HelperCategoryComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 07:54:07,136 [6] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(18,3): error TS2300: Duplicate identifier 'servicesProvided'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(67,7): error TS2300: Duplicate identifier 'servicesProvided'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(73,16): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(74,23): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(75,22): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(76,21): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(77,19): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(78,21): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(79,19): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(80,18): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(81,25): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(82,30): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 07:54:13,946 [34] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(18,3): error TS2300: Duplicate identifier 'servicesProvided'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(67,7): error TS2300: Duplicate identifier 'servicesProvided'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(73,16): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(74,23): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(75,22): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(76,21): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(77,19): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(78,21): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(79,19): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(80,18): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(81,25): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(82,30): error TS2339: Property 'data' does not exist on type 'HelperCategoryComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:13:36,292 [34] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts:91:52 - error TS1005: ';' expected.
+
+91     this.helperCategory = new HelperCategoryModel(){
+                                                      ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:93:13 - error TS1005: ';' expected.
+
+93         name: this.name,
+               ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:94:16 - error TS1005: ';' expected.
+
+94           title: this.title,
+                  ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:95:29 - error TS1005: ';' expected.
+
+95             shortDescription: this.shortDescription,
+                               ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:96:30 - error TS1005: ';' expected.
+
+96               longDescription: this.longDescription,
+                                ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:97:24 - error TS1005: ';' expected.
+
+97                 iconUrl: this.iconUrl,
+                          ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:98:27 - error TS1005: ';' expected.
+
+98                   imageUrl: this.imageUrl
+                             ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:13:40,076 [18] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts:91:52 - error TS1005: ';' expected.
+
+91     this.helperCategory = new HelperCategoryModel(){
+                                                      ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:93:13 - error TS1005: ';' expected.
+
+93         name: this.name,
+               ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:94:16 - error TS1005: ';' expected.
+
+94           title: this.title,
+                  ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:95:29 - error TS1005: ';' expected.
+
+95             shortDescription: this.shortDescription,
+                               ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:96:30 - error TS1005: ';' expected.
+
+96               longDescription: this.longDescription,
+                                ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:97:24 - error TS1005: ';' expected.
+
+97                 iconUrl: this.iconUrl,
+                          ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:98:27 - error TS1005: ';' expected.
+
+98                   imageUrl: this.imageUrl
+                             ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:13:47,664 [34] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts:91:52 - error TS1005: ';' expected.
+
+91     this.helperCategory = new HelperCategoryModel(){
+                                                      ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:93:13 - error TS1005: ';' expected.
+
+93         name: this.name,
+               ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:94:16 - error TS1005: ';' expected.
+
+94           title: this.title,
+                  ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:95:29 - error TS1005: ';' expected.
+
+95             shortDescription: this.shortDescription,
+                               ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:96:30 - error TS1005: ';' expected.
+
+96               longDescription: this.longDescription,
+                                ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:97:24 - error TS1005: ';' expected.
+
+97                 iconUrl: this.iconUrl,
+                          ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:98:27 - error TS1005: ';' expected.
+
+98                   imageUrl: this.imageUrl
+                             ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:13:48,311 [34] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(94,11): error TS2663: Cannot find name 'title'. Did you mean the instance member 'this.title'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(95,13): error TS2663: Cannot find name 'shortDescription'. Did you mean the instance member 'this.shortDescription'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(96,15): error TS2663: Cannot find name 'longDescription'. Did you mean the instance member 'this.longDescription'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(97,17): error TS2663: Cannot find name 'iconUrl'. Did you mean the instance member 'this.iconUrl'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(98,19): error TS2663: Cannot find name 'imageUrl'. Did you mean the instance member 'this.imageUrl'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(105,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(107,32): error TS2339: Property 'updateHelperCategory' does not exist on type 'HelperCategoryService'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(109,14): error TS2339: Property 'getAllHelpCenterList' does not exist on type 'HelperCategoryComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:13:59,192 [34] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(92,7): error TS2663: Cannot find name 'id'. Did you mean the instance member 'this.id'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(94,11): error TS2663: Cannot find name 'title'. Did you mean the instance member 'this.title'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(95,13): error TS2663: Cannot find name 'shortDescription'. Did you mean the instance member 'this.shortDescription'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(96,15): error TS2663: Cannot find name 'longDescription'. Did you mean the instance member 'this.longDescription'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(97,17): error TS2663: Cannot find name 'iconUrl'. Did you mean the instance member 'this.iconUrl'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(98,19): error TS2663: Cannot find name 'imageUrl'. Did you mean the instance member 'this.imageUrl'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(105,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(107,32): error TS2339: Property 'updateHelperCategory' does not exist on type 'HelperCategoryService'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(109,14): error TS2339: Property 'getAllHelpCenterList' does not exist on type 'HelperCategoryComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:14:04,413 [18] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(92,7): error TS2663: Cannot find name 'id'. Did you mean the instance member 'this.id'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(94,11): error TS2663: Cannot find name 'title'. Did you mean the instance member 'this.title'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(95,13): error TS2663: Cannot find name 'shortDescription'. Did you mean the instance member 'this.shortDescription'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(96,15): error TS2663: Cannot find name 'longDescription'. Did you mean the instance member 'this.longDescription'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(97,17): error TS2663: Cannot find name 'iconUrl'. Did you mean the instance member 'this.iconUrl'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(98,19): error TS2663: Cannot find name 'imageUrl'. Did you mean the instance member 'this.imageUrl'?
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(105,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(107,32): error TS2339: Property 'updateHelperCategory' does not exist on type 'HelperCategoryService'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(109,14): error TS2339: Property 'getAllHelpCenterList' does not exist on type 'HelperCategoryComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:16:03,889 [31] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(99,32): error TS2339: Property 'updateHelperCategory' does not exist on type 'HelperCategoryService'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(101,14): error TS2339: Property 'getAllHelpCenterList' does not exist on type 'HelperCategoryComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:17:35,875 [31] ERROR App  
+ ERROR in src/app/admin/helper-category/services/helper-category.service.ts:41:1 - error TS1128: Declaration or statement expected.
+
+41 }
+   ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:17:37,371 [31] ERROR App  
+ ERROR in src/app/admin/helper-category/services/helper-category.service.ts:41:1 - error TS1128: Declaration or statement expected.
+
+41 }
+   ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:17:40,898 [29] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(101,14): error TS2339: Property 'getAllHelpCenterList' does not exist on type 'HelperCategoryComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:17:46,138 [29] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:21:11,371 [29] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:21:15,899 [26] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:26:55,427 [19] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:34:46,855 [19] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:34:51,355 [19] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:35:08,152 [19] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:47:22,547 [31] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:47:28,088 [31] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:48:50,087 [31] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:48:58,404 [31] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:50:27,430 [77] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:51:11,319 [16] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 08:51:35,152 [16] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(97,5): error TS2322: Type 'string' is not assignable to type '{ [key: string]: string; }'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 09:07:47,040 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 10:31:25,105 [8] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts:106:61 - error TS1005: ';' expected.
+
+106     this.helperCategoryForm.controls['id'].setValue(data.id)];
+                                                                ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:107:65 - error TS1005: ';' expected.
+
+107     this.helperCategoryForm.controls['name'].setValue(data.name)];
+                                                                    ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:108:67 - error TS1005: ';' expected.
+
+108     this.helperCategoryForm.controls['title'].setValue(data.title)];
+                                                                      ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:109:89 - error TS1005: ';' expected.
+
+109     this.helperCategoryForm.controls['shortDescription'].setValue(data.shortDescription)];
+                                                                                            ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:110:87 - error TS1005: ';' expected.
+
+110     this.helperCategoryForm.controls['longDescription'].setValue(data.longDescription)];
+                                                                                          ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:111:71 - error TS1005: ';' expected.
+
+111     this.helperCategoryForm.controls['iconUrl'].setValue(data.iconUrl)];
+                                                                          ~
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 10:45:24,823 [8] ERROR App  
+ src/app/admin/helper-category/helper-category/helper-category.component.ts:112:73 - error TS1005: ';' expected.
+
+112     this.helperCategoryForm.controls['imageUrl'].setValue(data.imageUrl)];
+                                                                            ~
+
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 10:45:24,921 [8] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(40,44): error TS2554: Expected 1-2 arguments, but got 0.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 10:57:52,528 [8] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts:41:36 - error TS1005: ',' expected.
+
+41       categories: new FormArray([]);
+                                      ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 11:03:31,755 [8] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts:108:26 - error TS1144: '{' or ';' expected.
+
+108   getHelperCategory(): []any {
+                             ~~~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:108:30 - error TS1005: ';' expected.
+
+108   getHelperCategory(): []any {
+                                 ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:127:15 - error TS1005: ',' expected.
+
+127 setValues(data: any) {
+                  ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:127:22 - error TS1005: ';' expected.
+
+127 setValues(data: any) {
+                         ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:136:15 - error TS1005: ',' expected.
+
+136 saveValue(data: any) {
+                  ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:136:22 - error TS1005: ';' expected.
+
+136 saveValue(data: any) {
+                         ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:165:1 - error TS1128: Declaration or statement expected.
+
+165 }
+    ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 11:03:32,915 [8] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts:108:26 - error TS1144: '{' or ';' expected.
+
+108   getHelperCategory(): []any {
+                             ~~~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:108:30 - error TS1005: ';' expected.
+
+108   getHelperCategory(): []any {
+                                 ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:127:15 - error TS1005: ',' expected.
+
+127 setValues(data: any) {
+                  ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:127:22 - error TS1005: ';' expected.
+
+127 setValues(data: any) {
+                         ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:136:15 - error TS1005: ',' expected.
+
+136 saveValue(data: any) {
+                  ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:136:22 - error TS1005: ';' expected.
+
+136 saveValue(data: any) {
+                         ~
+src/app/admin/helper-category/helper-category/helper-category.component.ts:165:1 - error TS1128: Declaration or statement expected.
+
+165 }
+    ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 11:03:36,647 [8] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(108,26): error TS2693: 'any' only refers to a type, but is being used as a value here.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(127,1): error TS2304: Cannot find name 'setValues'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(127,11): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(127,17): error TS2693: 'any' only refers to a type, but is being used as a value here.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(128,51): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(129,53): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(130,54): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(131,65): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(132,64): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(133,56): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(134,57): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(136,1): error TS2304: Cannot find name 'saveValue'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(136,11): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(136,17): error TS2693: 'any' only refers to a type, but is being used as a value here.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(138,18): error TS2304: Cannot find name 'data'.
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 11:03:41,353 [8] ERROR App  
+     src/app/admin/helper-category/helper-category/helper-category.component.ts(139,28): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(140,30): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(141,31): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(142,42): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(143,41): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(144,33): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(145,34): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(148,27): error TS2304: Cannot find name 'data'.
+    
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 11:03:41,372 [8] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(108,26): error TS2693: 'any' only refers to a type, but is being used as a value here.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(127,1): error TS2304: Cannot find name 'setValues'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(127,11): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(127,17): error TS2693: 'any' only refers to a type, but is being used as a value here.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(128,51): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(129,53): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(130,54): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(131,65): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(132,64): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(133,56): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(134,57): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(136,1): error TS2304: Cannot find name 'saveValue'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(136,11): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(136,17): error TS2693: 'any' only refers to a type, but is being used as a value here.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(138,18): error TS2304: Cannot find name 'data'.
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 11:03:54,326 [8] ERROR App  
+     src/app/admin/helper-category/helper-category/helper-category.component.ts(139,28): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(140,30): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(141,31): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(142,42): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(143,41): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(144,33): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(145,34): error TS2304: Cannot find name 'data'.
+    src/app/admin/helper-category/helper-category/helper-category.component.ts(148,27): error TS2304: Cannot find name 'data'.
+    
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 11:03:54,385 [8] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(108,24): error TS2355: A function whose declared type is neither 'void' nor 'any' must return a value.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 11:04:16,045 [8] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category.component.ts(108,24): error TS2355: A function whose declared type is neither 'void' nor 'any' must return a value.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:05:30,477 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:30:23,433 [4] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts:39:42 - error TS1005: ',' expected.
+
+39       imageUrl: ['', Validators.required]]
+                                            ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:32:17,871 [5] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts:39:42 - error TS1005: ',' expected.
+
+39       imageUrl: ['', Validators.required]]
+                                            ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:32:19,767 [5] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts:39:42 - error TS1005: ',' expected.
+
+39       imageUrl: ['', Validators.required]]
+                                            ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:32:23,153 [5] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(72,32): error TS2339: Property 'updateHelper' does not exist on type 'HelperCategoryService'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:32:29,441 [5] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(72,32): error TS2339: Property 'updateHelper' does not exist on type 'HelperCategoryService'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:34:26,275 [5] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts:39:42 - error TS1005: ',' expected.
+
+39       imageUrl: ['', Validators.required]]
+                                            ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:35:13,946 [5] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts:39:42 - error TS1005: ',' expected.
+
+39       imageUrl: ['', Validators.required]]
+                                            ~
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:35:14,284 [5] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts:39:43 - error TS1136: Property assignment expected.
+
+39       imageUrl: ['', Validators.required],]
+                                             ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 14:35:15,628 [5] ERROR App  
+ ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts:39:43 - error TS1136: Property assignment expected.
+
+39       imageUrl: ['', Validators.required],]
+                                             ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 15:11:18,604 [5] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(68,21): error TS2339: Property 'id' does not exist on type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 15:12:07,752 [5] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(68,21): error TS2339: Property 'id' does not exist on type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 15:13:47,311 [5] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(67,21): error TS2339: Property 'id' does not exist on type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 15:13:52,907 [5] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(67,21): error TS2339: Property 'id' does not exist on type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 15:15:26,217 [5] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(67,21): error TS2339: Property 'id' does not exist on type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 15:15:33,437 [5] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(67,21): error TS2339: Property 'id' does not exist on type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:38:35,735 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:45:03,221 [11] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(85,9): error TS2740: Type '{ [key: string]: string; }' is missing the following properties from type 'any[]': length, pop, push, concat, and 26 more.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:45:13,315 [11] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(85,9): error TS2740: Type '{ [key: string]: string; }' is missing the following properties from type 'any[]': length, pop, push, concat, and 26 more.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:47:53,716 [11] ERROR App  
+ ERROR in ./src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts 16:40-56
+"export 'ServicesProvided' was not found in '../../models/helper-category.model'
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:47:58,426 [11] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(6,31): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'ServicesProvided'.
+    src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(85,9): error TS2740: Type '{ [key: string]: string; }' is missing the following properties from type 'any[]': length, pop, push, concat, and 26 more.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:48:42,617 [11] ERROR App  
+ ERROR in ./src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts 16:40-56
+"export 'ServicesProvided' was not found in '../../models/helper-category.model'
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:48:46,649 [29] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(6,31): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'ServicesProvided'.
+    src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(85,9): error TS2740: Type '{ [key: string]: string; }' is missing the following properties from type 'any[]': length, pop, push, concat, and 26 more.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:49:05,062 [29] ERROR App  
+ ERROR in ./src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts 16:40-56
+"export 'ServicesProvided' was not found in '../../models/helper-category.model'
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:49:08,636 [27] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(6,31): error TS2305: Module '"D:/Projects/Help/help24-7/Help247/ClientApp/src/app/admin/helper-category/models/helper-category.model"' has no exported member 'ServicesProvided'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 20:49:26,925 [27] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(19,21): error TS2304: Cannot find name 'ServicesProvided'.
+    src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(20,30): error TS2304: Cannot find name 'ServicesProvided'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 21:34:45,992 [27] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(19,3): error TS2300: Duplicate identifier 'servicesProvided'.
+    src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(71,7): error TS2300: Duplicate identifier 'servicesProvided'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-15 21:52:11,639 [27] ERROR App  
+     ERROR in src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(95,14): error TS2540: Cannot assign to 'servicesProvided' because it is a read-only property.
+    src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(110,10): error TS2540: Cannot assign to 'servicesProvided' because it is a read-only property.
+    src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(111,10): error TS2540: Cannot assign to 'servicesProvided' because it is a read-only property.
+    src/app/admin/helper-category/helper-category/helper-category-edit/helper-category-edit.component.ts(113,5): error TS2322: Type 'AbstractControl' is not assignable to type '{ [key: string]: string; }'.
+      Index signature is missing in type 'AbstractControl'.
+    
+ ********** 
+ 

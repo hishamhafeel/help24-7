@@ -1,0 +1,60 @@
+<div class="main-content">
+    <app-loader *ngIf="isLoadingResults"></app-loader>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-theme">
+                        <h4 class="card-title mt-0"> Helper Services</h4>
+                    </div>
+                    <div class="table-responsive mat-elevation-z8">
+                        <table mat-table [dataSource]="HELPER_CATEGORY_DETAILS">
+                            <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef> Id </th>
+                                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef> Name </th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="title">
+                                <th mat-header-cell *matHeaderCellDef> Title </th>
+                                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="shortDescription">
+                                <th mat-header-cell *matHeaderCellDef> shortDescription </th>
+                                <td mat-cell *matCellDef="let element"> {{element.shortDescription}} </td>
+                            </ng-container>
+
+
+                            <ng-container matColumnDef="edit">
+                                <th mat-header-cell *matHeaderCellDef> </th>
+                                <td mat-cell *matCellDef="let element" (click)="openDialog(element.id)">
+                                    <mat-icon style="cursor: pointer;">edit</mat-icon>
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="delete">
+                                <th mat-header-cell *matHeaderCellDef> </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <mat-icon style="cursor: pointer;" (click)="openDeleteDialog(element.id)">
+                                        delete_outline
+                                    </mat-icon>
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                    <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons [length]="paginator.length"
+                        (page)="getPagedHelpers($event)"></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

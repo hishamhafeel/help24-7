@@ -64,7 +64,7 @@ namespace Help247.Service.Services.Security
                     {
                         return new UserBO();
                     }
-
+                    userBO.UserId = storeUser.Id;
                     var userType = "Admin";
                     switch (userBO.UserType)
                     {
@@ -148,6 +148,16 @@ namespace Help247.Service.Services.Security
                     if (result.Succeeded)
                     {
                         var roles = await userManager.GetRolesAsync(user);
+                        int userId = 0;
+                        if (roles[0] == Enums.UserType.Helper.ToString())
+                        {
+                            userId = appDbContext.Helpers.First(x => x.UserId == user.Id).Id;
+                        }
+                        else if (roles[0] == Enums.UserType.Customer.ToString())
+                        {
+                            userId = appDbContext.Customers.First(x => x.UserId == user.Id).Id;
+                        }
+
                         var _options = new IdentityOptions();
                         //Create the token
                         var claims = new[]
@@ -155,13 +165,14 @@ namespace Help247.Service.Services.Security
                             new Claim(JwtRegisteredClaimNames.Sub, user.Id),
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
-                            new Claim("IsAdmin", user.IsAdmin.ToString()),
+                            new Claim("LoggedInUserId", userId.ToString()),
                         };
-                        ClaimsIdentity claimsIdentity = new ClaimsIdentity();
+                        ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims);
                         // Adding roles code
                         // Roles property is string collection but you can modify Select code if it it's not
                         claimsIdentity.AddClaims(roles.Select(role => new Claim(ClaimTypes.Role, role)));
                         claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
+                        //claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, userId.ToString()));
                         ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Tokens:Key"]));
