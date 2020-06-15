@@ -9,27 +9,27 @@
                             <div class="opentick-side">
                                 <div class="tech-item">
                                     <div class="techimg">
-                                        <img src="../../../assets/images/tech-img.jpg" class="img-fluid">
+                                        <img [src]="helperModel.profilePic" class="img-fluid">
                                     </div>
                                     <div class="techdetail">
-                                        <h5>Jack Dou</h5>
+                                        <h5>{{helperModel.firstName}} {{helperModel.lastName}}</h5>
                                         <div class="tech-points">
                                             <span class="tech-field">
                                                 <i class="sprite sprite-field-icon"></i>
-                                                <h6><a href="">IT & Telecommunication</a></h6>
+                                                <h6><a href="">{{helperModel.helperCategory.name}}</a></h6>
                                             </span>
                                             <span class="tech-field">
                                                 <i class="sprite sprite-city-icon"></i>
-                                                <h6>City</h6>
+                                                <h6>{{helperModel.city}}</h6>
                                             </span>
                                             <span class="tech-field">
                                                 <i class="sprite sprite-country-icon"></i>
-                                                <h6>Country</h6>
+                                                <h6>{{helperModel.country}}</h6>
                                             </span>
                                         </div>
-                                        <div class="techbtn-wrap">
+                                        <!-- <div class="techbtn-wrap">
                                             <span class="availablel-label ">Available</span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="settingwrap">
                                                         <div class="setting-form">
-                                                            <form>
+                                                            <form [formGroup]="openTicketForm" (ngSubmit)="onSubmit()">
                                                                 <div class="form-row">
                                                                     <div class="col">
                                                                         <div class="form-group">
@@ -55,7 +55,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-row">
+                                                                <!-- <div class="form-row">
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Helper Name</label>
@@ -63,10 +63,10 @@
                                                                                 placeholder="Full Name of the technician with title">
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
 
                                                                 <div class="form-row">
-                                                                    <div class="col cgap">
+                                                                    <!-- <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>Help Category </label>
                                                                             <select class="form-control">
@@ -75,7 +75,7 @@
                                                                                 <option>Category 2</option>
                                                                             </select>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                     <div class="col">
                                                                         <div class="form-group hdfiels">
                                                                             <label>Help Dates</label>
@@ -83,13 +83,14 @@
                                                                                 <h6>From</h6>
                                                                                 <input type="text"
                                                                                     class="form-control fromdate"
-                                                                                    id="from-datepicker">
+                                                                                    id="from-datepicker" bsDatepicker [bsValue]="fromDate">
+                                                                                    <!-- <bs-datepicker-inline [bsValue]="bsInlineValue"></bs-datepicker-inline> -->
                                                                             </div>
                                                                             <div class="h-datewrap">
                                                                                 <h6>To</h6>
                                                                                 <input type="text"
                                                                                     class="form-control todate"
-                                                                                    id="to-datepicker">
+                                                                                    id="to-datepicker" bsDatepicker [bsValue]="toDate">
                                                                             </div>
 
                                                                         </div>
@@ -97,18 +98,18 @@
                                                                 </div>
 
                                                                 <div class="form-row">
-                                                                    <div class="col cgap">
+                                                                    <!-- <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>Help Time</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="">
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Address">
+                                                                                placeholder="Address" formControlName="address">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -116,18 +117,15 @@
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>State </label>
-                                                                            <select class="form-control">
-                                                                                <option>Select State </option>
-                                                                                <option>State 1</option>
-                                                                                <option>State 2</option>
-                                                                            </select>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="State" formControlName="state">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>City </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="City">
+                                                                                placeholder="City" formControlName="city">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -136,14 +134,14 @@
                                                                         <div class="form-group">
                                                                             <label>Contact No 1 </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94">
+                                                                                placeholder="+94" formControlName="contactNo1">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Contact No 2 </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94">
+                                                                                placeholder="+94" formControlName="contactNo2">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -154,7 +152,7 @@
                                                                             <label>Other Requirements</label>
                                                                             <textarea class="form-control set-text"
                                                                                 rows="5"
-                                                                                placeholder="Any other special requirements"></textarea>
+                                                                                placeholder="Any other special requirements" formControlName="otherRequirements"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
