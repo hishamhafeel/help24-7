@@ -28,9 +28,9 @@ namespace Help247.Controllers.Api
         // GET: api/feedback/list
         [Route("list")]
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync([FromQuery]PaginationBase paginationBase)
+        public async Task<IActionResult> GetAllAsync([FromQuery]FeedbackSearchViewModel feedbackSearchViewModel)
         {
-            var result = await feedbackService.GetAllAsync(paginationBase);
+            var result = await feedbackService.GetAllAsync(mapper.Map<FeedbackSearchBO>(feedbackSearchViewModel));
             return Ok(result);
         }
 
@@ -51,7 +51,7 @@ namespace Help247.Controllers.Api
         }
 
         // GET: api/Feedback/helper
-        [Route("helper")]
+        [Route("helperpublic")]
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> GetByHelperAsync([FromQuery]int id)

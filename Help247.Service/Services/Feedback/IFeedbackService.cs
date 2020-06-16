@@ -7,7 +7,7 @@ namespace Help247.Service.Services.Feedback
 {
     public interface IFeedbackService
     {
-        Task<PaginationModel<FeedbackBO>> GetAllAsync(PaginationBase paginationBase);
+        Task<PaginationModel<FeedbackBO>> GetAllAsync(FeedbackSearchBO feedbackSearchBO);
         Task<FeedbackBO> GetByIdAsync(int id);
         Task<FeedbackBO> PutAsync(FeedbackBO feedbackBO, string userId);
         Task DeleteAsync(int id);

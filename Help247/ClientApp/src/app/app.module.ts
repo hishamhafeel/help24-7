@@ -8,10 +8,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './admin/auth/helpers/token-inteceptor';
+import { Cloudinary } from 'cloudinary-core/cloudinary-core-shrinkwrap';
+import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
+
+const cloudConfig = {
+  cloud_name: 'help247',
+  upload_preset: 'ml_default',
+  cname: 'help247.images.com',
+  api_key: '176682769125134',
+  api_secret: 'o1nvVw327R-fr-0-0ynZLKOOZgw',
+
+};
+
+const cloudinaryLib = {
+  Cloudinary: Cloudinary
+};
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +35,8 @@ import { TokenInterceptor } from './admin/auth/helpers/token-inteceptor';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CloudinaryModule.forRoot(cloudinaryLib, cloudConfig),
   ],
   providers: [
     {

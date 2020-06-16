@@ -16,5 +16,7 @@ namespace Help247.Service.BO.Customer
         public string AddressLine { get; set; }
         public string PostalCode { get; set; }
         public string UserId { get; set; }
+        public string ProfilePicUrl { get; set; }
+
     }
 }

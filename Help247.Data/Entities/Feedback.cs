@@ -21,6 +21,9 @@ namespace Help247.Data.Entities
 
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+        public int TicketId { get; set; }
+        public Ticket Ticket { get; set; }
         #endregion
     }
 }

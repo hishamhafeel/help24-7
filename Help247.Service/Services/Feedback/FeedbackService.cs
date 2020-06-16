@@ -23,19 +23,37 @@ namespace Help247.Service.Services.Feedback
             this.appDbContext = appDbContext;
             this.mapper = mapper;
         }
-        public async Task<PaginationModel<FeedbackBO>> GetAllAsync(PaginationBase paginationBase)
+        public async Task<PaginationModel<FeedbackBO>> GetAllAsync(FeedbackSearchBO feedbackSearchBO)
         {
             try
             {
-                var query = appDbContext.Feedbacks.AsQueryable().Where(x => x.RecordState == Enums.RecordState.Active);
-                if (paginationBase.SearchQuery != null && paginationBase.SearchQuery.Length > 0)
-                {
-                    query = query.Where(x => EF.Functions.Like(x.Id.ToString(), paginationBase.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.Description, paginationBase.SearchQuery + "%"));
-                }
+                var query = appDbContext.Feedbacks.AsQueryable()
+                                                    .Include(x => x.Customer)
+                                                    .Include(x => x.Helper)
+                                                    .Include(x => x.Ticket)
+                                                    .Where(x => x.RecordState == Enums.RecordState.Active);
+
+                query = (feedbackSearchBO.TicketId > 0)
+                       ? query.Where(x => x.Ticket.Id == feedbackSearchBO.TicketId)
+                       : query;
+
+                query = (feedbackSearchBO.HelperId > 0)
+                      ? query.Where(x => x.Helper.Id == feedbackSearchBO.HelperId)
+                      : query;
+
+                query = (feedbackSearchBO.CustomerId > 0)
+                      ? query.Where(x => x.Customer.Id == feedbackSearchBO.CustomerId)
+                      : query;
+
+                query = (!string.IsNullOrEmpty(feedbackSearchBO.SearchQuery))
+                     ? query.Where(x => EF.Functions.Like(x.Id.ToString(), feedbackSearchBO.SearchQuery + "%") ||
+                                        EF.Functions.Like(x.Description.ToLower(), feedbackSearchBO.SearchQuery.ToLower() + "%"))
+                     : query;
+
+               
                 var totalNumberOfRecord = await query.AsNoTracking().CountAsync();
 
-                query = query.OrderByDescending(x => x.Id).Skip(paginationBase.Skip).Take(paginationBase.Take);
+                query = query.OrderByDescending(x => x.Id).Skip(feedbackSearchBO.Skip).Take(feedbackSearchBO.Take);
                 var result = await query.AsNoTracking().ToListAsync();
                 var resultSet = new PaginationModel<FeedbackBO>()
                 {
