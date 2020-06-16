@@ -11,7 +11,7 @@
                                         <img src="../../../assets/images/user-profile-img.png" class="img-fluid">
                                     </div>
                                     <div class="profile-info">
-                                        <h3>John Doe</h3>
+                                        <h3>{{customerModel.name}}</h3>
                                         <p>Last login was 4th June 2020</p>
                                     </div>
 
@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <h5>Dashboard</h5>
-                                        <h6>Hello, John Doe</h6>
+                                        <h6>Hello, {{customerModel.name}}</h6>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -300,22 +300,26 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let data of ticketList">
-                                                        <td data-label="Title">{{data.title}}</td>
-                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">
-                                                            {{data.helpDateFrom | date: 'mediumDate'}}</td>
-                                                        <td data-label="Help Time">
-                                                            {{data.helpTime}}</td>
-                                                    </tr>
+                                                    <ng-container *ngFor="let data of ticketList">
+                                                        <tr *ngIf="data.ticketStatusId==1">
+                                                            <td data-label="Title">{{data.title}}</td>
+                                                            <td data-label="Category">
+                                                                {{data.helper.helperCategory.name}}</td>
+                                                            <td data-label="Helper">{{data.helper.firstName}}
+                                                                {{data.helper.lastName}}</td>
+                                                            <td data-label="Help Date">
+                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                            <td data-label="Help Time">
+                                                                {{data.helpTime}}</td>
+                                                        </tr>
+                                                    </ng-container>
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="pagiarrow">
-                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
-                                            <a href=""><img src="img/pagiarrow-next.png"></a>
-                                        </div>
+                                        <!-- <div class="pagiarrow">
+                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -335,25 +339,30 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let data of ticketList">
-                                                        <td data-label="Title">{{data.title}}</td>
-                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
-                                                        <td data-label="Helper">{{data.helper.firstName}} {{data.helper.lastName}}</td>
-                                                        <td data-label="Help Date">
-                                                            {{data.helpDateFrom | date: 'mediumDate'}}</td>
-                                                        <td data-label="Help Time">
-                                                            {{data.helpTime}}</td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Complete</a>
-                                                        </td>
-                                                    </tr>
+                                                    <ng-container *ngFor="let data of ticketList">
+                                                        <tr *ngIf="data.ticketStatusId==2">
+                                                            <td data-label="Title">{{data.title}}</td>
+                                                            <td data-label="Category">
+                                                                {{data.helper.helperCategory.name}}
+                                                            </td>
+                                                            <td data-label="Helper">{{data.helper.firstName}}
+                                                                {{data.helper.lastName}}</td>
+                                                            <td data-label="Help Date">
+                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                            <td data-label="Help Time">
+                                                                {{data.helpTime}}</td>
+                                                            <td data-label="Action">
+                                                                <a href="javascript:void(0)" class="btn-red small" (click)="completeTicket(data.id)">Complete</a>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-container>
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="pagiarrow">
-                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
-                                            <a href=""><img src="img/pagiarrow-next.png"></a>
-                                        </div>
+                                        <!-- <div class="pagiarrow">
+                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
+                                        </div> -->
                                     </div>
                                 </div>
 
@@ -374,29 +383,34 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let data of ticketList">
-                                                        <td data-label="Title">{{data.title}}</td>
-                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
-                                                        <td data-label="Helper">{{data.helper.firstName}} {{data.helper.lastName}}</td>
-                                                        <td data-label="Help Date">
-                                                            {{data.helpDateFrom | date: 'mediumDate'}}</td>
-                                                        <td data-label="Help Time">
-                                                            {{data.helpTime}}</td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view"
-                                                                (click)="openModal(template, data)">View</a>
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#rates">+ Review</a>
-                                                        </td>
-                                                    </tr>
+                                                    <ng-container *ngFor="let data of ticketList">
+                                                        <tr *ngIf="data.ticketStatusId==3">
+                                                            <td data-label="Title">{{data.title}}</td>
+                                                            <td data-label="Category">
+                                                                {{data.helper.helperCategory.name}}
+                                                            </td>
+                                                            <td data-label="Helper">{{data.helper.firstName}}
+                                                                {{data.helper.lastName}}</td>
+                                                            <td data-label="Help Date">
+                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                            <td data-label="Help Time">
+                                                                {{data.helpTime}}</td>
+                                                            <td data-label="Action">
+                                                                <a href="javascript:void(0)" class="btn-red small" data-toggle="modal"
+                                                                    data-target="#view"
+                                                                    (click)="openModal(template, data)">View</a>
+                                                                <a href="javascript:void(0)" class="btn-red small" data-toggle="modal"
+                                                                    data-target="#rates">+ Review</a>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-container>
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="pagiarrow">
-                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
-                                            <a href=""><img src="img/pagiarrow-next.png"></a>
-                                        </div>
+                                        <!-- <div class="pagiarrow">
+                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
+                                        </div> -->
                                     </div>
                                 </div>
 
@@ -410,19 +424,43 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
-                                            Title: At vero eos accusam et justo
+                                            Title: {{ticketModel.title}}
                                         </div>
                                         <div class="row">
-                                            Category: At vero eos accusam et justo
+                                            Category: {{ticketModel.helper.helperCategory.name}}
                                         </div>
                                         <div class="row">
-                                            Helper: At vero eos accusam et justo
+                                            Helper: {{ticketModel.helper.firstName}} {{ticketModel.helper.lastName}}
                                         </div>
                                         <div class="row">
-                                            Help Date: {{ticketModel.helpDateFrom | date: 'mediumDate'}}
+                                            Help Date From: {{ticketModel.helpDateFrom | date: 'mediumDate'}}
                                         </div>
                                         <div class="row">
-                                            Help Time: {{ticketModel.helpDateTo | date: 'mediumDate'}}
+                                            Help Date To: {{ticketModel.helpDateTo | date: 'mediumDate'}}
+                                        </div>
+                                        <div class="row">
+                                            Help Time: {{ticketModel.helpTime}}
+                                        </div>
+                                        <div class="row">
+                                            Country: {{ticketModel.country}}
+                                        </div>
+                                        <div class="row">
+                                            State: {{ticketModel.state}}
+                                        </div>
+                                        <div class="row">
+                                            City: {{ticketModel.city}}
+                                        </div>
+                                        <div class="row">
+                                            Address: {{ticketModel.address}}
+                                        </div>
+                                        <div class="row">
+                                            Contact No 1: {{ticketModel.contactNo1}}
+                                        </div>
+                                        <div class="row">
+                                            Contact No 2: {{ticketModel.contactNo2}}
+                                        </div>
+                                        <div class="row">
+                                            Other Requirements: {{ticketModel.otherRequirements}}
                                         </div>
                                     </div>
                                 </ng-template>
@@ -445,20 +483,20 @@
                                                     <div class="settingwrap boxshadow">
                                                         <h4>Personal Settings</h4>
                                                         <div class="setting-form">
-                                                            <form>
+                                                            <form [formGroup]="customerForm" (ngSubmit)="onCustomerSubmit()">
                                                                 <div class="form-row">
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>Name</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Full name">
+                                                                                placeholder="Full name" formControlName="name">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Phone</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94">
+                                                                                placeholder="+94" formControlName="phoneNo">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -467,14 +505,14 @@
                                                                         <div class="form-group">
                                                                             <label>Email Address</label>
                                                                             <input type="email" class="form-control"
-                                                                                placeholder="Your Email">
+                                                                                placeholder="Your Email" formControlName="email">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Address">
+                                                                                placeholder="Address" formControlName="addressLine">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -482,21 +520,15 @@
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>Country </label>
-                                                                            <select class="form-control">
-                                                                                <option>Sri Lanka</option>
-                                                                                <option>USA</option>
-                                                                                <option>England</option>
-                                                                            </select>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Postal Code" formControlName="country">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>State</label>
-                                                                            <select class="form-control">
-                                                                                <option>Select State</option>
-                                                                                <option>State 1</option>
-                                                                                <option>State 2</option>
-                                                                            </select>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Postal Code" formControlName="state">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -504,11 +536,8 @@
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>City </label>
-                                                                            <select class="form-control">
-                                                                                <option>Select City</option>
-                                                                                <option>State 1</option>
-                                                                                <option>State 2</option>
-                                                                            </select>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Postal Code" formControlName="city">
 
                                                                         </div>
                                                                     </div>
@@ -516,7 +545,7 @@
                                                                         <div class="form-group">
                                                                             <label>Postal Code</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="">
+                                                                                placeholder="Postal Code" formControlName="postalCode">
                                                                         </div>
                                                                     </div>
                                                                 </div>

@@ -11,7 +11,7 @@
                                         <img src="../../assets/images/user-profile-img.png" class="img-fluid">
                                     </div>
                                     <div class="profile-info">
-                                        <h3>John Doe</h3>
+                                        <h3>{{helperModel.firstName}} {{helperModel.lastName}}</h3>
                                         <p>Last login was 4th June 2020</p>
                                     </div>
 
@@ -45,7 +45,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <h5>Dashboard</h5>
-                                        <h6>Hello, John Doe</h6>
+                                        <h6>Hello, {{helperModel.firstName}} {{helperModel.lastName}}</h6>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -165,81 +165,32 @@
                                                         <th scope="col">Customer</th>
                                                         <th scope="col">Help Date</th>
                                                         <th scope="col">Help Time</th>
-                                                        <th scope="col">Status</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus accept">Accepted</span></td>
+                                                    <ng-container *ngFor="let data of ticketList">
+                                                    <tr *ngIf="data.ticketStatusId==1">
+                                                        <td data-label="Title">{{data.title}}</td>
+                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
+                                                        <td data-label="Helper">{{data.helper.firstName}}
+                                                            {{data.helper.lastName}}</td>
+                                                        <td data-label="Help Date">{{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                        <td data-label="Help Time">{{data.helpTime}}</td>
                                                         <td data-label="Action">
-                                                            <a href="" class="btn-red small">Accept</a>
-                                                            <a href="" class="btn-red small">Reject</a>
+                                                            <a href="javascript:void(0)" class="btn-red small" (click)="approveTicket(data.id)">Accept</a>
+                                                            <a href="javascript:void(0)" class="btn-red small">Reject</a>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus accept">Accepted</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Accept</a>
-                                                            <a href="" class="btn-red small">Reject</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus pending">Pending</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Accept</a>
-                                                            <a href="" class="btn-red small">Reject</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus reject">Reject</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small">Accept</a>
-                                                            <a href="" class="btn-red small">Reject</a>
-                                                        </td>
-                                                    </tr>
-
+                                                </ng-container>
 
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="pagiarrow">
+                                        <!-- <div class="pagiarrow">
                                             <a href=""><img src="img/pagiarrow-prv.png"></a>
                                             <a href=""><img src="img/pagiarrow-next.png"></a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
 
@@ -256,80 +207,84 @@
                                                         <th scope="col">Customer</th>
                                                         <th scope="col">Help Date</th>
                                                         <th scope="col">Help Time</th>
-                                                        <th scope="col">Status</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus completed">completed</span></td>
+                                                    <ng-container *ngFor="let data of ticketList">
+                                                    <tr  *ngIf="data.ticketStatusId==3">
+                                                        <td data-label="Title">{{data.title}}</td>
+                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
+                                                        <td data-label="Helper">{{data.helper.firstName}}
+                                                            {{data.helper.lastName}}</td>
+                                                        <td data-label="Help Date">{{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                        <td data-label="Help Time">{{data.helpTime}}</td>
                                                         <td data-label="Action">
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view">View</a>
+                                                            <a href="javascript:void(0)" class="btn-red small" data-toggle="modal"
+                                                                data-target="#view" (click)="openModal(template, data)">View</a>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus completed">completed</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view">View</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus completed">completed</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view">View</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Title">At vero eos accusam et justo<div
-                                                                class="titledate">Date : 25 Nov 2019</div>
-                                                        </td>
-                                                        <td data-label="Category">IT & Telecommunication</td>
-                                                        <td data-label="Helper">John Jacson</td>
-                                                        <td data-label="Help Date">10 Jan 2020</td>
-                                                        <td data-label="Help Time">07 : 00 : 00</td>
-                                                        <td data-label="Status"><span
-                                                                class="lblstatus completed">completed</span></td>
-                                                        <td data-label="Action">
-                                                            <a href="" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view">View</a>
-                                                        </td>
-                                                    </tr>
+                                                </ng-container>
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="pagiarrow">
+                                        <!-- <div class="pagiarrow">
                                             <a href=""><img src="img/pagiarrow-prv.png"></a>
                                             <a href=""><img src="img/pagiarrow-next.png"></a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
+
+                                <ng-template #template>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title pull-left">Ticket Details</h4>
+                                        <button type="button" class="close pull-right" aria-label="Close"
+                                            (click)="modalRef.hide()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            Title: {{ticketModel.title}}
+                                        </div>
+                                        <div class="row">
+                                            Category: {{ticketModel.helper.helperCategory.name}}
+                                        </div>
+                                        <div class="row">
+                                            Helper: {{ticketModel.helper.firstName}} {{ticketModel.helper.lastName}}
+                                        </div>
+                                        <div class="row">
+                                            Help Date From: {{ticketModel.helpDateFrom | date: 'mediumDate'}}
+                                        </div>
+                                        <div class="row">
+                                            Help Date To: {{ticketModel.helpDateTo | date: 'mediumDate'}}
+                                        </div>
+                                        <div class="row">
+                                            Help Time: {{ticketModel.helpTime}}
+                                        </div>
+                                        <div class="row">
+                                            Country: {{ticketModel.country}}
+                                        </div>
+                                        <div class="row">
+                                            State: {{ticketModel.state}}
+                                        </div>
+                                        <div class="row">
+                                            City: {{ticketModel.city}}
+                                        </div>
+                                        <div class="row">
+                                            Address: {{ticketModel.address}}
+                                        </div>
+                                        <div class="row">
+                                            Contact No 1: {{ticketModel.contactNo1}}
+                                        </div>
+                                        <div class="row">
+                                            Contact No 2: {{ticketModel.contactNo2}}
+                                        </div>
+                                        <div class="row">
+                                            Other Requirements: {{ticketModel.otherRequirements}}
+                                        </div>
+                                    </div>
+                                </ng-template>
 
                             </div>
                         </div>
@@ -349,20 +304,20 @@
                                                     <div class="settingwrap boxshadow">
                                                         <h4>Personal Settings</h4>
                                                         <div class="setting-form">
-                                                            <form>
+                                                            <form  [formGroup]="helperForm" (ngSubmit)="onHelperSubmit()">
                                                                 <div class="form-row">
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>First Name</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Full name">
+                                                                                placeholder="Full name" formControlName="firstName">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Last Name</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Last Name">
+                                                                                placeholder="Last Name" formControlName="lastName">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -371,14 +326,14 @@
                                                                         <div class="form-group">
                                                                             <label>Phone</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94">
+                                                                                placeholder="+94" formControlName="phoneNo">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Mobile</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94">
+                                                                                placeholder="+94" formControlName="mobileNo">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -387,14 +342,14 @@
                                                                         <div class="form-group">
                                                                             <label>E mail Address</label>
                                                                             <input type="email" class="form-control"
-                                                                                placeholder="Your Email">
+                                                                                placeholder="Your Email" formControlName="email">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Address">
+                                                                                placeholder="Address" formControlName="addressLine">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -402,21 +357,15 @@
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>Country </label>
-                                                                            <select class="form-control">
-                                                                                <option>Sri Lanka</option>
-                                                                                <option>USA</option>
-                                                                                <option>England</option>
-                                                                            </select>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Address" formControlName="country">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>State</label>
-                                                                            <select class="form-control">
-                                                                                <option>Select State</option>
-                                                                                <option>State 1</option>
-                                                                                <option>State 2</option>
-                                                                            </select>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Address" formControlName="state">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -424,18 +373,15 @@
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>City </label>
-                                                                            <select class="form-control">
-                                                                                <option>Select City</option>
-                                                                                <option>State 1</option>
-                                                                                <option>State 2</option>
-                                                                            </select>
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Address" formControlName="city">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Postal Code</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="">
+                                                                                placeholder="" formControlName="postalCode">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -443,70 +389,12 @@
                                                                     <div class="col">
                                                                         <div class="form-group field-chk">
                                                                             <label>Field of Expertise</label>
-                                                                            <div class="form-check">
+                                                                            <div class="form-check" *ngFor="let model of helperCategoryList">
                                                                                 <label class="form-check-label">
                                                                                     <input
                                                                                         class="form-check-input fieldcheck"
-                                                                                        type="checkbox" value="" id="">
-                                                                                    IT & Telecommunication
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input
-                                                                                        class="form-check-input fieldcheck"
-                                                                                        type="checkbox" value="" id="">
-                                                                                    Hospitality & Tourism
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input
-                                                                                        class="form-check-input fieldcheck"
-                                                                                        type="checkbox" value="" id="">
-                                                                                    Vehicle Maintenance
-                                                                                </label>
-                                                                            </div>
-
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input
-                                                                                        class="form-check-input fieldcheck"
-                                                                                        type="checkbox" value="" id="">
-                                                                                    Healthcare/ Hospitals
-                                                                                </label>
-                                                                            </div>
-
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input
-                                                                                        class="form-check-input fieldcheck"
-                                                                                        type="checkbox" value="" id="">
-                                                                                    Hot Jobs
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input
-                                                                                        class="form-check-input fieldcheck"
-                                                                                        type="checkbox" value="" id="">
-                                                                                    Education
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input
-                                                                                        class="form-check-input fieldcheck"
-                                                                                        type="checkbox" value="" id="">
-                                                                                    Massmedia /Entertainment
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input
-                                                                                        class="form-check-input fieldcheck"
-                                                                                        type="checkbox" value="" id="">
-                                                                                    Financial Services
+                                                                                        type="radio" [value]="model.id" id="" formControlName="helperCategoryId">
+                                                                                    {{model.name}}
                                                                                 </label>
                                                                             </div>
                                                                         </div>
@@ -525,7 +413,7 @@
                                                                         <div class="form-group">
                                                                             <label>Years of Experience</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Years of Experience">
+                                                                                placeholder="Years of Experience" formControlName="helperCategoryId">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -548,7 +436,7 @@
                                                                         <div class="form-group">
                                                                             <label>About Me</label>
                                                                             <textarea class="form-control set-text"
-                                                                                placeholder="Description About your self"></textarea>
+                                                                                placeholder="Description About your self" formControlName="aboutMe"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -557,7 +445,7 @@
                                                                         <div class="form-group">
                                                                             <label>About My Service</label>
                                                                             <textarea class="form-control set-text"
-                                                                                placeholder="Description about the service provided"></textarea>
+                                                                                placeholder="Description about the service provided" formControlName="myService"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { HelperModel } from '../helper/models/helper.model';
+import { HelperService } from '../shared/services/helper.service';
+import { PaginationBase } from '../shared/models/pagination-base.model';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +10,10 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  helperList: Array<HelperModel>;
+  pagination: PaginationBase;
+
   noOfHelpers: number;
   noOfJobs: number;
   noOfClients: number;
@@ -54,9 +61,26 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor(
+    private helperService: HelperService
+  ) {
+    this.pagination = new PaginationBase();
+   }
 
   ngOnInit(): void {
+    this.getHelper();
+  }
+
+  getHelper(){
+    this.helperService.getHelperList(this.pagination).subscribe(
+      result => {
+        console.log('result', result);
+        this.helperList = result.details;
+      },
+      error => {
+        console.log('error', error);
+      }
+    );
   }
 
 }

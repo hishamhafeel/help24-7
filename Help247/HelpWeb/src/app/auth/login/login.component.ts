@@ -40,10 +40,13 @@ export class LoginComponent implements OnInit {
     this.loginModel = this.loginForm.value;
     this.authService.authenticateUser(this.loginModel).subscribe(
       user => {
+
         localStorage.setItem('TokenId', user.token);
 
         var decoded = jwt_decode(user.token);
+        var loggedUserId = JSON.parse(JSON.stringify(decoded))["LoggedInUserId"];
         var role = JSON.parse(JSON.stringify(decoded))["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+        localStorage.setItem('LoggedId', loggedUserId);
         setTimeout(() => {
           if(role == "Helper"){
             this.router.navigate(['/helper']);

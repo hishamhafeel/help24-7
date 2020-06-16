@@ -48,12 +48,50 @@ export class HireMeService extends BaseService {
     .pipe(catchError(this.server4xxError));
   }
 
-  getTicketList(pagination: PaginationBase) {
+  getTicketListCustomer(pagination: PaginationBase, customerId: number) {
     return this.http
       .get<PaginationModel<TicketModel>>(
-        `${this.baseEndPoint}/api/Ticket/list?CustomerId=3&skip=${
+        `${this.baseEndPoint}/api/Ticket/list?CustomerId=${customerId}&skip=${
         pagination.skip
         }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getTicketListHelper(pagination: PaginationBase, helperId: number) {
+    return this.http
+      .get<PaginationModel<TicketModel>>(
+        `${this.baseEndPoint}/api/Ticket/list?HelperId=${helperId}&skip=${
+        pagination.skip
+        }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getTicketById(id: number) {
+    return this.http
+      .get<TicketModel>(
+        `${this.baseEndPoint}/api/Ticket/${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  approveTicket(id: number) {
+    return this.http
+      .put<TicketModel>(
+        `${this.baseEndPoint}/api/Ticket/approve?id=${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  completeTicket(id: number) {
+    return this.http
+      .put<TicketModel>(
+        `${this.baseEndPoint}/api/Ticket/complete?id=${id}`,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));

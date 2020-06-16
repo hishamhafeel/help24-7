@@ -18,4 +18,5 @@ export class HelperModel {
     myService: string;
     helperCategoryId: number;
     helperCategory: HelperCategoryModel;
+    userId: string;
 }
