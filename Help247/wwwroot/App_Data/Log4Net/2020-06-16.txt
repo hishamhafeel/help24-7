@@ -1,0 +1,461 @@
+
+ 
+ ************ 2020-06-16 08:18:40,132 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 08:20:57,455 [4] ERROR App  
+ version (8.3.26). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 08:20:57,738 [4] ERROR App  
+ ERROR in src/app/hire-me/hire-me.module.ts:7:36 - error TS2307: Cannot find module 'ngx-bootstrap'.
+
+7 import { BsDatepickerModule } from 'ngx-bootstrap';
+                                     ~~~~~~~~~~~~~~~
+src/app/hire-me/hire-me.module.ts:8:34 - error TS2307: Cannot find module 'ngx-bootstrap/timepicker'.
+
+8 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/auth/login/login.component.ts:6:29 - error TS2307: Cannot find module 'jwt-decode'.
+
+6 import * as jwt_decode from "jwt-decode";
+                              ~~~~~~~~~~~~
+src/app/customer/customer.component.ts:5:44 - error TS2307: Cannot find module 'ngx-bootstrap/modal'.
+
+5 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+                                             ~~~~~~~~~~~~~~~~~~~~~
+src/app/customer/customer.module.ts:6:29 - error TS2307: Cannot find module 'ngx-bootstrap/modal'.
+
+6 import { ModalModule } from 'ngx-bootstrap/modal';
+                              ~~~~~~~~~~~~~~~~~~~~~
+
+ERROR in multi ./node_modules/bootstrap/dist/css/bootstrap.css ./node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css ./node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css ./src/assets/css/responsive.css ./src/assets/css/custom-styles.css ./src/styles.scss ./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css
+Module not found: Error: Can't resolve 'D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\ngx-bootstrap\datepicker\bs-datepicker.css' in 'D:\Projects\Help\help24-7\Help247\HelpWeb'
+ERROR in src/app/hire-me/hire-me.module.ts(22,5): Error during template compile of 'HireMeModule'
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 09:38:41,095 [11] ERROR App  
+ ERROR in src/app/app-routing.module.ts:48:7 - error TS1005: ',' expected.
+
+48       },
+         ~
+src/app/app-routing.module.ts:54:3 - error TS1128: Declaration or statement expected.
+
+54   }
+     ~
+src/app/app-routing.module.ts:55:1 - error TS1128: Declaration or statement expected.
+
+55 ];
+   ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 09:39:06,439 [11] ERROR App  
+ ERROR in src/app/app-routing.module.ts:48:7 - error TS1005: ',' expected.
+
+48       },
+         ~
+src/app/app-routing.module.ts:54:3 - error TS1128: Declaration or statement expected.
+
+54   }
+     ~
+src/app/app-routing.module.ts:55:1 - error TS1128: Declaration or statement expected.
+
+55 ];
+   ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 11:14:30,909 [11] ERROR App  
+     ERROR in src/app/admin/image-upload/image-upload.module.ts(15,5): error TS2304: Cannot find name 'FileUploader'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 11:36:29,838 [11] ERROR App  
+     ERROR in src/app/app.module.ts(39,30): error TS2345: Argument of type '{ cloud_name: string; u: any; }' is not assignable to parameter of type 'CloudinaryConfiguration'.
+      Object literal may only specify known properties, and 'u' does not exist in type 'CloudinaryConfiguration'.
+    src/app/app.module.ts(39,30): error TS18004: No value exists in scope for the shorthand property 'u'. Either declare one or provide an initializer.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 11:41:11,737 [11] ERROR App  
+     ERROR in src/app/admin/image-upload/image-upload.component.ts(55,38): error TS2304: Cannot find name 'uploaderOptions'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 11:55:20,015 [29] ERROR App  
+ ERROR in src/app/admin/image-upload/image-upload.component.ts:68:3 - error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+
+68   this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
+     ~~~~
+src/app/admin/image-upload/image-upload.component.ts:77:1 - error TS1128: Declaration or statement expected.
+
+77 }
+   ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 11:55:21,803 [59] ERROR App  
+ ERROR in src/app/admin/image-upload/image-upload.component.ts:68:3 - error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+
+68   this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
+     ~~~~
+src/app/admin/image-upload/image-upload.component.ts:77:1 - error TS1128: Declaration or statement expected.
+
+77 }
+   ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 11:55:25,482 [59] ERROR App  
+     ERROR in src/app/admin/image-upload/image-upload.component.ts(69,3): error TS2304: Cannot find name 'upsertResponse'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 11:55:30,980 [59] ERROR App  
+     ERROR in src/app/admin/image-upload/image-upload.component.ts(69,3): error TS2304: Cannot find name 'upsertResponse'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 12:22:24,636 [59] ERROR App  
+ ERROR in src/app/admin/image-upload/image-upload.component.ts:21:3 - error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+
+21   var CryptoJS = require("crypto-js");
+     ~~~
+src/app/admin/image-upload/image-upload.component.ts:24:11 - error TS1005: ',' expected.
+
+24   private cloudinary: Cloudinary,
+             ~~~~~~~~~~
+src/app/admin/image-upload/image-upload.component.ts:24:21 - error TS1005: ',' expected.
+
+24   private cloudinary: Cloudinary,
+                       ~
+src/app/admin/image-upload/image-upload.component.ts:25:11 - error TS1005: ',' expected.
+
+25   private zone: NgZone,
+             ~~~~
+src/app/admin/image-upload/image-upload.component.ts:25:15 - error TS1005: ',' expected.
+
+25   private zone: NgZone,
+                 ~
+src/app/admin/image-upload/image-upload.component.ts:26:11 - error TS1005: ',' expected.
+
+26   private http: HttpClient
+             ~~~~
+src/app/admin/image-upload/image-upload.component.ts:26:15 - error TS1005: ',' expected.
+
+26   private http: HttpClient
+                 ~
+src/app/admin/image-upload/image-upload.component.ts:27:3 - error TS1005: ';' expected.
+
+27 ) {
+     ~
+src/app/admin/image-upload/image-upload.component.ts:32:11 - error TS1005: ';' expected.
+
+32 ngOnInit(): void {
+             ~
+src/app/admin/image-upload/image-upload.component.ts:34:9 - error TS1005: ':' expected.
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 12:22:30,825 [59] ERROR App  
+ 
+34   const uploaderOptions: FileUploaderOptions = {
+           ~~~~~~~~~~~~~~~
+src/app/admin/image-upload/image-upload.component.ts:34:24 - error TS1005: ',' expected.
+
+34   const uploaderOptions: FileUploaderOptions = {
+                          ~
+src/app/admin/image-upload/image-upload.component.ts:50:4 - error TS1005: ',' expected.
+
+50   };
+      ~
+src/app/admin/image-upload/image-upload.component.ts:51:7 - error TS1005: ':' expected.
+
+51   this.uploader = new FileUploader(uploaderOptions);
+         ~
+src/app/admin/image-upload/image-upload.component.ts:51:52 - error TS1005: ',' expected.
+
+51   this.uploader = new FileUploader(uploaderOptions);
+                                                      ~
+src/app/admin/image-upload/image-upload.component.ts:53:7 - error TS1005: ':' expected.
+
+53   this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+         ~
+src/app/admin/image-upload/image-upload.component.ts:79:4 - error TS1005: ',' expected.
+
+79   };
+      ~
+src/app/admin/image-upload/image-upload.component.ts:82:9 - error TS1005: ':' expected.
+
+82   const upsertResponse = fileItem => {
+           ~~~~~~~~~~~~~~
+src/app/admin/image-upload/image-upload.component.ts:105:4 - error TS1005: ',' expected.
+
+105   };
+       ~
+src/app/admin/image-upload/image-upload.component.ts:108:7 - error TS1005: ':' expected.
+
+108   this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
+          ~
+src/app/admin/image-upload/image-upload.component.ts:115:6 - error TS1005: ',' expected.
+
+115     );
+         ~
+src/app/admin/image-upload/image-upload.component.ts:118:7 - error TS1005: ':' expected.
+
+118   this.uploader.onProgressItem = (fileItem: any, progress: any) =>
+          ~
+src/app/admin/image-upload/image-upload.component.ts:125:6 - error TS1005: ',' expected.
+
+125     );
+         ~
+src/app/admin/image-upload/image-upload.component.ts:128:18 - error TS1005: ',' expected.
+
+128 updateTitle(value: string) {
+                     ~
+src/app/admin/image-upload/image-upload.component.ts:128:28 - error TS1005: ';' expected.
+
+128 updateTitle(value: string) {
+                               ~
+src/app/admin/image-upload/image-upload.component.ts:149:15 - error TS1005: ',' expected.
+
+149 fileOverBase(e: any): void {
+                  ~
+src/app/admin/image-upload/image-upload.component.ts:149:21 - error TS1005: ';' expected.
+
+149 fileOverBase(e: any): void {
+                        ~
+src/app/admin/image-upload/image-upload.component.ts:150:7 - error TS1005: ':' expected.
+
+150   this.hasBaseDropZoneOver = e;
+          ~
+src/app/admin/image-upload/image-upload.component.ts:150:31 - error TS1005: ',' expected.
+
+150   this.hasBaseDropZoneOver = e;
+                                  ~
+src/app/admin/image-upload/image-upload.component.ts:153:33 - error TS1005: ',' expected.
+
+153 getFileProperties(fileProperties: any) {
+                                    ~
+src/app/admin/image-upload/image-upload.component.ts:153:40 - error TS1005: ';' expected.
+
+153 getFileProperties(fileProperties: any) {
+                                           ~
+src/app/admin/image-upload/image-upload.component.ts:162:3 - error TS1128: Declaration or statement expected.
+
+162   private generateSignature() {
+      ~~~~~~~
+src/app/admin/image-upload/image-upload.component.ts:162:31 - error TS1005: ';' expected.
+
+162   private generateSignature() {
+                                  ~
+src/app/admin/image-upload/image-upload.component.ts:167:1 - error TS1128: Declaration or statement expected.
+
+167 }
+    ~
+
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 12:22:31,000 [42] ERROR App  
+     ERROR in src/app/admin/image-upload/image-upload.component.ts(13,14): error TS2420: Class 'ImageUploadComponent' incorrectly implements interface 'OnInit'.
+      Property 'ngOnInit' is missing in type 'ImageUploadComponent' but required in type 'OnInit'.
+    src/app/admin/image-upload/image-upload.component.ts(21,18): error TS2591: Cannot find name 'require'. Do you need to install type definitions for node? Try `npm i @types/node` and then add `node` to the types field in your tsconfig.
+    src/app/admin/image-upload/image-upload.component.ts(23,1): error TS2304: Cannot find name 'constructor'.
+    src/app/admin/image-upload/image-upload.component.ts(24,3): error TS2304: Cannot find name 'private'.
+    src/app/admin/image-upload/image-upload.component.ts(24,11): error TS2304: Cannot find name 'cloudinary'.
+    src/app/admin/image-upload/image-upload.component.ts(25,3): error TS2304: Cannot find name 'private'.
+    src/app/admin/image-upload/image-upload.component.ts(25,11): error TS2304: Cannot find name 'zone'.
+    src/app/admin/image-upload/image-upload.component.ts(26,3): error TS2304: Cannot find name 'private'.
+    src/app/admin/image-upload/image-upload.component.ts(26,11): error TS2304: Cannot find name 'http'.
+    src/app/admin/image-upload/image-upload.component.ts(32,1): error TS2304: Cannot find name 'ngOnInit'.
+    src/app/admin/image-upload/image-upload.component.ts(34,9): error TS2304: Cannot find name 'uploaderOptions'.
+    src/app/admin/image-upload/image-upload.component.ts(34,26): error TS2693: 'FileUploaderOptions' only refers to a type, but is being used as a value here.
+    src/app/admin/image-upload/image-upload.component.ts(51,36): error TS2304: Cannot find name 'uploaderOptions'.
+    src/app/admin/image-upload/image-upload.component.ts(53,3): error TS1117: An object literal cannot have multiple properties with the same name in strict mode.
+    src/app/admin/image-upload/image-upload.component.ts(82,3): error TS1117: An object literal cannot have multiple properties with the same name in strict mode.
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 13:16:13,943 [50] ERROR App  
+     src/app/admin/image-upload/image-upload.component.ts(82,9): error TS2304: Cannot find name 'upsertResponse'.
+    src/app/admin/image-upload/image-upload.component.ts(108,3): error TS1117: An object literal cannot have multiple properties with the same name in strict mode.
+    src/app/admin/image-upload/image-upload.component.ts(109,5): error TS2304: Cannot find name 'upsertResponse'.
+    src/app/admin/image-upload/image-upload.component.ts(118,3): error TS1117: An object literal cannot have multiple properties with the same name in strict mode.
+    src/app/admin/image-upload/image-upload.component.ts(119,5): error TS2304: Cannot find name 'upsertResponse'.
+    src/app/admin/image-upload/image-upload.component.ts(128,1): error TS2304: Cannot find name 'updateTitle'.
+    src/app/admin/image-upload/image-upload.component.ts(128,13): error TS2304: Cannot find name 'value'.
+    src/app/admin/image-upload/image-upload.component.ts(128,20): error TS2693: 'string' only refers to a type, but is being used as a value here.
+    src/app/admin/image-upload/image-upload.component.ts(129,16): error TS2304: Cannot find name 'value'.
+    src/app/admin/image-upload/image-upload.component.ts(135,1): error TS2304: Cannot find name 'deleteImage'.
+    src/app/admin/image-upload/image-upload.component.ts(149,1): error TS2304: Cannot find name 'fileOverBase'.
+    src/app/admin/image-upload/image-upload.component.ts(149,14): error TS2304: Cannot find name 'e'.
+    src/app/admin/image-upload/image-upload.component.ts(149,17): error TS2693: 'any' only refers to a type, but is being used as a value here.
+    src/app/admin/image-upload/image-upload.component.ts(150,30): error TS2304: Cannot find name 'e'.
+    src/app/admin/image-upload/image-upload.component.ts(153,1): error TS2304: Cannot find name 'getFileProperties'.
+    src/app/admin/image-upload/image-upload.component.ts(153,19): error TS2304: Cannot find name 'fileProperties'.
+    src/app/admin/image-upload/image-upload.component.ts(153,35): error TS2693: 'any' only refers to a type, but is being used as a value here.
+    src/app/admin/image-upload/image-upload.component.ts(155,8): error TS2304: Cannot find name 'fileProperties'.
+    src/app/admin/image-upload/image-upload.component.ts(162,11): error TS2304: Cannot find name 'generateSignature'.
+    
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 13:16:14,285 [50] ERROR App  
+     ERROR in src/app/admin/image-upload/image-upload.component.ts(109,7): error TS2304: Cannot find name 'upsertResponse'.
+    src/app/admin/image-upload/image-upload.component.ts(120,7): error TS2304: Cannot find name 'upsertResponse'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 13:26:28,057 [50] ERROR App  
+     ERROR in src/app/admin/image-upload/image-upload.component.ts(136,7): error TS2304: Cannot find name 'upsertResponse'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 15:50:48,861 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 15:53:29,093 [22] ERROR App  
+ Failed executing DbCommand (1,103ms) [Parameters=[@__feedbackSearchBO_TicketId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Feedbacks] AS [f]
+INNER JOIN [Tickets] AS [t] ON [f].[TicketId] = [t].[Id]
+WHERE ([f].[RecordState] = CAST(1 AS tinyint)) AND ([t].[Id] = @__feedbackSearchBO_TicketId_0) ********** 
+ 
+
+ 
+ ************ 2020-06-16 15:53:31,396 [22] ERROR App  
+ An exception occurred while iterating over the results of a query for context type 'Help247.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'TicketId'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7361aa90-0904-46ca-8f24-35aec5d11705
+Error Number:207,State:1,Class:16 ********** 
+ 
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'TicketId'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7361aa90-0904-46ca-8f24-35aec5d11705
+Error Number:207,State:1,Class:16
+
+ 
+ ************ 2020-06-16 15:53:36,585 [22] ERROR App  
+ An unhandled exception has occurred while executing the request. ********** 
+ 
+System.Exception: Invalid column name 'TicketId'.
+   at Help247.Service.Services.Feedback.FeedbackService.GetAllAsync(FeedbackSearchBO feedbackSearchBO) in D:\Projects\Help\help24-7\Help247.Service\Services\Feedback\FeedbackService.cs:line 68
+   at Help247.Controllers.Api.FeedbackController.GetAllAsync(FeedbackSearchViewModel feedbackSearchViewModel) in D:\Projects\Help\help24-7\Help247\Controllers\Api\FeedbackController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+ 
+ ************ 2020-06-16 17:02:57,590 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 17:05:35,087 [6] ERROR App  
+ ├ù ∩╜ówdm∩╜ú: Error: ENOENT: no such file or directory, open 'D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@cloudinary\angular\**'
+ ********** 
+ 
+
+ 
+ ************ 2020-06-16 17:05:35,129 [6] ERROR App  
+     at Object.openSync (fs.js:440:3)
+    at Object.readFileSync (fs.js:342:35)
+    at Storage.provideSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:98:13)
+    at CachedInputFileSystem.readFileSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:259:32)
+    at Observable._subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\webpack-input-host.js:35:51)
+    at Observable._trySubscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:44:25)
+    at Observable.subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:30:22)
+    at SyncDelegateHost._doSyncCall (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:22:20)
+    at SyncDelegateHost.read (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:49:21)
+    at WebpackCompilerHost.readFileBuffer (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\compiler_host.js:161:44)
+    at VirtualFileSystemDecorator.readFile (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\virtual_file_system_decorator.js:42:54)
+    at D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\build-angular\src\angular-cli-files\plugins\scripts-webpack-plugin.js:69:49
+    at new Promise (<anonymous>)
+    at D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\build-angular\src\angular-cli-files\plugins\scripts-webpack-plugin.js:68:24
+    at Array.map (<anonymous>)
+    at D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\build-angular\src\angular-cli-files\plugins\scripts-webpack-plugin.js:67:43
+ ********** 
+ 

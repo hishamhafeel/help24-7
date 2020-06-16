@@ -44,6 +44,10 @@ const routes: Routes = [
         path: 'service',
         loadChildren: './admin/helper-category/helper-category.module#HelperCategoryModule',
         canActivate: [AuthGuardService]
+      },
+      {
+        path: 'image',
+        loadChildren: './admin/image-upload/image-upload.module#ImageUploadModule'
       }
     ]
   }

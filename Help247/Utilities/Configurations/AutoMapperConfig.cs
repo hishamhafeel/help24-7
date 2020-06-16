@@ -54,6 +54,7 @@ namespace Help247.Utilities.Configurations
             //Feedback
             CreateMap<Feedback, FeedbackBO>().ReverseMap();
             CreateMap<FeedbackViewModel, FeedbackBO>().ReverseMap();
+            CreateMap<FeedbackSearchViewModel, FeedbackSearchBO>().ReverseMap();
 
             //HelperCategory
             CreateMap<HelperCategoryViewModel, HelperCategoryBO>().ReverseMap();
