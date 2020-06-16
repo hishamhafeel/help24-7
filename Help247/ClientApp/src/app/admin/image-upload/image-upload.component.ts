@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone, Input } from '@angular/core';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import { HttpClient } from '@angular/common/http';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 
 
@@ -14,17 +15,15 @@ export class ImageUploadComponent implements OnInit {
   @Input()
   responses: Array<any>;
 
-  private hasBaseDropZoneOver: boolean = false;
+  isUploaded: boolean = false;
   private uploader: FileUploader;
-  private title: string;
+  private url: string;
 
   constructor(
     private cloudinary: Cloudinary,
-    private zone: NgZone,
-    private http: HttpClient
+    private notificationService: NotificationService
   ) {
     this.responses = [];
-    this.title = '';
   }
 
   ngOnInit(): void {
@@ -46,7 +45,7 @@ export class ImageUploadComponent implements OnInit {
     this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
       // Add Cloudinary's unsigned upload preset to the upload form
       form.append('upload_preset', this.cloudinary.config().upload_preset);
-      form.append('folder', 'profile_pic');
+      form.append('folder', 'angular_sample');
       form.append('file', fileItem);
 
       // Use default "withCredentials" value for CORS requests
@@ -54,25 +53,16 @@ export class ImageUploadComponent implements OnInit {
       return { fileItem, form };
     };
 
-
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
+      this.notificationService.errorMessage("Image upload failed");
 
     // Update model on completion of uploading a file
-    // this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
-    //   upsertResponse(
-    //     {
-    //       file: item.file,
-    //       status,
-    //       data: JSON.parse(response)
-    //     }
-    //   );
-
-    // Update model on upload progress event
-
-  }
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      this.url = JSON.parse(response).url;
+      this.isUploaded = true;
+    }
 
 
-  fileOverBase(e: any): void {
-    this.hasBaseDropZoneOver = e;
   }
 
 
