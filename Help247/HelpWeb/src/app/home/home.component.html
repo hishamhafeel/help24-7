@@ -305,181 +305,30 @@
                         <div class="toptechslider-wrap">
                             <!-- <div class="owl-carousel owl-theme owl-sl" id="hmtoptech"> -->
                             <owl-carousel-o [options]="customOptions" id="hmtoptech">
-                                <ng-template carouselSlide>
+                                <ng-template carouselSlide *ngFor="let data of helperList">
                                     <div class="item">
                                         <div class="tech-item">
                                             <div class="techimg">
-                                                <img src="../../assets/images/tech-img.jpg" class="img-fluid">
+                                                <img src="data.profilePic>" class="img-fluid">
                                             </div>
                                             <div class="techdetail">
-                                                <h5>Jack Dou</h5>
+                                                <h5>{{data.firstName}} {{data.lastName}}</h5>
                                                 <div class="tech-points">
                                                     <span class="tech-field">
                                                         <i class="sprite sprite-field-icon"></i>
-                                                        <h6><a href="">IT & Telecommunication</a></h6>
+                                                        <h6><a href="">{{data.helperCategory.name}}</a></h6>
                                                     </span>
                                                     <span class="tech-field">
                                                         <i class="sprite sprite-city-icon"></i>
-                                                        <h6>City</h6>
+                                                        <h6>{{data.city}}</h6>
                                                     </span>
                                                     <span class="tech-field">
                                                         <i class="sprite sprite-country-icon"></i>
-                                                        <h6>Country</h6>
+                                                        <h6>{{data.country}}</h6>
                                                     </span>
                                                 </div>
                                                 <div class="techbtn-wrap">
-                                                    <span class="availablel-label">Available</span>
-                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                                <ng-template carouselSlide>
-                                    <div class="item">
-                                        <div class="tech-item">
-                                            <div class="techimg">
-                                                <img src="../../assets/images/tech-img.jpg" class="img-fluid">
-                                            </div>
-                                            <div class="techdetail">
-                                                <h5>Jack Dou</h5>
-                                                <div class="tech-points">
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-field-icon"></i>
-                                                        <h6><a href="">IT & Telecommunication</a></h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-city-icon"></i>
-                                                        <h6>City</h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-country-icon"></i>
-                                                        <h6>Country</h6>
-                                                    </span>
-                                                </div>
-                                                <div class="techbtn-wrap">
-                                                    <span class="availablel-label not-av">Not Available</span>
-                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                                <ng-template carouselSlide>
-                                    <div class="item">
-                                        <div class="tech-item">
-                                            <div class="techimg">
-                                                <img src="../../assets/images/tech-img.jpg" class="img-fluid">
-                                            </div>
-                                            <div class="techdetail">
-                                                <h5>Jack Dou</h5>
-                                                <div class="tech-points">
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-field-icon"></i>
-                                                        <h6><a href="">IT & Telecommunication</a></h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-city-icon"></i>
-                                                        <h6>City</h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-country-icon"></i>
-                                                        <h6>Country</h6>
-                                                    </span>
-                                                </div>
-                                                <div class="techbtn-wrap">
-                                                    <span class="availablel-label">Available</span>
-                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                                <ng-template carouselSlide>
-                                    <div class="item">
-                                        <div class="tech-item">
-                                            <div class="techimg">
-                                                <img src="../../assets/images/tech-img.jpg" class="img-fluid">
-                                            </div>
-                                            <div class="techdetail">
-                                                <h5>Jack Dou</h5>
-                                                <div class="tech-points">
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-field-icon"></i>
-                                                        <h6><a href="">IT & Telecommunication</a></h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-city-icon"></i>
-                                                        <h6>City</h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-country-icon"></i>
-                                                        <h6>Country</h6>
-                                                    </span>
-                                                </div>
-                                                <div class="techbtn-wrap">
-                                                    <span class="availablel-label not-av">Not Available</span>
-                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                                <ng-template carouselSlide>
-                                    <div class="item">
-                                        <div class="tech-item">
-                                            <div class="techimg">
-                                                <img src="../../assets/images/tech-img.jpg" class="img-fluid">
-                                            </div>
-                                            <div class="techdetail">
-                                                <h5>Jack Dou</h5>
-                                                <div class="tech-points">
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-field-icon"></i>
-                                                        <h6><a href="">IT & Telecommunication</a></h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-city-icon"></i>
-                                                        <h6>City</h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-country-icon"></i>
-                                                        <h6>Country</h6>
-                                                    </span>
-                                                </div>
-                                                <div class="techbtn-wrap">
-                                                    <span class="availablel-label">Available</span>
-                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                                <ng-template carouselSlide>
-                                    <div class="item">
-                                        <div class="tech-item">
-                                            <div class="techimg">
-                                                <img src="../../assets/images/tech-img.jpg" class="img-fluid">
-                                            </div>
-                                            <div class="techdetail">
-                                                <h5>Jack Dou</h5>
-                                                <div class="tech-points">
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-field-icon"></i>
-                                                        <h6><a href="">IT & Telecommunication</a></h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-city-icon"></i>
-                                                        <h6>City</h6>
-                                                    </span>
-                                                    <span class="tech-field">
-                                                        <i class="sprite sprite-country-icon"></i>
-                                                        <h6>Country</h6>
-                                                    </span>
-                                                </div>
-                                                <div class="techbtn-wrap">
-                                                    <span class="availablel-label not-av">Not Available</span>
-                                                    <a href="" class="btn-hire">Hire Me</a>
+                                                    <a href="javascript:void(0)" [routerLink]="['/hire-me/open-ticket', data.id]" class="btn-hire">Hire Me</a>
                                                 </div>
                                             </div>
                                         </div>

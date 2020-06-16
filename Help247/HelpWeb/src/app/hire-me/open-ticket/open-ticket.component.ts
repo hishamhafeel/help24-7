@@ -19,6 +19,7 @@ export class OpenTicketComponent implements OnInit {
   ticketModel: TicketModel;
 
   id: number;
+  customerId: number;
   helperModel: HelperModel;
 
   constructor(
@@ -36,6 +37,7 @@ export class OpenTicketComponent implements OnInit {
       this.initOpenTicketForm()
       this.getHelper(this.id);
     });
+    this.customerId = +localStorage.getItem('LoggedId');
   }
 
   initOpenTicketForm(){
@@ -49,8 +51,7 @@ export class OpenTicketComponent implements OnInit {
       contactNo2: ['+94772256634', [Validators.required]],
       otherRequirements: ['All other requirements', [Validators.required]],
       helpTime: [new Date(), [Validators.required]],
-      ticketStatusId: [1, [Validators.required]],
-      customerId: [3, [Validators.required]]
+      ticketStatusId: [1, [Validators.required]]
     });
   }
 
@@ -73,6 +74,7 @@ export class OpenTicketComponent implements OnInit {
     this.ticketModel.helpDateFrom = this.fromDate;
     this.ticketModel.helpDateTo = this.toDate;
     this.ticketModel.helperId = this.id;
+    this.ticketModel.customerId = this.customerId;
 
     this.ticketModel.helpTime = await this.formatAMPM(this.openTicketForm.value.helpTime);
 

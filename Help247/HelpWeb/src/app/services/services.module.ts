@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 import { ServicesRoutingModule } from './services-routing.module';
 import { ServicesComponent } from './services/services.component';
 import { SubServiceComponent } from './sub-service/sub-service.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [ServicesComponent, SubServiceComponent],
   imports: [
     CommonModule,
-    ServicesRoutingModule
+    ServicesRoutingModule,
+    SharedModule
   ]
 })
 export class ServicesModule { }

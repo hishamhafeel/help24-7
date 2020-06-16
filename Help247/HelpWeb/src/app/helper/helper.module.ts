@@ -3,13 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { HelperRoutingModule } from './helper-routing.module';
 import { HelperComponent } from './helper.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [HelperComponent],
   imports: [
     CommonModule,
-    HelperRoutingModule
+    HelperRoutingModule,
+    ModalModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HelperModule { }

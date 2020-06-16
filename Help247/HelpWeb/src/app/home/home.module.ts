@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CountoModule } from 'angular2-counto';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,8 +16,8 @@ import { CountoModule } from 'angular2-counto';
     CommonModule,
     HomeRoutingModule,
     CarouselModule,
-    CountoModule
-
+    CountoModule,
+    SharedModule
   ]
 })
 export class HomeModule { }
