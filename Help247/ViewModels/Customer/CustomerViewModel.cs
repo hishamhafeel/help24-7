@@ -19,5 +19,7 @@ namespace Help247.ViewModels.Customer
         public string City { get; set; }
         public string AddressLine { get; set; }
         public string PostalCode { get; set; }
+        public string ProfilePicUrl { get; set; }
+
     }
 }
