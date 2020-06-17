@@ -7,6 +7,7 @@ import { HelperService } from '../shared/services/helper.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelperModel } from './models/helper.model';
 import { HelperCategoryModel } from './models/helper-category.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-helper',
@@ -29,14 +30,15 @@ export class HelperComponent implements OnInit {
   helperId: number;
 
   modalRef: BsModalRef;
-  
+
   constructor(
     private hireMeService: HireMeService,
     private modalService: BsModalService,
     private helperService: HelperService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
-    this.pagination = new PaginationBase(); 
+    this.pagination = new PaginationBase();
   }
 
   ngOnInit(): void {
@@ -70,7 +72,7 @@ export class HelperComponent implements OnInit {
     );
   }
 
-  approveTicket(id){
+  approveTicket(id) {
     this.hireMeService.approveTicket(id).subscribe(
       result => {
         console.log('result', result);
@@ -115,7 +117,7 @@ export class HelperComponent implements OnInit {
     );
   }
 
-  initHelperForm(){
+  initHelperForm() {
     this.helperForm = this.fb.group({
       id: [null, [Validators.required]],
       firstName: [null, [Validators.required]],
@@ -136,7 +138,7 @@ export class HelperComponent implements OnInit {
     });
   }
 
-  patchHelperForm(){
+  patchHelperForm() {
     this.helperForm.patchValue({
       id: this.helperId,
       firstName: this.helperModel.firstName,
@@ -157,7 +159,7 @@ export class HelperComponent implements OnInit {
     });
   }
 
-  onHelperSubmit(){
+  onHelperSubmit() {
     if (this.helperForm.invalid) {
       return;
     }
@@ -173,7 +175,7 @@ export class HelperComponent implements OnInit {
       }
     );
   }
-  
+
   //HELPER END
 
   showDashboard() {
@@ -212,10 +214,13 @@ export class HelperComponent implements OnInit {
   }
 
   logout() {
-    this.isDashboardClicked = false;
-    this.isMyJobsClicked = false;
-    this.isSettingsClicked = false;
-    this.isRatingClicked = false;
-    this.isLogoutClicked = true;
+    localStorage.removeItem('TokenId');
+    localStorage.removeItem('LoggedId');
+    this.router.navigate(['/auth/login']);
+    // this.isDashboardClicked = false;
+    // this.isMyJobsClicked = false;
+    // this.isSettingsClicked = false;
+    // this.isRatingClicked = false;
+    // this.isLogoutClicked = true;
   }
 }

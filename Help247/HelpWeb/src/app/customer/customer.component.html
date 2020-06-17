@@ -400,7 +400,7 @@
                                                                     data-target="#view"
                                                                     (click)="openModal(template, data)">View</a>
                                                                 <a href="javascript:void(0)" class="btn-red small" data-toggle="modal"
-                                                                    data-target="#rates">+ Review</a>
+                                                                (click)="openReviewModal(reviewTemplate, data.id, data.helper.id)" data-target="#rates">+ Review</a>
                                                             </td>
                                                         </tr>
                                                     </ng-container>
@@ -461,6 +461,30 @@
                                         </div>
                                         <div class="row">
                                             Other Requirements: {{ticketModel.otherRequirements}}
+                                        </div>
+                                    </div>
+                                </ng-template>
+
+                                <ng-template #reviewTemplate>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title pull-left">Add Review</h4>
+                                        <button type="button" class="close pull-right" aria-label="Close"
+                                            (click)="modalRef.hide()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" [formGroup]="feedbackForm">
+                                        <div class="row">
+                                            Title: 
+                                            <input type="text" class="form-control"
+                                                    placeholder="Description" formControlName="description">
+                                        </div>
+                                        <div class="row">
+                                            Category: 
+                                            <rating formControlName="rating" [max]="10"></rating>
+                                        </div>
+                                        <div class="row">
+                                            <button type="submit" class="btn redbtn mt-3" (click)="onFeedbackSubmit()">Add</button>
                                         </div>
                                     </div>
                                 </ng-template>
@@ -619,51 +643,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
+                                                    <tr *ngFor="let data of feedbackList">
+                                                        <td data-label="Helper">{{data.helper.firstName}} {{data.helper.lastName}}</td>
+                                                        <td data-label="Review">{{data.description}}</td>
+                                                        <td data-label="Date">{{data.createdOn | date: 'mediumDate'}}</td>
                                                         <td data-label=""><a href="" class="btn-red small"
                                                                 data-toggle="modal" data-target="#rates">View</a></td>
                                                     </tr>

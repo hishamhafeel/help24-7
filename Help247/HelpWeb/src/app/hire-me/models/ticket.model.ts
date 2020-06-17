@@ -18,3 +18,14 @@ export class TicketModel {
     customerId: number;
     helper: HelperModel;
 }
+
+export class FeedbackModel {
+    id: number;
+    description: string;
+    rating: number;
+    helperId: number;
+    customerId: number;
+    ticketId: number;
+    createdOn: Date;
+    helper: HelperModel;
+}

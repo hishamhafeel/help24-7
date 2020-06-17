@@ -3,6 +3,9 @@ import { BaseService } from 'src/app/core/services/base.service';
 import { CustomerModel } from '../models/customer.model';
 import { catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { FeedbackModel } from 'src/app/hire-me/models/ticket.model';
+import { PaginationBase } from 'src/app/shared/models/pagination-base.model';
+import { PaginationModel } from 'src/app/shared/models/paginationModel';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +31,25 @@ export class CustomerService extends BaseService {
     return this.http
       .put<CustomerModel>(
         `${this.baseEndPoint}/api/Customer`, model, this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  addFeedback(model: any) {
+    return this.http
+      .post<FeedbackModel>(
+        `${this.baseEndPoint}/api/Feedback`, model, this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getFeedbackList(pagination: PaginationBase, customerId: number) {
+    return this.http
+      .get<PaginationModel<FeedbackModel>>(
+        `${this.baseEndPoint}/api/Feedback/list?CustomerId=${customerId}&skip=${
+        pagination.skip
+        }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
+        this.httpOptions
       )
       .pipe(catchError(this.server4xxError));
   }
