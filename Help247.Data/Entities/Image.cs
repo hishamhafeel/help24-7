@@ -17,5 +17,9 @@ namespace Help247.Data.Entities
         public int SubServiceId { get; set; }
         public int? HelperId { get; set; }
 
+        public int? CustomerId { get; set; }
+        //[ForeignKey(nameof(CustomerId))]
+        //public Customer Customer { get; set; }
+
     }
 }

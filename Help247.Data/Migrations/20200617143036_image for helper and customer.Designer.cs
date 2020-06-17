@@ -4,14 +4,16 @@ using Help247.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200617143036_image for helper and customer")]
+    partial class imageforhelperandcustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,9 +53,6 @@ namespace Help247.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("ImageId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -78,8 +77,6 @@ namespace Help247.Data.Migrations
 
                     b.HasIndex("Email")
                         .IsUnique();
-
-                    b.HasIndex("ImageId");
 
                     b.HasIndex("PhoneNo")
                         .IsUnique();
@@ -176,8 +173,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2020, 6, 17, 15, 31, 0, 457, DateTimeKind.Utc).AddTicks(6515),
-                            EditedOn = new DateTime(2020, 6, 17, 15, 31, 0, 457, DateTimeKind.Utc).AddTicks(7402),
+                            CreatedOn = new DateTime(2020, 6, 17, 14, 30, 35, 168, DateTimeKind.Utc).AddTicks(2706),
+                            EditedOn = new DateTime(2020, 6, 17, 14, 30, 35, 168, DateTimeKind.Utc).AddTicks(3582),
                             RecordState = (byte)1,
                             Title = "Terms & Conditions",
                             Topics = "{}"
@@ -185,8 +182,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2020, 6, 17, 15, 31, 0, 458, DateTimeKind.Utc).AddTicks(393),
-                            EditedOn = new DateTime(2020, 6, 17, 15, 31, 0, 458, DateTimeKind.Utc).AddTicks(403),
+                            CreatedOn = new DateTime(2020, 6, 17, 14, 30, 35, 168, DateTimeKind.Utc).AddTicks(6423),
+                            EditedOn = new DateTime(2020, 6, 17, 14, 30, 35, 168, DateTimeKind.Utc).AddTicks(6433),
                             RecordState = (byte)1,
                             Title = "Privacy Policy",
                             Topics = "{}"
@@ -194,8 +191,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2020, 6, 17, 15, 31, 0, 458, DateTimeKind.Utc).AddTicks(480),
-                            EditedOn = new DateTime(2020, 6, 17, 15, 31, 0, 458, DateTimeKind.Utc).AddTicks(483),
+                            CreatedOn = new DateTime(2020, 6, 17, 14, 30, 35, 168, DateTimeKind.Utc).AddTicks(6513),
+                            EditedOn = new DateTime(2020, 6, 17, 14, 30, 35, 168, DateTimeKind.Utc).AddTicks(6515),
                             RecordState = (byte)1,
                             Title = "FAQ",
                             Topics = "{}"
@@ -252,9 +249,6 @@ namespace Help247.Data.Migrations
                     b.Property<int>("HelperCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ImageId")
-                        .HasColumnType("int");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -290,8 +284,6 @@ namespace Help247.Data.Migrations
                         .IsUnique();
 
                     b.HasIndex("HelperCategoryId");
-
-                    b.HasIndex("ImageId");
 
                     b.HasIndex("MobileNo")
                         .IsUnique()
@@ -383,6 +375,14 @@ namespace Help247.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId")
+                        .IsUnique()
+                        .HasFilter("[CustomerId] IS NOT NULL");
+
+                    b.HasIndex("HelperId")
+                        .IsUnique()
+                        .HasFilter("[HelperId] IS NOT NULL");
 
                     b.HasIndex("ImageUrl")
                         .IsUnique();
@@ -652,22 +652,22 @@ namespace Help247.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5c645e36-135a-49f6-81d2-2a87569afb59",
+                            Id = "a4d0d9be-1bab-4ddb-88e7-edfa0943ff19",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "291eb67b-3b8d-4a24-ab2a-bb2b392fbe52",
-                            CreatedOn = new DateTime(2020, 6, 17, 15, 31, 0, 394, DateTimeKind.Utc).AddTicks(3100),
-                            EditedOn = new DateTime(2020, 6, 17, 15, 31, 0, 394, DateTimeKind.Utc).AddTicks(3945),
+                            ConcurrencyStamp = "8e5e3429-71af-402a-b622-52e1528fa9a8",
+                            CreatedOn = new DateTime(2020, 6, 17, 14, 30, 35, 139, DateTimeKind.Utc).AddTicks(3289),
+                            EditedOn = new DateTime(2020, 6, 17, 14, 30, 35, 139, DateTimeKind.Utc).AddTicks(3870),
                             Email = "superadmin@admin.com",
                             EmailConfirmed = true,
                             IsAdmin = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@ADMIN.COM",
                             NormalizedUserName = "SUPERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDcnREK4bufEDyDSlUmjMk8k21ispNdRfyHO1hWLWka1MD6f8TcyG5Df3V4Mb31+1Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG0LONUNWZ+LYtVmlz+mTMA2Xw1StHjQt2tXsEgl8atDamsm4JcYQBXVIrpZNTYm3Q==",
                             PhoneNumber = "123456789",
                             PhoneNumberConfirmed = false,
                             RecordState = (byte)1,
-                            SecurityStamp = "31b9c87c-6cd2-43bf-bb89-928da0ed8be6",
+                            SecurityStamp = "8dd3b551-9dcb-4615-923d-d0602b4b5eba",
                             TwoFactorEnabled = false,
                             UserName = "superadmin"
                         });
@@ -703,28 +703,28 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "a7e26ee1-5b7f-41d4-8b31-b3db5ac49a55",
+                            ConcurrencyStamp = "d72e740b-659e-4645-b907-f0608e5435ad",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "de87b71f-0f40-473b-a22c-84f4ee649647",
+                            ConcurrencyStamp = "0a8d522b-41ce-4158-9955-cb8a70930e45",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "db3523e7-4ea7-4556-9a66-0b25c7fc446c",
+                            ConcurrencyStamp = "2e34bf26-2d97-4836-8f16-a19ba9bc0028",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "cde75899-12ef-4c29-8011-20d23a478fda",
+                            ConcurrencyStamp = "b860c63e-9efd-49e3-932c-596f030ecb12",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -817,7 +817,7 @@ namespace Help247.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "5c645e36-135a-49f6-81d2-2a87569afb59",
+                            UserId = "a4d0d9be-1bab-4ddb-88e7-edfa0943ff19",
                             RoleId = "4"
                         });
                 });
@@ -839,13 +839,6 @@ namespace Help247.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Help247.Data.Entities.Customer", b =>
-                {
-                    b.HasOne("Help247.Data.Entities.Image", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId");
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.Feedback", b =>
@@ -876,10 +869,17 @@ namespace Help247.Data.Migrations
                         .HasForeignKey("HelperCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("Help247.Data.Entities.Image", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId");
+            modelBuilder.Entity("Help247.Data.Entities.Image", b =>
+                {
+                    b.HasOne("Help247.Data.Entities.Customer", null)
+                        .WithOne("Image")
+                        .HasForeignKey("Help247.Data.Entities.Image", "CustomerId");
+
+                    b.HasOne("Help247.Data.Entities.Helper", null)
+                        .WithOne("Image")
+                        .HasForeignKey("Help247.Data.Entities.Image", "HelperId");
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.Skill", b =>

@@ -6,7 +6,7 @@
 
                     <div class="techinfo">
                         <div class="techinfo-img">
-                            <img src="../../assets/images/tech-profile-img.jpg" class="img-fluid">
+                            <img src="{{helperModel.image?.imageUrl}}" class="img-fluid">
                         </div>
                         <h2>{{helperModel.firstName}} {{helperModel.lastName}}</h2>
                         <p>{{ticketCountModel.completedJobs}} completed jobs | {{ticketCountModel.pendingJobs}} jobs in
@@ -39,7 +39,7 @@
                         <div class="right-sidebar">
                             <div class="rs-row">
                                 <h4>Expertise</h4>
-                                <h5>{{helperModel.helperCategory.name}}</h5>
+                                <h5>{{helperModel.helperCategory?.name}}</h5>
                             </div>
                             <div class="rs-row">
                                 <h4>Country</h4>
@@ -281,7 +281,7 @@
                 <div class="right-sidebar">
                     <div class="rs-row">
                         <h4>Expertise</h4>
-                        <h5>{{helperModel.helperCategory.name}}</h5>
+                        <h5>{{helperModel.helperCategory?.name}}</h5>
                     </div>
                     <div class="rs-row">
                         <h4>Country</h4>

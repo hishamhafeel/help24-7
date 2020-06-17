@@ -29,7 +29,11 @@ namespace Help247.Service.Services.Helper
         {
             try
             {
-                var query = appDbContext.Helpers.AsQueryable().Include(x => x.HelperCategory).Where(x => x.RecordState == Enums.RecordState.Active);
+                var query = appDbContext.Helpers.AsQueryable()
+                                                .Include(x => x.HelperCategory)
+                                                .Include(x => x.Image)
+                                                .Where(x => x.RecordState == Enums.RecordState.Active);
+
                 if (helperSearchBO.HelperCategoryId != 0)
                 {
                    query = query.Where(x => x.HelperCategoryId == helperSearchBO.HelperCategoryId);
@@ -77,7 +81,10 @@ namespace Help247.Service.Services.Helper
         {
             try
             {
-                var query = await appDbContext.Helpers.Include(x=>x.HelperCategory).FirstOrDefaultAsync(x => x.Id == id);
+                var query = await appDbContext.Helpers
+                                               .Include(x=>x.HelperCategory)
+                                               .Include(x=>x.Image)
+                                               .FirstOrDefaultAsync(x => x.Id == id);
                 if (query == null)
                 {
                     throw new HelperNotFoundException();

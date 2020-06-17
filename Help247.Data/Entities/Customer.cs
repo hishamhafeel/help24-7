@@ -25,9 +25,14 @@ namespace Help247.Data.Entities
         public string City { get; set; }
         public string PostalCode { get; set; }
         public string AddressLine { get; set; }
+        public string UserId { get; set; }
+
 
         public List<Ticket> Tickets { get; set; }
         public List<Feedback> Feedbacks { get; set; }
-        public string UserId { get; set; }
+
+        public int? ImageId { get; set; }
+        [ForeignKey(nameof(ImageId))]
+        public Image Image { get; set; }
     }
 }

@@ -20,6 +20,7 @@ export class HelperModel {
     helperCategory: HelperCategoryModel;
     userId: string;
     createdOn: Date;
+    image: ImageModel;
 }
 
 export class TicketCountModel {
@@ -28,4 +29,14 @@ export class TicketCountModel {
     acceptedJobs: number;
     pendingJobs: number;
     rejectedJobs: number;
+}
+
+export class ImageModel {
+    id: number;
+    imageUrl: string;
+    email: string;
+    imageType: string;
+    subServiceId: number;
+    helperId: number;
+    customerId: number;
 }
