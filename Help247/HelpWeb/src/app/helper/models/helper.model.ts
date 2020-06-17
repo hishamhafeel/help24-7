@@ -19,4 +19,13 @@ export class HelperModel {
     helperCategoryId: number;
     helperCategory: HelperCategoryModel;
     userId: string;
+    createdOn: Date;
+}
+
+export class TicketCountModel {
+    helperId: number;
+    completedJobs: number;
+    acceptedJobs: number;
+    pendingJobs: number;
+    rejectedJobs: number;
 }

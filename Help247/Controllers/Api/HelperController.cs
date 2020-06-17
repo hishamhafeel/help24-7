@@ -27,6 +27,7 @@ namespace Help247.Controllers.Api
         // GET: api/helper/list
         [Route("list")]
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllAsync([FromQuery]HelperSearchViewModel helperSearch)
         {
             var result = await helperService.GetAllAsync(mapper.Map<HelperSearchBO>(helperSearch));
@@ -35,12 +36,13 @@ namespace Help247.Controllers.Api
 
         // GET: api/helper/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAsync(int id)
         {
             try
             {
                 var result = await helperService.GetByIdAsync(id);
-                return Ok(result);
+                return Ok(mapper.Map<HelperViewModel>(result));
             }
             catch (Exception ex)
             {

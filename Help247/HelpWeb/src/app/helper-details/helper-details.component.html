@@ -8,8 +8,9 @@
                         <div class="techinfo-img">
                             <img src="../../assets/images/tech-profile-img.jpg" class="img-fluid">
                         </div>
-                        <h2>John Deo</h2>
-                        <p>12 completed jobs | 5 jobs in Queue | Reviews & Ratings (24) </p>
+                        <h2>{{helperModel.firstName}} {{helperModel.lastName}}</h2>
+                        <p>{{ticketCountModel.completedJobs}} completed jobs | {{ticketCountModel.pendingJobs}} jobs in
+                            Queue | Reviews & Ratings (24) </p>
                     </div>
                     <div class="tech-silder">
                         <div class="owl-carousel owl-theme owl-tech" id="techslider">
@@ -21,40 +22,15 @@
                     <div class="description-wrap">
                         <h5>Description about the service</h5>
                         <div class="des-content">
-                            <p>Aliquam lorem ante, dapibus in, viverra quis, feugiata, tellus. Phasellus viverra nulla
-                                ut metus varius laoreet.Quisque rutrum. Aenean imperdiet. Etiam ultricies metus varius
-                                Nam quam nunc, blandit vel, luctus pulvinar, hen lorem. Maecenas nec odi oet ante
-                                tincidunt temvitae sapien vel augue. Curabitur ullamcorper ulsi.</p>
-
-                            <p>Nam ut libero venen atis faucibus. Phasellus viverra nulla ut metus varius laoreet. Nam
-                                quam nunc, blanditvel, luctus pulvinar, hen lorem. Maecenas nec odio et ante tincidunt
-                                temvitae sapien vel augue. Quisque rutrum. Aenean imperdiet. Etiam ultricies metus
-                                variusv Nam quam nunc, blandit vel, luctus pulvinar, hen lorem. Maecenas nec odi oet
-                                ante tincidunt temvitae sapien vel augue. Curabitur ullamcorper ulsi. Maecenas nec odi
-                                oet ante tincidunt temvitae sapien vel augue. Curabitur ullamcorper ulsi. </p>
-                            <ul>
-                                <li>Curabitur ullamcorper ulsi.</li>
-                                <li>Blandit vel, luctus</li>
-                                <li>Nam quam nunc</li>
-                                <li>Phasellus viverra nulla ut metus</li>
-                                <li>Etiam ultricies metus variusv</li>
-                                <li>Quisque rutrum</li>
-                                <li>Aenean imperdiet</li>
-                                <li>Maecenas nec odi oet ante tincidunt</li>
-                            </ul>
+                            <p>{{helperModel.myService}}</p>
                         </div>
                     </div>
                     <div class="about-tech">
                         <h5>About the technician</h5>
                         <div class="about-techwrap boxshadow">
                             <h3>Member Since</h3>
-                            <h6>Jan 2019</h6>
-                            <p>Nam ut libero venen atis faucibus. Phasellus viverra nulla ut metus varius laoreet. Nam
-                                quam nunc, blanditvel, luctus pulvinar, hen lorem. Maecenas nec odio et ante tincidunt
-                                temvitae sapien vel augue. Quisque rutrum. Aenean imperdiet. Etiam ultricies metus
-                                variusv Nam quam nunc, blandit vel, luctus pulvinar, hen lorem. Maecenas nec odi oet
-                                ante tincidunt temvitae sapien vel augue. Curabitur ullamcorper ulsi. Maecenas nec odi
-                                oet ante tincidunt temvitae sapien vel augue. Curabitur ullamcorper ulsi. </p>
+                            <h6>{{helperModel.createdOn | date:'mediumDate'}}</h6>
+                            <p>{{helperModel.aboutMe}} </p>
                         </div>
                     </div>
 
@@ -63,30 +39,27 @@
                         <div class="right-sidebar">
                             <div class="rs-row">
                                 <h4>Expertise</h4>
-                                <h5>IT & Telecommunication</h5>
+                                <h5>{{helperModel.helperCategory.name}}</h5>
                             </div>
                             <div class="rs-row">
                                 <h4>Country</h4>
-                                <h5>USA</h5>
+                                <h5>{{helperModel.country}}</h5>
                             </div>
                             <div class="rs-row">
                                 <h4>State</h4>
-                                <h5>Texas</h5>
+                                <h5>{{helperModel.state}}</h5>
                             </div>
                             <div class="rs-row">
                                 <h4>City</h4>
-                                <h5>HUston</h5>
+                                <h5>{{helperModel.city}}</h5>
                             </div>
                             <div class="rs-row">
                                 <h4>Years of Experience</h4>
-                                <h5>5 Years</h5>
+                                <h5>{{helperModel.experience}} Years</h5>
                             </div>
                             <div class="rs-row">
-                                <h4>Availability</h4>
-                                <span class="availablel-label">Available</span>
-                            </div>
-                            <div class="rs-row">
-                                <a href="" class="btn-hire">Hire Me</a>
+                                <a href="" class="btn-hire" [routerLink]="['/hire-me/open-ticket', helperModel.id]">Hire
+                                    Me</a>
                             </div>
                         </div>
                     </div>
@@ -308,30 +281,26 @@
                 <div class="right-sidebar">
                     <div class="rs-row">
                         <h4>Expertise</h4>
-                        <h5>IT & Telecommunication</h5>
+                        <h5>{{helperModel.helperCategory.name}}</h5>
                     </div>
                     <div class="rs-row">
                         <h4>Country</h4>
-                        <h5>USA</h5>
+                        <h5>{{helperModel.country}}</h5>
                     </div>
                     <div class="rs-row">
                         <h4>State</h4>
-                        <h5>Texas</h5>
+                        <h5>{{helperModel.state}}</h5>
                     </div>
                     <div class="rs-row">
                         <h4>City</h4>
-                        <h5>HUston</h5>
+                        <h5>{{helperModel.city}}</h5>
                     </div>
                     <div class="rs-row">
                         <h4>Years of Experience</h4>
-                        <h5>5 Years</h5>
+                        <h5>{{helperModel.experience}} Years</h5>
                     </div>
                     <div class="rs-row">
-                        <h4>Availability</h4>
-                        <span class="availablel-label">Available</span>
-                    </div>
-                    <div class="rs-row">
-                        <a href="" class="btn-hire">Hire Me</a>
+                        <a href="" class="btn-hire" [routerLink]="['/hire-me/open-ticket', helperModel.id]">Hire Me</a>
                     </div>
                 </div>
             </div>

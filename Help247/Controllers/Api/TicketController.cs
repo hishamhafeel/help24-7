@@ -63,7 +63,7 @@ namespace Help247.Controllers.Api
 
         [Route("count")]
         [HttpGet]
-        [Authorize(Roles = "Helper, SuperAdmin, Admin")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetCountAllAsync([FromQuery]int helperId)
         {
             try
