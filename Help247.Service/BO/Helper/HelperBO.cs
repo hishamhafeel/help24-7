@@ -1,5 +1,6 @@
 ﻿using Help247.Common.Utility;
 using Help247.Service.BO.HelperCategory;
+using Help247.Service.BO.Image;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,5 +26,6 @@ namespace Help247.Service.BO.Helper
         public string MyService { get; set; }
         public DateTime CreatedOn { get; set; }
         public HelperCategoryBO HelperCategory { get; set; }
+        public ImageBO Image { get; set; }
     }
 }

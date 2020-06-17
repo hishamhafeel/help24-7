@@ -46,11 +46,14 @@ namespace Help247.Data.Entities
         public List<Skill> Skills { get; set; }
 
         #region foreign key
+        public string UserId { get; set; }
+
         public int HelperCategoryId { get; set; }
         public HelperCategory HelperCategory { get; set; }
 
-        public string UserId { get; set; }
-        // public Image Image { get; set; }
+        public int? ImageId { get; set; }
+        [ForeignKey(nameof(ImageId))]
+        public Image Image { get; set; }
         #endregion
 
     }

@@ -9,6 +9,7 @@ using Help247.Service.BO.Security;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -64,17 +65,51 @@ namespace Help247.Service.Services.Security
                     {
                         return new UserBO();
                     }
+
                     userBO.UserId = storeUser.Id;
                     var userType = "Admin";
+                    var imageToSave = new Help247.Data.Entities.Image();
                     switch (userBO.UserType)
                     {
                         case Enums.UserType.Helper:
                             userType = "Helper";
-                            await appDbContext.Helpers.AddAsync(mapper.Map<Help247.Data.Entities.Helper>(userBO));
+                            var registeredHelper = await appDbContext.Helpers.AddAsync(mapper.Map<Help247.Data.Entities.Helper>(userBO));
+                            await appDbContext.SaveChangesAsync();
+
+                            var imageHelper = new Help247.Data.Entities.Image()
+                            {
+                                ImageType = ImageType.ProfilePicture,
+                                ImageUrl = userBO.ProfilePicUrl,
+                                Email = userBO.Email,
+                                HelperId = registeredHelper.Entity.Id,
+                                CustomerId = null
+                            };
+
+                            var savedImage = await appDbContext.Images.AddAsync(imageHelper);
+                            await appDbContext.SaveChangesAsync();
+
+                            registeredHelper.Entity.Image = savedImage.Entity;
+                            appDbContext.Helpers.Update(registeredHelper.Entity);
                             break;
                         case Enums.UserType.Customer:
                             userType = "Customer";
-                            await appDbContext.Customers.AddAsync(mapper.Map<Help247.Data.Entities.Customer>(userBO));
+                            var registeredCustomer = await appDbContext.Customers.AddAsync(mapper.Map<Help247.Data.Entities.Customer>(userBO));
+                            await appDbContext.SaveChangesAsync();
+
+                            var imageCustomer = new Help247.Data.Entities.Image()
+                            {
+                                ImageType = ImageType.ProfilePicture,
+                                ImageUrl = userBO.ProfilePicUrl,
+                                Email = userBO.Email,
+                                HelperId = null,
+                                CustomerId = registeredCustomer.Entity.Id
+                            };
+
+                            var savedImageCus = await appDbContext.Images.AddAsync(imageCustomer);
+                            await appDbContext.SaveChangesAsync();
+
+                            registeredCustomer.Entity.Image = savedImageCus.Entity;
+                            appDbContext.Customers.Update(registeredCustomer.Entity);
                             break;
                         default:
                             storeUser.IsAdmin = true;
@@ -97,14 +132,14 @@ namespace Help247.Service.Services.Security
 
                     await userManager.AddToRoleAsync(storeUser, userType);
 
-                    var image = new Help247.Data.Entities.Image()
-                    {
-                        ImageType = ImageType.ProfilePicture,
-                        ImageUrl = userBO.ProfilePicUrl,
-                        Email = userBO.Email 
-                    };
-                    await appDbContext.Images.AddAsync(image);
-                    await appDbContext.SaveChangesAsync();
+                    //var image = new Help247.Data.Entities.Image()
+                    //{
+                    //    ImageType = ImageType.ProfilePicture,
+                    //    ImageUrl = userBO.ProfilePicUrl,
+                    //    Email = userBO.Email 
+                    //};
+                    //await appDbContext.Images.AddAsync(image);
+                    //await appDbContext.SaveChangesAsync();
 
                     transaction.Commit();     
                      return userBO;

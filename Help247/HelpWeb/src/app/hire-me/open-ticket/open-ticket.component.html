@@ -9,14 +9,14 @@
                             <div class="opentick-side">
                                 <div class="tech-item">
                                     <div class="techimg">
-                                        <img [src]="helperModel.profilePic" class="img-fluid">
+                                        <img src="{{helperModel.image?.imageUrl}}" class="img-fluid">
                                     </div>
                                     <div class="techdetail">
                                         <h5>{{helperModel.firstName}} {{helperModel.lastName}}</h5>
                                         <div class="tech-points">
                                             <span class="tech-field">
                                                 <i class="sprite sprite-field-icon"></i>
-                                                <h6><a href="">{{helperModel.helperCategory.name}}</a></h6>
+                                                <h6><a href="">{{helperModel.helperCategory?.name}}</a></h6>
                                             </span>
                                             <span class="tech-field">
                                                 <i class="sprite sprite-city-icon"></i>
@@ -51,7 +51,8 @@
                                                                         <div class="form-group">
                                                                             <label>Title</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Title of the Ticket" formControlName="title">
+                                                                                placeholder="Title of the Ticket"
+                                                                                formControlName="title">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -69,7 +70,8 @@
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>Help Time </label>
-                                                                            <timepicker formControlName="helpTime"></timepicker>
+                                                                            <timepicker formControlName="helpTime">
+                                                                            </timepicker>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -79,14 +81,16 @@
                                                                                 <h6>From</h6>
                                                                                 <input type="text"
                                                                                     class="form-control fromdate"
-                                                                                    id="from-datepicker" bsDatepicker [bsValue]="fromDate">
-                                                                                    <!-- <bs-datepicker-inline [bsValue]="bsInlineValue"></bs-datepicker-inline> -->
+                                                                                    id="from-datepicker" bsDatepicker
+                                                                                    [bsValue]="fromDate">
+                                                                                <!-- <bs-datepicker-inline [bsValue]="bsInlineValue"></bs-datepicker-inline> -->
                                                                             </div>
                                                                             <div class="h-datewrap">
                                                                                 <h6>To</h6>
                                                                                 <input type="text"
                                                                                     class="form-control todate"
-                                                                                    id="to-datepicker" bsDatepicker [bsValue]="toDate">
+                                                                                    id="to-datepicker" bsDatepicker
+                                                                                    [bsValue]="toDate">
                                                                             </div>
 
                                                                         </div>
@@ -97,7 +101,8 @@
                                                                         <div class="form-group">
                                                                             <label>Country </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Cpuntry" formControlName="country">
+                                                                                placeholder="Cpuntry"
+                                                                                formControlName="country">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -107,14 +112,16 @@
                                                                         <div class="form-group">
                                                                             <label>State </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="State" formControlName="state">
+                                                                                placeholder="State"
+                                                                                formControlName="state">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>City </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="City" formControlName="city">
+                                                                                placeholder="City"
+                                                                                formControlName="city">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -130,7 +137,8 @@
                                                                         <div class="form-group">
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Address" formControlName="address">
+                                                                                placeholder="Address"
+                                                                                formControlName="address">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -139,14 +147,16 @@
                                                                         <div class="form-group">
                                                                             <label>Contact No 1 </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94" formControlName="contactNo1">
+                                                                                placeholder="+94"
+                                                                                formControlName="contactNo1">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Contact No 2 </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94" formControlName="contactNo2">
+                                                                                placeholder="+94"
+                                                                                formControlName="contactNo2">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -157,7 +167,8 @@
                                                                             <label>Other Requirements</label>
                                                                             <textarea class="form-control set-text"
                                                                                 rows="5"
-                                                                                placeholder="Any other special requirements" formControlName="otherRequirements"></textarea>
+                                                                                placeholder="Any other special requirements"
+                                                                                formControlName="otherRequirements"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>

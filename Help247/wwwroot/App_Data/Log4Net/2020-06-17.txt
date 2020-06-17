@@ -1077,3 +1077,130 @@ To disable this warning use "ng config -g cli.warnings.versionMismatch false".
 
  ********** 
  
+
+ 
+ ************ 2020-06-17 20:02:59,814 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 20:32:46,114 [5] ERROR App  
+ version (8.3.26). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 20:32:46,805 [5] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 20:35:22,933 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 20:50:10,151 [7] ERROR App  
+ ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé                  npm update check failed                   Γöé
+Γöé            Try running with sudo or get access             Γöé
+Γöé            to the local update config store via            Γöé
+Γöé sudo chown -R $USER:$(id -gn $USER) C:\Users\hisha\.config Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 20:50:11,035 [12] ERROR App  
+ Failed executing DbCommand (104ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[AddressLine], [c].[City], [c].[Country], [c].[CreatedById], [c].[CreatedOn], [c].[EditedById], [c].[EditedOn], [c].[Email], [c].[ImageId], [c].[Name], [c].[PhoneNo], [c].[PostalCode], [c].[RecordState], [c].[State], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[Id] = @__id_0 ********** 
+ 
+
+ 
+ ************ 2020-06-17 20:50:11,233 [12] ERROR App  
+ An exception occurred while iterating over the results of a query for context type 'Help247.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ImageId'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0f10f5ae-38f3-4329-8e15-78d053ac7b22
+Error Number:207,State:1,Class:16 ********** 
+ 
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ImageId'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0f10f5ae-38f3-4329-8e15-78d053ac7b22
+Error Number:207,State:1,Class:16
+
+ 
+ ************ 2020-06-17 21:47:40,882 [7] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 22:00:47,817 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 22:02:32,717 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 22:08:43,276 [10] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 22:14:08,215 [10] ERROR App  
+ version (8.3.26). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 22:14:08,421 [10] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 

@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200617141222_image for helper and customer.cs" />
+    <Compile Remove="Migrations\20200617141222_image for helper and customer.Designer.cs" />
+    <Compile Remove="Migrations\20200617142304_image for helper and customer.cs" />
+    <Compile Remove="Migrations\20200617142304_image for helper and customer.Designer.cs" />
+    <Compile Remove="Migrations\20200617151201_imageId in helper and customer.cs" />
+    <Compile Remove="Migrations\20200617151201_imageId in helper and customer.Designer.cs" />
+    <Compile Remove="Migrations\20200617152607_imageId in helper.cs" />
+    <Compile Remove="Migrations\20200617152607_imageId in helper.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="Repository\" />
   </ItemGroup>

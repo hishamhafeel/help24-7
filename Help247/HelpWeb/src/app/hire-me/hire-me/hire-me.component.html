@@ -113,7 +113,7 @@
                                 <div class="col-tech" *ngFor="let data of helperList">
                                     <div class="tech-item">
                                         <div class="techimg">
-                                            <img src="{{data.profilePic}}" class="img-fluid">
+                                            <img src="{{data.image.imageUrl}}" class="img-fluid">
                                         </div>
                                         <div class="techdetail">
                                             <h5><a [routerLink]="['/helper-details/helper', data.id]">{{data.firstName}}

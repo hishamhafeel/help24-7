@@ -20,7 +20,7 @@ export class OpenTicketComponent implements OnInit {
 
   id: number;
   customerId: number;
-  helperModel: HelperModel;
+  helperModel: HelperModel = new HelperModel();
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +28,7 @@ export class OpenTicketComponent implements OnInit {
     private hireMeService: HireMeService,
     private fb: FormBuilder
   ) {
-    
+
   }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class OpenTicketComponent implements OnInit {
     this.customerId = +localStorage.getItem('LoggedId');
   }
 
-  initOpenTicketForm(){
+  initOpenTicketForm() {
     this.openTicketForm = this.fb.group({
       title: ['NewTitle', [Validators.required]],
       country: ['Sri Lanka', [Validators.required]],
@@ -66,7 +66,7 @@ export class OpenTicketComponent implements OnInit {
     );
   }
 
-  async onSubmit(){
+  async onSubmit() {
     if (this.openTicketForm.invalid) {
       return;
     }
@@ -95,7 +95,7 @@ export class OpenTicketComponent implements OnInit {
     var ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+minutes : minutes;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
   }
