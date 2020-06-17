@@ -170,19 +170,67 @@
                                                 </thead>
                                                 <tbody>
                                                     <ng-container *ngFor="let data of ticketList">
-                                                    <tr *ngIf="data.ticketStatusId==1">
-                                                        <td data-label="Title">{{data.title}}</td>
-                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
-                                                        <td data-label="Helper">{{data.helper.firstName}}
-                                                            {{data.helper.lastName}}</td>
-                                                        <td data-label="Help Date">{{data.helpDateFrom | date: 'mediumDate'}}</td>
-                                                        <td data-label="Help Time">{{data.helpTime}}</td>
-                                                        <td data-label="Action">
+                                                        <tr *ngIf="data.ticketStatusId==1">
+                                                            <td data-label="Title">{{data.title}}</td>
+                                                            <td data-label="Category">
+                                                                {{data.helper.helperCategory.name}}</td>
+                                                            <td data-label="Helper">{{data.helper.firstName}}
+                                                                {{data.helper.lastName}}</td>
+                                                            <td data-label="Help Date">
+                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                            <td data-label="Help Time">{{data.helpTime}}</td>
+                                                            <td data-label="Action">
+                                                                <a href="javascript:void(0)" class="btn-red small"
+                                                                    (click)="approveTicket(data.id)">Accept</a>
+                                                                <a href="javascript:void(0)"
+                                                                    class="btn-red small">Reject</a>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-container>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- <div class="pagiarrow">
+                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="img/pagiarrow-next.png"></a>
+                                        </div> -->
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap t2">
+                                            <h2 class="subtitle3">Ongoing Jobs</h2>
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Category</th>
+                                                        <th scope="col">Customer</th>
+                                                        <th scope="col">Help Date</th>
+                                                        <th scope="col">Help Time</th>
+                                                        <!-- <th scope="col">Action</th> -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <ng-container *ngFor="let data of ticketList">
+                                                        <tr *ngIf="data.ticketStatusId==2">
+                                                            <td data-label="Title">{{data.title}}</td>
+                                                            <td data-label="Category">
+                                                                {{data.helper.helperCategory.name}}</td>
+                                                            <td data-label="Helper">{{data.helper.firstName}}
+                                                                {{data.helper.lastName}}</td>
+                                                            <td data-label="Help Date">
+                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                            <td data-label="Help Time">{{data.helpTime}}</td>
+                                                            <!-- <td data-label="Action">
                                                             <a href="javascript:void(0)" class="btn-red small" (click)="approveTicket(data.id)">Accept</a>
                                                             <a href="javascript:void(0)" class="btn-red small">Reject</a>
-                                                        </td>
-                                                    </tr>
-                                                </ng-container>
+                                                        </td> -->
+                                                        </tr>
+                                                    </ng-container>
 
                                                 </tbody>
                                             </table>
@@ -212,19 +260,22 @@
                                                 </thead>
                                                 <tbody>
                                                     <ng-container *ngFor="let data of ticketList">
-                                                    <tr  *ngIf="data.ticketStatusId==3">
-                                                        <td data-label="Title">{{data.title}}</td>
-                                                        <td data-label="Category">{{data.helper.helperCategory.name}}</td>
-                                                        <td data-label="Helper">{{data.helper.firstName}}
-                                                            {{data.helper.lastName}}</td>
-                                                        <td data-label="Help Date">{{data.helpDateFrom | date: 'mediumDate'}}</td>
-                                                        <td data-label="Help Time">{{data.helpTime}}</td>
-                                                        <td data-label="Action">
-                                                            <a href="javascript:void(0)" class="btn-red small" data-toggle="modal"
-                                                                data-target="#view" (click)="openModal(template, data)">View</a>
-                                                        </td>
-                                                    </tr>
-                                                </ng-container>
+                                                        <tr *ngIf="data.ticketStatusId==3">
+                                                            <td data-label="Title">{{data.title}}</td>
+                                                            <td data-label="Category">
+                                                                {{data.helper.helperCategory.name}}</td>
+                                                            <td data-label="Helper">{{data.helper.firstName}}
+                                                                {{data.helper.lastName}}</td>
+                                                            <td data-label="Help Date">
+                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                            <td data-label="Help Time">{{data.helpTime}}</td>
+                                                            <td data-label="Action">
+                                                                <a href="javascript:void(0)" class="btn-red small"
+                                                                    data-toggle="modal" data-target="#view"
+                                                                    (click)="openModal(template, data)">View</a>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-container>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -304,20 +355,23 @@
                                                     <div class="settingwrap boxshadow">
                                                         <h4>Personal Settings</h4>
                                                         <div class="setting-form">
-                                                            <form  [formGroup]="helperForm" (ngSubmit)="onHelperSubmit()">
+                                                            <form [formGroup]="helperForm"
+                                                                (ngSubmit)="onHelperSubmit()">
                                                                 <div class="form-row">
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
                                                                             <label>First Name</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Full name" formControlName="firstName">
+                                                                                placeholder="Full name"
+                                                                                formControlName="firstName">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Last Name</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Last Name" formControlName="lastName">
+                                                                                placeholder="Last Name"
+                                                                                formControlName="lastName">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -326,14 +380,16 @@
                                                                         <div class="form-group">
                                                                             <label>Phone</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94" formControlName="phoneNo">
+                                                                                placeholder="+94"
+                                                                                formControlName="phoneNo">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Mobile</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94" formControlName="mobileNo">
+                                                                                placeholder="+94"
+                                                                                formControlName="mobileNo">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -342,14 +398,16 @@
                                                                         <div class="form-group">
                                                                             <label>E mail Address</label>
                                                                             <input type="email" class="form-control"
-                                                                                placeholder="Your Email" formControlName="email">
+                                                                                placeholder="Your Email"
+                                                                                formControlName="email">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Address" formControlName="addressLine">
+                                                                                placeholder="Address"
+                                                                                formControlName="addressLine">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -358,14 +416,16 @@
                                                                         <div class="form-group">
                                                                             <label>Country </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Address" formControlName="country">
+                                                                                placeholder="Address"
+                                                                                formControlName="country">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>State</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Address" formControlName="state">
+                                                                                placeholder="Address"
+                                                                                formControlName="state">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -374,14 +434,16 @@
                                                                         <div class="form-group">
                                                                             <label>City </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Address" formControlName="city">
+                                                                                placeholder="Address"
+                                                                                formControlName="city">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Postal Code</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="" formControlName="postalCode">
+                                                                                placeholder=""
+                                                                                formControlName="postalCode">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -389,11 +451,14 @@
                                                                     <div class="col">
                                                                         <div class="form-group field-chk">
                                                                             <label>Field of Expertise</label>
-                                                                            <div class="form-check" *ngFor="let model of helperCategoryList">
+                                                                            <div class="form-check"
+                                                                                *ngFor="let model of helperCategoryList">
                                                                                 <label class="form-check-label">
                                                                                     <input
                                                                                         class="form-check-input fieldcheck"
-                                                                                        type="radio" [value]="model.id" id="" formControlName="helperCategoryId">
+                                                                                        type="radio" [value]="model.id"
+                                                                                        id=""
+                                                                                        formControlName="helperCategoryId">
                                                                                     {{model.name}}
                                                                                 </label>
                                                                             </div>
@@ -413,7 +478,8 @@
                                                                         <div class="form-group">
                                                                             <label>Years of Experience</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Years of Experience" formControlName="helperCategoryId">
+                                                                                placeholder="Years of Experience"
+                                                                                formControlName="helperCategoryId">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -436,7 +502,8 @@
                                                                         <div class="form-group">
                                                                             <label>About Me</label>
                                                                             <textarea class="form-control set-text"
-                                                                                placeholder="Description About your self" formControlName="aboutMe"></textarea>
+                                                                                placeholder="Description About your self"
+                                                                                formControlName="aboutMe"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -445,7 +512,8 @@
                                                                         <div class="form-group">
                                                                             <label>About My Service</label>
                                                                             <textarea class="form-control set-text"
-                                                                                placeholder="Description about the service provided" formControlName="myService"></textarea>
+                                                                                placeholder="Description about the service provided"
+                                                                                formControlName="myService"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>

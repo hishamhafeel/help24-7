@@ -30,5 +30,7 @@ namespace Help247.ViewModels.Helper
         public string MyService { get; set; }
         public int HelperCategoryId { get; set; }
         public HelperCategoryViewModel HelperCategory { get; set; }
+        public DateTime CreatedOn { get; set; }
+
     }
 }

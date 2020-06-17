@@ -1,0 +1,1079 @@
+
+ 
+ ************ 2020-06-17 10:34:34,118 [8] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 10:46:42,898 [45] ERROR App  
+ Failed executing DbCommand (331ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = -1), @p8='?' (Size = 1) (DbType = Byte), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [HelperCategories] ([CreatedById], [CreatedOn], [EditedById], [EditedOn], [IconUrl], [ImageUrl], [LongDescription], [Name], [RecordState], [ServicesProvided], [ShortDescription], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [Id]
+FROM [HelperCategories]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 10:46:43,993 [45] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:8152,State:10,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:8152,State:10,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 10:47:42,865 [49] ERROR App  
+ Failed executing DbCommand (264ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = -1), @p8='?' (Size = 1) (DbType = Byte), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [HelperCategories] ([CreatedById], [CreatedOn], [EditedById], [EditedOn], [IconUrl], [ImageUrl], [LongDescription], [Name], [RecordState], [ServicesProvided], [ShortDescription], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [Id]
+FROM [HelperCategories]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 10:47:43,522 [49] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:8152,State:10,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:8152,State:10,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 10:48:26,985 [52] ERROR App  
+ Failed executing DbCommand (208ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = -1), @p8='?' (Size = 1) (DbType = Byte), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [HelperCategories] ([CreatedById], [CreatedOn], [EditedById], [EditedOn], [IconUrl], [ImageUrl], [LongDescription], [Name], [RecordState], [ServicesProvided], [ShortDescription], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [Id]
+FROM [HelperCategories]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 10:48:28,123 [52] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:8152,State:10,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:8152,State:10,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 10:53:46,557 [59] ERROR App  
+ Failed executing DbCommand (252ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = -1), @p8='?' (Size = 1) (DbType = Byte), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [HelperCategories] ([CreatedById], [CreatedOn], [EditedById], [EditedOn], [IconUrl], [ImageUrl], [LongDescription], [Name], [RecordState], [ServicesProvided], [ShortDescription], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [Id]
+FROM [HelperCategories]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 10:53:47,388 [59] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:8152,State:10,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:8152,State:10,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 11:00:24,182 [93] ERROR App  
+ Failed executing DbCommand (225ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 450), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (Size = 4000), @p13='?' (Size = 450), @p14='?' (Size = 4000), @p15='?' (Size = 450), @p16='?' (Size = 4000), @p17='?' (Size = 1) (DbType = Byte), @p18='?' (Size = 4000), @p19='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Helpers] ([AboutMe], [AddressLine], [City], [Country], [CreatedById], [CreatedOn], [EditedById], [EditedOn], [Email], [Experience], [FirstName], [HelperCategoryId], [LastName], [MobileNo], [MyService], [PhoneNo], [PostalCode], [RecordState], [State], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+SELECT [Id]
+FROM [Helpers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:00:24,860 [93] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 11:00:58,334 [93] ERROR App  
+ Failed executing DbCommand (211ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 450), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (Size = 4000), @p13='?' (Size = 450), @p14='?' (Size = 4000), @p15='?' (Size = 450), @p16='?' (Size = 4000), @p17='?' (Size = 1) (DbType = Byte), @p18='?' (Size = 4000), @p19='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Helpers] ([AboutMe], [AddressLine], [City], [Country], [CreatedById], [CreatedOn], [EditedById], [EditedOn], [Email], [Experience], [FirstName], [HelperCategoryId], [LastName], [MobileNo], [MyService], [PhoneNo], [PostalCode], [RecordState], [State], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+SELECT [Id]
+FROM [Helpers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:00:59,569 [93] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 11:02:22,292 [83] ERROR App  
+ Failed executing DbCommand (183ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 450), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (Size = 4000), @p13='?' (Size = 450), @p14='?' (Size = 4000), @p15='?' (Size = 450), @p16='?' (Size = 4000), @p17='?' (Size = 1) (DbType = Byte), @p18='?' (Size = 4000), @p19='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Helpers] ([AboutMe], [AddressLine], [City], [Country], [CreatedById], [CreatedOn], [EditedById], [EditedOn], [Email], [Experience], [FirstName], [HelperCategoryId], [LastName], [MobileNo], [MyService], [PhoneNo], [PostalCode], [RecordState], [State], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+SELECT [Id]
+FROM [Helpers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:02:22,931 [83] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 11:05:24,939 [110] ERROR App  
+ Failed executing DbCommand (213ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 450), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (Size = 4000), @p13='?' (Size = 450), @p14='?' (Size = 4000), @p15='?' (Size = 450), @p16='?' (Size = 4000), @p17='?' (Size = 1) (DbType = Byte), @p18='?' (Size = 4000), @p19='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Helpers] ([AboutMe], [AddressLine], [City], [Country], [CreatedById], [CreatedOn], [EditedById], [EditedOn], [Email], [Experience], [FirstName], [HelperCategoryId], [LastName], [MobileNo], [MyService], [PhoneNo], [PostalCode], [RecordState], [State], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+SELECT [Id]
+FROM [Helpers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:05:25,648 [110] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 11:06:40,595 [107] ERROR App  
+ Failed executing DbCommand (195ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 450), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (Size = 4000), @p13='?' (Size = 450), @p14='?' (Size = 4000), @p15='?' (Size = 450), @p16='?' (Size = 4000), @p17='?' (Size = 1) (DbType = Byte), @p18='?' (Size = 4000), @p19='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Helpers] ([AboutMe], [AddressLine], [City], [Country], [CreatedById], [CreatedOn], [EditedById], [EditedOn], [Email], [Experience], [FirstName], [HelperCategoryId], [LastName], [MobileNo], [MyService], [PhoneNo], [PostalCode], [RecordState], [State], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+SELECT [Id]
+FROM [Helpers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:06:41,152 [107] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_MobileNo'. The duplicate key value is (string).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 11:09:39,369 [48] ERROR App  
+ Failed executing DbCommand (190ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 450), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (Size = 4000), @p13='?' (Size = 450), @p14='?' (Size = 4000), @p15='?' (Size = 450), @p16='?' (Size = 4000), @p17='?' (Size = 1) (DbType = Byte), @p18='?' (Size = 4000), @p19='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Helpers] ([AboutMe], [AddressLine], [City], [Country], [CreatedById], [CreatedOn], [EditedById], [EditedOn], [Email], [Experience], [FirstName], [HelperCategoryId], [LastName], [MobileNo], [MyService], [PhoneNo], [PostalCode], [RecordState], [State], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+SELECT [Id]
+FROM [Helpers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:09:39,974 [48] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_PhoneNo'. The duplicate key value is (0771233223).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_PhoneNo'. The duplicate key value is (0771233223).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 11:09:55,834 [49] ERROR App  
+ Failed executing DbCommand (188ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 450), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (Size = 4000), @p13='?' (Size = 450), @p14='?' (Size = 4000), @p15='?' (Size = 450), @p16='?' (Size = 4000), @p17='?' (Size = 1) (DbType = Byte), @p18='?' (Size = 4000), @p19='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Helpers] ([AboutMe], [AddressLine], [City], [Country], [CreatedById], [CreatedOn], [EditedById], [EditedOn], [Email], [Experience], [FirstName], [HelperCategoryId], [LastName], [MobileNo], [MyService], [PhoneNo], [PostalCode], [RecordState], [State], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+SELECT [Id]
+FROM [Helpers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:09:56,387 [49] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_PhoneNo'. The duplicate key value is (0771233223).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Helpers' with unique index 'IX_Helpers_PhoneNo'. The duplicate key value is (0771233223).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:ee2ef850-a98a-4dc9-aa7b-9d5e52294b8b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-17 11:36:16,979 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:40:38,737 [5] ERROR App  
+ version (8.3.26). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:40:44,231 [29] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:49:39,862 [40] ERROR App  
+ ERROR in Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("         <div class="techdetail">
+                                            <h5><a [routerLink]="[ERROR ->]['/helper-details/', {{data.id}}]">{{data.firstName}}
+                                              ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("         <div class="techdetail">
+                                            <h5><a [routerLink]="[ERROR ->]['/helper-details/', {{data.id}}]">{{data.firstName}}
+                                              ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("         <div class="techdetail">
+                                            <h5><a [routerLink]="[ERROR ->]['/helper-details/', {{data.id}}]">{{data.firstName}}
+                                              ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("         <div class="techdetail">
+                                            <h5><a [routerLink]="[ERROR ->]['/helper-details/', {{data.id}}]">{{data.firstName}}
+                                              ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("         <div class="techdetail">
+                                            <h5><a [routerLink]="[ERROR ->]['/helper-details/', {{data.id}}]">{{data.firstName}}
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:49:40,945 [40] ERROR App  
+                                               ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                          <div class="techdetail">
+                                            <h5>[ERROR ->]<a [routerLink]="['/helper-details/', {{data.id}}]">{{data.firstName}}
+                             ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                                            <h5><a [routerLink]="['/helper-details/', {{data.id}}]">[ERROR ->]{{data.firstName}}
+                                                    {{data.lastName}}</a></h5>
+ ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                                            <h5><a [routerLink]="['/helper-details/', {{data.id}}]">[ERROR ->]{{data.firstName}}
+                                                    {{data.lastName}}</a></h5>
+ ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                                            <h5><a [routerLink]="['/helper-details/', {{data.id}}]">[ERROR ->]{{data.firstName}}
+                                                    {{data.lastName}}</a></h5>
+ ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                                            <h5><a [routerLink]="['/helper-details/', {{data.id}}]">[ERROR ->]{{data.firstName}}
+                                                    {{data.lastName}}</a></h5>
+ ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                                            <h5><a [routerLink]="['/helper-details/', {{data.id}}]">[ERROR ->]{{data.firstName}}
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:49:42,899 [40] ERROR App  
+                                                     {{data.lastName}}</a></h5>
+ ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 (""sprite sprite-field-icon"></i>
+                                                    <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a>
+                                                    </h6>
+        ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 (""sprite sprite-field-icon"></i>
+                                                    <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a>
+                                                    </h6>
+        ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 (""sprite sprite-field-icon"></i>
+                                                    <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a>
+                                                    </h6>
+        ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 (""sprite sprite-field-icon"></i>
+                                                    <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a>
+                                                    </h6>
+        ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 (""sprite sprite-field-icon"></i>
+                                                    <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a>
+                                                    </h6>
+        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("   <i class="sprite sprite-city-icon"></i>
+                                                    <h6>[ERROR ->]{{data.city}}</h6>
+                                                </span>
+                        ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("   <i class="sprite sprite-city-icon"></i>
+                                                    <h6>[ERROR ->]{{data.city}}</h6>
+                                                </span>
+                        ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("   <i class="sprite sprite-city-icon"></i>
+                                                    <h6>[ERROR ->]{{data.city}}</h6>
+                                                </span>
+                        ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("   <i class="sprite sprite-city-icon"></i>
+                                                    <h6>[ERROR ->]{{data.city}}</h6>
+                                                </span>
+                        ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("   <i class="sprite sprite-city-icon"></i>
+                                                    <h6>[ERROR ->]{{data.city}}</h6>
+                                                </span>
+                        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("<i class="sprite sprite-country-icon"></i>
+                                                    <h6>[ERROR ->]{{data.country}}</h6>
+                                                </span>
+                     ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("<i class="sprite sprite-country-icon"></i>
+                                                    <h6>[ERROR ->]{{data.country}}</h6>
+                                                </span>
+                     ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("<i class="sprite sprite-country-icon"></i>
+                                                    <h6>[ERROR ->]{{data.country}}</h6>
+                                                </span>
+                     ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("<i class="sprite sprite-country-icon"></i>
+                                                    <h6>[ERROR ->]{{data.country}}</h6>
+                                                </span>
+                     ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("<i class="sprite sprite-country-icon"></i>
+                                                    <h6>[ERROR ->]{{data.country}}</h6>
+                                                </span>
+                     ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("div class="techbtn-wrap">
+                                                <a href="" [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                    class="btn-hi")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("div class="techbtn-wrap">
+                                                <a href="" [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                    class="btn-hi")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("div class="techbtn-wrap">
+                                                <a href="" [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                    class="btn-hi")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("div class="techbtn-wrap">
+                                                <a href="" [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                    class="btn-hi")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("div class="techbtn-wrap">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:49:45,506 [47] ERROR App  
+                                                 <a href="" [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                    class="btn-hi")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 21 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 23 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Missing expected : at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Unexpected token } at column 31 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+Parser Error: Missing expected ] at column 32 in [['/helper-details/', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@118:65 ("                        <div class="techbtn-wrap">
+                                                [ERROR ->]<a href="" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                        ")
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 11:53:48,403 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 12:19:57,673 [7] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 12:23:25,780 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 12:28:35,477 [5] ERROR App  
+ version (8.3.26). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 12:28:36,272 [5] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 12:39:51,650 [5] ERROR App  
+     ERROR in src/app/helper-details/helper-details.component.html(12,28): Property 'ticketCountModel' does not exist on type 'HelperDetailsComponent'.
+    src/app/helper-details/helper-details.component.html(12,28): Property 'ticketCountModel' does not exist on type 'HelperDetailsComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 12:49:43,788 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 12:59:34,769 [5] ERROR App  
+ version (8.3.26). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 12:59:34,975 [5] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "a". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                 <a [routerLink]="['/hire-me/open-ticket', helperModel.id] class=" btn-hire">Hire Me[ERROR ->]</a>
+                            </div>
+                        </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/helper-details/helper-details.component.html@60:115
+Unexpected closing tag "a". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                 <a [routerLink]="['/hire-me/open-ticket', helperModel.id] class=" btn-hire">Hire Me[ERROR ->]</a>
+                    </div>
+                </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/helper-details/helper-details.component.html@301:107
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 13:00:03,300 [5] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "a". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                 <a [routerLink]="['/hire-me/open-ticket', helperModel.id] class=" btn-hire">Hire Me[ERROR ->]</a>
+                            </div>
+                        </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/helper-details/helper-details.component.html@60:115
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 13:01:16,464 [51] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 17:12:44,323 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 17:18:37,071 [12] ERROR App  
+ version (8.3.26). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 17:18:37,780 [12] ERROR App  
+     ERROR in src/app/helper-details/helper-details.component.html(61,61): Property 'data' does not exist on type 'HelperDetailsComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 17:42:41,143 [34] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 17:43:33,546 [11] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 17:45:23,846 [11] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 17:45:34,943 [30] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-17 17:47:37,557 [31] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 

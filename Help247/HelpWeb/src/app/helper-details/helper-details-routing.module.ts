@@ -5,7 +5,7 @@ import { HelperDetailsComponent } from './helper-details.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'helper/:id',
     component: HelperDetailsComponent
   }
 ];
