@@ -18,6 +18,7 @@ export class ImageUploadComponent implements OnInit {
   isUploaded: boolean = false;
   private uploader: FileUploader;
   private url: string;
+  public_id: string;
 
   constructor(
     private cloudinary: Cloudinary,
@@ -43,10 +44,14 @@ export class ImageUploadComponent implements OnInit {
     this.uploader = new FileUploader(uploaderOptions);
 
     this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+
+      this.generateFileName();
+
       // Add Cloudinary's unsigned upload preset to the upload form
       form.append('upload_preset', this.cloudinary.config().upload_preset);
       form.append('folder', 'angular_sample');
       form.append('file', fileItem);
+      form.append('public_id', this.public_id);
 
       // Use default "withCredentials" value for CORS requests
       fileItem.withCredentials = false;
@@ -65,6 +70,8 @@ export class ImageUploadComponent implements OnInit {
 
   }
 
-
+  generateFileName() {
+    this.public_id = `img_${Date.now()}`;
+  }
 
 }

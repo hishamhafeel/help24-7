@@ -1,0 +1,389 @@
+
+ 
+ ************ 2020-06-18 05:33:59,197 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 05:40:16,587 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 05:50:15,684 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 05:59:22,211 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 06:05:11,458 [12] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 06:10:27,402 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 15:49:10,208 [11] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 16:26:17,869 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 16:34:37,508 [8] ERROR App  
+ ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts:30:15 - error TS1127: Invalid character.
+
+30   constructor(\
+                 
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 16:34:40,075 [8] ERROR App  
+ ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts:30:15 - error TS1127: Invalid character.
+
+30   constructor(\
+                 
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 16:35:30,098 [8] ERROR App  
+     ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts(40,29): error TS2339: Property 'getAllAdmins' does not exist on type 'CreateAdminService'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(63,10): error TS2339: Property 'getAllCustomer' does not exist on type 'CreateAdminComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 16:35:40,262 [21] ERROR App  
+     ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts(40,29): error TS2339: Property 'getAllAdmins' does not exist on type 'CreateAdminService'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(63,10): error TS2339: Property 'getAllCustomer' does not exist on type 'CreateAdminComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 16:39:20,604 [8] ERROR App  
+ ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts:30:15 - error TS1127: Invalid character.
+
+30   constructor(\
+                 
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 16:39:26,439 [8] ERROR App  
+     ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts(40,29): error TS2551: Property 'getAllAdmins' does not exist on type 'CreateAdminService'. Did you mean 'getAllAdmin'?
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(63,10): error TS2339: Property 'getAllCustomer' does not exist on type 'CreateAdminComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 16:40:20,319 [8] ERROR App  
+ ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts:30:15 - error TS1127: Invalid character.
+
+30   constructor(\
+                 
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 17:00:53,678 [4] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 17:02:13,670 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:14:44,862 [11] ERROR App  
+ ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts:115:3 - error TS1003: Identifier expected.
+
+115   }
+      ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:26:44,072 [11] ERROR App  
+ ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts:71:20 - error TS1005: ';' expected.
+
+71     getAllAdmins() {
+                      ~
+src/app/admin/create-admin/create-admin/create-admin.component.ts:89:27 - error TS1109: Expression expected.
+
+89     getPagedAdmins(event ?: MatPaginator) {
+                             ~
+src/app/admin/create-admin/create-admin/create-admin.component.ts:89:43 - error TS1005: ';' expected.
+
+89     getPagedAdmins(event ?: MatPaginator) {
+                                             ~
+src/app/admin/create-admin/create-admin/create-admin.component.ts:99:30 - error TS1005: ';' expected.
+
+99     openDeleteDialog(userId) {
+                                ~
+src/app/admin/create-admin/create-admin/create-admin.component.ts:114:19 - error TS1005: ',' expected.
+
+114     deleteAdmin(id: string) {
+                      ~
+src/app/admin/create-admin/create-admin/create-admin.component.ts:114:29 - error TS1005: ';' expected.
+
+114     deleteAdmin(id: string) {
+                                ~
+src/app/admin/create-admin/create-admin/create-admin.component.ts:124:19 - error TS1005: ';' expected.
+
+124     createAdmin() {
+                      ~
+src/app/admin/create-admin/create-admin/create-admin.component.ts:140:1 - error TS1005: '}' expected.
+
+140 
+    
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:26:53,301 [11] ERROR App  
+     ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts(47,10): error TS2339: Property 'getAllAdmins' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(61,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(65,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(68,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(71,5): error TS2304: Cannot find name 'getAllAdmins'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(89,5): error TS2304: Cannot find name 'getPagedAdmins'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(91,38): error TS2339: Property 'pageIndex' does not exist on type 'Event'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(91,56): error TS2339: Property 'pageSize' does not exist on type 'Event'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(92,38): error TS2339: Property 'pageSize' does not exist on type 'Event'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(96,12): error TS2339: Property 'getAllAdmins' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(99,5): error TS2304: Cannot find name 'openDeleteDialog'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(99,22): error TS2304: Cannot find name 'userId'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(106,18): error TS2339: Property 'deleteAdmin' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(106,30): error TS2304: Cannot find name 'userId'.
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:27:00,095 [11] ERROR App  
+     src/app/admin/create-admin/create-admin/create-admin.component.ts(114,5): error TS2304: Cannot find name 'deleteAdmin'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(114,17): error TS2304: Cannot find name 'id'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(114,21): error TS2693: 'string' only refers to a type, but is being used as a value here.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(115,43): error TS2304: Cannot find name 'id'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(117,16): error TS2339: Property 'getAllAdmins' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(124,5): error TS2304: Cannot find name 'createAdmin'.
+    
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:27:00,795 [11] ERROR App  
+     ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts(61,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(65,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(68,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:27:07,255 [11] ERROR App  
+     ERROR in src/app/admin/create-admin/create-admin/create-admin.component.ts(61,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(65,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    src/app/admin/create-admin/create-admin/create-admin.component.ts(68,17): error TS2339: Property 'helperCategoryForm' does not exist on type 'CreateAdminComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:47:11,749 [26] ERROR App  
+ ERROR in src/app/admin/auth/services/validator.service.ts:16:30 - error TS1003: Identifier expected.
+
+16             this.authService.(control.value).subscribe((res) => {
+                                ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:47:42,853 [26] ERROR App  
+     ERROR in src/app/admin/auth/services/validator.service.ts(32,30): error TS2339: Property 'validateEmail' does not exist on type 'AuthService'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:48:57,972 [26] ERROR App  
+ ERROR in src/app/admin/auth/services/validator.service.ts:16:30 - error TS1003: Identifier expected.
+
+16             this.authService.(control.value).subscribe((res) => {
+                                ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 19:59:47,214 [49] ERROR App  
+ ERROR in src/app/admin/auth/services/validator.service.ts:16:30 - error TS1003: Identifier expected.
+
+16             this.authService.(control.value).subscribe((res) => {
+                                ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 20:07:27,981 [64] ERROR App  
+ ERROR in src/app/admin/auth/services/validator.service.ts:16:30 - error TS1003: Identifier expected.
+
+16             this.authService.(control.value).subscribe((res) => {
+                                ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 21:53:01,049 [11] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 22:16:04,930 [5] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 22:59:21,419 [10] ERROR App  
+ ERROR in ./node_modules/rxjs-compat/_esm2015/operator/filter.js
+Module build failed: Error: EPERM: operation not permitted, open 'D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\rxjs-compat\_esm2015\operator\filter.js'
+    at Object.openSync (fs.js:440:3)
+    at Object.readFileSync (fs.js:342:35)
+    at Storage.provideSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:98:13)
+    at CachedInputFileSystem.readFileSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:259:32)
+    at Observable._subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\webpack-input-host.js:35:51)
+    at Observable._trySubscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:44:25)
+    at Observable.subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:30:22)
+    at SyncDelegateHost._doSyncCall (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:22:20)
+    at SyncDelegateHost.read (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:49:21)
+    at WebpackCompilerHost.readFileBuffer (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\compiler_host.js:161:44)
+    at VirtualFileSystemDecorator.readFile (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\virtual_file_system_decorator.js:42:54)
+    at processResource (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:202:11)
+    at iteratePitchingLoaders (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:158:10)
+    at runLoaders (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:365:2)
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 23:03:16,654 [10] ERROR App  
+     at NormalModule.doBuild (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\webpack\lib\NormalModule.js:292:3)
+    at NormalModule.build (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\webpack\lib\NormalModule.js:438:15)
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 23:03:17,315 [10] ERROR App  
+ ERROR in ./node_modules/rxjs-compat/_esm2015/operator/filter.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\rxjs-compat\_esm2015\operator\filter.js'
+    at Object.openSync (fs.js:440:3)
+    at Object.readFileSync (fs.js:342:35)
+    at Storage.provideSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:98:13)
+    at CachedInputFileSystem.readFileSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:259:32)
+    at Observable._subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\webpack-input-host.js:35:51)
+    at Observable._trySubscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:44:25)
+    at Observable.subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:30:22)
+    at SyncDelegateHost._doSyncCall (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:22:20)
+    at SyncDelegateHost.read (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:49:21)
+    at WebpackCompilerHost.readFileBuffer (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\compiler_host.js:161:44)
+    at VirtualFileSystemDecorator.readFile (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\virtual_file_system_decorator.js:42:54)
+    at processResource (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:202:11)
+    at iteratePitchingLoaders (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:158:10)
+    at runLoaders (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:365:2)
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 23:14:57,588 [10] ERROR App  
+     at NormalModule.doBuild (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\webpack\lib\NormalModule.js:292:3)
+    at NormalModule.build (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\webpack\lib\NormalModule.js:438:15)
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 23:14:58,596 [10] ERROR App  
+ ERROR in ./node_modules/rxjs-compat/_esm2015/operator/filter.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\rxjs-compat\_esm2015\operator\filter.js'
+    at Object.openSync (fs.js:440:3)
+    at Object.readFileSync (fs.js:342:35)
+    at Storage.provideSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:98:13)
+    at CachedInputFileSystem.readFileSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:259:32)
+    at Observable._subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\webpack-input-host.js:35:51)
+    at Observable._trySubscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:44:25)
+    at Observable.subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:30:22)
+    at SyncDelegateHost._doSyncCall (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:22:20)
+    at SyncDelegateHost.read (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:49:21)
+    at WebpackCompilerHost.readFileBuffer (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\compiler_host.js:161:44)
+    at VirtualFileSystemDecorator.readFile (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\virtual_file_system_decorator.js:42:54)
+    at processResource (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:202:11)
+    at iteratePitchingLoaders (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:158:10)
+    at runLoaders (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:365:2)
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 23:15:10,405 [43] ERROR App  
+     at NormalModule.doBuild (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\webpack\lib\NormalModule.js:292:3)
+    at NormalModule.build (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\webpack\lib\NormalModule.js:438:15)
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-18 23:15:12,489 [43] ERROR App  
+ ERROR in ./node_modules/rxjs-compat/_esm2015/operator/filter.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\rxjs-compat\_esm2015\operator\filter.js'
+    at Object.openSync (fs.js:440:3)
+    at Object.readFileSync (fs.js:342:35)
+    at Storage.provideSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:98:13)
+    at CachedInputFileSystem.readFileSync (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:259:32)
+    at Observable._subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\webpack-input-host.js:35:51)
+    at Observable._trySubscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:44:25)
+    at Observable.subscribe (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:30:22)
+    at SyncDelegateHost._doSyncCall (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:22:20)
+    at SyncDelegateHost.read (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:49:21)
+    at WebpackCompilerHost.readFileBuffer (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\compiler_host.js:161:44)
+    at VirtualFileSystemDecorator.readFile (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\@ngtools\webpack\src\virtual_file_system_decorator.js:42:54)
+    at processResource (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:202:11)
+    at iteratePitchingLoaders (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:158:10)
+    at runLoaders (D:\Projects\Help\help24-7\Help247\ClientApp\node_modules\loader-runner\lib\LoaderRunner.js:365:2)
+ ********** 
+ 

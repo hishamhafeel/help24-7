@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Help247.Common;
 using Help247.Common.Constants;
+using Help247.Common.Pagination;
 using Help247.Common.Utility;
 using Help247.Data.Entities;
 using Help247.Service.BO.Security;
@@ -38,8 +39,7 @@ namespace Help247.Controllers.Api
         {
             try
             {
-                //var files = HttpContext.Request.Form.Files;
-                var result = await securityService.CreateNewUserAsync(mapper.Map<UserBO>(registerViewModel)/*, files*/);
+                var result = await securityService.CreateNewUserAsync(mapper.Map<UserBO>(registerViewModel));
                 if (result == null)
                 {
                     return Conflict(new { message = "Username is already in use" });
@@ -47,6 +47,29 @@ namespace Help247.Controllers.Api
                 else
                 {
                     return Created(string.Empty, result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        [Route("createadmin")]
+        [HttpPost]
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> CreateAdmin([FromBody]AdminRegisterViewModel registerViewModel)
+        {
+            try
+            {
+                var result = await securityService.CreateAdminAsync(mapper.Map<UserBO>(registerViewModel));
+                if (result == null)
+                {
+                    return Conflict(new { message = "Username or Email already in use" });
+                }
+                else
+                {
+                    return Created(string.Empty, mapper.Map<RegisterViewModel>(result));
                 }
             }
             catch (Exception ex)
@@ -65,6 +88,23 @@ namespace Help247.Controllers.Api
                 await securityService.ConfirmEmailAsync(mapper.Map<ConfirmEmailBO>(confirmEmailViewModel));
 
                 return Redirect(GlobalConfig.PresentationBaseUrl);
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        [Route("admin/list")]
+        [HttpGet]
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> GetAdminList([FromQuery] PaginationBase paginationBase)
+        {
+            try
+            {
+                var result = await securityService.GetAdminListAsync(paginationBase);
+
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -182,6 +222,23 @@ namespace Help247.Controllers.Api
             {
                 var result = await securityService.CheckUsernameExistAsync(username);
                 return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+
+        }
+
+        [Route("admin")]
+        [HttpDelete]
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> DeleteAdmin([FromQuery]string userId)
+        {
+            try
+            {
+                var result = await securityService.DeleteAdminAsync(userId);
+                return Ok(mapper.Map<RegisterViewModel>(result));
             }
             catch (Exception ex)
             {

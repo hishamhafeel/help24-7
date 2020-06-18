@@ -34,7 +34,7 @@ export class HelperCategoryComponent implements OnInit {
     'id',
     'name',
     'title',
-    'shortDescription',
+    // 'shortDescription',
     'edit',
     'delete'
   ];
