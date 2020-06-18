@@ -13,7 +13,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/ticket', title: 'Tickets', icon: 'info', class: '' },
   // { path: '/icons', title: 'Feedbacks',  icon:'feedback', class: '' },
   { path: '/service', title: 'Services', icon: 'category', class: '' },
-  { path: '/help-center', title: 'Help Center', icon: 'feedback', class: '' }
+  { path: '/help-center', title: 'Help Center', icon: 'feedback', class: '' },
+  // { path: '/admin', title: 'Create Admin', icon: 'admin_panel_settings', class: '' },
 ];
 
 @Component({
@@ -23,10 +24,13 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  role: string;
 
   constructor() { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.role = localStorage.getItem("Role");
+
   }
 }

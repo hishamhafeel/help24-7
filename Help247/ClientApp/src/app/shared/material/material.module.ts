@@ -32,7 +32,8 @@ import { CommonModule } from '@angular/common'; import {
     MatFormFieldModule,
     MatButtonModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatInputModule
   ],
   exports: [
     MatTooltipModule,
@@ -47,7 +48,9 @@ import { CommonModule } from '@angular/common'; import {
     MatProgressSpinnerModule,
     MatSelectModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatInputModule
+
   ]
 })
 export class MaterialModule { }
