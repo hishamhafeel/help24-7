@@ -6,6 +6,7 @@ import { CustomerComponent } from './customer.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     ModalModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    RatingModule.forRoot()
+    RatingModule.forRoot(),
+    FileUploadModule
   ]
 })
 export class CustomerModule { }

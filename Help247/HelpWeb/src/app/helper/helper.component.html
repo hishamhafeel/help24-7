@@ -467,13 +467,6 @@
                                                                 </div>
 
                                                                 <div class="form-row">
-                                                                    <div class="col cgap">
-                                                                        <div class="form-group">
-                                                                            <label>Skills</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="">
-                                                                        </div>
-                                                                    </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Years of Experience</label>
@@ -519,6 +512,30 @@
                                                                 </div>
                                                                 <button type="submit" class="btn redbtn">Save</button>
                                                             </form>
+                                                        </div>
+                                                        <div class="accsetting" [formGroup]="skillForm">
+                                                            <h4>Skills</h4>
+                                                            <div formArrayName="skills">
+                                                                <div class="row" *ngFor="let skill of skills.controls; let i=index">
+                                                                    <div class="form-group">
+                                                                        <label>Skill {{i+1}}: </label>
+                                                                        <div style="display: inline-flex;">
+                                                                            <input type="text" class="form-control"
+                                                                                [formControlName]="i">
+                                                                            <button class="btn redbtn"
+                                                                                style="width: 43px;"
+                                                                                (click)="deleteSkill(i)">
+                                                                                -
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <button (click)="addNewSkill()" class="btn redbtn">Add
+                                                                    Skill</button>
+                                                                <button type="submit" class="btn redbtn mt-3"
+                                                                    (click)="onSkillSubmit()">Save Skills</button>
+                                                            </div>
+
                                                         </div>
                                                         <div class="accsetting">
                                                             <h4>Account Settings</h4>

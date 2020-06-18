@@ -6,6 +6,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelperService } from 'src/app/shared/services/helper.service';
 import { PaginationBase } from 'src/app/shared/models/pagination-base.model';
 import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model';
+import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +26,11 @@ export class RegisterComponent implements OnInit {
   helperCategoryList: Array<HelperCategoryModel>
   pagination: PaginationBase;
 
-  constructor(private helperService: HelperService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
+  uploader: FileUploader;
+  url: string;
+  fileName: string = "";
+
+  constructor(private cloudinary: Cloudinary, private helperService: HelperService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
     this.pagination = new PaginationBase();
   }
 
@@ -46,6 +52,39 @@ export class RegisterComponent implements OnInit {
         email: this.registerModel.email
       });
     }
+
+    const uploaderOptions: FileUploaderOptions = {
+      url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+      autoUpload: true,
+      isHTML5: true,
+      removeAfterUpload: true,
+      headers: [
+        {
+          name: 'X-Requested-With',
+          value: 'XMLHttpRequest'
+        }
+      ]
+    };
+    this.uploader = new FileUploader(uploaderOptions);
+
+    this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+      // Add Cloudinary's unsigned upload preset to the upload form
+      form.append('upload_preset', this.cloudinary.config().upload_preset);
+      form.append('folder', 'angular_sample');
+      form.append('file', fileItem);
+
+      // Use default "withCredentials" value for CORS requests
+      fileItem.withCredentials = false;
+      return { fileItem, form };
+    };
+
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
+      console.log("Image upload failed")
+
+    // Update model on completion of uploading a file
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      this.url = JSON.parse(response).url;
+    }
   }
 
   initCustomerForm() {
@@ -57,8 +96,7 @@ export class RegisterComponent implements OnInit {
       country: ['Sri Lanka', [Validators.required]],
       city: ['Ambalantota', [Validators.required]],
       state: ['Hambantota', [Validators.required]],
-      postalCode: ['82100', [Validators.required]],
-      profilePicUrl: ['http://www.google5.com', [Validators.required]]
+      postalCode: ['82100', [Validators.required]]
     });
   }
 
@@ -74,7 +112,6 @@ export class RegisterComponent implements OnInit {
       city: ['Ambalantota', [Validators.required]],
       state: ['Hambantota', [Validators.required]],
       postalCode: ['82100', [Validators.required]],
-      profilePicUrl: ['http://www.rgoogle.com', [Validators.required]],
       experience: [2, [Validators.required]],
       aboutMe: ['I am Sri lankan', [Validators.required]],
       myService: ['About my service description', [Validators.required]],
@@ -102,6 +139,7 @@ export class RegisterComponent implements OnInit {
     this.customerModel.userName = this.registerModel.userName;
     this.customerModel.password = this.registerModel.password;
     this.customerModel.userType = this.userType;
+    this.customerModel.profilePicUrl = this.url;
 
     this.authService.register(this.customerModel).subscribe(
       result => {
@@ -122,6 +160,7 @@ export class RegisterComponent implements OnInit {
     this.helperModel.userName = this.registerModel.userName;
     this.helperModel.password = this.registerModel.password;
     this.helperModel.userType = this.userType;
+    this.helperModel.profilePicUrl = this.url;
 
     this.authService.register(this.helperModel).subscribe(
       result => {
@@ -134,4 +173,8 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  fileEvent(fileInput) {
+    let file = fileInput.target.files[0];
+    this.fileName = file.name;
+  }
 }
