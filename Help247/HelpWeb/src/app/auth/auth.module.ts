@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { RegisterComponent } from './register/register.component';
 import { ValidatorService } from './services/validator.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FileUploadModule } from "ng2-file-upload";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    FileUploadModule
   ],
   providers:[
     ValidatorService

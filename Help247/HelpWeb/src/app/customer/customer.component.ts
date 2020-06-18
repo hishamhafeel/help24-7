@@ -7,6 +7,8 @@ import { CustomerModel } from './models/customer.model';
 import { CustomerService } from './services/customer.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 
 @Component({
   selector: 'app-customer',
@@ -32,6 +34,10 @@ export class CustomerComponent implements OnInit {
   ticketId: number;
   helperId: number;
 
+  uploader: FileUploader;
+  url: string;
+  public_id: string = "";
+
   modalRef: BsModalRef;
 
   constructor(
@@ -39,7 +45,8 @@ export class CustomerComponent implements OnInit {
     private modalService: BsModalService,
     private customerService: CustomerService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private cloudinary: Cloudinary
   ) {
     this.pagination = new PaginationBase();
   }
@@ -47,6 +54,42 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
     this.customerId = +localStorage.getItem('LoggedId');
     this.getCustomerById();
+    
+    const uploaderOptions: FileUploaderOptions = {
+      url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+      autoUpload: true,
+      isHTML5: true,
+      removeAfterUpload: true,
+      headers: [
+        {
+          name: 'X-Requested-With',
+          value: 'XMLHttpRequest'
+        }
+      ]
+    };
+    this.uploader = new FileUploader(uploaderOptions);
+
+    this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+      this.generateFileName();
+      // Add Cloudinary's unsigned upload preset to the upload form
+      form.append('upload_preset', this.cloudinary.config().upload_preset);
+      form.append('folder', 'angular_sample');
+      form.append('file', fileItem);
+      form.append('public_id', this.public_id);
+
+      // Use default "withCredentials" value for CORS requests
+      fileItem.withCredentials = false;
+      return { fileItem, form };
+    };
+
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
+      console.log("Image upload failed")
+
+    // Update model on completion of uploading a file
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      this.url = JSON.parse(response).url;
+      this.uploader.progress = 100;
+    }
   }
 
 
@@ -248,5 +291,9 @@ export class CustomerComponent implements OnInit {
     // this.isSettingsClicked = false;
     // this.isRatingClicked = false;
     // this.isLogoutClicked = true;
+  }
+
+  generateFileName() {
+    this.public_id = `img_${Date.now()}`;
   }
 }

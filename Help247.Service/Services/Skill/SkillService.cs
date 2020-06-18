@@ -42,28 +42,38 @@ namespace Help247.Service.Services.Skill
 
         public async Task PostAsync(SkillListBO skillListBO)
         {
-            try
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
-                var skills = new List<Help247.Data.Entities.Skill>();
-                foreach (var item in skillListBO.SkillNames)
+                try
                 {
-                    var skill = new Help247.Data.Entities.Skill()
+                    var query = appDbContext.Skills.AsQueryable().Where(x => x.HelperId == skillListBO.HelperId).ToList();
+                    if (query.Count > 0)
                     {
-                        SkillName = item,
-                        HelperId = skillListBO.HelperId
-                    };
-                    skills.Add(skill);
+                        appDbContext.Skills.RemoveRange(query);
+                    }
+                    var skills = new List<Help247.Data.Entities.Skill>();
+                    foreach (var item in skillListBO.SkillNames)
+                    {
+                        var skill = new Help247.Data.Entities.Skill()
+                        {
+                            SkillName = item,
+                            HelperId = skillListBO.HelperId
+                        };
+                        skills.Add(skill);
+                    }
+
+                    await appDbContext.AddRangeAsync(skills);
+                    await appDbContext.SaveChangesAsync();
+
+                    transaction.Commit();
                 }
+                catch (Exception ex)
+                {
 
-                await appDbContext.AddRangeAsync(skills);
-                await appDbContext.SaveChangesAsync();
+                    transaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            
         }
     }
 }

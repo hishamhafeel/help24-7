@@ -6,6 +6,7 @@ import { PaginationBase } from '../models/pagination-base.model';
 import { PaginationModel } from '../models/paginationModel';
 import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model';
 import { HelperModel } from 'src/app/helper/models/helper.model';
+import { SkillModel } from 'src/app/helper/models/skills.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,23 @@ export class HelperService extends BaseService {
     return this.http
       .put<HelperModel>(
         `${this.baseEndPoint}/api/Helper`, model, this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getSkill(id: number) {
+    return this.http
+      .get<SkillModel>(
+        `${this.baseEndPoint}/api/Skill/${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  addSkill(model: any) {
+    return this.http
+      .post<SkillModel>(
+        `${this.baseEndPoint}/api/Skill`, model, this.httpOptions
       )
       .pipe(catchError(this.server4xxError));
   }
