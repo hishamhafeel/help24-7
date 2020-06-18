@@ -12,8 +12,7 @@ import { catchError } from 'rxjs/operators';
 export class CustomerService extends BaseService {
 
   constructor(
-    private http: HttpClient
-  ) {
+    private http: HttpClient) {
     super();
   }
 

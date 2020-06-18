@@ -28,6 +28,7 @@ namespace Help247.Utilities.Configurations
             //User
             CreateMap<User, UserBO>().ReverseMap();
             CreateMap<RegisterViewModel, UserBO>().ReverseMap();
+            CreateMap<AdminRegisterViewModel, UserBO>().ReverseMap();
             CreateMap<LoginViewModel, LoginBO>().ReverseMap();
             CreateMap<Helper, UserBO>().ReverseMap();
             CreateMap<Customer, UserBO>().ReverseMap();

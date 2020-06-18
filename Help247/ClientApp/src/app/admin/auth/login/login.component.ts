@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginModel } from '../models/login.model';
 import { AuthService } from '../services/auth.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import * as jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -43,6 +44,10 @@ export class LoginComponent implements OnInit {
     this.authService.authenticateUser(this.loginModel).subscribe(
       user => {
         localStorage.setItem('TokenId', user.token);
+        var decoded = jwt_decode(user.token);
+        var role = JSON.parse(JSON.stringify(decoded))["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+        localStorage.setItem('Role', role);
+
         this.openLock = true;
         setTimeout(() => {
           this.router.navigate(['/dashboard']);
