@@ -25,7 +25,7 @@ namespace Help247.Service.Services.Skill
             var query = appDbContext.Skills.AsQueryable().Where(x => x.HelperId == helperId);
             if (!query.Any())
             {
-                throw new ArgumentException("Skills not found. Invalid Helper Id");
+                return null;
             }
             var skillListBO = new SkillListBO()
             {

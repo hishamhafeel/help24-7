@@ -34,6 +34,9 @@ export class HelperComponent implements OnInit {
 
   modalRef: BsModalRef;
 
+  isHelperRequested: boolean = false;
+  isSkillRequested: boolean = false;
+
   constructor(
     private hireMeService: HireMeService,
     private modalService: BsModalService,
@@ -47,6 +50,7 @@ export class HelperComponent implements OnInit {
   ngOnInit(): void {
     this.helperId = +localStorage.getItem('LoggedId');
     this.getHelperById();
+    this.getHelperCategory();
     this.getSkills();
   }
 
@@ -142,6 +146,10 @@ export class HelperComponent implements OnInit {
     });
   }
 
+  get h() {
+    return this.helperForm.controls;
+  }
+
   patchHelperForm() {
     this.helperForm.patchValue({
       id: this.helperId,
@@ -155,7 +163,7 @@ export class HelperComponent implements OnInit {
       city: this.helperModel.city,
       state: this.helperModel.state,
       postalCode: this.helperModel.postalCode,
-      profilePicUrl: ['http://www.rgoogle.com', [Validators.required]],
+      profilePicUrl: 'http://www.rgoogle.com',
       experience: this.helperModel.experience,
       aboutMe: this.helperModel.aboutMe,
       myService: this.helperModel.myService,
@@ -204,15 +212,21 @@ export class HelperComponent implements OnInit {
   }
 
   onSkillSubmit(){
+    if(this.skillModel == null){
+      this.skillModel = new SkillModel();
+    }
     this.skillModel.skillNames = this.skillForm.value.skills;
     this.skillModel.helperId = this.helperId;
+    this.isSkillRequested = true;
     this.helperService.addSkill(this.skillModel).subscribe(
       result => {
         console.log('result', result);
         this.getHelperById();
+        this.isSkillRequested = false;
       },
       error => {
         console.log('error', error);
+        this.isSkillRequested = false;
       }
     );
   }
@@ -222,13 +236,16 @@ export class HelperComponent implements OnInit {
       return;
     }
     this.helperModel = this.helperForm.value;
-
+    this.helperModel.experience = +this.helperForm.value.experience;
+    this.isHelperRequested = true;
     this.helperService.updateHelper(this.helperModel).subscribe(
       result => {
         console.log('result', result);
         this.getHelperById();
+        this.isHelperRequested = false;
       },
       error => {
+        this.isHelperRequested = false;
         console.log('error', error);
       }
     );
@@ -257,7 +274,9 @@ export class HelperComponent implements OnInit {
     this.initHelperForm();
     this.initSkillsForm();
     this.patchHelperForm();
-    this.patchSkillForm();
+    if(this.skillModel != null){
+      this.patchSkillForm();
+    }
     this.isDashboardClicked = false;
     this.isMyJobsClicked = false;
     this.isSettingsClicked = true;

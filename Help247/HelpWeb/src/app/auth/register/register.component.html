@@ -27,7 +27,14 @@
                                                                             <label>Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Full name"
-                                                                                formControlName="name">
+                                                                                formControlName="name"
+                                                                                [ngClass]="{ 'is-invalid': c.name.errors && isFormSubmitted }">
+                                                                            <div *ngIf="c.name.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.name.errors.required">
+                                                                                    Name is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -35,7 +42,14 @@
                                                                             <label>Phone</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="+94"
-                                                                                formControlName="phoneNo">
+                                                                                formControlName="phoneNo"
+                                                                                [ngClass]="{ 'is-invalid': c.phoneNo.errors && isFormSubmitted }">
+                                                                            <div *ngIf="c.phoneNo.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.phoneNo.errors.required">
+                                                                                    Phone is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -45,7 +59,14 @@
                                                                             <label>Email Address</label>
                                                                             <input type="email" class="form-control"
                                                                                 placeholder="Your Email"
-                                                                                formControlName="email">
+                                                                                formControlName="email"
+                                                                                [ngClass]="{ 'is-invalid': c.email.errors && isFormSubmitted }">
+                                                                            <div *ngIf="c.email.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.email.errors.required">
+                                                                                    Email is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -53,7 +74,14 @@
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Address"
-                                                                                formControlName="addressLine">
+                                                                                formControlName="addressLine"
+                                                                                [ngClass]="{ 'is-invalid': c.addressLine.errors && isFormSubmitted }">
+                                                                            <div *ngIf="c.addressLine.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.addressLine.errors.required">
+                                                                                    Address is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -63,7 +91,14 @@
                                                                             <label>Country </label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Country"
-                                                                                formControlName="country">
+                                                                                formControlName="country"
+                                                                                [ngClass]="{ 'is-invalid': c.country.errors && isFormSubmitted }">
+                                                                            <div *ngIf="c.country.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.country.errors.required">
+                                                                                    Country is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -71,7 +106,14 @@
                                                                             <label>State</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="State"
-                                                                                formControlName="state">
+                                                                                formControlName="state"
+                                                                                [ngClass]="{ 'is-invalid': c.state.errors && isFormSubmitted }">
+                                                                            <div *ngIf="c.state.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.state.errors.required">
+                                                                                    State is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -81,7 +123,14 @@
                                                                             <label>City </label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="City"
-                                                                                formControlName="city">
+                                                                                formControlName="city"
+                                                                                [ngClass]="{ 'is-invalid': c.city.errors && isFormSubmitted }">
+                                                                            <div *ngIf="c.city.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.city.errors.required">
+                                                                                    City is required</div>
+                                                                            </div>
 
                                                                         </div>
                                                                     </div>
@@ -90,7 +139,14 @@
                                                                             <label>Postal Code</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder=""
-                                                                                formControlName="postalCode">
+                                                                                formControlName="postalCode"
+                                                                                [ngClass]="{ 'is-invalid': c.postalCode.errors && isFormSubmitted }">
+                                                                            <div *ngIf="c.postalCode.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.postalCode.errors.required">
+                                                                                    Postal Code is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -102,9 +158,18 @@
                                                                                 <input type="file"
                                                                                     class="form-control-file" #fileInput
                                                                                     ng2FileSelect [uploader]="uploader"
-                                                                                    (change)="fileEvent($event)">
+                                                                                    [ngClass]="{ 'is-invalid': c.profilePicUrl.errors && isFormSubmitted }"
+                                                                                    formControlName="profilePicUrl">
                                                                                 <span
-                                                                                    class="file-custom">{{fileName}}</span>
+                                                                                    class="file-custom">{{public_id}}</span>
+                                                                                <div *ngIf="c.profilePicUrl.errors"
+                                                                                    class="invalid-feedback"
+                                                                                    style="margin-top: 16px;">
+                                                                                    <div
+                                                                                        *ngIf="c.profilePicUrl.errors.required">
+                                                                                        Profile pic is required
+                                                                                    </div>
+                                                                                </div>
                                                                             </label>
                                                                             <div class="progress" style="height: 5px;">
                                                                                 <div class="progress-bar"
@@ -117,8 +182,11 @@
                                                                     <div class="col">
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit"
-                                                                    class="btn redbtn">Register</button>
+                                                                <button type="submit" class="btn redbtn" [disabled]="customerForm.invalid || isCustomerRequested">
+                                                                    <i class="fa fa-circle-o-notch fa-spin fa-fw"
+                                                                        [hidden]="!isCustomerRequested"></i>
+                                                                    {{isCustomerRequested ? 'Saving' : 'Save'}}
+                                                                </button>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -144,7 +212,14 @@
                                                                             <label>First Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Full name"
-                                                                                formControlName="firstName">
+                                                                                formControlName="firstName"
+                                                                                [ngClass]="{ 'is-invalid': h.firstName.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.firstName.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="h.firstName.errors.required">
+                                                                                    First Name is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -152,7 +227,13 @@
                                                                             <label>Last Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Last Name"
-                                                                                formControlName="lastName">
+                                                                                formControlName="lastName"
+                                                                                [ngClass]="{ 'is-invalid': h.lastName.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.lastName.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="h.lastName.errors.required">
+                                                                                    Last Name is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -162,7 +243,13 @@
                                                                             <label>Phone</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="+94"
-                                                                                formControlName="phoneNo">
+                                                                                formControlName="phoneNo"
+                                                                                [ngClass]="{ 'is-invalid': h.phoneNo.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.phoneNo.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="h.phoneNo.errors.required">
+                                                                                    Phone is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -170,7 +257,13 @@
                                                                             <label>Mobile</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="+94"
-                                                                                formControlName="mobileNo">
+                                                                                formControlName="mobileNo"
+                                                                                [ngClass]="{ 'is-invalid': h.mobileNo.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.mobileNo.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="h.mobileNo.errors.required">
+                                                                                    Mobile is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -180,7 +273,13 @@
                                                                             <label>E mail Address</label>
                                                                             <input type="email" class="form-control"
                                                                                 placeholder="Your Email"
-                                                                                formControlName="email">
+                                                                                formControlName="email"
+                                                                                [ngClass]="{ 'is-invalid': h.email.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.email.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="h.email.errors.required">
+                                                                                    Email is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -188,7 +287,14 @@
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Address"
-                                                                                formControlName="addressLine">
+                                                                                formControlName="addressLine"
+                                                                                [ngClass]="{ 'is-invalid': h.addressLine.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.addressLine.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="h.addressLine.errors.required">
+                                                                                    Address is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -198,7 +304,13 @@
                                                                             <label>Country </label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Country"
-                                                                                formControlName="country">
+                                                                                formControlName="country"
+                                                                                [ngClass]="{ 'is-invalid': h.country.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.country.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="h.country.errors.required">
+                                                                                    Country is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -206,7 +318,13 @@
                                                                             <label>State</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="State"
-                                                                                formControlName="state">
+                                                                                formControlName="state"
+                                                                                [ngClass]="{ 'is-invalid': h.state.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.state.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="h.state.errors.required">
+                                                                                    State is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -216,7 +334,13 @@
                                                                             <label>City </label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="City"
-                                                                                formControlName="city">
+                                                                                formControlName="city"
+                                                                                [ngClass]="{ 'is-invalid': h.city.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.city.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="h.city.errors.required">City
+                                                                                    is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -224,7 +348,14 @@
                                                                             <label>Postal Code</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder=""
-                                                                                formControlName="postalCode">
+                                                                                formControlName="postalCode"
+                                                                                [ngClass]="{ 'is-invalid': h.postalCode.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.postalCode.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="h.postalCode.errors.required">
+                                                                                    Postal code is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -239,8 +370,16 @@
                                                                                         class="form-check-input fieldcheck"
                                                                                         type="radio" [value]="model.id"
                                                                                         id=""
-                                                                                        formControlName="helperCategoryId">
+                                                                                        formControlName="helperCategoryId"
+                                                                                        [ngClass]="{ 'is-invalid': h.helperCategoryId.errors && isFormSubmitted }">
                                                                                     {{model.name}}
+                                                                                    <div *ngIf="h.helperCategoryId.errors"
+                                                                                        class="invalid-feedback">
+                                                                                        <div
+                                                                                            *ngIf="h.helperCategoryId.errors.required">
+                                                                                            Field of expertise is
+                                                                                            required</div>
+                                                                                    </div>
                                                                                 </label>
                                                                             </div>
                                                                         </div>
@@ -248,19 +387,20 @@
                                                                 </div>
 
                                                                 <div class="form-row">
-                                                                    <div class="col cgap">
-                                                                        <div class="form-group">
-                                                                            <label>Skills</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="">
-                                                                        </div>
-                                                                    </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>Years of Experience</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Years of Experience"
-                                                                                formControlName="experience">
+                                                                                formControlName="experience"
+                                                                                [ngClass]="{ 'is-invalid': h.experience.errors && isFormSubmitted }">
+                                                                            <div *ngIf="h.experience.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="h.experience.errors.required">
+                                                                                    Years of experiance is required
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -272,9 +412,18 @@
                                                                                 <input type="file"
                                                                                     class="form-control-file" #fileInput
                                                                                     ng2FileSelect [uploader]="uploader"
-                                                                                    (change)="fileEvent($event)">
+                                                                                    formControlName="profilePicUrl"
+                                                                                    [ngClass]="{ 'is-invalid': h.profilePicUrl.errors && isFormSubmitted }">
                                                                                 <span
-                                                                                    class="file-custom">{{fileName}}</span>
+                                                                                    class="file-custom">{{public_id}}</span>
+                                                                                <div *ngIf="h.profilePicUrl.errors"
+                                                                                    class="invalid-feedback"
+                                                                                    style="margin-top: 16px;">
+                                                                                    <div
+                                                                                        *ngIf="h.profilePicUrl.errors.required">
+                                                                                        Profile pic is required
+                                                                                    </div>
+                                                                                </div>
                                                                             </label>
                                                                             <div class="progress" style="height: 5px;">
                                                                                 <div class="progress-bar"
@@ -293,7 +442,13 @@
                                                                             <label>About Me</label>
                                                                             <textarea class="form-control set-text"
                                                                                 placeholder="Description About your self"
-                                                                                formControlName="aboutMe"></textarea>
+                                                                                formControlName="aboutMe"
+                                                                                [ngClass]="{ 'is-invalid': h.aboutMe.errors && isFormSubmitted }"></textarea>
+                                                                            <div *ngIf="h.aboutMe.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="h.aboutMe.errors.required">
+                                                                                    About your self is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -303,11 +458,23 @@
                                                                             <label>About My Service</label>
                                                                             <textarea class="form-control set-text"
                                                                                 placeholder="Description about the service provided"
-                                                                                formControlName="myService"></textarea>
+                                                                                formControlName="myService"
+                                                                                [ngClass]="{ 'is-invalid': h.myService.errors && isFormSubmitted }"></textarea>
+                                                                            <div *ngIf="h.myService.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="h.myService.errors.required">
+                                                                                    About my service is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" class="btn redbtn">Save</button>
+                                                                <button type="submit" class="btn redbtn"
+                                                                    [disabled]="helperForm.invalid || isHelperRequested">
+                                                                    <i class="fa fa-circle-o-notch fa-spin fa-fw"
+                                                                        [hidden]="!isHelperRequested"></i>
+                                                                    {{isHelperRequested ? 'Saving' : 'Save'}}
+                                                                </button>
                                                             </form>
                                                         </div>
                                                     </div>

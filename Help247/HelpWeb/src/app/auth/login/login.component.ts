@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       return;
     }
+    localStorage.removeItem('TokenId');
+    localStorage.removeItem('LoggedId');
     this.isLoginRequested = true;
     this.loginModel = new LoginModel();
     this.loginModel = this.loginForm.value;

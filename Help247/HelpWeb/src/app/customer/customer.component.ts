@@ -40,6 +40,8 @@ export class CustomerComponent implements OnInit {
 
   modalRef: BsModalRef;
 
+  isCustomerRequested: boolean = false;
+
   constructor(
     private hireMeService: HireMeService,
     private modalService: BsModalService,
@@ -212,6 +214,10 @@ export class CustomerComponent implements OnInit {
     });
   }
 
+  get c() {
+    return this.customerForm.controls;
+  }
+
   patchCustomerForm() {
     this.customerForm.patchValue({
       id: this.customerId,
@@ -232,14 +238,16 @@ export class CustomerComponent implements OnInit {
       return;
     }
     this.customerModel = this.customerForm.value;
-
+    this.isCustomerRequested = true;
     this.customerService.updateCustomer(this.customerModel).subscribe(
       result => {
         console.log('result', result);
         this.getCustomerById();
+        this.isCustomerRequested = false;
       },
       error => {
         console.log('error', error);
+        this.isCustomerRequested = false;
       }
     );
   }
