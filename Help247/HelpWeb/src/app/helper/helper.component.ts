@@ -4,10 +4,11 @@ import { PaginationBase } from '../shared/models/pagination-base.model';
 import { HireMeService } from '../hire-me/services/hire-me.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { HelperService } from '../shared/services/helper.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { HelperModel } from './models/helper.model';
 import { HelperCategoryModel } from './models/helper-category.model';
 import { Router } from '@angular/router';
+import { SkillModel } from './models/skills.model';
 
 @Component({
   selector: 'app-helper',
@@ -24,8 +25,10 @@ export class HelperComponent implements OnInit {
   ticketList: Array<TicketModel>;
   pagination: PaginationBase;
   helperForm: FormGroup;
-  ticketModel: TicketModel;
-  helperModel: HelperModel;
+  skillForm: FormGroup;
+  ticketModel: TicketModel = new TicketModel();
+  helperModel: HelperModel = new HelperModel();
+  skillModel: SkillModel = new SkillModel();
   helperCategoryList: Array<HelperCategoryModel>
   helperId: number;
 
@@ -44,6 +47,7 @@ export class HelperComponent implements OnInit {
   ngOnInit(): void {
     this.helperId = +localStorage.getItem('LoggedId');
     this.getHelperById();
+    this.getSkills();
   }
 
   //TICKET START
@@ -159,6 +163,60 @@ export class HelperComponent implements OnInit {
     });
   }
 
+  getSkills(){
+    this.helperService.getSkill(this.helperId).subscribe(
+      result => {
+        console.log('result', result);
+        this.skillModel = result;
+      },
+      error => {
+        console.log('error', error);
+      }
+    );
+  }
+
+  initSkillsForm() {
+    this.skillForm = this.fb.group({
+      skills: this.fb.array([ ])
+    });
+  }
+
+  patchSkillForm() {
+    this.skillModel.skillNames.forEach(element => {
+      console.log(element);
+      this.skills.push(this.fb.control(element))
+    });
+  }
+
+  get skills(){
+    return this.skillForm.get('skills') as FormArray;
+  }
+
+  addNewSkill(){
+    if(this.skills.controls.length >= 5){
+      return;
+    }
+    this.skills.push(this.fb.control(''))
+  }
+
+  deleteSkill(i: number) {
+    this.skills.removeAt(i);
+  }
+
+  onSkillSubmit(){
+    this.skillModel.skillNames = this.skillForm.value.skills;
+    this.skillModel.helperId = this.helperId;
+    this.helperService.addSkill(this.skillModel).subscribe(
+      result => {
+        console.log('result', result);
+        this.getHelperById();
+      },
+      error => {
+        console.log('error', error);
+      }
+    );
+  }
+
   onHelperSubmit() {
     if (this.helperForm.invalid) {
       return;
@@ -197,7 +255,9 @@ export class HelperComponent implements OnInit {
 
   showSettings() {
     this.initHelperForm();
+    this.initSkillsForm();
     this.patchHelperForm();
+    this.patchSkillForm();
     this.isDashboardClicked = false;
     this.isMyJobsClicked = false;
     this.isSettingsClicked = true;
