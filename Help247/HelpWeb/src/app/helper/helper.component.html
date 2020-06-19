@@ -8,7 +8,7 @@
                             <div class="sidebar boxshadow">
                                 <div class="sidebar-header">
                                     <div class="profileimg">
-                                        <img src="../../assets/images/user-profile-img.png" class="img-fluid">
+                                        <img src="{{helperModel.image.imageUrl}}" class="img-fluid">
                                     </div>
                                     <div class="profile-info">
                                         <h3>{{helperModel.firstName}} {{helperModel.lastName}}</h3>
@@ -81,25 +81,25 @@
                                             <div class="jobbox boxshadow text-center">
                                                 <h4>Completed Jobs</h4>
                                                 <h5 class="completed-lbl">
-                                                    <div class="job-number1"></div>
+                                                    <div class="job-number1">{{jobsCountModel.completedJobs}}</div>
                                                 </h5>
                                             </div>
                                             <div class="jobbox boxshadow text-center">
                                                 <h4>Accepted Jobs</h4>
                                                 <h5 class="accept-lbl">
-                                                    <div class="job-number2"></div>
+                                                    <div class="job-number2">{{jobsCountModel.acceptedJobs}}</div>
                                                 </h5>
                                             </div>
                                             <div class="jobbox boxshadow text-center">
                                                 <h4>Pending Jobs</h4>
                                                 <h5 class="pending-lbl">
-                                                    <div class="job-number3"></div>
+                                                    <div class="job-number3">{{jobsCountModel.pendingJobs}}</div>
                                                 </h5>
                                             </div>
                                             <div class="jobbox boxshadow text-center">
                                                 <h4>Rejected Jobs</h4>
                                                 <h5 class="reject-lbl">
-                                                    <div class="job-number4"></div>
+                                                    <div class="job-number4">{{jobsCountModel.rejectedJobs}}</div>
                                                 </h5>
                                             </div>
                                         </div>
@@ -516,9 +516,12 @@
                                                         <div class="accsetting" [formGroup]="skillForm">
                                                             <h4>Skills</h4>
                                                             <div formArrayName="skills">
-                                                                <div class="row" *ngFor="let skill of skills.controls; let i=index">
+                                                                <div class="row"
+                                                                    *ngFor="let skill of skills.controls; let i=index"
+                                                                    style="margin-left: 10px;">
                                                                     <div class="form-group">
-                                                                        <label>Skill {{i+1}}: </label>
+                                                                        <label>Skill {{i+1}}:
+                                                                            &nbsp;</label>
                                                                         <div style="display: inline-flex;">
                                                                             <input type="text" class="form-control"
                                                                                 [formControlName]="i">
@@ -583,61 +586,24 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">Helper</th>
+                                                        <th scope="col">Customer</th>
                                                         <th scope="col">Review</th>
+                                                        <th scope="col">Rating</th>
                                                         <th scope="col">Date</th>
                                                         <th scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
+                                                    <tr *ngFor="let feedback of feedbackList">
+                                                        <td data-label="Customer">{{feedback.customer.name}}</td>
+                                                        <td data-label="Review">{{feedback.description}}</td>
+                                                        <td data-label="Rating">{{feedback.rating}}</td>
+                                                        <td data-label="Date">{{feedback.createdOn | date:'mediumDate'}}
+                                                        </td>
                                                         <td data-label=""><a href="" class="btn-red small"
                                                                 data-toggle="modal" data-target="#rates">View</a></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td data-label="Helper">John Jack</td>
-                                                        <td data-label="Review">At vero eos accusam et justo lorem ipsum
-                                                            dolar sit amet</td>
-                                                        <td data-label="Date">10 Jan 2020</td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
+
 
                                                 </tbody>
                                             </table>

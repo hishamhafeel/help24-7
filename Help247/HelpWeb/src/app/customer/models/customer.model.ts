@@ -1,3 +1,5 @@
+import { ImageModel } from 'src/app/helper/models/helper.model';
+
 export class CustomerModel {
     id: number;
     name: string;
@@ -9,4 +11,9 @@ export class CustomerModel {
     addressLine: string;
     postalCode: string;
     userId: string;
+    image: ImageModel;
+
+    constructor() {
+        this.image = new ImageModel();
+    }
 }

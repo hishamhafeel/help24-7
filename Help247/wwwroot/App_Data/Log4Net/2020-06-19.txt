@@ -394,3 +394,1082 @@ System.Text.Json.JsonException: A possible object cycle was detected which is no
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+ 
+ ************ 2020-06-19 19:58:27,675 [8] ERROR App  
+ Your global Angular CLI version (9.1.7) is greater than your local
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:01:13,611 [8] ERROR App  
+ version (8.3.26). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:01:14,473 [8] ERROR App  
+ ERROR in src/app/auth/login/login.component.ts:7:31 - error TS2307: Cannot find module 'ngx-toastr'.
+
+7 import { ToastrService } from 'ngx-toastr';
+                                ~~~~~~~~~~~~
+src/app/auth/register/register.component.ts:9:74 - error TS2307: Cannot find module 'ng2-file-upload'.
+
+9 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+                                                                           ~~~~~~~~~~~~~~~~~
+src/app/auth/register/register.component.ts:10:28 - error TS2307: Cannot find module '@cloudinary/angular-5.x'.
+
+10 import { Cloudinary } from '@cloudinary/angular-5.x';
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/auth/auth.module.ts:10:34 - error TS2307: Cannot find module 'ng2-file-upload'.
+
+10 import { FileUploadModule } from "ng2-file-upload";
+                                    ~~~~~~~~~~~~~~~~~
+src/app/customer/customer.component.ts:10:74 - error TS2307: Cannot find module 'ng2-file-upload'.
+
+10 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+                                                                            ~~~~~~~~~~~~~~~~~
+src/app/customer/customer.component.ts:11:28 - error TS2307: Cannot find module '@cloudinary/angular-5.x'.
+
+11 import { Cloudinary } from '@cloudinary/angular-5.x';
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/customer/customer.module.ts:9:34 - error TS2307: Cannot find module 'ng2-file-upload'.
+
+9 import { FileUploadModule } from 'ng2-file-upload';
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:08:33,058 [19] ERROR App  
+ Failed executing DbCommand (436ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SubServices] ([Description], [HelperCategoryId], [Name])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [SubServices]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:08:34,384 [19] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-19 20:09:06,622 [19] ERROR App  
+ Failed executing DbCommand (300ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SubServices] ([Description], [HelperCategoryId], [Name])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [SubServices]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:09:07,533 [19] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-19 20:11:55,068 [19] ERROR App  
+ Failed executing DbCommand (8,837ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SubServices] ([Description], [HelperCategoryId], [Name])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [SubServices]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:11:57,327 [19] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-19 20:13:08,539 [21] ERROR App  
+ Failed executing DbCommand (2,829ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SubServices] ([Description], [HelperCategoryId], [Name])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [SubServices]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:13:10,714 [21] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-19 20:13:51,310 [12] ERROR App  
+ Failed executing DbCommand (509ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SubServices] ([Description], [HelperCategoryId], [Name])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [SubServices]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:13:52,462 [12] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-19 20:15:38,855 [19] ERROR App  
+ Failed executing DbCommand (1,358ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SubServices] ([Description], [HelperCategoryId], [Name])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [SubServices]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:15:39,517 [19] ERROR App  
+ An exception occurred in the database while saving changes for context type 'Help247.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) ********** 
+ 
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SubServices_HelperCategories_HelperCategoryId". The conflict occurred in database "help247", table "dbo.HelperCategories", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:204b8afe-1437-48fe-9669-0e54c148b9b9
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+ 
+ ************ 2020-06-19 20:42:02,791 [8] ERROR App  
+                                    ~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:11:28 - error TS2307: Cannot find module 'cloudinary-core/cloudinary-core-shrinkwrap'.
+
+11 import { Cloudinary } from 'cloudinary-core/cloudinary-core-shrinkwrap';
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:12:34 - error TS2307: Cannot find module '@cloudinary/angular-5.x'.
+
+12 import { CloudinaryModule } from '@cloudinary/angular-5.x';
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:13:30 - error TS2307: Cannot find module 'ngx-toastr'.
+
+13 import { ToastrModule } from 'ngx-toastr';
+                                ~~~~~~~~~~~~
+
+ERROR in multi ./node_modules/bootstrap/dist/css/bootstrap.css ./node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css ./node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css ./src/assets/css/responsive.css ./src/assets/css/custom-styles.css ./src/styles.scss ./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css ./node_modules/ngx-toastr/toastr.css
+Module not found: Error: Can't resolve 'D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\ngx-toastr\toastr.css' in 'D:\Projects\Help\help24-7\Help247\HelpWeb'
+ERROR in src/app/app.module.ts(39,5): Error during template compile of 'AppModule'
+  Could not resolve @cloudinary/angular-5.x relative to [object Object]..
+src/app/app.module.ts(40,5): Error during template compile of 'AppModule'
+  Could not resolve ngx-toastr relative to [object Object]..
+src/app/auth/auth.module.ts(20,5): Error during template compile of 'AuthModule'
+  Could not resolve ng2-file-upload relative to [object Object]..
+Can't resolve all parameters for LoginComponent in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/auth/login/login.component.ts: ([object Object], [object Object], [object Object], ?).
+Can't resolve all parameters for RegisterComponent in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/auth/register/register.component.ts: (?, [object Object], [object Object], [object Object], [object Object], [object Object]).
+src/app/customer/customer.module.ts(23,5): Error during template compile of 'CustomerModule'
+  Could not resolve ng2-file-upload relative to [object Object]..
+Can't resolve all parameters for CustomerComponent in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.ts: ([object Object], [object Object], [object Object], [object Object], [object Object], ?).
+src/app/auth/auth.module.ts(20,5): Error during template compile of 'AuthModule'
+  Could not resolve ng2-file-upload relative to [object Object]..
+src/app/customer/customer.module.ts(23,5): Error during template compile of 'CustomerModule'
+  Could not resolve ng2-file-upload relative to [object Object]..
+src/app/app.module.ts(39,5): Error during template compile of 'AppModule'
+  Could not resolve @cloudinary/angular-5.x relative to [object Object]..
+src/app/app.module.ts(40,5): Error during template compile of 'AppModule'
+  Could not resolve ngx-toastr relative to [object Object]..
+Can't bind to 'uploader' since it isn't a known property of 'input'. ("
+                                                                                    ng2FileSelect [ERROR ->][uploader]="uploader"
+                                                                              ")
+Can't bind to 'uploader' since it isn't a known property of 'input'. ("
+                                                                                    ng2FileSelect [ERROR ->][uploader]="uploader"
+                                                                              ")
+
+Warning: Can't resolve all parameters for Overlay in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/ngx-toastr/ngx-toastr.d.ts: ([object Object], [object Object], [object Object], ?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:03,109 [8] ERROR App  
+ Warning: Can't resolve all parameters for OverlayContainer in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/ngx-toastr/ngx-toastr.d.ts: (?). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for Meta in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/platform-browser.d.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:03,839 [8] ERROR App  
+ Warning: Can't resolve all parameters for Title in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/platform-browser.d.ts: (?). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for ╔╡BrowserPlatformLocation in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/platform-browser.d.ts: (?). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for ╔╡DomEventsPlugin in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/platform-browser.d.ts: (?, [object Object], [object Object]). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for ╔╡HammerGesturesPlugin in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/platform-browser.d.ts: (?, [object Object], [object Object], [object Object]). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for ╔╡KeyEventsPlugin in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/platform-browser.d.ts: (?). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for ╔╡DomSharedStylesHost in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/platform-browser.d.ts: (?). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for ╔╡DomSanitizerImpl in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/platform-browser.d.ts: (?). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for HelperService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/shared/services/helper.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:06,770 [8] ERROR App  
+ Warning: Can't resolve all parameters for HireMeService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/services/hire-me.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:07,848 [8] ERROR App  
+ Warning: Can't resolve all parameters for AuthService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/auth/services/auth.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:07,935 [8] ERROR App  
+ Warning: Can't resolve all parameters for CustomerService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/services/customer.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:08,062 [8] ERROR App  
+ Warning: Can't resolve all parameters for HelperDetailsService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/helper-details/services/helper-details.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:08,291 [8] ERROR App  
+ Warning: Can't resolve all parameters for HelpCenterService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/help-center/services/help-center.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:09,575 [8] ERROR App  
+ Warning: Can't resolve all parameters for ╔╡BrowserAnimationBuilder in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts: ([object Object], ?). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for ╔╡AnimationRendererFactory in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts: ([object Object], ?, [object Object]). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for ╔╡InjectableAnimationEngine in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts: (?, ?, ?). This will become an error in Angular v6.x
+Warning: Can't resolve all parameters for HelperService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/shared/services/helper.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:09,589 [8] ERROR App  
+ Warning: Can't resolve all parameters for HireMeService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/services/hire-me.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:09,612 [8] ERROR App  
+ Warning: Can't resolve all parameters for AuthService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/auth/services/auth.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:09,627 [8] ERROR App  
+ Warning: Can't resolve all parameters for CustomerService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/services/customer.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:09,639 [8] ERROR App  
+ Warning: Can't resolve all parameters for HelperDetailsService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/helper-details/services/helper-details.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:09,644 [8] ERROR App  
+ Warning: Can't resolve all parameters for HelpCenterService in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/help-center/services/help-center.service.ts: (?). This will become an error in Angular v6.x
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:30,130 [8] ERROR App  
+ ERROR in node_modules/@angular/router/router.d.ts:15:38 - error TS2307: Cannot find module '@angular/common'.
+
+15 import { HashLocationStrategy } from '@angular/common';
+                                        ~~~~~~~~~~~~~~~~~
+node_modules/@angular/router/router.d.ts:18:26 - error TS2307: Cannot find module '@angular/common'.
+
+18 import { Location } from '@angular/common';
+                            ~~~~~~~~~~~~~~~~~
+node_modules/@angular/router/router.d.ts:19:34 - error TS2307: Cannot find module '@angular/common'.
+
+19 import { LocationStrategy } from '@angular/common';
+                                    ~~~~~~~~~~~~~~~~~
+node_modules/@angular/router/router.d.ts:28:38 - error TS2307: Cannot find module '@angular/common'.
+
+28 import { PathLocationStrategy } from '@angular/common';
+                                        ~~~~~~~~~~~~~~~~~
+node_modules/@angular/router/router.d.ts:29:34 - error TS2307: Cannot find module '@angular/common'.
+
+29 import { PlatformLocation } from '@angular/common';
+                                    ~~~~~~~~~~~~~~~~~
+node_modules/@angular/router/router.d.ts:37:34 - error TS2307: Cannot find module '@angular/common'.
+
+37 import { ViewportScroller } from '@angular/common';
+                                    ~~~~~~~~~~~~~~~~~
+node_modules/ngx-toastr/portal/portal.d.ts:26:9 - error TS1086: An accessor cannot be declared in an ambient context.
+
+26     get isAttached(): boolean;
+           ~~~~~~~~~~
+node_modules/@angular/platform-browser/platform-browser.d.ts:14:40 - error TS2307: Cannot find module '@angular/common'.
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:30,164 [66] ERROR App  
+ 
+14 import { LocationChangeListener } from '@angular/common';
+                                          ~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/platform-browser.d.ts:19:34 - error TS2307: Cannot find module '@angular/common'.
+
+19 import { PlatformLocation } from '@angular/common';
+                                    ~~~~~~~~~~~~~~~~~
+node_modules/ngx-toastr/toastr/toast.component.d.ts:26:9 - error TS1086: An accessor cannot be declared in an ambient context.
+
+26     get displayStyle(): string;
+           ~~~~~~~~~~~~
+node_modules/ngx-toastr/toastr/toast-noanimation.component.d.ts:19:9 - error TS1086: An accessor cannot be declared in an ambient context.
+
+19     get displayStyle(): string;
+           ~~~~~~~~~~~~
+node_modules/ngx-owl-carousel-o/lib/carousel/owl-router-link.directive.d.ts:1:34 - error TS2307: Cannot find module '@angular/common'.
+
+1 import { LocationStrategy } from '@angular/common';
+                                   ~~~~~~~~~~~~~~~~~
+src/app/core/services/base.service.ts:3:29 - error TS2307: Cannot find module '@angular/common/http'.
+
+3 import { HttpHeaders } from '@angular/common/http';
+                              ~~~~~~~~~~~~~~~~~~~~~~
+src/app/shared/services/helper.service.ts:3:28 - error TS2307: Cannot find module '@angular/common/http'.
+
+3 import { HttpClient } from '@angular/common/http';
+                             ~~~~~~~~~~~~~~~~~~~~~~
+src/app/shared/shared.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/home/home.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/about-us/about-us.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/services/services.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+node_modules/ngx-bootstrap/datepicker/datepicker-animations.d.ts:1:42 - error TS2307: Cannot find module '@angular/animations'.
+
+1 import { AnimationTriggerMetadata } from '@angular/animations';
+                                           ~~~~~~~~~~~~~~~~~~~~~
+src/app/hire-me/services/hire-me.service.ts:3:28 - error TS2307: Cannot find module '@angular/common/http'.
+
+3 import { HttpClient } from '@angular/common/http';
+                             ~~~~~~~~~~~~~~~~~~~~~~
+src/app/hire-me/open-ticket/open-ticket.component.ts:7:26 - error TS2307: Cannot find module '@angular/common'.
+
+7 import { DatePipe } from '@angular/common';
+                           ~~~~~~~~~~~~~~~~~
+node_modules/ngx-bootstrap/collapse/collapse.directive.d.ts:1:34 - error TS2307: Cannot find module '@angular/animations'.
+
+1 import { AnimationBuilder } from '@angular/animations';
+                                   ~~~~~~~~~~~~~~~~~~~~~
+node_modules/ngx-bootstrap/dropdown/bs-dropdown.directive.d.ts:5:34 - error TS2307: Cannot find module '@angular/animations'.
+
+5 import { AnimationBuilder } from '@angular/animations';
+                                   ~~~~~~~~~~~~~~~~~~~~~
+node_modules/ngx-bootstrap/dropdown/bs-dropdown-container.component.d.ts:3:34 - error TS2307: Cannot find module '@angular/animations'.
+
+3 import { AnimationBuilder } from '@angular/animations';
+                                   ~~~~~~~~~~~~~~~~~~~~~
+node_modules/ngx-bootstrap/typeahead/typeahead-animations.d.ts:1:42 - error TS2307: Cannot find module '@angular/animations'.
+
+1 import { AnimationTriggerMetadata } from '@angular/animations';
+                                           ~~~~~~~~~~~~~~~~~~~~~
+src/app/hire-me/hire-me.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/contact-us/contact-us.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/auth/services/auth.service.ts:3:28 - error TS2307: Cannot find module '@angular/common/http'.
+
+3 import { HttpClient } from '@angular/common/http';
+                             ~~~~~~~~~~~~~~~~~~~~~~
+src/app/auth/auth.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/customer/services/customer.service.ts:5:28 - error TS2307: Cannot find module '@angular/common/http'.
+
+5 import { HttpClient } from '@angular/common/http';
+                             ~~~~~~~~~~~~~~~~~~~~~~
+src/app/customer/customer.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/helper/helper.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/helper-details/services/helper-details.service.ts:2:28 - error TS2307: Cannot find module '@angular/common/http'.
+
+2 import { HttpClient } from '@angular/common/http';
+                             ~~~~~~~~~~~~~~~~~~~~~~
+src/app/helper-details/helper-details.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/help-center/services/help-center.service.ts:3:28 - error TS2307: Cannot find module '@angular/common/http'.
+
+3 import { HttpClient } from '@angular/common/http';
+                             ~~~~~~~~~~~~~~~~~~~~~~
+src/app/help-center/help-center.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+src/app/layout/layout.module.ts:2:30 - error TS2307: Cannot find module '@angular/common'.
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:30,246 [66] ERROR App  
+ 
+2 import { CommonModule } from '@angular/common';
+                               ~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:7:34 - error TS2307: Cannot find module '@angular/animations'.
+
+7 import { AnimationBuilder } from '@angular/animations';
+                                   ~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:8:33 - error TS2307: Cannot find module '@angular/animations/browser'.
+
+8 import { AnimationDriver } from '@angular/animations/browser';
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:9:34 - error TS2307: Cannot find module '@angular/animations'.
+
+9 import { AnimationFactory } from '@angular/animations';
+                                   ~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:10:35 - error TS2307: Cannot find module '@angular/animations'.
+
+10 import { AnimationMetadata } from '@angular/animations';
+                                     ~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:11:34 - error TS2307: Cannot find module '@angular/animations'.
+
+11 import { AnimationOptions } from '@angular/animations';
+                                    ~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:12:33 - error TS2307: Cannot find module '@angular/animations'.
+
+12 import { AnimationPlayer } from '@angular/animations';
+                                   ~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:20:34 - error TS2307: Cannot find module '@angular/animations/browser'.
+
+20 import { ╔╡AnimationEngine } from '@angular/animations/browser';
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:21:43 - error TS2307: Cannot find module '@angular/animations/browser'.
+
+21 import { ╔╡AnimationStyleNormalizer } from '@angular/animations/browser';
+                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:22:37 - error TS2307: Cannot find module '@angular/animations/browser'.
+
+22 import { ╔╡CssKeyframesDriver } from '@angular/animations/browser';
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:24:38 - error TS2307: Cannot find module '@angular/animations/browser'.
+
+24 import { ╔╡WebAnimationsDriver } from '@angular/animations/browser';
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+node_modules/@angular/platform-browser/animations/animations.d.ts:25:47 - error TS2307: Cannot find module '@angular/animations/browser'.
+
+25 import { ╔╡WebAnimationsStyleNormalizer } from '@angular/animations/browser';
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/auth/token-inteceptor.ts:7:8 - error TS2307: Cannot find module '@angular/common/http'.
+
+7 } from '@angular/common/http';
+         ~~~~~~~~~~~~~~~~~~~~~~
+src/app/app.module.ts:9:53 - error TS2307: Cannot find module '@angular/common/http'.
+
+9 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+                                                      ~~~~~~~~~~~~~~~~~~~~~~
+
+ERROR in src/app/app.module.ts(37,5): Error during template compile of 'AppModule'
+  Could not resolve @angular/common/http relative to [object Object]..
+src/app/app.module.ts(47,16): Error during template compile of 'AppModule'
+  Could not resolve @angular/common/http relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(40,62): Error during template compile of '╔╡BROWSER_SANITIZATION_PROVIDERS'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(70,12): Error during template compile of '╔╡angular_packages_platform_browser_platform_browser_c'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(72,83): Error during template compile of '╔╡angular_packages_platform_browser_platform_browser_c'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(77,12): Error during template compile of '╔╡angular_packages_platform_browser_platform_browser_c'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(87,72): Error during template compile of '╔╡angular_packages_platform_browser_platform_browser_c'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(102,59): Error during template compile of 'BrowserModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(52,3): Error during template compile of '╔╡ROUTER_PROVIDERS'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(58,62): Error during template compile of '╔╡ROUTER_PROVIDERS'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(157,20): Error during template compile of 'RouterModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(160,13): Error during template compile of 'RouterModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(160,43): Error during template compile of 'RouterModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(166,26): Error during template compile of 'RouterModule'
+  Could not resolve @angular/common relative to [object Object]..
+Invalid provider for the NgModule 'RouterModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/router/router.d.ts' - only instances of Provider and Type are allowed, got: [[[object Object], [object Object], ChildrenOutletContexts, [object Object], [object Object], RouterPreloader, NoPreloading, PreloadAllModules, [object Object]], [[object Object], [object Object]], [object Object], [object Object], ?[object Object]?, ...]
+src/app/layout/layout.module.ts(17,5): Error during template compile of 'LayoutModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(21,43): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_d'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(46,13): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_d'
+  Could not resolve @angular/animations relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(21,72): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_d'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:30,437 [66] ERROR App  
+ @angular/platform-browser/animations/animations.ts(48,13): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_d'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(51,33): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_d'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+Invalid provider for the NgModule 'BrowserAnimationsModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts' - only instances of Provider and Type are allowed, got: [?[object Object]?, ...]
+Invalid provider for the NgModule 'BrowserAnimationsModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts' - only instances of Provider and Type are allowed, got: [[object Object], [object Object], ?[object Object]?, ...]
+Invalid provider for the NgModule 'BrowserAnimationsModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts' - only instances of Provider and Type are allowed, got: [[object Object], [object Object], [object Object], ?[object Object]?, ...]
+Invalid provider for the NgModule 'BrowserAnimationsModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts' - only instances of Provider and Type are allowed, got: [[object Object], [object Object], [object Object], [object Object], ?[object Object]?, ...]
+@cloudinary/angular-5.x/cloudinary-angular-5.x.ts(39,5): Error during template compile of 'CloudinaryModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-toastr/ngx-toastr.ts(17,13): Error during template compile of 'ToastrModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-toastr/ngx-toastr.ts(40,5): Error during template compile of 'Toast'
+  Could not resolve @angular/animations relative to [object Object]..
+Invalid provider for the NgModule 'AppModule in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/app.module.ts' - only instances of Provider and Type are allowed, got: [?[object Object]?]
+Can't resolve all parameters for RouterLinkWithHref in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/router/router.d.ts: ([object Object], [object Object], ?).
+ngx-toastr/ngx-toastr.ts(40,13): Error during template compile of 'ToastrComponentlessModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-toastr/ngx-toastr.ts(223,13): Error during template compile of 'ToastNoAnimationModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-toastr/ngx-toastr.ts(34,13): Error during template compile of 'Overlay'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-toastr/ngx-toastr.ts(9,23): Error during template compile of 'OverlayContainer'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(48,23): Error during template compile of 'Meta'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(33,23): Error during template compile of 'Title'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(162,78): Error during template compile of 'BrowserTransferStateModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(30,23): Error during template compile of '╔╡BrowserPlatformLocation'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(107,15): Error during template compile of '╔╡DomEventsPlugin'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(155,15): Error during template compile of '╔╡HammerGesturesPlugin'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(41,23): Error during template compile of '╔╡KeyEventsPlugin'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(38,23): Error during template compile of '╔╡DomSharedStylesHost'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/platform-browser.ts(149,23): Error during template compile of '╔╡DomSanitizerImpl'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/home/home.module.ts(16,5): Error during template compile of 'HomeModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-owl-carousel-o/ngx-owl-carousel-o.ts(28,5): Error during template compile of 'CarouselModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-owl-carousel-o/ngx-owl-carousel-o.ts(40,5): Error during template compile of '╔╡x'
+  Could not resolve @angular/animations relative to [object Object]..
+src/app/shared/shared.module.ts(9,5): Error during template compile of 'SharedModule'
+  Could not resolve @angular/common relative to [object Object]..
+Can't resolve all parameters for OwlRouterLinkWithHrefDirective in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/ngx-owl-carousel-o/ngx-owl-carousel-o.d.ts: ([object Object], [object Object], ?).
+src/app/about-us/about-us.module.ts(11,5): Error during template compile of 'AboutUsModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/services/services.module.ts(13,5): Error during template compile of 'ServicesModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/hire-me/hire-me.module.ts(18,5): Error during template compile of 'HireMeModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/datepicker/ngx-bootstrap-datepicker.ts(53,13): Error during template compile of 'BsDatepickerModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/datepicker/ngx-bootstrap-datepicker.ts(13,3): Error during template compile of '╔╡f'
+  Could not resolve @angular/animations relative to [object Object]..
+ngx-bootstrap/datepicker/ngx-bootstrap-datepicker.ts(13,3): Error during template compile of '╔╡f'
+  Could not resolve @angular/animations relative to [object Object]..
+ngx-bootstrap/datepicker/ngx-bootstrap-datepicker.ts(13,3): Error during template compile of '╔╡f'
+  Could not resolve @angular/animations relative to [object Object]..
+ngx-bootstrap/datepicker/ngx-bootstrap-datepicker.ts(13,3): Error during template compile of '╔╡f'
+  Could not resolve @angular/animations relative to [object Object]..
+ngx-bootstrap/timepicker/ngx-bootstrap-timepicker.ts(10,13): Error during template compile of 'TimepickerModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/datepicker/ngx-bootstrap-datepicker.ts(13,13): Error during template compile of 'DatepickerModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/accordion/ngx-bootstrap-accordion.ts(11,13): Error during template compile of 'AccordionModule'
+  Could not resolve @angular/common relative to [object Object]..
+Can't resolve all parameters for CollapseDirective in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/ngx-bootstrap/collapse/ngx-bootstrap-collapse.d.ts: ([object Object], [object Object], ?).
+ngx-bootstrap/alert/ngx-bootstrap-alert.ts(7,13): Error during template compile of 'AlertModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/carousel/ngx-bootstrap-carousel.ts(9,13): Error during template compile of 'CarouselModule'
+  Could not resolve @angular/common relative to [object Object]..
+Can't resolve all parameters for BsDropdownContainerComponent in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/ngx-bootstrap/dropdown/ngx-bootstrap-dropdown.d.ts: ([object Object], [object Object], [object Object], [object Object], ?).
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:30,492 [66] ERROR App  
+ Can't resolve all parameters for BsDropdownDirective in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/ngx-bootstrap/dropdown/ngx-bootstrap-dropdown.d.ts: ([object Object], [object Object], [object Object], [object Object], [object Object], [object Object], ?).
+ngx-bootstrap/pagination/ngx-bootstrap-pagination.ts(9,13): Error during template compile of 'PaginationModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/progressbar/ngx-bootstrap-progressbar.ts(9,13): Error during template compile of 'ProgressbarModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/rating/ngx-bootstrap-rating.ts(8,13): Error during template compile of 'RatingModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/sortable/ngx-bootstrap-sortable.ts(9,13): Error during template compile of 'SortableModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/tabs/ngx-bootstrap-tabs.ts(11,13): Error during template compile of 'TabsModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/tooltip/ngx-bootstrap-tooltip.ts(10,13): Error during template compile of 'TooltipModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/typeahead/ngx-bootstrap-typeahead.ts(13,3): Error during template compile of '╔╡a'
+  Could not resolve @angular/animations relative to [object Object]..
+ngx-bootstrap/typeahead/ngx-bootstrap-typeahead.ts(11,13): Error during template compile of 'TypeaheadModule'
+  Could not resolve @angular/common relative to [object Object]..
+ngx-bootstrap/popover/ngx-bootstrap-popover.ts(11,13): Error during template compile of 'PopoverModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/contact-us/contact-us.module.ts(11,5): Error during template compile of 'ContactUsModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/auth/auth.module.ts(16,5): Error during template compile of 'AuthModule'
+  Could not resolve @angular/common relative to [object Object]..
+ng2-file-upload/ng2-file-upload.ts(8,14): Error during template compile of 'FileUploadModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/customer/customer.module.ts(17,5): Error during template compile of 'CustomerModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/helper/helper.module.ts(13,5): Error during template compile of 'HelperModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/helper-details/helper-details.module.ts(11,5): Error during template compile of 'HelperDetailsModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/help-center/help-center.module.ts(12,5): Error during template compile of 'HelpCenterModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(21,43): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_e'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(69,40): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_e'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(46,13): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_e'
+  Could not resolve @angular/animations relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(21,72): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_e'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(48,13): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_e'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(51,33): Error during template compile of '╔╡angular_packages_platform_browser_animations_animations_e'
+  Could not resolve @angular/animations/browser relative to [object Object]..
+Invalid provider for the NgModule 'NoopAnimationsModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts' - only instances of Provider and Type are allowed, got: [?[object Object]?, ...]
+Invalid provider for the NgModule 'NoopAnimationsModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts' - only instances of Provider and Type are allowed, got: [[object Object], [object Object], ?[object Object]?, ...]
+Invalid provider for the NgModule 'NoopAnimationsModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts' - only instances of Provider and Type are allowed, got: [[object Object], [object Object], [object Object], ?[object Object]?, ...]
+Invalid provider for the NgModule 'NoopAnimationsModule in D:/Projects/Help/help24-7/Help247/HelpWeb/node_modules/@angular/platform-browser/animations/animations.d.ts' - only instances of Provider and Type are allowed, got: [[object Object], [object Object], [object Object], [object Object], ?[object Object]?, ...]
+@angular/platform-browser/animations/animations.ts(19,55): Error during template compile of '╔╡BrowserAnimationBuilder'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/platform-browser/animations/animations.ts(21,15): Error during template compile of '╔╡InjectableAnimationEngine'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/shared/shared.module.ts(9,5): Error during template compile of 'SharedModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/home/home.module.ts(16,5): Error during template compile of 'HomeModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/about-us/about-us.module.ts(11,5): Error during template compile of 'AboutUsModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/services/services.module.ts(13,5): Error during template compile of 'ServicesModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/hire-me/hire-me.module.ts(18,5): Error during template compile of 'HireMeModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/contact-us/contact-us.module.ts(11,5): Error during template compile of 'ContactUsModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/auth/auth.module.ts(16,5): Error during template compile of 'AuthModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/customer/customer.module.ts(17,5): Error during template compile of 'CustomerModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/helper/helper.module.ts(13,5): Error during template compile of 'HelperModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/helper-details/helper-details.module.ts(11,5): Error during template compile of 'HelperDetailsModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/help-center/help-center.module.ts(12,5): Error during template compile of 'HelpCenterModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(157,20): Error during template compile of 'RouterModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(160,13): Error during template compile of 'RouterModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(160,43): Error during template compile of 'RouterModule'
+  Could not resolve @angular/common relative to [object Object]..
+@angular/router/router.ts(166,26): Error during template compile of 'RouterModule'
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:31,155 [66] ERROR App  
+   Could not resolve @angular/common relative to [object Object]..
+src/app/layout/layout.module.ts(17,5): Error during template compile of 'LayoutModule'
+  Could not resolve @angular/common relative to [object Object]..
+src/app/app.module.ts(37,5): Error during template compile of 'AppModule'
+  Could not resolve @angular/common/http relative to [object Object]..
+src/app/app.module.ts(47,16): Error during template compile of 'AppModule'
+  Could not resolve @angular/common/http relative to [object Object]..
+Can't bind to 'ngStyle' since it isn't a known property of 'img'. ("<img [ERROR ->][ngStyle]="getPlaceHolderStyle()"(load)="hasLoaded()">
+  <div *ngIf="placeholderComponent"[style.disp")
+Can't bind to 'ngIf' since it isn't a known property of 'div'. ("<img [ngStyle]="getPlaceHolderStyle()"(load)="hasLoaded()">
+  <div [ERROR ->]*ngIf="placeholderComponent"[style.display]="shouldShowPlaceHolder ? 'inline' : 'none'">
+      <ng-co")
+Property binding ngIf not used by any directive on an embedded template. Make sure that the property name is spelled correctly and all directives are listed in the "@NgModule.declarations". ("<img [ngStyle]="getPlaceHolderStyle()"(load)="hasLoaded()">
+  [ERROR ->]<div *ngIf="placeholderComponent"[style.display]="shouldShowPlaceHolder ? 'inline' : 'none'">
+      <")
+
+internal/fs/utils.js:220
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:31,171 [66] ERROR App  
+     throw err;
+    ^
+
+Error: ENOENT: no such file or directory, lstat 'D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@angular\core'
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:31,198 [66] ERROR App  
+     at Object.realpathSync (fs.js:1529:7)
+    at D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@ngtools\webpack\src\angular_compiler_plugin.js:568:52
+    at SyncHook.eval [as call] (eval at create (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\tapable\lib\HookCodeFactory.js:19:10), <anonymous>:9:1)
+    at Compiler.createContextModuleFactory (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\Compiler.js:637:35)
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:31,212 [66] ERROR App  
+     at Compiler.newCompilationParams (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\Compiler.js:644:31)
+    at Compiler.compile (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\Compiler.js:651:23)
+    at D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\Watching.js:77:18
+    at AsyncSeriesHook.eval [as callAsync] (eval at create (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\tapable\lib\HookCodeFactory.js:33:10), <anonymous>:33:1)
+    at Watching._go (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\Watching.js:41:32)
+    at Watching._invalidate (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\Watching.js:169:9)
+    at D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\Watching.js:138:11
+    at newCallback (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@ngtools\webpack\src\virtual_file_system_decorator.js:128:13)
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:32,824 [11] ERROR App  
+     at Watchpack.<anonymous> (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\node\NodeWatchFileSystem.js:59:4)
+    at Object.onceWrapper (events.js:313:26)
+    at Watchpack.emit (events.js:223:5)
+    at Watchpack._onTimeout (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\watchpack\lib\watchpack.js:144:7) {
+  errno: -4058,
+  syscall: 'lstat',
+  code: 'ENOENT',
+  path: 'D:\\Projects\\Help\\help24-7\\Help247\\HelpWeb\\node_modules\\@angular\\core'
+}
+npm ERR! code ELIFECYCLE
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:32,866 [11] ERROR App  
+ npm ERR! errno 1
+npm ERR! helpweb@0.0.0 start: `ng serve --servePath / --baseHref /home/ "--port" "54638"`
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 20:42:32,940 [62] ERROR App  
+ npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the helpweb@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 22:36:55,707 [11] ERROR App  
+ ERROR in src/app/helper/helper.component.html(599,79): Property 'mediumDate' does not exist on type 'HelperComponent'.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-19 23:00:14,672 [11] ERROR App  
+     ERROR in src/app/customer/customer.component.html(11,46): Property 'image' does not exist on type 'CustomerModel'.
+    
+ ********** 
+ 
