@@ -8,8 +8,11 @@ namespace Help247.Service.Services.HelperCategory
     {
         Task<HelperCategoryBO> PostCategoryAsync(HelperCategoryBO helperCategoryBO);
         Task<PaginationModel<HelperCategoryBO>> GetAllAsync(PaginationBase paginationBase);
+        Task<HelperCategoryBO> GetByIdAsync(int id);
         Task<HelperCategoryBO> PutCategoryAsync(HelperCategoryBO helperCategoryBO);
         Task DeleteCategoryAsync(int id);
-        Task<HelperCategoryBO> GetByIdAsync(int id);
+        Task PostSubServiceAsync(SubServiceBO subServiceBO);
+        Task PutSubServiceAsync(SubServiceBO subServiceBO);
+        Task DeleteSubServiceAsync(int id);
     }
 }

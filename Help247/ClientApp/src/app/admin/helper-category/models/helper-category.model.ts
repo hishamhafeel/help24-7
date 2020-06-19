@@ -6,10 +6,13 @@ export class HelperCategoryModel {
     shortDescription: string;
     iconUrl: string;
     imageUrl: string;
-    servicesProvided: { [key: string]: string };
+    subServices: SubServiceModel[];
 }
 
 export class SubServiceModel {
-    title: string;
+    id: number;
+    name: string;
     description: string;
+
+    helperCategoryId: number;
 }

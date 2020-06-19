@@ -3,17 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Help247.Data.Entities
 {
-    [Table("Skills")]
-    public class Skill
+    [Table("SubServices")]
+    public class SubService
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        public string SkillName { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
-        #region foreign key
-        public int HelperId { get; set; }
-        public Helper Helper { get; set; }
-        #endregion
+        public int HelperCategoryId { get; set; }
+        public HelperCategory HelperCategory { get; set; }
     }
 }

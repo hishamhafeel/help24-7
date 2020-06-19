@@ -109,5 +109,73 @@ namespace Help247.Controllers.Api
                 return HandleException(ex);
             }
         }
+
+
+        #region SubServices
+
+        //POST: api/HelperCategory/subservice
+        [Route("subservice")]
+        [HttpPost]
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public async Task<IActionResult> PostSubServiceAsync([FromBody]SubServiceViewModel subServiceViewModel)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    throw new ArgumentException();
+                }
+                await helperCategoryService.PostSubServiceAsync(mapper.Map<SubServiceBO>(subServiceViewModel));
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        //PUT: api/HelperCategory/subservice
+        [Route("subservice")]
+        [HttpPut]
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public async Task<IActionResult> PutSubServiceAsync([FromBody]SubServiceViewModel subServiceViewModel)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    throw new ArgumentException();
+                }
+                await helperCategoryService.PutSubServiceAsync(mapper.Map<SubServiceBO>(subServiceViewModel));
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        //PUT: api/HelperCategory/subservice
+        [Route("subservice")]
+        [HttpDelete]
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public async Task<IActionResult> DeleteSubServiceAsync([FromQuery]int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentException("Invalid Sub Service Id");
+                }
+                await helperCategoryService.DeleteSubServiceAsync(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        #endregion
     }
 }

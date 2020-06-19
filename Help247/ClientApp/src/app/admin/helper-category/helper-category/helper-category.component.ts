@@ -126,7 +126,7 @@ export class HelperCategoryComponent implements OnInit {
 
   openDialog(id: number): void {
     const dialogRef = this.dialog.open(HelperCategoryEditComponent, {
-      width: 'auto',
+      width: '100vw',
       data: id
     });
 

@@ -12,7 +12,7 @@ namespace Help247.Data.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [MaxLength(50)]
+        [MaxLength(100)]
         [Required]
         public string Title { get; set; }
         public string Description { get; set; }

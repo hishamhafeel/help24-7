@@ -64,19 +64,39 @@
             <br>
             <br>
             <mat-label>Services Provided</mat-label>
-            <div class="row" *ngFor="let subservice of servicesProvidedArr[0] | keyvalue" style="margin-left: 8px;">
-                <div class="col-md-6">
-                    <mat-form-field>
-                        <input matInput placeholder="Name" type="text" value="{{subservice.key}}">
-                        <!-- <mat-error *ngIf="subServiceName.errors?.required">You must enter a value</mat-error> -->
-                    </mat-form-field>
+            <div class="row" formArrayName="subServices"
+                *ngFor="let subservice of helperCategoryForm.get('subServices').controls; let i = index;"
+                style="margin-left: 8px;">
+                <div [formGroupName]="i">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput placeholder="Name" type="text" formControlName="subServiceName">
+                            <!-- <mat-error *ngIf="subServiceName.errors?.required">You must enter a value</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput placeholder="Description" type="text"
+                                formControlName="subServiceDescription">
+                            <!-- <mat-error *ngIf="subServiceDescription.errors?.required">You must enter a value</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-12">
+                        <button mat-raised-button type="button" class="btn btn-primary btn-sm pull-left"
+                            (click)="saveSubService()">
+                            Save
+                        </button>
+                        <button mat-raised-button type="button" class="btn btn-default btn-sm pull-left"
+                            (click)="updateSubService()">
+                            Update
+                        </button>
+                        <button mat-raised-button type="button" class="btn btn-danger btn-sm pull-left"
+                            (click)="deleteSubService()">
+                            Delete
+                        </button>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <mat-form-field>
-                        <input matInput placeholder="Description" type="text" value="{{subservice.value}}">
-                        <!-- <mat-error *ngIf="subServiceDescription.errors?.required">You must enter a value</mat-error> -->
-                    </mat-form-field>
-                </div>
+
             </div>
 
             <div class="row">

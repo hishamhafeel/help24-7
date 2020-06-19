@@ -24,6 +24,8 @@ namespace Help247.Data
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<HelpCentre> HelpCentres { get; set; }
+        public DbSet<SubService> SubServices { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -98,12 +100,6 @@ namespace Help247.Data
                    new HelpCentre { Id = 3, Title = "FAQ" }
                );
             #endregion
-
-            builder.Entity<HelperCategory>()
-                .Property(b => b.ServicesProvided)
-                .HasConversion(
-                v => JsonConvert.SerializeObject(v),
-                v => JsonConvert.DeserializeObject<Dictionary<string, string>>(v));
 
             builder.Entity<HelpCentre>()
                  .Property(b => b.Topics)
