@@ -52,7 +52,7 @@ namespace Help247.Service.Services.HelperCategory
         {
             try
             {
-                var query = await appDbContext.HelperCategories.FirstOrDefaultAsync(x => x.Id == id);
+                var query = await appDbContext.HelperCategories.Include(x=>x.SubServices).FirstOrDefaultAsync(x => x.Id == id);
                 if (query == null)
                 {
                     throw new ArgumentException("Invalid ID. Record not found.");
@@ -141,7 +141,8 @@ namespace Help247.Service.Services.HelperCategory
             {
                 throw new ArgumentException("Record not found.");
             }
-            appDbContext.SubServices.Update(mapper.Map<SubService>(subServiceBO));
+            query.Name = subServiceBO.Name;
+            query.Description = subServiceBO.Description;
             await appDbContext.SaveChangesAsync();
 
         }

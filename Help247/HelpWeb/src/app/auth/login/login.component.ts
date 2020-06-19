@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { LoginModel } from '../models/login.model';
 import * as jwt_decode from "jwt-decode";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -29,12 +31,15 @@ export class LoginComponent implements OnInit {
 
   initLoginForm() {
     this.loginForm = this.fb.group({
-      username: [''],
-      password: ['']
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     })
   }
 
   authenticateUser() {
+    if(this.loginForm.invalid){
+      return;
+    }
     this.isLoginRequested = true;
     this.loginModel = new LoginModel();
     this.loginModel = this.loginForm.value;
@@ -60,6 +65,7 @@ export class LoginComponent implements OnInit {
       error => {
         this.isLoginRequested = false;
         console.log(error);
+        this.toastr.error('Error', error.message);
       }
     );
   }

@@ -7,6 +7,6 @@
         public string Description { get; set; }
 
         public int HelperCategoryId { get; set; }
-        public HelperCategoryBO HelperCategory { get; set; }
+        //public HelperCategoryBO HelperCategory { get; set; }
     }
 }

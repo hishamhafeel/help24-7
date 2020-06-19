@@ -70,28 +70,28 @@
                 <div [formGroupName]="i">
                     <div class="col-md-6">
                         <mat-form-field>
-                            <input matInput placeholder="Name" type="text" formControlName="subServiceName">
+                            <input matInput placeholder="Name" type="text" formControlName="name">
                             <!-- <mat-error *ngIf="subServiceName.errors?.required">You must enter a value</mat-error> -->
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field>
                             <input matInput placeholder="Description" type="text"
-                                formControlName="subServiceDescription">
+                                formControlName="description">
                             <!-- <mat-error *ngIf="subServiceDescription.errors?.required">You must enter a value</mat-error> -->
                         </mat-form-field>
                     </div>
                     <div class="col-md-12">
                         <button mat-raised-button type="button" class="btn btn-primary btn-sm pull-left"
-                            (click)="saveSubService()">
+                            (click)="saveSubService(i)">
                             Save
                         </button>
                         <button mat-raised-button type="button" class="btn btn-default btn-sm pull-left"
-                            (click)="updateSubService()">
+                            (click)="updateSubService(i)">
                             Update
                         </button>
                         <button mat-raised-button type="button" class="btn btn-danger btn-sm pull-left"
-                            (click)="deleteSubService()">
+                            (click)="deleteSubService(i)">
                             Delete
                         </button>
                     </div>

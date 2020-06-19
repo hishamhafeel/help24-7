@@ -11,6 +11,6 @@ namespace Help247.ViewModels.HelperCategory
         public string Name { get; set; }
         public string Description { get; set; }
         public int HelperCategoryId { get; set; }
-        public HelperCategoryViewModel HelperCategory { get; set; }
+        //public HelperCategoryViewModel HelperCategory { get; set; }
     }
 }

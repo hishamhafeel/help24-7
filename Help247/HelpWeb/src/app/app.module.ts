@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './auth/token-inteceptor';
 import { Cloudinary } from 'cloudinary-core/cloudinary-core-shrinkwrap';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
+import { ToastrModule } from 'ngx-toastr';
 
 const cloudConfig = {
   cloud_name: 'help247',
@@ -36,6 +37,10 @@ const cloudinaryLib = {
     HttpClientModule,
     BrowserAnimationsModule,
     CloudinaryModule.forRoot(cloudinaryLib, cloudConfig),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    })
   ],
   providers: [
     {
