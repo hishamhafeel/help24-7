@@ -48,6 +48,23 @@ namespace Help247.Service.Services.HelperCategory
 
         }
 
+        public async Task<HelperCategoryBO> GetByIdAsync(int id)
+        {
+            try
+            {
+                var query = await appDbContext.HelperCategories.FirstOrDefaultAsync(x => x.Id == id);
+                if (query == null)
+                {
+                    throw new ArgumentException("Invalid ID. Record not found.");
+                }
+                return mapper.Map<HelperCategoryBO>(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<HelperCategoryBO> PostCategoryAsync(HelperCategoryBO helperCategoryBO)
         {
             using (var transaction = await appDbContext.Database.BeginTransactionAsync())

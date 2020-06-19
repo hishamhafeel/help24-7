@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { HelperCategoryService } from '../../services/helper-category.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -14,12 +14,13 @@ export class HelperCategoryEditComponent implements OnInit {
 
   helperCategoryForm: FormGroup;
   helperCategoryModel: HelperCategoryModel;
-  servicesProvidedArr = [];
+  subServicesArr: FormArray;
   isBlocked: boolean = false;
-  subService = new SubServiceModel();
-  servicesProvided: { [key: string]: string };
-  subServiceTitle = new FormControl('');
-  subServiceDescription = new FormControl('');
+  subService: SubServiceModel;
+  subServiceToSave: SubServiceModel;
+  // servicesProvided: { [key: string]: string };
+  // subServiceTitle = new FormControl('');
+  // subServiceDescription = new FormControl('');
   // serviceProvidedModel = new ServicesProvided();
 
   constructor(
@@ -30,6 +31,7 @@ export class HelperCategoryEditComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: number) { }
 
   ngOnInit() {
+    this.subServicesArr = new FormArray([]);
     this.initHelperForm();
     this.getHelperCategoryById(this.data);
   }
@@ -42,8 +44,16 @@ export class HelperCategoryEditComponent implements OnInit {
       shortDescription: ['', Validators.required],
       longDescription: ['', Validators.required],
       iconUrl: ['', Validators.required],
-      imageUrl: ['', Validators.required]
-      // servicesProvided: []
+      imageUrl: ['', Validators.required],
+      subServices: this.fb.array([this.initSubServices()])
+    });
+  }
+
+  initSubServices(): FormGroup {
+    return this.fb.group({
+      subServiceId: [{ value: '', disabled: true }],
+      subServiceName: ['', Validators.required],
+      subServiceDescription: ['', Validators.required]
     });
   }
 
@@ -69,6 +79,18 @@ export class HelperCategoryEditComponent implements OnInit {
   get imageUrl() {
     return this.helperCategoryForm.get('imageUrl');
   }
+  get subServices() {
+    return this.helperCategoryForm.get('subServices') as FormArray;
+  }
+  get subServiceId() {
+    return this.helperCategoryForm.get('subService.subServiceId');
+  }
+  get subServiceName() {
+    return this.helperCategoryForm.get('subServices.subServiceName');
+  }
+  get subServiceDescription() {
+    return this.helperCategoryForm.get('subServices.subServiceDescription');
+  }
   // get subServiceTitle() {
   //   return this.helperCategoryForm.get('subServiceTitle');
   // }
@@ -86,7 +108,7 @@ export class HelperCategoryEditComponent implements OnInit {
       longDescription: this.helperCategoryModel.longDescription,
       iconUrl: this.helperCategoryModel.iconUrl,
       imageUrl: this.helperCategoryModel.imageUrl,
-      // servicesProvided: this.servicesProvided
+      subServices: this.subServicesArr
     });
   }
 
@@ -94,9 +116,8 @@ export class HelperCategoryEditComponent implements OnInit {
     this.helperCategoryService.getHelperCategoryById(id).subscribe(
       result => {
         this.helperCategoryModel = result;
-        // this.servicesProvided = result.servicesProvided;
-        this.servicesProvidedArr.push(result.servicesProvided);
         this.patchHelperForm();
+        this.subServicesArr.setValue(result.subServices);
 
       },
       error => {
@@ -107,18 +128,12 @@ export class HelperCategoryEditComponent implements OnInit {
 
   updateHelperCategory() {
     this.isBlocked = true;
-    this.helperCategoryModel = Object.assign({}, this.helperCategoryForm.value);
-    this.helperCategoryModel.id = this.helperCategoryForm.getRawValue().id;
-
-    this.servicesProvided = {};
-    this.servicesProvided = this.helperCategoryModel.servicesProvided;
-    this.servicesProvided[this.subServiceTitle.value] = this.subServiceDescription.value;
-    this.helperCategoryModel.servicesProvided = this.servicesProvided;
+    this.helperCategoryModel = this.helperCategoryForm.value;
 
     this.helperCategoryService.updateHelperCategory(this.helperCategoryModel).subscribe(
       () => {
         this.closeDialog();
-        this.notificationService.successMessage("Successfully updated helper");
+        this.notificationService.successMessage("Successfully updated Helper Category");
       },
       error => {
         this.isBlocked = false;
@@ -128,8 +143,36 @@ export class HelperCategoryEditComponent implements OnInit {
   }
 
   addSubService() {
-    this.subService = new SubServiceModel();
-    this.servicesProvidedArr[0].push(this.subService);
+    this.subServicesArr = this.helperCategoryForm.get('subServices') as FormArray;
+    this.subServices.push(this.initSubServices());
+  }
+
+  saveSubService() {
+    this.subServiceToSave = new SubServiceModel();
+    this.subServiceToSave = this.subServices.value;
+    // this.subServiceToSave.name = this.subServiceName.value;
+    // this.subServiceToSave.description = this.subServiceDescription.value;
+    // this.subServiceToSave.helperCategoryId = this.id.value;
+
+    this.helperCategoryService.postSubService(this.subServiceToSave).subscribe(
+      () => {
+        this.notificationService.successMessage("Successfully updated Helper Category");
+        this.getHelperCategoryById(this.data);
+      },
+      error => {
+        this.notificationService.errorMessage(error.message);
+      }
+    )
+
+    console.log(this.subServiceToSave);
+  }
+
+  updateSubService() {
+
+  }
+
+  deleteSubService() {
+
   }
   closeDialog(): void {
     this.dialogRef.close();

@@ -14,9 +14,8 @@
                 <p>{{menuItem.title}}</p>
             </a>
         </li>
-        <li>
-            <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="router-link-active"
-                *ngIf="role == 'SuperAdmin'" class="nav-item">
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin']" *ngIf="role == 'SuperAdmin'" class="nav-link">
                 <i class="material-icons">admin_panel_settings</i>
                 <p>Create Admin</p>
             </a>
