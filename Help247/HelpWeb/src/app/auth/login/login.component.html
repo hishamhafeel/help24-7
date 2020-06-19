@@ -7,15 +7,24 @@
                     <p>Log in to manage personal details and tickets. Access data from any device</p>
                     <form [formGroup]="loginForm" (ngSubmit)="authenticateUser()">
                         <div class="form-group">
-                            <input type="text" class="form-control userbx" id="" placeholder="Enter Username" formControlName="username">
+                            <input type="text" class="form-control userbx" id="" placeholder="Enter Username" formControlName="username" [ngClass]="{ 'is-invalid': username.errors && username.dirty }">
+                            <div *ngIf="username.errors" class="invalid-feedback">
+                                <div *ngIf="username.errors.required">Username is required</div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control passbx" id="" placeholder="Password" formControlName="password">
+                            <input type="password" class="form-control passbx" id="" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': password.errors && password.dirty }">
+                            <div *ngIf="password.errors" class="invalid-feedback">
+                                <div *ngIf="password.errors.required">Password is required</div>
+                            </div>
                         </div>
                         <div class="form-group text-right">
                             <a href="">Forgot Password?</a>
                         </div>
-                        <button type="submit" class="btn-sign" [disabled]="isLoginRequested">Login</button>
+                        <button type="submit" class="btn-sign" [disabled]="isLoginRequested">
+                            <i class="fa fa-circle-o-notch fa-spin fa-fw" [hidden]="!isLoginRequested"></i>
+                            Login
+                        </button>
                     </form>
 
                     <div class="login-info">

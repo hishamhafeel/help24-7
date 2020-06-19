@@ -46,6 +46,24 @@ export class HelperCategoryService extends BaseService {
       .pipe(catchError(this.server4xxError));
   }
 
+  updateSubService(model: SubServiceModel) {
+    return this.http
+      .put(
+        `${this.baseEndPoint}/api/HelperCategory/subservice`, model,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  deleteSubService(id) {
+    return this.http
+      .delete(
+        `${this.baseEndPoint}/api/HelperCategory/subservice?id=${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
   updateHelperCategory(model: HelperCategoryModel) {
     return this.http
       .put(

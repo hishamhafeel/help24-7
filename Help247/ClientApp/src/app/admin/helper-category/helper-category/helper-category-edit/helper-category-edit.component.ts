@@ -45,15 +45,15 @@ export class HelperCategoryEditComponent implements OnInit {
       longDescription: ['', Validators.required],
       iconUrl: ['', Validators.required],
       imageUrl: ['', Validators.required],
-      subServices: this.fb.array([this.initSubServices()])
+      subServices: this.fb.array([])
     });
   }
 
   initSubServices(): FormGroup {
     return this.fb.group({
-      subServiceId: [{ value: '', disabled: true }],
-      subServiceName: ['', Validators.required],
-      subServiceDescription: ['', Validators.required]
+      id: [{ value: '', disabled: true }],
+      name: ['', Validators.required],
+      description: ['', Validators.required]
     });
   }
 
@@ -108,7 +108,15 @@ export class HelperCategoryEditComponent implements OnInit {
       longDescription: this.helperCategoryModel.longDescription,
       iconUrl: this.helperCategoryModel.iconUrl,
       imageUrl: this.helperCategoryModel.imageUrl,
-      subServices: this.subServicesArr
+      //subServices: this.subServicesArr
+    });
+    this.helperCategoryModel.subServices.forEach(element => {
+      const ser = this.fb.group({
+        id: element.id,
+        name: element.name,
+        description: element.description
+      });
+      this.subServices.push(ser)
     });
   }
 
@@ -117,8 +125,7 @@ export class HelperCategoryEditComponent implements OnInit {
       result => {
         this.helperCategoryModel = result;
         this.patchHelperForm();
-        this.subServicesArr.setValue(result.subServices);
-
+        //this.subServicesArr.setValue(result.subServices);
       },
       error => {
         this.notificationService.errorMessage(error.message);
@@ -147,9 +154,9 @@ export class HelperCategoryEditComponent implements OnInit {
     this.subServices.push(this.initSubServices());
   }
 
-  saveSubService() {
+  saveSubService(i) {
     this.subServiceToSave = new SubServiceModel();
-    this.subServiceToSave = this.subServices.value;
+    this.subServiceToSave = this.subServices.value[i];
     // this.subServiceToSave.name = this.subServiceName.value;
     // this.subServiceToSave.description = this.subServiceDescription.value;
     // this.subServiceToSave.helperCategoryId = this.id.value;
@@ -167,12 +174,29 @@ export class HelperCategoryEditComponent implements OnInit {
     console.log(this.subServiceToSave);
   }
 
-  updateSubService() {
-
+  updateSubService(i) {
+    var model = this.subServices.value[i];
+    this.helperCategoryService.updateSubService(model).subscribe(
+      () => {
+        this.notificationService.successMessage("Successfully updated Sub Service");
+      },
+      error => {
+        this.notificationService.errorMessage(error.message);
+      }
+    )
   }
 
-  deleteSubService() {
-
+  deleteSubService(i) {
+    var model = this.subServices.value[i];
+    this.helperCategoryService.postSubService(model.id).subscribe(
+      () => {
+        this.notificationService.successMessage("Successfully deleted Sub Service");
+        this.subServices.removeAt(i);
+      },
+      error => {
+        this.notificationService.errorMessage(error.message);
+      }
+    )
   }
   closeDialog(): void {
     this.dialogRef.close();
