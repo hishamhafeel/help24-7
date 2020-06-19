@@ -60,6 +60,7 @@ namespace Help247.Utilities.Configurations
             //HelperCategory
             CreateMap<HelperCategoryViewModel, HelperCategoryBO>().ReverseMap();
             CreateMap<HelperCategory, HelperCategoryBO>().ReverseMap();
+            CreateMap<SubService, SubServiceBO>().ReverseMap();
 
             //HelpCentre
             CreateMap<HelpCentre, HelpCentreBO>().ReverseMap();

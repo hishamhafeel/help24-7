@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Help247.Common.Constants;
 using Help247.Common.Pagination;
 using Help247.Common.Utility;
 using Help247.Data;
+using Help247.Data.Entities;
 using Help247.Service.BO.HelperCategory;
 using Help247.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +27,7 @@ namespace Help247.Service.Services.HelperCategory
 
         public async Task<PaginationModel<HelperCategoryBO>> GetAllAsync(PaginationBase paginationBase)
         {
-            var query = appDbContext.HelperCategories.AsQueryable().Where(x => x.RecordState == Enums.RecordState.Active);
+            var query = appDbContext.HelperCategories.AsQueryable().Include(x => x.SubServices).Where(x => x.RecordState == Enums.RecordState.Active);
             if (paginationBase.SearchQuery != null && paginationBase.SearchQuery.Length > 0)
             {
                 query = query.Where(x => EF.Functions.Like(x.Name.ToLower(), paginationBase.SearchQuery + "%") ||
@@ -46,33 +48,85 @@ namespace Help247.Service.Services.HelperCategory
 
         }
 
-        public async Task<HelperCategoryBO> GetByIdAsync(int id)
-        {
-            try
-            {
-                var query = await appDbContext.HelperCategories.FirstOrDefaultAsync(x => x.Id == id);
-                if (query == null)
-                {
-                    throw new ArgumentException("Invalid ID. Record not found.");
-                }
-                return mapper.Map<HelperCategoryBO>(query);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public async Task<HelperCategoryBO> PostCategoryAsync(HelperCategoryBO helperCategoryBO)
         {
-            var query = await appDbContext.HelperCategories.FirstOrDefaultAsync(x => x.Name == helperCategoryBO.Name);
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    var query = await appDbContext.HelperCategories.FirstOrDefaultAsync(x => x.Name == helperCategoryBO.Name);
+                    if (query != null)
+                    {
+                        throw new ArgumentException("Record already exists");
+                    }
+                    var helperCategory = await appDbContext.HelperCategories.AddAsync(mapper.Map<Help247.Data.Entities.HelperCategory>(helperCategoryBO));
+                    await appDbContext.SaveChangesAsync();
+
+                    var imageList = new List<Help247.Data.Entities.Image>();
+                    var image = new Help247.Data.Entities.Image()
+                    {
+                        ImageUrl = helperCategoryBO.ImageUrl,
+                        ImageType = ImageType.SubServiceImage,
+                        SubServiceId = helperCategory.Entity.Id
+                    };
+                    imageList.Add(image);
+                    var icon = new Help247.Data.Entities.Image()
+                    {
+                        ImageUrl = helperCategoryBO.IconUrl,
+                        ImageType = ImageType.SubServicesIcon,
+                        SubServiceId = helperCategory.Entity.Id
+                    };
+                    imageList.Add(icon);
+                    await appDbContext.Images.AddRangeAsync(imageList);
+                    await appDbContext.SaveChangesAsync();
+
+                    var subServices = new List<SubService>();
+                    foreach (var item in helperCategoryBO.SubServices)
+                    {
+                        var service = new SubService()
+                        {
+                            Name = item.Name,
+                            Description = item.Description,
+                            HelperCategoryId = helperCategory.Entity.Id
+                        };
+                        subServices.Add(service);
+                    }
+                    await appDbContext.SubServices.AddRangeAsync(subServices);
+                    await appDbContext.SaveChangesAsync();
+
+                    transaction.Commit();
+                    return helperCategoryBO;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+            }
+
+        }
+
+        public async Task PostSubServiceAsync(SubServiceBO subServiceBO)
+        {
+            var query = await appDbContext.SubServices.FirstOrDefaultAsync(x => x.Name == subServiceBO.Name);
             if (query != null)
             {
-                throw new ArgumentException("Record already exists");
+                throw new ArgumentException("Record already exists with this name");
             }
-            await appDbContext.HelperCategories.AddAsync(mapper.Map<Help247.Data.Entities.HelperCategory>(helperCategoryBO));
+            await appDbContext.SubServices.AddAsync(mapper.Map<SubService>(subServiceBO));
             await appDbContext.SaveChangesAsync();
-            return helperCategoryBO;
+        }
+
+        public async Task PutSubServiceAsync(SubServiceBO subServiceBO)
+        {
+            var query = await appDbContext.SubServices.FirstOrDefaultAsync(x => x.Id == subServiceBO.Id);
+            if (query == null)
+            {
+                throw new ArgumentException("Record not found.");
+            }
+            appDbContext.SubServices.Update(mapper.Map<SubService>(subServiceBO));
+            await appDbContext.SaveChangesAsync();
+
         }
 
         public async Task<HelperCategoryBO> PutCategoryAsync(HelperCategoryBO helperCategoryBO)
@@ -82,7 +136,7 @@ namespace Help247.Service.Services.HelperCategory
             {
                 throw new HelperCategoryNotFoundException();
             }
-            
+
             appDbContext.HelperCategories.Update(mapper.Map<Help247.Data.Entities.HelperCategory>(helperCategoryBO));
             await appDbContext.SaveChangesAsync();
             return helperCategoryBO;
@@ -97,6 +151,18 @@ namespace Help247.Service.Services.HelperCategory
             }
             query.RecordState = Enums.RecordState.Inactive;
             appDbContext.HelperCategories.Update(query);
+            await appDbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteSubServiceAsync(int id)
+        {
+            var query = await appDbContext.SubServices.FirstOrDefaultAsync(x => x.Id == id);
+            if (query == null)
+            {
+                throw new ArgumentException("Record not found");
+            }
+
+            appDbContext.SubServices.Remove(query);
             await appDbContext.SaveChangesAsync();
         }
     }

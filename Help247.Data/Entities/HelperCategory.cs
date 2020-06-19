@@ -10,13 +10,22 @@ namespace Help247.Data.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [MaxLength(30)]
+        [MaxLength(100)]
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string LongDescription { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string ShortDescription { get; set; }
         public string IconUrl { get; set; }
         public string ImageUrl { get; set; }
-        public Dictionary<string, string> ServicesProvided { get; set; } = new Dictionary<string, string>();
+        //public Dictionary<string, string> ServicesProvided { get; set; } = new Dictionary<string, string>();
+
+        #region navigation property
+        public List<SubService> SubServices { get; set; }
+        #endregion
+
     }
 }

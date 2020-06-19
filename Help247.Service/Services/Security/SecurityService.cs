@@ -2,6 +2,7 @@
 using Help247.Common;
 using Help247.Common.Constants;
 using Help247.Common.Mailer;
+using Help247.Common.Pagination;
 using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Data.Entities;
@@ -140,6 +141,52 @@ namespace Help247.Service.Services.Security
                     //};
                     //await appDbContext.Images.AddAsync(image);
                     //await appDbContext.SaveChangesAsync();
+
+                    transaction.Commit();     
+                     return userBO;
+
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw new Exception(ex.Message);
+                }
+            }
+        }public async Task<UserBO> CreateAdminAsync(UserBO userBO)
+        {
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    var checkUser = appDbContext.Users.SingleOrDefault(x => x.Email == userBO.Email && x.UserName == userBO.UserName);
+                    if (checkUser != null)
+                    {
+                        return null;
+                    }
+                    
+                    var storeUser = mapper.Map<User>(userBO);
+                    storeUser.IsAdmin = true;
+                    var user = await userManager.CreateAsync(storeUser, userBO.Password);
+                    if (!user.Succeeded)
+                    {
+                        return new UserBO();
+                    }
+
+                    var token = await userManager.GenerateEmailConfirmationTokenAsync(storeUser);
+                    var confirmPasswordLink = string.Concat(GlobalConfig.APIBaseUrl, $"/api/account/confirmemail?token={Base64UrlEncoder.Encode(token)}&email={storeUser.Email}");
+                    var messageBuilder = new EmailBuilder(configuration)
+                    {
+                        To = new[] { storeUser.Email },
+                        Subject = "Welcome To Help 24/7",
+                        IsBodyHtml = true,
+                        Body = $"Hi {storeUser.UserName} , please click on the link below so that we can confirm your email address. <br/><br/>" +
+                        $"{confirmPasswordLink} <br/><br/>" +
+                        $"Happy Help!!!"
+
+                    };
+                    EmailBuilder.SendEmail(messageBuilder);
+
+                    await userManager.AddToRoleAsync(storeUser, "Admin");
 
                     transaction.Commit();     
                      return userBO;
@@ -308,6 +355,47 @@ namespace Help247.Service.Services.Security
             {
                 return true;
             }
+        }
+
+        public async Task<PaginationModel<AdminUserBO>> GetAdminListAsync(PaginationBase paginationBase)
+        {
+            try
+            {
+                var query = userManager.GetUsersInRoleAsync(Enums.UserType.Admin.ToString())
+                        .Result.Where(x => x.RecordState == Enums.RecordState.Active);
+
+                var totalNumberOfRecord = query.Count();
+
+                query = query.OrderByDescending(x => x.Id).Skip(paginationBase.Skip).Take(paginationBase.Take);
+                var result = query.ToList();
+                var resultSet = new PaginationModel<AdminUserBO>()
+                {
+                    TotalRecords = totalNumberOfRecord,
+                    Details = mapper.Map<List<AdminUserBO>>(result)
+                };
+                return resultSet;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            
+        }
+
+        public async Task<UserBO> DeleteAdminAsync(string userId)
+        {
+            var query = await userManager.FindByIdAsync(userId);
+
+            if (query == null)
+            {
+                throw new ArgumentException("Admin not found");
+            }
+
+            query.RecordState = Enums.RecordState.Inactive;
+            await userManager.UpdateAsync(query);
+            return mapper.Map<UserBO>(query);
+
         }
 
     }
