@@ -519,7 +519,14 @@
                                                                             <label>Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Full name"
-                                                                                formControlName="name">
+                                                                                formControlName="name"
+                                                                                [ngClass]="{ 'is-invalid': c.name.errors && c.name.dirty }">
+                                                                                <div *ngIf="c.name.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.name.errors.required">
+                                                                                    Name is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -527,7 +534,14 @@
                                                                             <label>Phone</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="+94"
-                                                                                formControlName="phoneNo">
+                                                                                formControlName="phoneNo"
+                                                                                [ngClass]="{ 'is-invalid': c.phoneNo.errors && c.phoneNo.dirty }">
+                                                                                <div *ngIf="c.phoneNo.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.phoneNo.errors.required">
+                                                                                    Phone is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -537,7 +551,14 @@
                                                                             <label>Email Address</label>
                                                                             <input type="email" class="form-control"
                                                                                 placeholder="Your Email"
-                                                                                formControlName="email">
+                                                                                formControlName="email"
+                                                                                [ngClass]="{ 'is-invalid': c.email.errors && c.email.dirty }">
+                                                                                <div *ngIf="c.email.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.email.errors.required">
+                                                                                    Email is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -545,7 +566,14 @@
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Address"
-                                                                                formControlName="addressLine">
+                                                                                formControlName="addressLine"
+                                                                                [ngClass]="{ 'is-invalid': c.addressLine.errors && c.addressLine.dirty }">
+                                                                                <div *ngIf="c.addressLine.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.addressLine.errors.required">
+                                                                                    Address is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -554,16 +582,30 @@
                                                                         <div class="form-group">
                                                                             <label>Country </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Postal Code"
-                                                                                formControlName="country">
+                                                                                placeholder="Country"
+                                                                                formControlName="country"
+                                                                                [ngClass]="{ 'is-invalid': c.country.errors && c.country.dirty }">
+                                                                                <div *ngIf="c.country.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.country.errors.required">
+                                                                                    Country is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
                                                                             <label>State</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Postal Code"
-                                                                                formControlName="state">
+                                                                                placeholder="State"
+                                                                                formControlName="state"
+                                                                                [ngClass]="{ 'is-invalid': c.state.errors && c.state.dirty }">
+                                                                                <div *ngIf="c.state.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.state.errors.required">
+                                                                                    State is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -572,8 +614,15 @@
                                                                         <div class="form-group">
                                                                             <label>City </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Postal Code"
-                                                                                formControlName="city">
+                                                                                placeholder="City"
+                                                                                formControlName="city"
+                                                                                [ngClass]="{ 'is-invalid': c.city.errors && c.city.dirty }">
+                                                                                <div *ngIf="c.city.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.city.errors.required">
+                                                                                    City is required</div>
+                                                                            </div>
 
                                                                         </div>
                                                                     </div>
@@ -582,7 +631,14 @@
                                                                             <label>Postal Code</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Postal Code"
-                                                                                formControlName="postalCode">
+                                                                                formControlName="postalCode"
+                                                                                [ngClass]="{ 'is-invalid': c.postalCode.errors && c.postalCode.dirty }">
+                                                                                <div *ngIf="c.postalCode.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="c.postalCode.errors.required">
+                                                                                    Postal Code is required</div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -608,7 +664,10 @@
                                                                     <div class="col">
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" class="btn redbtn">Save</button>
+                                                                <button type="submit" class="btn redbtn" [disabled]="customerForm.invalid || isCustomerRequested">
+                                                                    <i class="fa fa-circle-o-notch fa-spin fa-fw"
+                                                                        [hidden]="!isCustomerRequested"></i>
+                                                                        {{isCustomerRequested ? 'Saving' : 'Save'}}</button>
                                                             </form>
                                                         </div>
                                                         <div class="accsetting">

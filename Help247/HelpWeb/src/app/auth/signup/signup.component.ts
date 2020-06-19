@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
   initSignUpForm() {
     this.signupForm = this.fb.group({
       email: [
-        'admin2@gmail.com',
+        '',
         {
           validators: [Validators.required, Validators.email],
           asyncValidators: [this.validatorService.checkEmail.bind(this.validatorService)],
@@ -30,14 +30,14 @@ export class SignupComponent implements OnInit {
         }
       ],
       userName: [
-        'admin2',
+        '',
         {
           validators: [Validators.required],
           asyncValidators: [this.validatorService.checkUsername.bind(this.validatorService)],
           updateOn: 'blur'
         }
       ],
-      password: ['Admin@123', [Validators.required]],
+      password: ['', [Validators.required]],
       userType: [2, [Validators.required]]
     });
   }

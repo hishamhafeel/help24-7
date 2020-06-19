@@ -8,6 +8,7 @@ import { PaginationBase } from 'src/app/shared/models/pagination-base.model';
 import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -29,8 +30,13 @@ export class RegisterComponent implements OnInit {
   uploader: FileUploader;
   url: string;
   fileName: string = "";
+  public_id: string = "";
+  isFormSubmitted: boolean = false;
 
-  constructor(private cloudinary: Cloudinary, private helperService: HelperService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
+  isHelperRequested: boolean = false;
+  isCustomerRequested: boolean = false;
+
+  constructor(private toastr: ToastrService, private cloudinary: Cloudinary, private helperService: HelperService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
     this.pagination = new PaginationBase();
   }
 
@@ -68,6 +74,7 @@ export class RegisterComponent implements OnInit {
     this.uploader = new FileUploader(uploaderOptions);
 
     this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+      this.generateFileName();
       // Add Cloudinary's unsigned upload preset to the upload form
       form.append('upload_preset', this.cloudinary.config().upload_preset);
       form.append('folder', 'angular_sample');
@@ -89,33 +96,43 @@ export class RegisterComponent implements OnInit {
 
   initCustomerForm() {
     this.customerForm = this.fb.group({
-      name: ['Test Customer', [Validators.required]],
-      phoneNo: ['+94772563489', [Validators.required]],
+      name: [null, [Validators.required]],
+      phoneNo: [null, [Validators.required]],
       email: [null, [Validators.required]],
-      addressLine: ['311/1/A Malay Colony Ambalantota', [Validators.required]],
-      country: ['Sri Lanka', [Validators.required]],
-      city: ['Ambalantota', [Validators.required]],
-      state: ['Hambantota', [Validators.required]],
-      postalCode: ['82100', [Validators.required]]
+      addressLine: [null, [Validators.required]],
+      country: [null, [Validators.required]],
+      city: [null, [Validators.required]],
+      state: [null, [Validators.required]],
+      postalCode: [null, [Validators.required]],
+      profilePicUrl: [null, [Validators.required]]
     });
+  }
+
+  get c() {
+    return this.customerForm.controls;
+  }
+
+  get h() {
+    return this.helperForm.controls;
   }
 
   initHelperForm() {
     this.helperForm = this.fb.group({
-      firstName: ['Test', [Validators.required]],
-      lastName: ['Customer', [Validators.required]],
-      phoneNo: ['+94774065416', [Validators.required]],
-      mobileNo: ['+94774065416', [Validators.required]],
+      firstName: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
+      phoneNo: [null, [Validators.required]],
+      mobileNo: [null, [Validators.required]],
       email: [null, [Validators.required]],
-      addressLine: ['311/1/A Malay Colony Ambalantota', [Validators.required]],
-      country: ['Sri Lanka', [Validators.required]],
-      city: ['Ambalantota', [Validators.required]],
-      state: ['Hambantota', [Validators.required]],
-      postalCode: ['82100', [Validators.required]],
-      experience: [2, [Validators.required]],
-      aboutMe: ['I am Sri lankan', [Validators.required]],
-      myService: ['About my service description', [Validators.required]],
-      helperCategoryId: [null, [Validators.required]]
+      addressLine: [null, [Validators.required]],
+      country: [null, [Validators.required]],
+      city: [null, [Validators.required]],
+      state: [null, [Validators.required]],
+      postalCode: [null, [Validators.required]],
+      experience: [0, [Validators.required]],
+      aboutMe: [null, [Validators.required]],
+      myService: [null, [Validators.required]],
+      helperCategoryId: [null, [Validators.required]],
+      profilePicUrl: [null, [Validators.required]]
     });
   }
 
@@ -132,6 +149,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onCustomerSubmit() {
+    this.isFormSubmitted = true;
     if (this.customerForm.invalid) {
       return;
     }
@@ -140,19 +158,25 @@ export class RegisterComponent implements OnInit {
     this.customerModel.password = this.registerModel.password;
     this.customerModel.userType = this.userType;
     this.customerModel.profilePicUrl = this.url;
-
+    this.isCustomerRequested = true;
     this.authService.register(this.customerModel).subscribe(
       result => {
         console.log('result', result);
-        this.router.navigate(['auth/login']);
+        this.toastr.success('Success', 'Account successfully created! Please check your email to confirm');
+        setTimeout(() => {
+          this.router.navigate(['auth/login']);
+        }, 2000);
       },
       error => {
         console.log('error', error);
+        this.isCustomerRequested = false;
+        this.toastr.error('Error', error.message);
       }
     );
   }
 
   onHelperSubmit() {
+    this.isFormSubmitted = true;
     if (this.helperForm.invalid) {
       return;
     }
@@ -161,20 +185,25 @@ export class RegisterComponent implements OnInit {
     this.helperModel.password = this.registerModel.password;
     this.helperModel.userType = this.userType;
     this.helperModel.profilePicUrl = this.url;
-
+    this.helperModel.experience = +this.helperForm.value.experience;
+    this.isHelperRequested = true;
     this.authService.register(this.helperModel).subscribe(
       result => {
         console.log('result', result);
-        this.router.navigate(['auth/login']);
+        this.toastr.success('Success', 'Account successfully created! Please check your email to confirm');
+        setTimeout(() => {
+          this.router.navigate(['auth/login']);
+        }, 2000);
       },
       error => {
         console.log('error', error);
+        this.isHelperRequested = false;
+        this.toastr.error('Error', error.message);
       }
     );
   }
 
-  fileEvent(fileInput) {
-    let file = fileInput.target.files[0];
-    this.fileName = file.name;
+  generateFileName() {
+    this.public_id = `img_${Date.now()}`;
   }
 }

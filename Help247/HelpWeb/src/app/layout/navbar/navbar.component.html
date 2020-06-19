@@ -15,7 +15,7 @@
                         <li><a [routerLink]="['/services']" routerLinkActive="router-link-active">Services</a></li>
                         <li><a [routerLink]="['/hire-me']" routerLinkActive="router-link-active">Hire Me</a></li>
                         <li><a [routerLink]="['/contact-us']" routerLinkActive="router-link-active">Contact Us</a></li>
-                        <li><a [routerLink]="['/auth/signup']" routerLinkActive="router-link-active">Register</a></li>
+                        <li><a [routerLink]="[routerlink]" routerLinkActive="router-link-active">{{getUser()}}</a></li>
                     </ul>
                     <!-- <a class="call" href=""></a> -->
                     <button class="navbar-toggler mobilemenu">
