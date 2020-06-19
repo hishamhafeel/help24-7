@@ -21,6 +21,11 @@ export class HelperModel {
     userId: string;
     createdOn: Date;
     image: ImageModel;
+
+    constructor() {
+        this.image = new ImageModel();
+        this.helperCategory = new HelperCategoryModel();
+    }
 }
 
 export class TicketCountModel {

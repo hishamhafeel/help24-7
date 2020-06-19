@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { TicketModel } from '../hire-me/models/ticket.model';
+import { TicketModel, FeedbackModel } from '../hire-me/models/ticket.model';
 import { PaginationBase } from '../shared/models/pagination-base.model';
 import { HireMeService } from '../hire-me/services/hire-me.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
@@ -9,6 +9,8 @@ import { HelperModel } from './models/helper.model';
 import { HelperCategoryModel } from './models/helper-category.model';
 import { Router } from '@angular/router';
 import { SkillModel } from './models/skills.model';
+import { JobsCountModel } from './models/jobs.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-helper',
@@ -23,12 +25,14 @@ export class HelperComponent implements OnInit {
   isLogoutClicked: boolean = false;
 
   ticketList: Array<TicketModel>;
+  feedbackList: Array<FeedbackModel>;
   pagination: PaginationBase;
   helperForm: FormGroup;
   skillForm: FormGroup;
   ticketModel: TicketModel = new TicketModel();
   helperModel: HelperModel = new HelperModel();
   skillModel: SkillModel = new SkillModel();
+  jobsCountModel: JobsCountModel = new JobsCountModel();
   helperCategoryList: Array<HelperCategoryModel>
   helperId: number;
 
@@ -42,17 +46,34 @@ export class HelperComponent implements OnInit {
     private modalService: BsModalService,
     private helperService: HelperService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
+
   ) {
     this.pagination = new PaginationBase();
   }
 
   ngOnInit(): void {
     this.helperId = +localStorage.getItem('LoggedId');
+    this.getJobCount(this.helperId);
     this.getHelperById();
     this.getHelperCategory();
     this.getSkills();
   }
+  //DASHBOARD START
+
+  getJobCount(helperId: number) {
+    this.helperService.getJobCount(helperId).subscribe(
+      result => {
+        this.jobsCountModel = result;
+      },
+      error => {
+        this.toastr.error('Error', error.message);
+      }
+    );
+  }
+
+  //DARSHBOARD END
 
   //TICKET START
 
@@ -63,7 +84,7 @@ export class HelperComponent implements OnInit {
         this.ticketList = result.details;
       },
       error => {
-        console.log('error', error);
+        this.toastr.error('Error', error.message);
       }
     );
   }
@@ -75,7 +96,7 @@ export class HelperComponent implements OnInit {
         this.ticketModel = result;
       },
       error => {
-        console.log('error', error);
+        this.toastr.error('Error', error.message);
       }
     );
   }
@@ -87,7 +108,7 @@ export class HelperComponent implements OnInit {
         this.getTicketList();
       },
       error => {
-        console.log('error', error);
+        this.toastr.error('Error', error.message);
       }
     );
   }
@@ -108,7 +129,7 @@ export class HelperComponent implements OnInit {
         this.helperModel = result;
       },
       error => {
-        console.log('error', error);
+        this.toastr.error('Error', error.message);
       }
     );
   }
@@ -120,7 +141,7 @@ export class HelperComponent implements OnInit {
         this.helperCategoryList = result.details;
       },
       error => {
-        console.log('error', error);
+        this.toastr.error('Error', error.message);
       }
     );
   }
@@ -171,21 +192,21 @@ export class HelperComponent implements OnInit {
     });
   }
 
-  getSkills(){
+  getSkills() {
     this.helperService.getSkill(this.helperId).subscribe(
       result => {
         console.log('result', result);
         this.skillModel = result;
       },
       error => {
-        console.log('error', error);
+        this.toastr.error('Error', error.message);
       }
     );
   }
 
   initSkillsForm() {
     this.skillForm = this.fb.group({
-      skills: this.fb.array([ ])
+      skills: this.fb.array([])
     });
   }
 
@@ -196,12 +217,12 @@ export class HelperComponent implements OnInit {
     });
   }
 
-  get skills(){
+  get skills() {
     return this.skillForm.get('skills') as FormArray;
   }
 
-  addNewSkill(){
-    if(this.skills.controls.length >= 5){
+  addNewSkill() {
+    if (this.skills.controls.length >= 5) {
       return;
     }
     this.skills.push(this.fb.control(''))
@@ -211,7 +232,7 @@ export class HelperComponent implements OnInit {
     this.skills.removeAt(i);
   }
 
-  onSkillSubmit(){
+  onSkillSubmit() {
     if(this.skillModel == null){
       this.skillModel = new SkillModel();
     }
@@ -225,7 +246,7 @@ export class HelperComponent implements OnInit {
         this.isSkillRequested = false;
       },
       error => {
-        console.log('error', error);
+        this.toastr.error('Error', error.message);
         this.isSkillRequested = false;
       }
     );
@@ -246,12 +267,27 @@ export class HelperComponent implements OnInit {
       },
       error => {
         this.isHelperRequested = false;
-        console.log('error', error);
+        console.log('error', error.message);
       }
     );
   }
 
   //HELPER END
+
+  //FEEDBACK START
+
+  getFeedbacksForHelper(id: number) {
+    this.helperService.getFeedbackByHelperId(id).subscribe(
+      result => {
+        this.feedbackList = result;
+      },
+      error => {
+        this.toastr.error('Error', error.message);
+      }
+    );
+  }
+
+  //FEEDBACK END
 
   showDashboard() {
     this.isDashboardClicked = true;
@@ -285,6 +321,7 @@ export class HelperComponent implements OnInit {
   }
 
   showRatings() {
+    this.getFeedbacksForHelper(this.helperId);
     this.isDashboardClicked = false;
     this.isMyJobsClicked = false;
     this.isSettingsClicked = false;
@@ -302,4 +339,6 @@ export class HelperComponent implements OnInit {
     // this.isRatingClicked = false;
     // this.isLogoutClicked = true;
   }
+
+
 }

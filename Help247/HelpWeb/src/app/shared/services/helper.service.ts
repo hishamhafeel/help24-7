@@ -7,6 +7,8 @@ import { PaginationModel } from '../models/paginationModel';
 import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model';
 import { HelperModel } from 'src/app/helper/models/helper.model';
 import { SkillModel } from 'src/app/helper/models/skills.model';
+import { JobsCountModel } from 'src/app/helper/models/jobs.model';
+import { FeedbackModel } from 'src/app/hire-me/models/ticket.model';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +54,7 @@ export class HelperService extends BaseService {
       )
       .pipe(catchError(this.server4xxError));
   }
-  
+
   getHelperCategoryList(pagination: PaginationBase) {
     return this.http
       .get<PaginationModel<HelperCategoryModel>>(
@@ -70,6 +72,24 @@ export class HelperService extends BaseService {
         `${this.baseEndPoint}/api/Helper/list?&skip=${
         pagination.skip
         }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getJobCount(id: number) {
+    return this.http
+      .get<JobsCountModel>(
+        `${this.baseEndPoint}/api/Ticket/count?&helperId=${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getFeedbackByHelperId(id: number) {
+    return this.http
+      .get<Array<FeedbackModel>>(
+        `${this.baseEndPoint}/api/Feedback/helperpublic?&id=${id}`,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));

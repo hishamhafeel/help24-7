@@ -58,3 +58,11 @@
         </div>
     </div>
 </div>
+
+<ng-template #deleteDialog>
+    <h2 matDialogTitle>Are you sure you want to delete this helper service? This cannot be undone</h2>
+    <mat-dialog-actions align="end">
+        <button mat-flat-button matDialogClose="no">No</button>
+        <button mat-flat-button color="warn" matDialogClose="yes">Yes</button>
+    </mat-dialog-actions>
+</ng-template>
