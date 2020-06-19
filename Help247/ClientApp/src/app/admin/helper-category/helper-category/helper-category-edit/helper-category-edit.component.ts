@@ -136,6 +136,7 @@ export class HelperCategoryEditComponent implements OnInit {
   updateHelperCategory() {
     this.isBlocked = true;
     this.helperCategoryModel = this.helperCategoryForm.value;
+    this.helperCategoryModel.id = this.data;
 
     this.helperCategoryService.updateHelperCategory(this.helperCategoryModel).subscribe(
       () => {
@@ -157,6 +158,7 @@ export class HelperCategoryEditComponent implements OnInit {
   saveSubService(i) {
     this.subServiceToSave = new SubServiceModel();
     this.subServiceToSave = this.subServices.value[i];
+    this.subServiceToSave.helperCategoryId = this.data;
     // this.subServiceToSave.name = this.subServiceName.value;
     // this.subServiceToSave.description = this.subServiceDescription.value;
     // this.subServiceToSave.helperCategoryId = this.id.value;
@@ -175,7 +177,8 @@ export class HelperCategoryEditComponent implements OnInit {
   }
 
   updateSubService(i) {
-    var model = this.subServices.value[i];
+    var model: SubServiceModel = this.subServices.value[i];
+    model.helperCategoryId = this.data;
     this.helperCategoryService.updateSubService(model).subscribe(
       () => {
         this.notificationService.successMessage("Successfully updated Sub Service");
@@ -188,7 +191,7 @@ export class HelperCategoryEditComponent implements OnInit {
 
   deleteSubService(i) {
     var model = this.subServices.value[i];
-    this.helperCategoryService.postSubService(model.id).subscribe(
+    this.helperCategoryService.deleteSubService(model.id).subscribe(
       () => {
         this.notificationService.successMessage("Successfully deleted Sub Service");
         this.subServices.removeAt(i);

@@ -73,5 +73,16 @@ export class HelperCategoryService extends BaseService {
       )
       .pipe(catchError(this.server4xxError));
   }
+
+  deleteHelperCategory(id: number) {
+    return this.http
+      .delete(
+        `${
+        this.baseEndPoint
+        }/api/HelperCategory/${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
 }
 

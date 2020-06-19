@@ -58,7 +58,7 @@ namespace Help247.Service.Services.Customer
         {
             try
             {
-                var query = await appDbContext.Customers.FirstOrDefaultAsync(x => x.Id == id);
+                var query = await appDbContext.Customers.Include(x => x.Image).FirstOrDefaultAsync(x => x.Id == id);
                 if (query == null)
                 {
                     throw new CustomerNotFoundException();

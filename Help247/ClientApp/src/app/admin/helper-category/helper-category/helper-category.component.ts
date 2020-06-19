@@ -49,61 +49,9 @@ export class HelperCategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.initHelperCategoryForm();
     this.getHelperCategory();
 
   }
-
-  // initHelperCategoryForm() {
-  //   this.helperCategoryForm = this.fb.group({
-  //     id: [{ value: '', disabled: true }],
-  //     name: ['', Validators.required],
-  //     title: ['', Validators.required],
-  //     shortDescription: ['', Validators.required],
-  //     longDescription: ['', Validators.required],
-  //     iconUrl: ['', Validators.required],
-  //     imageUrl: ['', Validators.required]
-  //   });
-  //   // this.patchHelperCategoryForm();
-  // }
-
-  // patchHelperCategoryForm() {
-  //   this.helperCategoryForm.patchValue({
-  //     id: this.helperCategory.id,
-  //     name: this.helperCategory.name,
-  //     title: this.helperCategory.title,
-  //     shortDescription: this.helperCategory.shortDescription,
-  //     longDescription: this.helperCategory.longDescription,
-  //     iconUrl: this.helperCategory.iconUrl,
-  //     imageUrl: this.helperCategory.imageUrl,
-  //     servicesProvided: this.helperCategory.servicesProvided,
-
-  //   });
-  // }
-
-  // get id() {
-  //   return this.helperCategoryForm.get('id');
-  // }
-  // get name() {
-  //   return this.helperCategoryForm.get('name');
-  // }
-
-  // get title() {
-  //   return this.helperCategoryForm.get('title');
-  // }
-  // get shortDescription() {
-  //   return this.helperCategoryForm.get('shortDescription');
-  // }
-  // get longDescription() {
-  //   return this.helperCategoryForm.get('longDescription');
-  // }
-  // get iconUrl() {
-  //   return this.helperCategoryForm.get('iconUrl');
-  // }
-  // get imageUrl() {
-  //   return this.helperCategoryForm.get('imageUrl');
-  // }
-
 
 
   getHelperCategory() {
@@ -135,30 +83,30 @@ export class HelperCategoryComponent implements OnInit {
     });
   }
 
+  openDeleteDialog(id) {
+    let dialogRef = this.dialog.open(this.deleteDialog);
 
-  // saveValue(data: any) {
-  //   var x = this.helperCategoryForm.value;
-  //   this.helperCategory = new HelperCategoryModel();
-  //   this.helperCategory = this.helperCategoryForm.value;
+    dialogRef.afterClosed().subscribe(result => {
+      // Note: If the user clicks outside the dialog or presses the escape key, there'll be no result
+      if (result !== undefined) {
+        if (result === 'yes') {
+          this.deleteHelperCategory(id);
+        } else if (result === 'no') {
+          //Do nothing
+        }
+      }
+    })
+  }
 
-  //   this.servicesProvided = {};
-  //   this.servicesProvided = data.servicesProvided;
-  //   this.servicesProvided[this.subServiceName.value] = this.description.value;
-  //   this.helperCategory.servicesProvided = this.servicesProvided;
-
-  //   this.helperCategoryService.updateHelperCategory(this.helperCategory).subscribe(
-  //     () => {
-  //       this.getHelperCategory();
-  //       this.subServiceName.reset();
-  //       this.description.reset();
-  //       this.notificationService.successMessage("Successfully updated!");
-  //     },
-  //     error => {
-  //       this.isLoadingResults = false;
-  //       this.notificationService.errorMessage(error.message);
-  //     }
-  //   );
-  // }
+  deleteHelperCategory(id) {
+    this.helperCategoryService.deleteHelperCategory(id)
+      .subscribe(result => {
+        this.getHelperCategory();
+      },
+        error => {
+          this.notificationService.errorMessage(error.message);
+        });
+  }
 
 
 }

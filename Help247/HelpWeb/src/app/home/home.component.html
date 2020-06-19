@@ -309,7 +309,7 @@
                                     <div class="item">
                                         <div class="tech-item">
                                             <div class="techimg">
-                                                <img src="data.profilePic>" class="img-fluid">
+                                                <img src="data.image.imageUrl>" class="img-fluid">
                                             </div>
                                             <div class="techdetail">
                                                 <h5>{{data.firstName}} {{data.lastName}}</h5>
@@ -328,7 +328,9 @@
                                                     </span>
                                                 </div>
                                                 <div class="techbtn-wrap">
-                                                    <a href="javascript:void(0)" [routerLink]="['/hire-me/open-ticket', data.id]" class="btn-hire">Hire Me</a>
+                                                    <a href="javascript:void(0)"
+                                                        [routerLink]="['/hire-me/open-ticket', data.id]"
+                                                        class="btn-hire">Hire Me</a>
                                                 </div>
                                             </div>
                                         </div>

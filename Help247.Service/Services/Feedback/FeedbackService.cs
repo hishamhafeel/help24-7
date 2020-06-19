@@ -91,7 +91,11 @@ namespace Help247.Service.Services.Feedback
         {
             try
             {
-                var query = await appDbContext.Feedbacks.AsQueryable().Where(x => x.HelperId == id).OrderByDescending(x => x.Id).ToListAsync();
+                var query = await appDbContext.Feedbacks.AsQueryable()
+                    .Include(x => x.Helper)
+                    .Include(x => x.Customer)
+                    .Include(x => x.Ticket)
+                    .Where(x => x.HelperId == id).OrderByDescending(x => x.Id).ToListAsync();
                 if (query == null)
                 {
                     throw new FeedbackNotFoundException();

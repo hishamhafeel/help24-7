@@ -8,7 +8,7 @@
                             <div class="sidebar boxshadow">
                                 <div class="sidebar-header">
                                     <div class="profileimg">
-                                        <img src="../../../assets/images/user-profile-img.png" class="img-fluid">
+                                        <img src="{{customerModel.image.imageUrl}}" class="img-fluid">
                                     </div>
                                     <div class="profile-info">
                                         <h3>{{customerModel.name}}</h3>
@@ -659,6 +659,7 @@
                                                     <tr>
                                                         <th scope="col">Helper</th>
                                                         <th scope="col">Review</th>
+                                                        <th scope="col">Rating</th>
                                                         <th scope="col">Date</th>
                                                         <th scope="col"></th>
                                                     </tr>
@@ -668,6 +669,7 @@
                                                         <td data-label="Helper">{{data.helper.firstName}}
                                                             {{data.helper.lastName}}</td>
                                                         <td data-label="Review">{{data.description}}</td>
+                                                        <td data-label="Rating">{{data.rating}}</td>
                                                         <td data-label="Date">{{data.createdOn | date: 'mediumDate'}}
                                                         </td>
                                                         <td data-label=""><a href="" class="btn-red small"
