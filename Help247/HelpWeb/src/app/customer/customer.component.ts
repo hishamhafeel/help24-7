@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer',
@@ -48,7 +49,9 @@ export class CustomerComponent implements OnInit {
     private customerService: CustomerService,
     private fb: FormBuilder,
     private router: Router,
-    private cloudinary: Cloudinary
+    private cloudinary: Cloudinary,
+    private toastr: ToastrService
+
   ) {
     this.pagination = new PaginationBase();
   }
@@ -56,7 +59,7 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
     this.customerId = +localStorage.getItem('LoggedId');
     this.getCustomerById();
-    
+
     const uploaderOptions: FileUploaderOptions = {
       url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
       autoUpload: true,
@@ -162,11 +165,12 @@ export class CustomerComponent implements OnInit {
 
     this.customerService.addFeedback(this.feedbackModel).subscribe(
       result => {
-        console.log('result', result);
+        this.toastr.success("Feedback successfully submitted");
+        this.modalRef.hide();
         this.getCustomerById();
       },
       error => {
-        console.log('error', error);
+        this.toastr.error('Error', error.message);
       }
     );
   }

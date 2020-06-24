@@ -223,6 +223,8 @@ export class HelperComponent implements OnInit {
 
   addNewSkill() {
     if (this.skills.controls.length >= 5) {
+      this.toastr.error('Error', "Only 5 skills are allowed");
+
       return;
     }
     this.skills.push(this.fb.control(''))
@@ -233,7 +235,7 @@ export class HelperComponent implements OnInit {
   }
 
   onSkillSubmit() {
-    if(this.skillModel == null){
+    if (this.skillModel == null) {
       this.skillModel = new SkillModel();
     }
     this.skillModel.skillNames = this.skillForm.value.skills;
@@ -244,6 +246,8 @@ export class HelperComponent implements OnInit {
         console.log('result', result);
         this.getHelperById();
         this.isSkillRequested = false;
+        this.toastr.success("Success", "Skills successfully updated");
+
       },
       error => {
         this.toastr.error('Error', error.message);
@@ -310,7 +314,7 @@ export class HelperComponent implements OnInit {
     this.initHelperForm();
     this.initSkillsForm();
     this.patchHelperForm();
-    if(this.skillModel != null){
+    if (this.skillModel != null) {
       this.patchSkillForm();
     }
     this.isDashboardClicked = false;

@@ -4,38 +4,22 @@ using Help247.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Help247.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200624135357_country2")]
+    partial class country2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Help247.Data.Entities.City", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SateId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cities");
-                });
 
             modelBuilder.Entity("Help247.Data.Entities.Country", b =>
                 {
@@ -224,8 +208,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2020, 6, 24, 15, 46, 39, 251, DateTimeKind.Utc).AddTicks(9774),
-                            EditedOn = new DateTime(2020, 6, 24, 15, 46, 39, 252, DateTimeKind.Utc).AddTicks(370),
+                            CreatedOn = new DateTime(2020, 6, 24, 13, 53, 55, 949, DateTimeKind.Utc).AddTicks(3156),
+                            EditedOn = new DateTime(2020, 6, 24, 13, 53, 55, 949, DateTimeKind.Utc).AddTicks(3983),
                             RecordState = (byte)1,
                             Title = "Terms & Conditions",
                             Topics = "{}"
@@ -233,8 +217,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2020, 6, 24, 15, 46, 39, 252, DateTimeKind.Utc).AddTicks(2167),
-                            EditedOn = new DateTime(2020, 6, 24, 15, 46, 39, 252, DateTimeKind.Utc).AddTicks(2175),
+                            CreatedOn = new DateTime(2020, 6, 24, 13, 53, 55, 949, DateTimeKind.Utc).AddTicks(6791),
+                            EditedOn = new DateTime(2020, 6, 24, 13, 53, 55, 949, DateTimeKind.Utc).AddTicks(6800),
                             RecordState = (byte)1,
                             Title = "Privacy Policy",
                             Topics = "{}"
@@ -242,8 +226,8 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2020, 6, 24, 15, 46, 39, 252, DateTimeKind.Utc).AddTicks(2227),
-                            EditedOn = new DateTime(2020, 6, 24, 15, 46, 39, 252, DateTimeKind.Utc).AddTicks(2229),
+                            CreatedOn = new DateTime(2020, 6, 24, 13, 53, 55, 949, DateTimeKind.Utc).AddTicks(6874),
+                            EditedOn = new DateTime(2020, 6, 24, 13, 53, 55, 949, DateTimeKind.Utc).AddTicks(6877),
                             RecordState = (byte)1,
                             Title = "FAQ",
                             Topics = "{}"
@@ -457,27 +441,6 @@ namespace Help247.Data.Migrations
                     b.HasIndex("HelperId");
 
                     b.ToTable("Skills");
-                });
-
-            modelBuilder.Entity("Help247.Data.Entities.State", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CountryCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CountryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("States");
                 });
 
             modelBuilder.Entity("Help247.Data.Entities.SubService", b =>
@@ -745,22 +708,22 @@ namespace Help247.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8d747c2e-a82a-4fa3-acf7-4e183a521568",
+                            Id = "017c1a76-32dc-460d-a1c7-ff395cf889a2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1d7d42f2-af5d-44af-a84f-20061ee826bc",
-                            CreatedOn = new DateTime(2020, 6, 24, 15, 46, 39, 228, DateTimeKind.Utc).AddTicks(383),
-                            EditedOn = new DateTime(2020, 6, 24, 15, 46, 39, 228, DateTimeKind.Utc).AddTicks(1133),
+                            ConcurrencyStamp = "d6d2a1a6-9fb8-4db9-81a5-74312c78a9f7",
+                            CreatedOn = new DateTime(2020, 6, 24, 13, 53, 55, 910, DateTimeKind.Utc).AddTicks(2804),
+                            EditedOn = new DateTime(2020, 6, 24, 13, 53, 55, 910, DateTimeKind.Utc).AddTicks(3621),
                             Email = "superadmin@admin.com",
                             EmailConfirmed = true,
                             IsAdmin = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@ADMIN.COM",
                             NormalizedUserName = "SUPERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIYhQap2dgrlvwh9Iv5iSuavN41LyfhkLu8nqCsP2aiyBKFZID5w8VMKDQ459BGlHA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELRyznK4e6ub7colnZHC0QT89ihZtqd///M5epvyWXeQhM/dYiAZJATuqxLwneAnXQ==",
                             PhoneNumber = "123456789",
                             PhoneNumberConfirmed = false,
                             RecordState = (byte)1,
-                            SecurityStamp = "5c4ee837-b6cf-4666-a39e-da2db4166f79",
+                            SecurityStamp = "b74415d0-a7e5-4e33-b5ba-c65585186a25",
                             TwoFactorEnabled = false,
                             UserName = "superadmin"
                         });
@@ -796,28 +759,28 @@ namespace Help247.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "bf3c06ec-5f69-4624-8ce1-02bf2703e5a1",
+                            ConcurrencyStamp = "f5439e91-bc44-4c26-9452-8b93f46efb4b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "045d369b-e99b-4c66-8bcb-9238a867341e",
+                            ConcurrencyStamp = "acaa63a4-a49c-49e9-be99-8891b4a48789",
                             Name = "Helper",
                             NormalizedName = "HELPER"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "98818449-16c8-440b-9661-c687bc5bc28c",
+                            ConcurrencyStamp = "fb01a076-a35c-45f4-8785-4d15b56cadeb",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "7c8160ed-50a0-4d71-a485-e11b447e3c59",
+                            ConcurrencyStamp = "943b4d27-5126-4cc2-bf74-ec228e7b8503",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -910,7 +873,7 @@ namespace Help247.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "8d747c2e-a82a-4fa3-acf7-4e183a521568",
+                            UserId = "017c1a76-32dc-460d-a1c7-ff395cf889a2",
                             RoleId = "4"
                         });
                 });

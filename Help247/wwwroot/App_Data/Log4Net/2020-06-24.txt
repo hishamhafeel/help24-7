@@ -1,0 +1,95 @@
+
+ 
+ ************ 2020-06-24 23:29:43,044 [12] ERROR App  
+ An unhandled exception has occurred while executing the request. ********** 
+ 
+System.NotSupportedException: Ambiguous HTTP method for action - Help247.Controllers.Api.CountryStateCityController.GetAllStateAsync (Help247). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+ 
+ ************ 2020-06-24 23:30:21,388 [4] ERROR App  
+ An unhandled exception has occurred while executing the request. ********** 
+ 
+System.NotSupportedException: Ambiguous HTTP method for action - Help247.Controllers.Api.CountryStateCityController.GetAllStateAsync (Help247). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+ 
+ ************ 2020-06-24 23:32:42,579 [4] ERROR App  
+ An unhandled exception has occurred while executing the request. ********** 
+ 
+System.NotSupportedException: Ambiguous HTTP method for action - Help247.Controllers.Api.CountryStateCityController.GetAllStateAsync (Help247). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+ 
+ ************ 2020-06-24 23:33:57,744 [22] ERROR App  
+ ERROR in src/app/auth/register/register.component.ts:104:10 - error TS2339: Property 'getAllCountries' does not exist on type 'RegisterComponent'.
+
+104     this.getAllCountries();
+             ~~~~~~~~~~~~~~~
+
+ERROR in Can't resolve all parameters for RegisterComponent in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/auth/register/register.component.ts: ([object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], ?).
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-24 23:34:34,028 [4] ERROR App  
+ An unhandled exception has occurred while executing the request. ********** 
+ 
+System.NotSupportedException: Ambiguous HTTP method for action - Help247.Controllers.Api.CountryStateCityController.GetAllStateAsync (Help247). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+ 
+ ************ 2020-06-24 23:35:27,340 [5] ERROR App  
+ ERROR in src/app/auth/register/register.component.ts:104:10 - error TS2339: Property 'getAllCountries' does not exist on type 'RegisterComponent'.
+
+104     this.getAllCountries();
+             ~~~~~~~~~~~~~~~
+
+ERROR in Can't resolve all parameters for RegisterComponent in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/auth/register/register.component.ts: ([object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], ?).
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-24 23:38:29,249 [5] ERROR App  
+ ERROR in src/app/auth/register/register.component.ts:104:10 - error TS2339: Property 'getAllCountries' does not exist on type 'RegisterComponent'.
+
+104     this.getAllCountries();
+             ~~~~~~~~~~~~~~~
+
+ERROR in Can't resolve all parameters for RegisterComponent in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/auth/register/register.component.ts: ([object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], ?).
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-24 23:50:20,926 [5] ERROR App  
+ ERROR in Can't resolve all parameters for RegisterComponent in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/auth/register/register.component.ts: ([object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], ?).
+
+ ********** 
+ 

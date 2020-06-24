@@ -1,0 +1,1158 @@
+
+ 
+ ************ 2020-06-22 20:40:39,535 [4] ERROR App  
+ ERROR in Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("l-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    <a [routerLink]="[ERROR ->]['services/sub-service', {{data.id}}]">
+                        <div class="service-box">
+         ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("l-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    <a [routerLink]="[ERROR ->]['services/sub-service', {{data.id}}]">
+                        <div class="service-box">
+         ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("l-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    <a [routerLink]="[ERROR ->]['services/sub-service', {{data.id}}]">
+                        <div class="service-box">
+         ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("l-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    <a [routerLink]="[ERROR ->]['services/sub-service', {{data.id}}]">
+                        <div class="service-box">
+         ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("l-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    <a [routerLink]="[ERROR ->]['services/sub-service', {{data.id}}]">
+                        <div class="service-box">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:42,206 [4] ERROR App  
+          ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['services/sub-service', {{data.id}}]">
+                        <div class="service")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div class="serviceimg">
+                                <img src="[ERROR ->]{{data.iconUrl}}" class="img-fluid">
+                            </div>
+                           ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div class="serviceimg">
+                                <img src="[ERROR ->]{{data.iconUrl}}" class="img-fluid">
+                            </div>
+                           ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div class="serviceimg">
+                                <img src="[ERROR ->]{{data.iconUrl}}" class="img-fluid">
+                            </div>
+                           ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div class="serviceimg">
+                                <img src="[ERROR ->]{{data.iconUrl}}" class="img-fluid">
+                            </div>
+                           ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div class="serviceimg">
+                                <img src="[ERROR ->]{{data.iconUrl}}" class="img-fluid">
+                            </div>
+                           ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("iv>
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:42,955 [4] ERROR App  
+                             <div class="service-content">
+                                <h4>[ERROR ->]{{data.name}}</h4>
+                                <p>{{data.shortDescription}}</p>
+               ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("iv>
+                            <div class="service-content">
+                                <h4>[ERROR ->]{{data.name}}</h4>
+                                <p>{{data.shortDescription}}</p>
+               ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("iv>
+                            <div class="service-content">
+                                <h4>[ERROR ->]{{data.name}}</h4>
+                                <p>{{data.shortDescription}}</p>
+               ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("iv>
+                            <div class="service-content">
+                                <h4>[ERROR ->]{{data.name}}</h4>
+                                <p>{{data.shortDescription}}</p>
+               ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("iv>
+                            <div class="service-content">
+                                <h4>[ERROR ->]{{data.name}}</h4>
+                                <p>{{data.shortDescription}}</p>
+               ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ntent">
+                                <h4>{{data.name}}</h4>
+                                <p>[ERROR ->]{{data.shortDescription}}</p>
+                            </div>
+                        </div>
+")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ntent">
+                                <h4>{{data.name}}</h4>
+                                <p>[ERROR ->]{{data.shortDescription}}</p>
+                            </div>
+                        </div>
+")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ntent">
+                                <h4>{{data.name}}</h4>
+                                <p>[ERROR ->]{{data.shortDescription}}</p>
+                            </div>
+                        </div>
+")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ntent">
+                                <h4>{{data.name}}</h4>
+                                <p>[ERROR ->]{{data.shortDescription}}</p>
+                            </div>
+                        </div>
+")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ntent">
+                                <h4>{{data.name}}</h4>
+                                <p>[ERROR ->]{{data.shortDescription}}</p>
+                            </div>
+                        </div>
+")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]100" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)=")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]100" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)=")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]100" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)=")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]100" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)=")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]100" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)=")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("            <div class="countnim">
+                            <div counto [step]="100" [countTo]="[ERROR ->]2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfHelpers = $")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("            <div class="countnim">
+                            <div counto [step]="100" [countTo]="[ERROR ->]2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfHelpers = $")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("            <div class="countnim">
+                            <div counto [step]="100" [countTo]="[ERROR ->]2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfHelpers = $")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("            <div class="countnim">
+                            <div counto [step]="100" [countTo]="[ERROR ->]2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfHelpers = $")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("            <div class="countnim">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:43,428 [4] ERROR App  
+                             <div counto [step]="100" [countTo]="[ERROR ->]2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfHelpers = $")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ass="countnim">
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="numbe")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ass="countnim">
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="numbe")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ass="countnim">
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="numbe")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ass="countnim">
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="numbe")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ass="countnim">
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="numbe")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfHelpers = $event" class="number">
+          ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfHelpers = $event" class="number">
+          ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfHelpers = $event" class="number">
+          ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfHelpers = $event" class="number">
+          ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfHelpers = $event" class="number">
+          ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("0" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfHelpers = $event" class="number">
+                                {{ noOfHelpers | number: '1.0-")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("0" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfHelpers = $event" class="number">
+                                {{ noOfHelpers | number: '1.0-")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("0" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfHelpers = $event" class="number">
+                                {{ noOfHelpers | number: '1.0-")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("0" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfHelpers = $event" class="number">
+                                {{ noOfHelpers | number: '1.0-")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("0" [countTo]="2650" [countFrom]="0" [duration]="3"
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:44,815 [4] ERROR App  
+                                 (countoChange)="[ERROR ->]noOfHelpers = $event" class="number">
+                                {{ noOfHelpers | number: '1.0-")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="number">[ERROR ->]
+                                {{ noOfHelpers | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="number">[ERROR ->]
+                                {{ noOfHelpers | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="number">[ERROR ->]
+                                {{ noOfHelpers | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="number">[ERROR ->]
+                                {{ noOfHelpers | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="number">[ERROR ->]
+                                {{ noOfHelpers | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="50" [countTo]="[ERROR ->]790" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfJobs = $even")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="50" [countTo]="[ERROR ->]790" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfJobs = $even")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="50" [countTo]="[ERROR ->]790" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfJobs = $even")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="50" [countTo]="[ERROR ->]790" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfJobs = $even")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="50" [countTo]="[ERROR ->]790" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfJobs = $even")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2"")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2"")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2"")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2"")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:45,952 [4] ERROR App  
+                             <div counto [step]="50" [countTo]="790" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2"")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfJobs = $event" class="number2">
+            ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfJobs = $event" class="number2">
+            ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfJobs = $event" class="number2">
+            ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfJobs = $event" class="number2">
+            ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfJobs = $event" class="number2">
+            ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfJobs = $event" class="number2">
+                                {{ noOfJobs | number: '1.0-0' }}")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfJobs = $event" class="number2">
+                                {{ noOfJobs | number: '1.0-0' }}")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfJobs = $event" class="number2">
+                                {{ noOfJobs | number: '1.0-0' }}")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfJobs = $event" class="number2">
+                                {{ noOfJobs | number: '1.0-0' }}")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfJobs = $event" class="number2">
+                                {{ noOfJobs | number: '1.0-0' }}")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 (" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2">[ERROR ->]
+                                {{ noOfJobs | number: '1.0-0' }}</div>
+                           ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 (" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2">[ERROR ->]
+                                {{ noOfJobs | number: '1.0-0' }}</div>
+                           ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 (" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2">[ERROR ->]
+                                {{ noOfJobs | number: '1.0-0' }}</div>
+                           ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 (" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2">[ERROR ->]
+                                {{ noOfJobs | number: '1.0-0' }}</div>
+                           ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 (" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2">[ERROR ->]
+                                {{ noOfJobs | number: '1.0-0' }}</div>
+                           ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]30" [countTo]="650" [countFrom]="0" [duration]="3"
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:47,571 [4] ERROR App  
+                                 (countoChange)="n")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="30" [countTo]="[ERROR ->]650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfClients = $e")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="30" [countTo]="[ERROR ->]650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfClients = $e")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="30" [countTo]="[ERROR ->]650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfClients = $e")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="30" [countTo]="[ERROR ->]650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfClients = $e")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="30" [countTo]="[ERROR ->]650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfClients = $e")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfClients = $event" class="numbe")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfClients = $event" class="numbe")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfClients = $event" class="numbe")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfClients = $event" class="numbe")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfClients = $event" class="numbe")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfClients = $event" class="number3">
+         ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfClients = $event" class="number3">
+         ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfClients = $event" class="number3">
+         ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfClients = $event" class="number3">
+         ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfClients = $event" class="number3">
+         ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfClients = $event" class="number3">
+                                {{ noOfClients | number: '1.0")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfClients = $event" class="number3">
+                                {{ noOfClients | number: '1.0")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfClients = $event" class="number3">
+                                {{ noOfClients | number: '1.0")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfClients = $event" class="number3">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:48,971 [4] ERROR App  
+                                 {{ noOfClients | number: '1.0")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfClients = $event" class="number3">
+                                {{ noOfClients | number: '1.0")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("uration]="3"
+                                (countoChange)="noOfClients = $event" class="number3">[ERROR ->]
+                                {{ noOfClients | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("uration]="3"
+                                (countoChange)="noOfClients = $event" class="number3">[ERROR ->]
+                                {{ noOfClients | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("uration]="3"
+                                (countoChange)="noOfClients = $event" class="number3">[ERROR ->]
+                                {{ noOfClients | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("uration]="3"
+                                (countoChange)="noOfClients = $event" class="number3">[ERROR ->]
+                                {{ noOfClients | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("uration]="3"
+                                (countoChange)="noOfClients = $event" class="number3">[ERROR ->]
+                                {{ noOfClients | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="10" [countTo]="[ERROR ->]210" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="10" [countTo]="[ERROR ->]210" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="10" [countTo]="[ERROR ->]210" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:49,216 [4] ERROR App  
+                             <div counto [step]="10" [countTo]="[ERROR ->]210" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="10" [countTo]="[ERROR ->]210" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="n")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="n")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="n")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="n")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="n")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">
+     ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">
+     ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">
+     ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">
+     ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">
+     ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfOnGoingJobs = $event" class="number4">
+                                {{ noOfOnGoingJobs | numb")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfOnGoingJobs = $event" class="number4">
+                                {{ noOfOnGoingJobs | numb")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfOnGoingJobs = $event" class="number4">
+                                {{ noOfOnGoingJobs | numb")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfOnGoingJobs = $event" class="number4">
+                                {{ noOfOnGoingJobs | numb")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfOnGoingJobs = $event" class="number4">
+                                {{ noOfOnGoingJobs | numb")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ion]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">[ERROR ->]
+                                {{ noOfOnGoingJobs | number: '1.0-0' }}</div>
+                    ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ion]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">[ERROR ->]
+                                {{ noOfOnGoingJobs | number: '1.0-0' }}</div>
+                    ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ion]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">[ERROR ->]
+                                {{ noOfOnGoingJobs | number: '1.0-0' }}</div>
+                    ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ion]="3"
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:50,097 [4] ERROR App  
+                                 (countoChange)="noOfOnGoingJobs = $event" class="number4">[ERROR ->]
+                                {{ noOfOnGoingJobs | number: '1.0-0' }}</div>
+                    ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ion]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">[ERROR ->]
+                                {{ noOfOnGoingJobs | number: '1.0-0' }}</div>
+                    ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ousel owl-theme owl-sl" id="hmtoptech"> -->
+                            <owl-carousel-o [options]="[ERROR ->]customOptions" id="hmtoptech">
+                                <ng-template carouselSlide *ngFor="le")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ousel owl-theme owl-sl" id="hmtoptech"> -->
+                            <owl-carousel-o [options]="[ERROR ->]customOptions" id="hmtoptech">
+                                <ng-template carouselSlide *ngFor="le")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ousel owl-theme owl-sl" id="hmtoptech"> -->
+                            <owl-carousel-o [options]="[ERROR ->]customOptions" id="hmtoptech">
+                                <ng-template carouselSlide *ngFor="le")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ousel owl-theme owl-sl" id="hmtoptech"> -->
+                            <owl-carousel-o [options]="[ERROR ->]customOptions" id="hmtoptech">
+                                <ng-template carouselSlide *ngFor="le")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ousel owl-theme owl-sl" id="hmtoptech"> -->
+                            <owl-carousel-o [options]="[ERROR ->]customOptions" id="hmtoptech">
+                                <ng-template carouselSlide *ngFor="le")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("   <!-- <div class="owl-carousel owl-theme owl-sl" id="hmtoptech"> -->
+                            [ERROR ->]<owl-carousel-o [options]="customOptions" id="hmtoptech">
+                                <ng-templa")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("   <!-- <div class="owl-carousel owl-theme owl-sl" id="hmtoptech"> -->
+                            [ERROR ->]<owl-carousel-o [options]="customOptions" id="hmtoptech">
+                                <ng-templa")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("   <!-- <div class="owl-carousel owl-theme owl-sl" id="hmtoptech"> -->
+                            [ERROR ->]<owl-carousel-o [options]="customOptions" id="hmtoptech">
+                                <ng-templa")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("   <!-- <div class="owl-carousel owl-theme owl-sl" id="hmtoptech"> -->
+                            [ERROR ->]<owl-carousel-o [options]="customOptions" id="hmtoptech">
+                                <ng-templa")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("   <!-- <div class="owl-carousel owl-theme owl-sl" id="hmtoptech"> -->
+                            [ERROR ->]<owl-carousel-o [options]="customOptions" id="hmtoptech">
+                                <ng-templa")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ptions]="customOptions" id="hmtoptech">
+                                <ng-template carouselSlide [ERROR ->]*ngFor="let data of helperList">
+                                    <div class="item">
+           ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ptions]="customOptions" id="hmtoptech">
+                                <ng-template carouselSlide [ERROR ->]*ngFor="let data of helperList">
+                                    <div class="item">
+           ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ptions]="customOptions" id="hmtoptech">
+                                <ng-template carouselSlide [ERROR ->]*ngFor="let data of helperList">
+                                    <div class="item">
+           ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ptions]="customOptions" id="hmtoptech">
+                                <ng-template carouselSlide [ERROR ->]*ngFor="let data of helperList">
+                                    <div class="item">
+           ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ptions]="customOptions" id="hmtoptech">
+                                <ng-template carouselSlide [ERROR ->]*ngFor="let data of helperList">
+                                    <div class="item">
+           ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                   <div class="techimg">
+                                                <img src="[ERROR ->]{{data.image.imageUrl}}" class="img-fluid">
+                                            </div>
+    ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                   <div class="techimg">
+                                                <img src="[ERROR ->]{{data.image.imageUrl}}" class="img-fluid">
+                                            </div>
+    ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                   <div class="techimg">
+                                                <img src="[ERROR ->]{{data.image.imageUrl}}" class="img-fluid">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:50,556 [4] ERROR App  
+                                             </div>
+    ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                   <div class="techimg">
+                                                <img src="[ERROR ->]{{data.image.imageUrl}}" class="img-fluid">
+                                            </div>
+    ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                   <div class="techimg">
+                                                <img src="[ERROR ->]{{data.image.imageUrl}}" class="img-fluid">
+                                            </div>
+    ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                      <div class="techdetail">
+                                                <h5>[ERROR ->]{{data.firstName}} {{data.lastName}}</h5>
+                                                <div class")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                      <div class="techdetail">
+                                                <h5>[ERROR ->]{{data.firstName}} {{data.lastName}}</h5>
+                                                <div class")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                      <div class="techdetail">
+                                                <h5>[ERROR ->]{{data.firstName}} {{data.lastName}}</h5>
+                                                <div class")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                      <div class="techdetail">
+                                                <h5>[ERROR ->]{{data.firstName}} {{data.lastName}}</h5>
+                                                <div class")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                      <div class="techdetail">
+                                                <h5>[ERROR ->]{{data.firstName}} {{data.lastName}}</h5>
+                                                <div class")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ite sprite-field-icon"></i>
+                                                        <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a></h6>
+                                                    </span>
+ ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ite sprite-field-icon"></i>
+                                                        <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a></h6>
+                                                    </span>
+ ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ite sprite-field-icon"></i>
+                                                        <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a></h6>
+                                                    </span>
+ ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ite sprite-field-icon"></i>
+                                                        <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a></h6>
+                                                    </span>
+ ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ite sprite-field-icon"></i>
+                                                        <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a></h6>
+                                                    </span>
+ ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("i class="sprite sprite-city-icon"></i>
+                                                        <h6>[ERROR ->]{{data.city}}</h6>
+                                                    </span>
+                    ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("i class="sprite sprite-city-icon"></i>
+                                                        <h6>[ERROR ->]{{data.city}}</h6>
+                                                    </span>
+                    ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("i class="sprite sprite-city-icon"></i>
+                                                        <h6>[ERROR ->]{{data.city}}</h6>
+                                                    </span>
+                    ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("i class="sprite sprite-city-icon"></i>
+                                                        <h6>[ERROR ->]{{data.city}}</h6>
+                                                    </span>
+                    ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("i class="sprite sprite-city-icon"></i>
+                                                        <h6>[ERROR ->]{{data.city}}</h6>
+                                                    </span>
+                    ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="sprite sprite-country-icon"></i>
+                                                        <h6>[ERROR ->]{{data.country}}</h6>
+                                                    </span>
+                 ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="sprite sprite-country-icon"></i>
+                                                        <h6>[ERROR ->]{{data.country}}</h6>
+                                                    </span>
+                 ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="sprite sprite-country-icon"></i>
+                                                        <h6>[ERROR ->]{{data.country}}</h6>
+                                                    </span>
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:50,687 [4] ERROR App  
+                  ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="sprite sprite-country-icon"></i>
+                                                        <h6>[ERROR ->]{{data.country}}</h6>
+                                                    </span>
+                 ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="sprite sprite-country-icon"></i>
+                                                        <h6>[ERROR ->]{{data.country}}</h6>
+                                                    </span>
+                 ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("<a href="javascript:void(0)"
+                                                        [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                        class="bt")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("<a href="javascript:void(0)"
+                                                        [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                        class="bt")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("<a href="javascript:void(0)"
+                                                        [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                        class="bt")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("<a href="javascript:void(0)"
+                                                        [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                        class="bt")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("<a href="javascript:void(0)"
+                                                        [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                        class="bt")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:40:50,713 [17] ERROR App  
+                                                     [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("eantuer adipiscing elitetuer adipis
+                    </p>
+                    <a [routerLink]="[ERROR ->]['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+            </div>
+")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("eantuer adipiscing elitetuer adipis
+                    </p>
+                    <a [routerLink]="[ERROR ->]['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+            </div>
+")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("eantuer adipiscing elitetuer adipis
+                    </p>
+                    <a [routerLink]="[ERROR ->]['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+            </div>
+")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("eantuer adipiscing elitetuer adipis
+                    </p>
+                    <a [routerLink]="[ERROR ->]['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+            </div>
+")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("eantuer adipiscing elitetuer adipis
+                    </p>
+                    <a [routerLink]="[ERROR ->]['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+            </div>
+")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Unexpected token {, expected identifier, keyword, or string at column 27 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Missing expected : at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Unexpected token } at column 35 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:47:44,643 [17] ERROR App  
+                     </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Missing expected ] at column 36 in [['services/sub-service', {{data.id}}]] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:47:45,000 [17] ERROR App  
+ ERROR in Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("l-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    <a [routerLink]="[ERROR ->]['/services/sub-service, {{data.id}}']">
+                        <div class="service-box">
+        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['/services/sub-service, {{data.id}}']">
+                        <div class="servic")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['/services/sub-service, {{data.id}}']">
+                        <div class="servic")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    [ERROR ->]<a [routerLink]="['/services/sub-service, {{data.id}}']">
+                        <div class="servic")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div class="serviceimg">
+                                <img src="[ERROR ->]{{data.iconUrl}}" class="img-fluid">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:47:45,664 [17] ERROR App  
+                             </div>
+                           ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("iv>
+                            <div class="service-content">
+                                <h4>[ERROR ->]{{data.name}}</h4>
+                                <p>{{data.shortDescription}}</p>
+               ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ntent">
+                                <h4>{{data.name}}</h4>
+                                <p>[ERROR ->]{{data.shortDescription}}</p>
+                            </div>
+                        </div>
+")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]100" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)=")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("            <div class="countnim">
+                            <div counto [step]="100" [countTo]="[ERROR ->]2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfHelpers = $")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ass="countnim">
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="numbe")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("
+                            <div counto [step]="100" [countTo]="2650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfHelpers = $event" class="number">
+          ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("0" [countTo]="2650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfHelpers = $event" class="number">
+                                {{ noOfHelpers | number: '1.0-")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("duration]="3"
+                                (countoChange)="noOfHelpers = $event" class="number">[ERROR ->]
+                                {{ noOfHelpers | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="50" [countTo]="[ERROR ->]790" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfJobs = $even")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2"")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="50" [countTo]="790" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfJobs = $event" class="number2">
+            ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("50" [countTo]="790" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfJobs = $event" class="number2">
+                                {{ noOfJobs | number: '1.0-0' }}")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 (" [duration]="3"
+                                (countoChange)="noOfJobs = $event" class="number2">[ERROR ->]
+                                {{ noOfJobs | number: '1.0-0' }}</div>
+                           ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="30" [countTo]="[ERROR ->]650" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfClients = $e")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfClients = $event" class="numbe")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="30" [countTo]="650" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfClients = $event" class="number3">
+         ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("30" [countTo]="650" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfClients = $event" class="number3">
+                                {{ noOfClients | number: '1.0")
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:47:45,948 [17] ERROR App  
+ Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("uration]="3"
+                                (countoChange)="noOfClients = $event" class="number3">[ERROR ->]
+                                {{ noOfClients | number: '1.0-0' }}</div>
+                        ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("v>
+                        <div class="countnim">
+                            <div counto [step]="[ERROR ->]10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="n")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("             <div class="countnim">
+                            <div counto [step]="10" [countTo]="[ERROR ->]210" [countFrom]="0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("class="countnim">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="[ERROR ->]0" [duration]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="n")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("">
+                            <div counto [step]="10" [countTo]="210" [countFrom]="0" [duration]="[ERROR ->]3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">
+     ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("10" [countTo]="210" [countFrom]="0" [duration]="3"
+                                (countoChange)="[ERROR ->]noOfOnGoingJobs = $event" class="number4">
+                                {{ noOfOnGoingJobs | numb")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ion]="3"
+                                (countoChange)="noOfOnGoingJobs = $event" class="number4">[ERROR ->]
+                                {{ noOfOnGoingJobs | number: '1.0-0' }}</div>
+                    ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ousel owl-theme owl-sl" id="hmtoptech"> -->
+                            <owl-carousel-o [options]="[ERROR ->]customOptions" id="hmtoptech">
+                                <ng-template carouselSlide *ngFor="le")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("   <!-- <div class="owl-carousel owl-theme owl-sl" id="hmtoptech"> -->
+                            [ERROR ->]<owl-carousel-o [options]="customOptions" id="hmtoptech">
+                                <ng-templa")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ptions]="customOptions" id="hmtoptech">
+                                <ng-template carouselSlide [ERROR ->]*ngFor="let data of helperList">
+                                    <div class="item">
+           ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                   <div class="techimg">
+                                                <img src="[ERROR ->]{{data.image.imageUrl}}" class="img-fluid">
+                                            </div>
+    ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                      <div class="techdetail">
+                                                <h5>[ERROR ->]{{data.firstName}} {{data.lastName}}</h5>
+                                                <div class")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("ite sprite-field-icon"></i>
+                                                        <h6><a href="">[ERROR ->]{{data.helperCategory.name}}</a></h6>
+                                                    </span>
+ ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("i class="sprite sprite-city-icon"></i>
+                                                        <h6>[ERROR ->]{{data.city}}</h6>
+                                                    </span>
+                    ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("lass="sprite sprite-country-icon"></i>
+                                                        <h6>[ERROR ->]{{data.country}}</h6>
+                                                    </span>
+                 ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("<a href="javascript:void(0)"
+                                                        [routerLink]="[ERROR ->]['/hire-me/open-ticket', data.id]"
+                                                        class="bt")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+                                                    [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("                    <div class="techbtn-wrap">
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:49:01,990 [62] ERROR App  
+                                                     [ERROR ->]<a href="javascript:void(0)"
+                                                        [routerLink]="[")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("eantuer adipiscing elitetuer adipis
+                    </p>
+                    <a [routerLink]="[ERROR ->]['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+            </div>
+")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+Parser Error: Got interpolation ({{}}) where expression was expected at column 25 in [['/services/sub-service, {{data.id}}']] in D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/home/home.component.html@97:37 ("piscing elit. Aeneantuer adipiscing elitetuer adipis
+                    </p>
+                    [ERROR ->]<a [routerLink]="['/hire-me']" class="readmore">Open a Ticket</a>
+                </div>
+          ")
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 20:49:02,572 [62] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-22 21:33:23,383 [11] ERROR App  
+     ERROR in src/app/services/sub-service/sub-service.component.html(44,36): Property 'sub' does not exist on type 'HelperCategoryModel'.
+    
+ ********** 
+ 

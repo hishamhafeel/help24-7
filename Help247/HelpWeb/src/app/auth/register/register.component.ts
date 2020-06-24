@@ -9,6 +9,7 @@ import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import { ToastrService } from 'ngx-toastr';
+import { ICountry, } from 'country-state-city';
 
 @Component({
   selector: 'app-register',
@@ -36,7 +37,13 @@ export class RegisterComponent implements OnInit {
   isHelperRequested: boolean = false;
   isCustomerRequested: boolean = false;
 
-  constructor(private toastr: ToastrService, private cloudinary: Cloudinary, private helperService: HelperService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
+  constructor(private toastr: ToastrService,
+    private cloudinary: Cloudinary,
+    private helperService: HelperService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder,
+    private authService: AuthService) {
     this.pagination = new PaginationBase();
   }
 
@@ -92,6 +99,7 @@ export class RegisterComponent implements OnInit {
     this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
       this.url = JSON.parse(response).url;
     }
+
   }
 
   initCustomerForm() {

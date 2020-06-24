@@ -1,4 +1,5 @@
-﻿using Help247.Service.Services.Customer;
+﻿using Help247.Service.Services.CountryStateCity;
+using Help247.Service.Services.Customer;
 using Help247.Service.Services.Feedback;
 using Help247.Service.Services.HelpCentre;
 using Help247.Service.Services.Helper;
@@ -26,6 +27,7 @@ namespace Help247.Utilities.Configurations
             services.AddScoped<IHelpCentreService, HelpCentreService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<ISkillService, SkillService>();
+            services.AddScoped<ICountryStateCityService, CountryStateCityService>();
         }
     }
 }

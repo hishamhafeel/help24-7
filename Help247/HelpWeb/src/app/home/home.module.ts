@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CountoModule } from 'angular2-counto';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { SharedModule } from '../shared/shared.module';
     HomeRoutingModule,
     CarouselModule,
     CountoModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

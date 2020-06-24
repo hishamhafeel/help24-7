@@ -66,6 +66,15 @@ export class HelperService extends BaseService {
       .pipe(catchError(this.server4xxError));
   }
 
+  getHelperCategoryById(id: number) {
+    return this.http
+      .get<HelperCategoryModel>(
+        `${this.baseEndPoint}/api/HelperCategory/${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
   getHelperList(pagination: PaginationBase) {
     return this.http
       .get<PaginationModel<HelperModel>>(

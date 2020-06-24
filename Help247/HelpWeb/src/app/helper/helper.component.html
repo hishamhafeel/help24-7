@@ -612,7 +612,8 @@
                                                             <h4>Skills</h4>
                                                             <div formArrayName="skills">
                                                                 <div class="row"
-                                                                    *ngFor="let skill of skills.controls; let i=index" style="margin-left: 10px;">
+                                                                    *ngFor="let skill of skills.controls; let i=index"
+                                                                    style="margin-left: 10px;">
                                                                     <div class="form-group">
                                                                         <label>Skill {{i+1}}:
                                                                             &nbsp;</label>
@@ -630,7 +631,8 @@
                                                                 <button (click)="addNewSkill()" class="btn redbtn">Add
                                                                     Skill</button>
                                                                 <button type="submit" class="btn redbtn mt-3"
-                                                                    (click)="onSkillSubmit()" [disabled]="isSkillRequested">
+                                                                    (click)="onSkillSubmit()"
+                                                                    [disabled]="isSkillRequested">
                                                                     <i class="fa fa-circle-o-notch fa-spin fa-fw"
                                                                         [hidden]="!isSkillRequested"></i>
                                                                     {{isSkillRequested ? 'Saving' : 'Save Skills'}}
@@ -719,6 +721,70 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal ex -->
+<div class="modal fade" id="rates" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">View Review</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row no-gutters">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="modelcol1">
+                            <div class="model-field">
+                                <div class="m-fieldtitle">Title</div>
+                                <div class="m-fieldvalue">At vero eos accusam et justo </div>
+                            </div>
+                            <div class="model-field">
+                                <div class="m-fieldtitle">Help Time</div>
+                                <div class="m-fieldvalue">07 : 00 : 00</div>
+                            </div>
+                            <div class="model-field">
+                                <div class="m-fieldtitle">Category</div>
+                                <div class="m-fieldvalue">IT & Telecommunication </div>
+                            </div>
+                            <div class="model-field">
+                                <div class="m-fieldtitle">Help Date</div>
+                                <div class="m-fieldvalue">10 Jan 2020 </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="modelcol2 text-center">
+                            <div class="tech-pro-img">
+                                <img src="img/tech-img.jpg" class="img-fluid">
+                            </div>
+                            <h6>Full Name of the technician with title</h6>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="feedback">
+                            <h5>Feedback</h5>
+                            <div class="feedtext">
+                                <p>Aliquam lorem ante, dapibus in, viverra quis, feugiata, tellus. Phasellus viverra
+                                    nulla ut metusvarius laoreet. Quisque rutr um. Aenean imperdiet. Etiam ultricies
+                                    metus varius Nam quam
+                                    nunc, blandit vel, luctus pulvinar, hen lorem. Maecenas nec odio et ante tincidunt
+                                    temvitae sapien velaugue.Curabitur ullamcorper ulsi. Nam ut libero venenatis
+                                    faucibus.ecenas nec odio et ante tincidunt temvitae sapien vel augue. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
