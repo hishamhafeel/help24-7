@@ -32,6 +32,7 @@ namespace Help247.Data.Entities
         [DataType(DataType.PhoneNumber)]
         public string ContactNo2 { get; set; }
         public string OtherRequirements { get; set; }
+        public bool HasFeedback { get; set; }
 
 
         #region foreign key

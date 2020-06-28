@@ -112,10 +112,30 @@ namespace Help247.Service.Services.Feedback
 
         public async Task PostAsync(FeedbackBO feedbackBO, string userId)
         {
-            feedbackBO.CreatedById = userId;
-            feedbackBO.CreatedOn = DateTime.UtcNow;
-            await appDbContext.Feedbacks.AddAsync(mapper.Map<Help247.Data.Entities.Feedback>(feedbackBO));
-            await appDbContext.SaveChangesAsync();
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    var ticket = await appDbContext.Tickets.FirstAsync(x => x.Id == feedbackBO.TicketId);
+                    feedbackBO.CreatedById = userId;
+                    feedbackBO.CreatedOn = DateTime.UtcNow;
+
+                    await appDbContext.Feedbacks.AddAsync(mapper.Map<Help247.Data.Entities.Feedback>(feedbackBO));
+                    await appDbContext.SaveChangesAsync();
+
+                    ticket.HasFeedback = true;
+                    appDbContext.Tickets.Update(ticket);
+                    await appDbContext.SaveChangesAsync();
+
+                    await transaction.CommitAsync();
+                }
+                catch (Exception ex)
+                {
+                    transaction.RollbackAsync();
+                    throw ex;                
+                }
+            }
+                
         }
 
         public async Task<FeedbackBO> PutAsync(FeedbackBO feedbackBO, string userId)

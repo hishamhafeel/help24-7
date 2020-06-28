@@ -1,0 +1,15 @@
+
+ 
+ ************ 2020-06-26 00:42:46,684 [5] ERROR App  
+     ERROR in src/app/helper/helper.component.html(909,42): Property 'customer' does not exist on type 'TicketModel'. Did you mean 'customerId'?
+    src/app/helper/helper.component.html(911,37): Property 'customer' does not exist on type 'TicketModel'. Did you mean 'customerId'?
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-26 00:45:01,154 [5] ERROR App  
+     ERROR in src/app/hire-me/models/ticket.model.ts(20,15): error TS2304: Cannot find name 'CustomerModel'.
+    
+ ********** 
+ 

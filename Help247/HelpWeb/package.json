@@ -30,6 +30,7 @@
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^5.5.0",
     "ngx-owl-carousel-o": "^2.1.1",
+    "ngx-star-rating": "0.0.1",
     "ngx-toastr": "^11.3.3",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",

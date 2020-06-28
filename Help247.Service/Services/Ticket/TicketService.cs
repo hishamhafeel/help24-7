@@ -40,6 +40,7 @@ namespace Help247.Service.Services.Ticket
                     }
                     ticketBO.CreatedById = userId;
                     ticketBO.CreatedOn = dateOfCreation;
+                    ticketBO.HasFeedback = false;
                     var result = await appDbContext.Tickets.AddAsync(mapper.Map<Help247.Data.Entities.Ticket>(ticketBO));
                     await appDbContext.SaveChangesAsync();
                     ticketBO.Id = result.Entity.Id;
@@ -111,7 +112,9 @@ namespace Help247.Service.Services.Ticket
                         ContactNo2 = query.ContactNo2,
                         Title = query.Title,
                         Country = query.Country,
-                        HelpTime = query.HelpTime
+                        HelpTime = query.HelpTime,
+                        OtherRequirements = query.OtherRequirements,
+                        HasFeedback = query.HasFeedback
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -180,7 +183,10 @@ namespace Help247.Service.Services.Ticket
                         ContactNo2 = query.ContactNo2,
                         Title = query.Title,
                         Country = query.Country,
-                        HelpTime = query.HelpTime
+                        HelpTime = query.HelpTime,
+                        OtherRequirements = query.OtherRequirements,
+                        HasFeedback = query.HasFeedback
+
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -241,7 +247,12 @@ namespace Help247.Service.Services.Ticket
                         State = query.State,
                         Address = query.Address,
                         ContactNo1 = query.ContactNo1,
-                        ContactNo2 = query.ContactNo2
+                        ContactNo2 = query.ContactNo2,
+                        Title = query.Title,
+                        Country = query.Country,
+                        HelpTime = query.HelpTime,
+                        OtherRequirements = query.OtherRequirements,
+                        HasFeedback = query.HasFeedback
                     };
                     appDbContext.Tickets.Update(ticket);
                     await appDbContext.SaveChangesAsync();
@@ -284,7 +295,7 @@ namespace Help247.Service.Services.Ticket
         public async Task<TicketBO> GetTicketsById(int id)
         {
             var query = await appDbContext.Tickets
-                .Include(x => x.Customer)
+                .Include(x => x.Customer).ThenInclude(a => a.Image)
                 .Include(x => x.Helper).ThenInclude(a => a.HelperCategory)
                 .FirstOrDefaultAsync(x => x.Id == id);
             if (query == null)
@@ -339,7 +350,7 @@ namespace Help247.Service.Services.Ticket
                         : query;
                 }
                 var totalNumberOfRecords = await query.AsNoTracking().CountAsync();
-                query.OrderByDescending(x => x.Id).Skip(ticketSearchBO.Skip).Take(ticketSearchBO.Take);
+                query.OrderBy(x => x.Id).Skip(ticketSearchBO.Skip).Take(ticketSearchBO.Take);
                 var result = await query.AsNoTracking().ToListAsync();
                 var resultSet = new PaginationModel<TicketBO>()
                 {
@@ -372,6 +383,29 @@ namespace Help247.Service.Services.Ticket
                 CompletedJobs = completedJobs,
                 RejectedJobs = rejectedJobs
             };
+        }
+
+        public async Task<TicketBO> PutTicketAsync(TicketBO ticketBO)
+        {
+            var query = await appDbContext.Tickets.FirstOrDefaultAsync(x => x.Id == ticketBO.Id);
+            if (query == null)
+            {
+                throw new ArgumentException("Ticket not found");
+            }
+            query.Country = ticketBO.Country;
+            query.State = ticketBO.State;
+            query.City = ticketBO.City;
+            query.Address = ticketBO.Address;
+            query.ContactNo1 = ticketBO.ContactNo1;
+            query.ContactNo2 = ticketBO.ContactNo2;
+            query.HelpDateFrom = ticketBO.HelpDateFrom;
+            query.HelpDateTo = ticketBO.HelpDateTo;
+            query.HelpTime = ticketBO.HelpTime;
+            query.OtherRequirements = ticketBO.OtherRequirements;
+            query.Title = ticketBO.Title;
+
+            await appDbContext.SaveChangesAsync();
+            return ticketBO;
         }
     }
 }
