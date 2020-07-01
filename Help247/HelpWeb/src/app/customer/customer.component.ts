@@ -118,13 +118,6 @@ export class CustomerComponent implements OnInit {
     private helperService: HelperService
   ) {
     this.pagination = new PaginationBase();
-  }
-
-  ngOnInit(): void {
-    this.customerId = +localStorage.getItem('LoggedId');
-    this.getCustomerById();
-    this.getTopHelpers();
-    this.getHelperCategory();
 
     const uploaderOptions: FileUploaderOptions = {
       url: `https://api.cloudinary.com/v1_1/${
@@ -141,9 +134,17 @@ export class CustomerComponent implements OnInit {
       ],
     };
     this.uploader = new FileUploader(uploaderOptions);
+  }
+
+  ngOnInit(): void {
+    this.customerId = +localStorage.getItem('LoggedId');
+    this.getCustomerById();
+    this.getTopHelpers();
+    this.getHelperCategory();
+
+    
 
     this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
-      this.generateFileName();
       // Add Cloudinary's unsigned upload preset to the upload form
       form.append('upload_preset', this.cloudinary.config().upload_preset);
       form.append('folder', 'angular_sample');
@@ -153,24 +154,6 @@ export class CustomerComponent implements OnInit {
       // Use default "withCredentials" value for CORS requests
       fileItem.withCredentials = false;
       return { fileItem, form };
-    };
-
-    this.uploader.onErrorItem = (
-      item: any,
-      response: string,
-      status: number,
-      headers: ParsedResponseHeaders
-    ) => console.log('Image upload failed');
-
-    // Update model on completion of uploading a file
-    this.uploader.onCompleteItem = (
-      item: any,
-      response: string,
-      status: number,
-      headers: ParsedResponseHeaders
-    ) => {
-      this.url = JSON.parse(response).url;
-      this.uploader.progress = 100;
     };
   }
 
@@ -411,7 +394,7 @@ export class CustomerComponent implements OnInit {
       city: [null, [Validators.required]],
       state: [null, [Validators.required]],
       postalCode: [null, [Validators.required]],
-      profilePicUrl: ['http://www.google5.com', [Validators.required]],
+      profilePicUrl: [null]
     });
   }
 
@@ -429,9 +412,9 @@ export class CustomerComponent implements OnInit {
       country: this.customerModel.country,
       city: this.customerModel.city,
       state: this.customerModel.state,
-      postalCode: this.customerModel.postalCode,
-      profilePicUrl: ['http://www.google5.com', [Validators.required]],
+      postalCode: this.customerModel.postalCode
     });
+    this.url = this.customerModel.image.imageUrl;
   }
 
   onCustomerSubmit() {
@@ -440,13 +423,35 @@ export class CustomerComponent implements OnInit {
     }
     this.customerModel = this.customerForm.value;
     this.isCustomerRequested = true;
+    
+    if(this.uploader.queue.length == 0){
+      this.updateCustomer();
+    }
+    else{
+      this.uploader.queue[0].upload();
+  
+      this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+        this.isCustomerRequested = false;
+        console.log("Image upload failed");
+      }
+  
+      // Update model on completion of uploading a file
+      this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+        this.url = JSON.parse(response).url;
+        this.updateCustomer();
+      }
+    }
+  }
+
+  updateCustomer(){
+    this.customerModel.profilePicUrl = this.url;
     this.customerService.updateCustomer(this.customerModel).subscribe(
-      (result) => {
+      result => {
         console.log('result', result);
         this.getCustomerById();
         this.isCustomerRequested = false;
       },
-      (error) => {
+      error => {
         console.log('error', error);
         this.isCustomerRequested = false;
       }
@@ -559,14 +564,9 @@ export class CustomerComponent implements OnInit {
     localStorage.removeItem('TokenId');
     localStorage.removeItem('LoggedId');
     this.router.navigate(['/auth/login']);
-    // this.isDashboardClicked = false;
-    // this.isMyTicketsClicked = false;
-    // this.isSettingsClicked = false;
-    // this.isRatingClicked = false;
-    // this.isLogoutClicked = true;
   }
 
-  generateFileName() {
+  fileChangeEvent() {
     this.public_id = `img_${Date.now()}`;
   }
 }
