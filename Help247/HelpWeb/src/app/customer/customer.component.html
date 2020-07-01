@@ -1,755 +1,860 @@
 <div class="content-box-wrap appwrap">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="appcontainer">
-                    <div class="row">
-                        <div class="col-lg-4 sb">
-                            <div class="sidebar boxshadow">
-                                <div class="sidebar-header">
-                                    <div class="profileimg">
-                                        <img src="{{customerModel.image.imageUrl}}" class="img-fluid">
-                                    </div>
-                                    <div class="profile-info">
-                                        <h3>{{customerModel.name}}</h3>
-                                        <p>Last login was 4th June 2020</p>
-                                    </div>
-
-                                </div>
-                                <div class="sidebar-links">
-                                    <div class="mobiledrop">
-                                        <p class="mdroptext">Select</p>
-                                        <ul>
-                                            <li><a (click)="showDashboard()"><i
-                                                        class="sprite sprite-dashboard-icon"></i> Dashboard</a>
-                                            </li>
-                                            <li><a (click)="showMyTickets()"><i
-                                                        class="sprite sprite-mytickets-icon"></i> My Tickets</a>
-                                            </li>
-                                            <li><a (click)="showSettings()"><i class="sprite sprite-settings-icon"></i>
-                                                    Settings</a></li>
-                                            <li><a (click)="showRatings()"><i
-                                                        class="sprite sprite-reviewsrate-icon"></i> Reviews &
-                                                    Ratings</a></li>
-                                            <li><a (click)="logout()"><i class="sprite sprite-logout-icon"></i> Log
-                                                    out</a></li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8 dbb" *ngIf="isDashboardClicked">
-                            <div class="dashboardwrap">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h5>Dashboard</h5>
-                                        <h6>Hello, {{customerModel.name}}</h6>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="dashinfo">
-                                            <div class="row">
-                                                <div class="col-lg-7">
-                                                    <div class="statusbox boxshadow">
-                                                        <h5>Status of the last ticket you created...</h5>
-                                                        <p>At vero eos accusam et justo</p>
-                                                        <p>Date : 25 Nov 2019 copy 7</p>
-                                                        <div class="statusinfo">
-                                                            <span>Pending</span>
-                                                            <a href="" class="btn-red ">View Ticket</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5">
-                                                    <div class="seekingbox boxshadow text-center">
-                                                        <h5>Seeking for help?</h5>
-                                                        <p>Select the technician and create your ticket now.</p>
-                                                        <a href="" class="btn-red">Open Ticket</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="toprate-tec boxshadow">
-                                            <h3 class="subtitle">Top Rated Techniciaons</h3>
-                                            <div class="toptechslider-wrap">
-                                                <div class="owl-carousel owl-theme owl-sl" id="toptech">
-                                                    <div class="item">
-                                                        <div class="tech-item">
-                                                            <div class="techimg">
-                                                                <img src="../../../assets/images/tech-img.jpg"
-                                                                    class="img-fluid">
-                                                            </div>
-                                                            <div class="techdetail">
-                                                                <h5>Jack Dou</h5>
-                                                                <div class="tech-points">
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-field-icon"></i>
-                                                                        <h6><a href="">IT & Telecommunication</a>
-                                                                        </h6>
-                                                                    </span>
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-city-icon"></i>
-                                                                        <h6>City</h6>
-                                                                    </span>
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-country-icon"></i>
-                                                                        <h6>Country</h6>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="techbtn-wrap">
-                                                                    <span class="availablel-label">Available</span>
-                                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <div class="tech-item">
-                                                            <div class="techimg">
-                                                                <img src="../../../assets/images/tech-img.jpg"
-                                                                    class="img-fluid">
-                                                            </div>
-                                                            <div class="techdetail">
-                                                                <h5>Jack Dou</h5>
-                                                                <div class="tech-points">
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-field-icon"></i>
-                                                                        <h6><a href="">IT & Telecommunication</a>
-                                                                        </h6>
-                                                                    </span>
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-city-icon"></i>
-                                                                        <h6>City</h6>
-                                                                    </span>
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-country-icon"></i>
-                                                                        <h6>Country</h6>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="techbtn-wrap">
-                                                                    <span class="availablel-label not-av">Not
-                                                                        Available</span>
-                                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <div class="tech-item">
-                                                            <div class="techimg">
-                                                                <img src="../../../assets/images/tech-img.jpg"
-                                                                    class="img-fluid">
-                                                            </div>
-                                                            <div class="techdetail">
-                                                                <h5>Jack Dou</h5>
-                                                                <div class="tech-points">
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-field-icon"></i>
-                                                                        <h6><a href="">IT & Telecommunication</a>
-                                                                        </h6>
-                                                                    </span>
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-city-icon"></i>
-                                                                        <h6>City</h6>
-                                                                    </span>
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-country-icon"></i>
-                                                                        <h6>Country</h6>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="techbtn-wrap">
-                                                                    <span class="availablel-label">Available</span>
-                                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <div class="tech-item">
-                                                            <div class="techimg">
-                                                                <img src="../../../assets/images/tech-img.jpg"
-                                                                    class="img-fluid">
-                                                            </div>
-                                                            <div class="techdetail">
-                                                                <h5>Jack Dou</h5>
-                                                                <div class="tech-points">
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-field-icon"></i>
-                                                                        <h6><a href="">IT & Telecommunication</a>
-                                                                        </h6>
-                                                                    </span>
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-city-icon"></i>
-                                                                        <h6>City</h6>
-                                                                    </span>
-                                                                    <span class="tech-field">
-                                                                        <i class="sprite sprite-country-icon"></i>
-                                                                        <h6>Country</h6>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="techbtn-wrap">
-                                                                    <span class="availablel-label">Available</span>
-                                                                    <a href="" class="btn-hire">Hire Me</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="vbtnwrap text-center">
-                                                <a href="" class="btn-red">View More</a>
-                                            </div>
-                                        </div>
-                                        <div class="service-provide boxshadow">
-                                            <h3 class="subtitle">Services we provide</h3>
-                                            <div class="toptechslider-wrap">
-                                                <div class="owl-carousel owl-theme owl-sl set2" id="service">
-                                                    <div class="item">
-                                                        <div class="serivce-item boxshadow">
-                                                            <div class="serv-text">
-                                                                <h4>IT & Telecommunication</h4>
-                                                                <p>Lorem ipsum dolor sit ametnam liber tempor cum
-                                                                    solutanobis eleifend optio nconguenihil
-                                                                    imperdiet
-                                                                    liber tempor </p>
-                                                            </div>
-                                                            <div class="serv-box">
-                                                                <div class="serv-img">
-                                                                    <img src="../../../assets/images/service-icon1.png"
-                                                                        class="img-fluid">
-                                                                </div>
-                                                                <a href="" class="btn-hire">Select</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <div class="serivce-item boxshadow">
-                                                            <div class="serv-text">
-                                                                <h4>IT & Telecommunication</h4>
-                                                                <p>Lorem ipsum dolor sit ametnam liber tempor cum
-                                                                    solutanobis eleifend optio nconguenihil
-                                                                    imperdiet
-                                                                    liber tempor </p>
-                                                            </div>
-                                                            <div class="serv-box">
-                                                                <div class="serv-img">
-                                                                    <img src="../../../assets/images/service-icon2.png"
-                                                                        class="img-fluid">
-                                                                </div>
-                                                                <a href="" class="btn-hire">Select</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <div class="serivce-item boxshadow">
-                                                            <div class="serv-text">
-                                                                <h4>IT & Telecommunication</h4>
-                                                                <p>Lorem ipsum dolor sit ametnam liber tempor cum
-                                                                    solutanobis eleifend optio nconguenihil
-                                                                    imperdiet
-                                                                    liber tempor </p>
-                                                            </div>
-                                                            <div class="serv-box">
-                                                                <div class="serv-img">
-                                                                    <img src="../../../assets/images/service-icon2.png"
-                                                                        class="img-fluid">
-                                                                </div>
-                                                                <a href="" class="btn-hire">Select</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="vbtnwrap text-center">
-                                                <a href="" class="btn-red">View More</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8 dbb heighfix" *ngIf="isMyTicketsClicked">
-                            <div class="dashboardwrap">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h5>Dashboard/ My Tickets</h5>
-                                        <h6>My Tickets</h6>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="tablewrap t2">
-                                            <h2 class="subtitle3">Pending Tickets</h2>
-                                            <table>
-
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Title</th>
-                                                        <th scope="col">Category</th>
-                                                        <th scope="col">Helper</th>
-                                                        <th scope="col">Help Date</th>
-                                                        <th scope="col">Help Time</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <ng-container *ngFor="let data of ticketList">
-                                                        <tr *ngIf="data.ticketStatusId==1">
-                                                            <td data-label="Title">{{data.title}}</td>
-                                                            <td data-label="Category">
-                                                                {{data.helper.helperCategory.name}}</td>
-                                                            <td data-label="Helper">{{data.helper.firstName}}
-                                                                {{data.helper.lastName}}</td>
-                                                            <td data-label="Help Date">
-                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
-                                                            <td data-label="Help Time">
-                                                                {{data.helpTime}}</td>
-                                                        </tr>
-                                                    </ng-container>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- <div class="pagiarrow">
-                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
-                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
-                                        </div> -->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="tablewrap t2">
-                                            <h2 class="subtitle3">Ongoing Tickets</h2>
-                                            <table>
-
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Title</th>
-                                                        <th scope="col">Category</th>
-                                                        <th scope="col">Helper</th>
-                                                        <th scope="col">Help Date</th>
-                                                        <th scope="col">Help Time</th>
-                                                        <th scope="col">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <ng-container *ngFor="let data of ticketList">
-                                                        <tr *ngIf="data.ticketStatusId==2">
-                                                            <td data-label="Title">{{data.title}}</td>
-                                                            <td data-label="Category">
-                                                                {{data.helper.helperCategory.name}}
-                                                            </td>
-                                                            <td data-label="Helper">{{data.helper.firstName}}
-                                                                {{data.helper.lastName}}</td>
-                                                            <td data-label="Help Date">
-                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
-                                                            <td data-label="Help Time">
-                                                                {{data.helpTime}}</td>
-                                                            <td data-label="Action">
-                                                                <a href="javascript:void(0)" class="btn-red small"
-                                                                    (click)="completeTicket(data.id)">Complete</a>
-                                                            </td>
-                                                        </tr>
-                                                    </ng-container>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- <div class="pagiarrow">
-                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
-                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
-                                        </div> -->
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="tablewrap t2">
-                                            <h2 class="subtitle3">Completed Tickets</h2>
-                                            <table>
-
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Title</th>
-                                                        <th scope="col">Category</th>
-                                                        <th scope="col">Helper</th>
-                                                        <th scope="col">Help Date</th>
-                                                        <th scope="col">Help Time</th>
-                                                        <th scope="col">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <ng-container *ngFor="let data of ticketList">
-                                                        <tr *ngIf="data.ticketStatusId==3">
-                                                            <td data-label="Title">{{data.title}}</td>
-                                                            <td data-label="Category">
-                                                                {{data.helper.helperCategory.name}}
-                                                            </td>
-                                                            <td data-label="Helper">{{data.helper.firstName}}
-                                                                {{data.helper.lastName}}</td>
-                                                            <td data-label="Help Date">
-                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
-                                                            <td data-label="Help Time">
-                                                                {{data.helpTime}}</td>
-                                                            <td data-label="Action">
-                                                                <a href="javascript:void(0)" class="btn-red small"
-                                                                    data-toggle="modal" data-target="#view"
-                                                                    (click)="openModal(template, data)">View</a>
-                                                                <a href="javascript:void(0)" class="btn-red small"
-                                                                    data-toggle="modal"
-                                                                    (click)="openReviewModal(reviewTemplate, data.id, data.helper.id)"
-                                                                    data-target="#rates">+ Review</a>
-                                                            </td>
-                                                        </tr>
-                                                    </ng-container>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- <div class="pagiarrow">
-                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
-                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
-                                        </div> -->
-                                    </div>
-                                </div>
-
-                                <ng-template #template>
-                                    <div class="modal-header">
-                                        <h4 class="modal-title pull-left">Ticket Details</h4>
-                                        <button type="button" class="close pull-right" aria-label="Close"
-                                            (click)="modalRef.hide()">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            Title: {{ticketModel.title}}
-                                        </div>
-                                        <div class="row">
-                                            Category: {{ticketModel.helper.helperCategory.name}}
-                                        </div>
-                                        <div class="row">
-                                            Helper: {{ticketModel.helper.firstName}} {{ticketModel.helper.lastName}}
-                                        </div>
-                                        <div class="row">
-                                            Help Date From: {{ticketModel.helpDateFrom | date: 'mediumDate'}}
-                                        </div>
-                                        <div class="row">
-                                            Help Date To: {{ticketModel.helpDateTo | date: 'mediumDate'}}
-                                        </div>
-                                        <div class="row">
-                                            Help Time: {{ticketModel.helpTime}}
-                                        </div>
-                                        <div class="row">
-                                            Country: {{ticketModel.country}}
-                                        </div>
-                                        <div class="row">
-                                            State: {{ticketModel.state}}
-                                        </div>
-                                        <div class="row">
-                                            City: {{ticketModel.city}}
-                                        </div>
-                                        <div class="row">
-                                            Address: {{ticketModel.address}}
-                                        </div>
-                                        <div class="row">
-                                            Contact No 1: {{ticketModel.contactNo1}}
-                                        </div>
-                                        <div class="row">
-                                            Contact No 2: {{ticketModel.contactNo2}}
-                                        </div>
-                                        <div class="row">
-                                            Other Requirements: {{ticketModel.otherRequirements}}
-                                        </div>
-                                    </div>
-                                </ng-template>
-
-                                <ng-template #reviewTemplate>
-                                    <div class="modal-header">
-                                        <h4 class="modal-title pull-left">Add Review</h4>
-                                        <button type="button" class="close pull-right" aria-label="Close"
-                                            (click)="modalRef.hide()">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body" [formGroup]="feedbackForm">
-                                        <div class="row">
-                                            Title:
-                                            <input type="text" class="form-control" placeholder="Description"
-                                                formControlName="description">
-                                        </div>
-                                        <div class="row">
-                                            Category:
-                                            <rating formControlName="rating" [max]="10"></rating>
-                                        </div>
-                                        <div class="row">
-                                            <button type="submit" class="btn redbtn mt-3"
-                                                (click)="onFeedbackSubmit()">Add</button>
-                                        </div>
-                                    </div>
-                                </ng-template>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-8 dbb" *ngIf="isSettingsClicked">
-                            <div class="dashboardwrap">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h5><a href="">Dashboard</a>/<a href="">Settings</a></h5>
-                                        <h6>Settings</h6>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="settings">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="settingwrap boxshadow">
-                                                        <h4>Personal Settings</h4>
-                                                        <div class="setting-form">
-                                                            <form [formGroup]="customerForm"
-                                                                (ngSubmit)="onCustomerSubmit()">
-                                                                <div class="form-row">
-                                                                    <div class="col cgap">
-                                                                        <div class="form-group">
-                                                                            <label>Name</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="Full name"
-                                                                                formControlName="name"
-                                                                                [ngClass]="{ 'is-invalid': c.name.errors && c.name.dirty }">
-                                                                                <div *ngIf="c.name.errors"
-                                                                                class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.name.errors.required">
-                                                                                    Name is required</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="form-group">
-                                                                            <label>Phone</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="+94"
-                                                                                formControlName="phoneNo"
-                                                                                [ngClass]="{ 'is-invalid': c.phoneNo.errors && c.phoneNo.dirty }">
-                                                                                <div *ngIf="c.phoneNo.errors"
-                                                                                class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.phoneNo.errors.required">
-                                                                                    Phone is required</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col cgap">
-                                                                        <div class="form-group">
-                                                                            <label>Email Address</label>
-                                                                            <input type="email" class="form-control"
-                                                                                placeholder="Your Email"
-                                                                                formControlName="email"
-                                                                                [ngClass]="{ 'is-invalid': c.email.errors && c.email.dirty }">
-                                                                                <div *ngIf="c.email.errors"
-                                                                                class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.email.errors.required">
-                                                                                    Email is required</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="form-group">
-                                                                            <label>Address</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="Address"
-                                                                                formControlName="addressLine"
-                                                                                [ngClass]="{ 'is-invalid': c.addressLine.errors && c.addressLine.dirty }">
-                                                                                <div *ngIf="c.addressLine.errors"
-                                                                                class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.addressLine.errors.required">
-                                                                                    Address is required</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col cgap">
-                                                                        <div class="form-group">
-                                                                            <label>Country </label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="Country"
-                                                                                formControlName="country"
-                                                                                [ngClass]="{ 'is-invalid': c.country.errors && c.country.dirty }">
-                                                                                <div *ngIf="c.country.errors"
-                                                                                class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.country.errors.required">
-                                                                                    Country is required</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="form-group">
-                                                                            <label>State</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="State"
-                                                                                formControlName="state"
-                                                                                [ngClass]="{ 'is-invalid': c.state.errors && c.state.dirty }">
-                                                                                <div *ngIf="c.state.errors"
-                                                                                class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.state.errors.required">
-                                                                                    State is required</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col cgap">
-                                                                        <div class="form-group">
-                                                                            <label>City </label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="City"
-                                                                                formControlName="city"
-                                                                                [ngClass]="{ 'is-invalid': c.city.errors && c.city.dirty }">
-                                                                                <div *ngIf="c.city.errors"
-                                                                                class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.city.errors.required">
-                                                                                    City is required</div>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="form-group">
-                                                                            <label>Postal Code</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="Postal Code"
-                                                                                formControlName="postalCode"
-                                                                                [ngClass]="{ 'is-invalid': c.postalCode.errors && c.postalCode.dirty }">
-                                                                                <div *ngIf="c.postalCode.errors"
-                                                                                class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.postalCode.errors.required">
-                                                                                    Postal Code is required</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="col cgap">
-                                                                        <div class="form-group">
-                                                                            <label>Profile Picture</label>
-                                                                            <label class="file">
-                                                                                <input type="file"
-                                                                                    class="form-control-file" #fileInput
-                                                                                    ng2FileSelect [uploader]="uploader">
-                                                                                <span
-                                                                                    class="file-custom">{{public_id}}</span>
-                                                                            </label>
-                                                                            <div class="progress" style="height: 5px;">
-                                                                                <div class="progress-bar"
-                                                                                    role="progressbar"
-                                                                                    [ngStyle]="{ 'width': uploader.progress + '%' }">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                    </div>
-                                                                </div>
-                                                                <button type="submit" class="btn redbtn" [disabled]="customerForm.invalid || isCustomerRequested">
-                                                                    <i class="fa fa-circle-o-notch fa-spin fa-fw"
-                                                                        [hidden]="!isCustomerRequested"></i>
-                                                                        {{isCustomerRequested ? 'Saving' : 'Save'}}</button>
-                                                            </form>
-                                                        </div>
-                                                        <div class="accsetting">
-                                                            <h4>Account Settings</h4>
-                                                            <div class="form-row">
-                                                                <div class="col cgap">
-                                                                    <div class="form-group">
-                                                                        <label>Password</label>
-                                                                        <input type="password" class="form-control"
-                                                                            placeholder="Enter Your Password">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label>Verify Password</label>
-                                                                        <input type="password" class="form-control"
-                                                                            placeholder="Re-enter Password">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <button type="submit" class="btn redbtn mt-3">Change
-                                                                Password</button>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-8 dbb heighfix" *ngIf="isRatingClicked">
-                            <div class="dashboardwrap">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h5><a href="#">Dashboard</a>/ <a href="#">Reviews & Ratings</a></h5>
-                                        <h6>Reviews & Ratings</h6>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="tablewrap">
-                                            <table>
-
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Helper</th>
-                                                        <th scope="col">Review</th>
-                                                        <th scope="col">Rating</th>
-                                                        <th scope="col">Date</th>
-                                                        <th scope="col"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr *ngFor="let data of feedbackList">
-                                                        <td data-label="Helper">{{data.helper.firstName}}
-                                                            {{data.helper.lastName}}</td>
-                                                        <td data-label="Review">{{data.description}}</td>
-                                                        <td data-label="Rating">{{data.rating}}</td>
-                                                        <td data-label="Date">{{data.createdOn | date: 'mediumDate'}}
-                                                        </td>
-                                                        <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="appcontainer">
+          <div class="row">
+            <div class="col-lg-4 sb">
+              <div class="sidebar boxshadow">
+                <div class="sidebar-header">
+                  <div class="profileimg">
+                    <img src="{{ customerModel.image.imageUrl }}" class="img-fluid" />
+                  </div>
+                  <div class="profile-info">
+                    <h3>{{ customerModel.name }}</h3>
+                    <p>Last login was 4th June 2020</p>
+                  </div>
                 </div>
+                <div class="sidebar-links">
+                  <div class="mobiledrop">
+                    <p class="mdroptext">Select</p>
+                    <ul>
+                      <li>
+                        <a (click)="showDashboard()" class="cursorPointerSideBar"><i
+                            class="sprite sprite-dashboard-icon"></i>
+                          Dashboard</a>
+                      </li>
+                      <li>
+                        <a (click)="showMyTickets()" class="cursorPointerSideBar"><i
+                            class="sprite sprite-mytickets-icon"></i> My
+                          Tickets</a>
+                      </li>
+                      <li>
+                        <a (click)="showSettings()" class="cursorPointerSideBar"><i
+                            class="sprite sprite-settings-icon"></i>
+                          Settings</a>
+                      </li>
+                      <li>
+                        <a (click)="showRatings()" class="cursorPointerSideBar"><i
+                            class="sprite sprite-reviewsrate-icon"></i>
+                          Reviews & Ratings</a>
+                      </li>
+                      <li>
+                        <a (click)="logout()" class="cursorPointerSideBar"><i class="sprite sprite-logout-icon"></i> Log
+                          out</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
+            <div class="col-lg-8 dbb" *ngIf="isDashboardClicked">
+              <div class="dashboardwrap">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h5>Dashboard</h5>
+                    <h6>Hello, {{ customerModel.name }}</h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="dashinfo">
+                      <div class="row">
+                        <div class="col-lg-7">
+                          <div class="statusbox boxshadow">
+                            <h5>Status of the last ticket you created...</h5>
+                            <p>At vero eos accusam et justo</p>
+                            <p>Date : 25 Nov 2019 copy 7</p>
+                            <div class="statusinfo">
+                              <span>Pending</span>
+                              <a href="" class="btn-red">View Ticket</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-5">
+                          <div class="seekingbox boxshadow text-center">
+                            <h5>Seeking for help?</h5>
+                            <p>
+                              Select the technician and create your ticket now.
+                            </p>
+                            <a class="btn-red cursorPointer" [routerLink]="['/hire-me']">Open Ticket</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="toprate-tec boxshadow">
+                      <h3 class="subtitle">Top Rated Techniciaons</h3>
+                      <div class="toptechslider-wrap">
+                        <owl-carousel-o [options]="customOptions" id="hmtoptech">
+                          <ng-template carouselSlide *ngFor="let data of helperList">
+                            <div class="item">
+                              <div class="tech-item">
+                                <div class="techimg">
+                                  <img src="{{ data.image.imageUrl }}" class="img-fluid" />
+                                </div>
+                                <div class="techdetail">
+                                  <h5>
+                                    {{ data.firstName }} {{ data.lastName }}
+                                  </h5>
+                                  <div class="tech-points">
+                                    <span class="tech-field">
+                                      <i class="sprite sprite-field-icon"></i>
+                                      <h6>
+                                        <a href="">{{
+                                          data.helperCategory.name
+                                        }}</a>
+                                      </h6>
+                                    </span>
+                                    <span class="tech-field">
+                                      <i class="sprite sprite-city-icon"></i>
+                                      <h6>{{ data.city }}</h6>
+                                    </span>
+                                    <span class="tech-field">
+                                      <i class="sprite sprite-country-icon"></i>
+                                      <h6>{{ data.country }}</h6>
+                                    </span>
+                                  </div>
+                                  <div class="techbtn-wrap">
+                                    <a href="javascript:void(0)" [routerLink]="[
+                                        '/hire-me/open-ticket',
+                                        data.id
+                                      ]" class="btn-hire">Hire Me</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </ng-template>
+                        </owl-carousel-o>
+                      </div>
+                      <div class="vbtnwrap text-center">
+                        <a [routerLink]="['/hire-me']" class="btn-red cursorPointer">View More</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="boxshadow service-provide">
+                      <h3 class="subtitle">Services we provide</h3>
+                      <owl-carousel-o [options]="helperOptions" id="hmtoptech">
+                        <ng-container *ngFor="let data of helperCategoryList">
+                          <ng-template carouselSlide [id]="data.id">
+                            <div class="item">
+                              <div class="serivce-item boxshadow">
+                                <div class="serv-text">
+                                  <h4>{{ data.name }}</h4>
+                                  <p>{{ data.shortDescription }}</p>
+                                </div>
+                                <div class="serv-box">
+                                  <div class="serv-img">
+                                    <img src="{{ data.iconUrl }}" class="img-fluid" />
+                                  </div>
+                                  <a [routerLink]="[
+                                      '/services/sub-service',
+                                      data.id
+                                    ]" class="btn-hire cursorPointer">Select</a>
+                                </div>
+                              </div>
+                            </div>
+                          </ng-template>
+                        </ng-container>
+                      </owl-carousel-o>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 dbb heighfix" *ngIf="isMyTicketsClicked">
+              <div class="dashboardwrap">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h5>Dashboard/ My Tickets</h5>
+                    <h6>My Tickets</h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="tablewrap t2">
+                      <h2 class="subtitle3">Pending Tickets</h2>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Helper</th>
+                            <th scope="col">Help Date</th>
+                            <th scope="col">Help Time</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <ng-container *ngFor="let data of ticketList">
+                            <tr *ngIf="data.ticketStatusId == 1">
+                              <td data-label="Title">{{ data.title }}</td>
+                              <td data-label="Category">
+                                {{ data.helper.helperCategory.name }}
+                              </td>
+                              <td data-label="Helper">
+                                {{ data.helper.firstName }}
+                                {{ data.helper.lastName }}
+                              </td>
+                              <td data-label="Help Date">
+                                {{ data.helpDateFrom | date: "mediumDate" }}
+                              </td>
+                              <td data-label="Help Time">
+                                {{ data.helpTime }}
+                              </td>
+                              <td data-label="Action">
+                                <a href="javascript:void(0)" class="btn-red small" (click)="
+                                    openTicketModal(ticketTemplate, data)
+                                  ">Edit</a>
+                              </td>
+                            </tr>
+                          </ng-container>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- <div class="pagiarrow">
+                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
+                                        </div> -->
+                  </div>
+                </div>
+
+                <ng-template #ticketTemplate>
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="">Edit Ticket</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="modalRef.hide()">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row no-gutters">
+                        <form [formGroup]="ticketForm">
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" placeholder="Title of the Ticket"
+                                  formControlName="title" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col cgap">
+                              <div class="form-group">
+                                <label>Help Time </label>
+                                <timepicker formControlName="helpTime">
+                                </timepicker>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group hdfiels">
+                                <label>Help Dates</label>
+                                <div class="">
+                                  <h6>From</h6>
+                                  <input class="form-control" bsDatepicker [(ngModel)]="fromDate"
+                                    (ngModelChange)="onChangeDateFrom($event)" [bsConfig]="{ adaptivePosition: true }"
+                                    [ngModelOptions]="{standalone: true}" />
+                                  <!-- <bs-datepicker-inline [bsValue]="bsInlineValue"></bs-datepicker-inline> -->
+                                </div>
+                                <div class="">
+                                  <h6>To</h6>
+                                  <input class="form-control" bsDatepicker [(ngModel)]="toDate"
+                                    (ngModelChange)="onChangeDateTo($event)" [bsConfig]="{ adaptivePosition: true }"
+                                    [ngModelOptions]="{standalone: true}" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Country </label>
+                                <input type="text" class="form-control" placeholder="Country"
+                                  formControlName="country" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-row">
+                            <div class="col cgap">
+                              <div class="form-group">
+                                <label>State </label>
+                                <input type="text" class="form-control" placeholder="State" formControlName="state" />
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>City </label>
+                                <input type="text" class="form-control" placeholder="City" formControlName="city" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <!-- <div class="col cgap">
+                                  <div class="form-group">
+                                      <label>Help Time</label>
+                                      <input type="text" class="form-control"
+                                          placeholder="">
+                                  </div>
+                              </div> -->
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control" placeholder="Address"
+                                  formControlName="address" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col cgap">
+                              <div class="form-group">
+                                <label>Contact No 1 </label>
+                                <input type="text" class="form-control" placeholder="+94"
+                                  formControlName="contactNo1" />
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Contact No 2 </label>
+                                <input type="text" class="form-control" placeholder="+94"
+                                  formControlName="contactNo2" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Other Requirements</label>
+                                <textarea class="form-control set-text" rows="5"
+                                  placeholder="Any other special requirements"
+                                  formControlName="otherRequirements"></textarea>
+                              </div>
+                            </div>
+                          </div>
+
+                          <button type="submit" class="btn redbtn" (click)="onTicketSubmit()">
+                            Update Ticket
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="tablewrap t2">
+                      <h2 class="subtitle3">Ongoing Tickets</h2>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Helper</th>
+                            <th scope="col">Help Date</th>
+                            <th scope="col">Help Time</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <ng-container *ngFor="let data of ticketList">
+                            <tr *ngIf="data.ticketStatusId == 2">
+                              <td data-label="Title">{{ data.title }}</td>
+                              <td data-label="Category">
+                                {{ data.helper.helperCategory.name }}
+                              </td>
+                              <td data-label="Helper">
+                                {{ data.helper.firstName }}
+                                {{ data.helper.lastName }}
+                              </td>
+                              <td data-label="Help Date">
+                                {{ data.helpDateFrom | date: "mediumDate" }}
+                              </td>
+                              <td data-label="Help Time">
+                                {{ data.helpTime }}
+                              </td>
+                              <td data-label="Action">
+                                <a href="javascript:void(0)" class="btn-red small"
+                                  (click)="completeTicket(data.id)">Complete</a>
+                              </td>
+                            </tr>
+                          </ng-container>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- <div class="pagiarrow">
+                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
+                                        </div> -->
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="tablewrap t2">
+                      <h2 class="subtitle3">Completed Tickets</h2>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Helper</th>
+                            <th scope="col">Help Date</th>
+                            <th scope="col">Help Time</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <ng-container *ngFor="let data of ticketList">
+                            <tr *ngIf="data.ticketStatusId == 3">
+                              <td data-label="Title">{{ data.title }}</td>
+                              <td data-label="Category">
+                                {{ data.helper.helperCategory.name }}
+                              </td>
+                              <td data-label="Helper">
+                                {{ data.helper.firstName }}
+                                {{ data.helper.lastName }}
+                              </td>
+                              <td data-label="Help Date">
+                                {{ data.helpDateFrom | date: "mediumDate" }}
+                              </td>
+                              <td data-label="Help Time">
+                                {{ data.helpTime }}
+                              </td>
+                              <td data-label="Action">
+                                <a href="javascript:void(0)" class="btn-red small" data-toggle="modal"
+                                  data-target="#view" (click)="openModal(template, data)">View</a>
+                                <a href="javascript:void(0)" class="btn-red small" data-toggle="modal" (click)="
+                                    openReviewModal(
+                                      reviewTemplate,
+                                      data.id,
+                                      data.helper.id
+                                    )
+                                  " *ngIf="data.hasFeedback == false">+ Review</a>
+                              </td>
+                            </tr>
+                          </ng-container>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- <div class="pagiarrow">
+                                            <a href=""><img src="../../assets/images/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="../../assets/images/pagiarrow-next.png"></a>
+                                        </div> -->
+                  </div>
+                </div>
+
+                <ng-template #template>
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="">View Ticket</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="modalRef.hide()">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row no-gutters">
+                        <div class="col-lg-6 col-md-6">
+                          <div class="modelcol1">
+                            <div class="model-field">
+                              <div class="m-fieldtitle">Title</div>
+                              <div class="m-fieldvalue">
+                                {{ ticketModel.title }}
+                              </div>
+                            </div>
+                            <div class="model-field">
+                              <div class="m-fieldtitle">Help Time</div>
+                              <div class="m-fieldvalue">
+                                {{ ticketModel.helpTime }}
+                              </div>
+                            </div>
+                            <div class="model-field">
+                              <div class="m-fieldtitle">Category</div>
+                              <div class="m-fieldvalue">
+                                {{ ticketModel.helper.helperCategory.name }}
+                              </div>
+                            </div>
+                            <div class="model-field">
+                              <div class="m-fieldtitle">Help Date</div>
+                              <div class="m-fieldvalue">
+                                {{ ticketModel.createdOn }}
+                              </div>
+                            </div>
+                            <div class="model-field">
+                              <div class="m-fieldtitle">Contact Number/s</div>
+                              <div class="m-fieldvalue">
+                                {{ ticketModel.contactNo1 }} /
+                                {{ ticketModel.contactNo2 }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                          <div class="modelcol2 text-center">
+                            <div class="tech-pro-img">
+                              <img src="{{ ticketModel.customer.image.imageUrl }}" class="img-fluid" />
+                            </div>
+                            <h6>{{ ticketModel.customer.name }}</h6>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                          <div class="feedback">
+                            <h5>Other Requirements</h5>
+                            <div class="feedtext">
+                              <p>{{ ticketModel.otherRequirements }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+
+                <ng-template #reviewTemplate>
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="">Review and Rating</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" [formGroup]="feedbackForm">
+                    <div class="row no-gutters">
+                      <div class="col-lg-12">
+                        <div class="r-feedback d-flex flex-column align-items-start">
+                          <h5>Rating</h5>
+                          <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="r-feedback">
+                          <h5>Feedback</h5>
+                          <div class="r-feedtext">
+                            <textarea class="form-control" formControlName="description" id="" rows="3"></textarea>
+                            <a class="btn-submit cursorPointer" (click)="onFeedbackSubmit()">Submit</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+            <div class="col-lg-8 dbb" *ngIf="isSettingsClicked">
+              <div class="dashboardwrap">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h5><a href="">Dashboard</a>/<a href="">Settings</a></h5>
+                    <h6>Settings</h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="settings">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="settingwrap boxshadow">
+                            <h4>Personal Settings</h4>
+                            <div class="setting-form">
+                              <form [formGroup]="customerForm" (ngSubmit)="onCustomerSubmit()">
+                                <div class="form-row">
+                                  <div class="col cgap">
+                                    <div class="form-group">
+                                      <label>Name</label>
+                                      <input type="text" class="form-control" placeholder="Full name"
+                                        formControlName="name" [ngClass]="{
+                                          'is-invalid':
+                                            c.name.errors && c.name.dirty
+                                        }" />
+                                      <div *ngIf="c.name.errors" class="invalid-feedback">
+                                        <div *ngIf="c.name.errors.required">
+                                          Name is required
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>Phone</label>
+                                      <input type="text" class="form-control" placeholder="+94"
+                                        formControlName="phoneNo" [ngClass]="{
+                                          'is-invalid':
+                                            c.phoneNo.errors && c.phoneNo.dirty
+                                        }" />
+                                      <div *ngIf="c.phoneNo.errors" class="invalid-feedback">
+                                        <div *ngIf="c.phoneNo.errors.required">
+                                          Phone is required
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="col cgap">
+                                    <div class="form-group">
+                                      <label>Email Address</label>
+                                      <input type="email" class="form-control" placeholder="Your Email"
+                                        formControlName="email" [ngClass]="{
+                                          'is-invalid':
+                                            c.email.errors && c.email.dirty
+                                        }" />
+                                      <div *ngIf="c.email.errors" class="invalid-feedback">
+                                        <div *ngIf="c.email.errors.required">
+                                          Email is required
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>Address</label>
+                                      <input type="text" class="form-control" placeholder="Address"
+                                        formControlName="addressLine" [ngClass]="{
+                                          'is-invalid':
+                                            c.addressLine.errors &&
+                                            c.addressLine.dirty
+                                        }" />
+                                      <div *ngIf="c.addressLine.errors" class="invalid-feedback">
+                                        <div *ngIf="c.addressLine.errors.required">
+                                          Address is required
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="col cgap">
+                                    <div class="form-group">
+                                      <label>Country </label>
+                                      <input type="text" class="form-control" placeholder="Country"
+                                        formControlName="country" [ngClass]="{
+                                          'is-invalid':
+                                            c.country.errors && c.country.dirty
+                                        }" />
+                                      <div *ngIf="c.country.errors" class="invalid-feedback">
+                                        <div *ngIf="c.country.errors.required">
+                                          Country is required
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>State</label>
+                                      <input type="text" class="form-control" placeholder="State"
+                                        formControlName="state" [ngClass]="{
+                                          'is-invalid':
+                                            c.state.errors && c.state.dirty
+                                        }" />
+                                      <div *ngIf="c.state.errors" class="invalid-feedback">
+                                        <div *ngIf="c.state.errors.required">
+                                          State is required
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="col cgap">
+                                    <div class="form-group">
+                                      <label>City </label>
+                                      <input type="text" class="form-control" placeholder="City" formControlName="city"
+                                        [ngClass]="{
+                                          'is-invalid':
+                                            c.city.errors && c.city.dirty
+                                        }" />
+                                      <div *ngIf="c.city.errors" class="invalid-feedback">
+                                        <div *ngIf="c.city.errors.required">
+                                          City is required
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>Postal Code</label>
+                                      <input type="text" class="form-control" placeholder="Postal Code"
+                                        formControlName="postalCode" [ngClass]="{
+                                          'is-invalid':
+                                            c.postalCode.errors &&
+                                            c.postalCode.dirty
+                                        }" />
+                                      <div *ngIf="c.postalCode.errors" class="invalid-feedback">
+                                        <div *ngIf="c.postalCode.errors.required">
+                                          Postal Code is required
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="col cgap">
+                                    <div class="form-group">
+                                      <label>Profile Picture</label>
+                                      <label class="file">
+                                        <input type="file" class="form-control-file" #fileInput ng2FileSelect
+                                          [uploader]="uploader" />
+                                        <span class="file-custom">{{
+                                          public_id
+                                        }}</span>
+                                      </label>
+                                      <div class="progress" style="height: 5px;">
+                                        <div class="progress-bar" role="progressbar" [ngStyle]="{
+                                            width: uploader.progress + '%'
+                                          }"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col"></div>
+                                </div>
+                                <button type="submit" class="btn redbtn" [disabled]="
+                                    customerForm.invalid || isCustomerRequested
+                                  ">
+                                  <i class="fa fa-circle-o-notch fa-spin fa-fw" [hidden]="!isCustomerRequested"></i>
+                                  {{ isCustomerRequested ? "Saving" : "Save" }}
+                                </button>
+                              </form>
+                            </div>
+                            <div class="accsetting">
+                              <h4>Account Settings</h4>
+                              <div class="form-row">
+                                <div class="col cgap">
+                                  <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Enter Your Password" />
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label>Verify Password</label>
+                                    <input type="password" class="form-control" placeholder="Re-enter Password" />
+                                  </div>
+                                </div>
+                              </div>
+                              <button type="submit" class="btn redbtn mt-3">
+                                Change Password
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 dbb heighfix" *ngIf="isRatingClicked">
+              <div class="dashboardwrap">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h5>
+                      <a href="#">Dashboard</a>/
+                      <a href="#">Reviews & Ratings</a>
+                    </h5>
+                    <h6>Reviews & Ratings</h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="tablewrap t2">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">Helper</th>
+                            <th scope="col">Review</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Date</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of feedbackList">
+                            <td data-label="Helper">
+                              {{ data.helper.firstName }}
+                              {{ data.helper.lastName }}
+                            </td>
+                            <td data-label="Review">{{ data.description }}</td>
+                            <td data-label="Rating">{{ data.rating }}</td>
+                            <td data-label="Date">
+                              {{ data.createdOn | date: "mediumDate" }}
+                            </td>
+                            <td data-label="Action">
+                              <a href="javascript:void(0)" class="btn-red small" data-toggle="modal" (click)="openReviewEditModal(
+                                  editReview,
+                                  data.id,
+                                  data.helper.id,
+                                  data.ticketId
+                                )">View</a>
+                              <a href="javascript:void(0)" class="btn-red small"
+                                (click)="openReviewDeleteModal(deleteReviewTemplate, data.id)">Delete</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <ng-template #editReview>
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="">Review and Rating</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" [formGroup]="feedbackForm">
+                    <div class="row no-gutters">
+                      <div class="col-lg-12">
+                        <div class="r-feedback d-flex flex-column align-items-start">
+                          <h5>Rating</h5>
+                          <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="r-feedback">
+                          <h5>Feedback</h5>
+                          <div class="r-feedtext">
+                            <textarea class="form-control" formControlName="description" id="" rows="3"></textarea>
+                            <a class="btn-submit cursorPointer" (click)="onFeedbackEdit()">Submit</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+
+                <ng-template #deleteReviewTemplate>
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Delete Feedback</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Are you sure you want to delete this feedback?
+                  </div>
+                  <div class="modal-footer">
+                    <a class="btn small pull-right" (click)="modalRef.hide()">Cancel</a>
+                    <a class="btn-red small cursorPointer pull-right" (click)="deleteFeedback()">Yes</a>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

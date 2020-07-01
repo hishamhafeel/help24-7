@@ -187,5 +187,25 @@ namespace Help247.Controllers.Api
             }
         }
 
+        // PUT: api/ticket/
+        [HttpPut]
+        [Authorize(Roles = "Admin, Customer, SuperAdmin")]
+        public async Task<IActionResult> PutTicketAsync([FromBody]TicketViewModel ticketViewModel)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    throw new ArgumentException();
+                }
+                var result = await ticketService.PutTicketAsync(mapper.Map<TicketBO>(ticketViewModel));
+                return Ok(mapper.Map<TicketViewModel>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
     }
 }

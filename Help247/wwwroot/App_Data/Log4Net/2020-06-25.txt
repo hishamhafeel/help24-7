@@ -1,0 +1,110 @@
+
+ 
+ ************ 2020-06-25 20:25:24,480 [9] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 20:51:32,445 [9] ERROR App  
+ ERROR in Can't bind to 'disabled' since it isn't a known property of 'a'. ("class="btn-red" (click)="showMyJobs()"
+                                                            [ERROR ->][disabled]="jobsCountModel.pendingJobs == 0">VIEW JOB</a>
+                                          ")
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:05:53,560 [69] ERROR App  
+     ERROR in src/app/helper/helper.component.ts(92,13): error TS2322: Type 'void' is not assignable to type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:07:29,544 [74] ERROR App  
+     ERROR in src/app/helper/helper.component.ts(92,13): error TS2322: Type 'void' is not assignable to type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:19:44,607 [74] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "p". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                  <p>{{ticketModel.title}}</p>
+                                                    [ERROR ->]</p>
+                                                    <p>Help date : {{ticketModel.createdOn | da"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/helper/helper.component.html@136:52
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:20:41,883 [74] ERROR App  
+     ERROR in src/app/helper/helper.component.html(137,56): Property 'mediumDate' does not exist on type 'HelperComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:21:22,462 [107] ERROR App  
+     ERROR in src/app/helper/helper.component.html(137,56): Property 'mediumDate' does not exist on type 'HelperComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:22:11,016 [107] ERROR App  
+     ERROR in src/app/helper/helper.component.html(137,56): Property 'mediumDate' does not exist on type 'HelperComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:25:54,127 [107] ERROR App  
+     ERROR in src/app/helper/helper.component.html(141,56): Property 'mediumDate' does not exist on type 'HelperComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:26:27,182 [107] ERROR App  
+     ERROR in src/app/helper/helper.component.html(141,56): Property 'mediumDate' does not exist on type 'HelperComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:27:22,791 [107] ERROR App  
+     ERROR in src/app/helper/helper.component.html(142,56): Property 'mediumDate' does not exist on type 'HelperComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:42:16,037 [54] ERROR App  
+     ERROR in src/app/helper/helper.component.ts(137,24): error TS2339: Property 'rejectTicket' does not exist on type 'HireMeService'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 22:59:47,813 [54] ERROR App  
+     ERROR in src/app/helper/helper.component.html(221,96): Expected 1 arguments, but got 0.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 23:00:57,178 [54] ERROR App  
+     ERROR in src/app/helper/helper.component.html(221,83): Expected 1 arguments, but got 0.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-25 23:41:45,169 [70] ERROR App  
+     ERROR in src/app/helper/helper.component.html(909,42): Property 'image' does not exist on type 'TicketModel'.
+    
+ ********** 
+ 

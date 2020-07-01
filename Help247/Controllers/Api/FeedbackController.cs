@@ -28,6 +28,7 @@ namespace Help247.Controllers.Api
         // GET: api/feedback/list
         [Route("list")]
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllAsync([FromQuery]FeedbackSearchViewModel feedbackSearchViewModel)
         {
             var result = await feedbackService.GetAllAsync(mapper.Map<FeedbackSearchBO>(feedbackSearchViewModel));
@@ -36,6 +37,7 @@ namespace Help247.Controllers.Api
 
         // GET: api/Feedback/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAsync(int id)
         {
             try

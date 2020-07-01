@@ -5,6 +5,8 @@ import { HelperRoutingModule } from './helper-routing.module';
 import { HelperComponent } from './helper.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HelperRoutingModule,
     ModalModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxStarRatingModule
   ]
 })
 export class HelperModule { }

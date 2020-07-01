@@ -1,0 +1,562 @@
+
+ 
+ ************ 2020-06-28 12:43:42,388 [84] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 12:50:01,142 [53] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 12:53:47,446 [53] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 13:16:33,759 [54] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:36:43,257 [5] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:40:09,209 [5] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                  </div>
+
+                                                                        [ERROR ->]</div>
+                                                                    </div>
+                 "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@218:72
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                        </div>
+                                                                    [ERROR ->]</div>
+                                                                    <div class="col">
+      "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@219:68
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                            </div>
+                                                                [ERROR ->]</div>
+                                                                <div class="form-row">
+     "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@235:64
+Unexpected closing tag "form". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("quested ? 'Saving' : 'Save'}}</button>
+                                                            [ERROR ->]</form>
+                                                        </div>
+                            "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@262:60
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:40:10,128 [22] ERROR App  
+ Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                   </form>
+                                                        [ERROR ->]</div>
+                                                        <div class="accsetting">
+           "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@263:56
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                        </div>
+                                                    [ERROR ->]</div>
+                                                </div>
+                                     "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@286:52
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                            </div>
+                                                [ERROR ->]</div>
+                                            </div>
+                                        <"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@287:48
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                                </div>
+                                            [ERROR ->]</div>
+                                        </div>
+                                    </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@288:44
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("</div>
+                                            </div>
+                                        [ERROR ->]</div>
+                                    </div>
+                                </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@289:40
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("        </div>
+                                        </div>
+                                    [ERROR ->]</div>
+                                </div>
+
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@290:36
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                </div>
+                                    </div>
+                                [ERROR ->]</div>
+
+                            </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@291:32
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                                </div>
+
+                            [ERROR ->]</div>
+                        </div>
+                        <div class="col-lg-8 dbb heighfix" *n"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@293:28
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+
+                            </div>
+                        [ERROR ->]</div>
+                        <div class="col-lg-8 dbb heighfix" *ngIf="isRatingClicked">
+        "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@294:24
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                            </div>
+                        </div>
+                    [ERROR ->]</div>
+                </div>
+            </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@341:20
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                        </div>
+                    </div>
+                [ERROR ->]</div>
+            </div>
+        </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@342:16
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                    </div>
+                </div>
+            [ERROR ->]</div>
+        </div>
+    </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@343:12
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                </div>
+            </div>
+        [ERROR ->]</div>
+    </div>
+</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@344:8
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:40:35,543 [22] ERROR App  
+ Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+            </div>
+        </div>
+    [ERROR ->]</div>
+</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@345:4
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+        </div>
+    </div>
+[ERROR ->]</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@346:0
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:40:36,563 [22] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "form". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("quested ? 'Saving' : 'Save'}}</button>
+                                                            [ERROR ->]</form>
+                                                        </div>
+                            "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@275:60
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                        </div>
+                                                    [ERROR ->]</div>
+                                                </div>
+                                     "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@299:52
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                            </div>
+                                                [ERROR ->]</div>
+                                            </div>
+                                        <"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@300:48
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                                </div>
+                                            [ERROR ->]</div>
+                                        </div>
+                                    </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@301:44
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:40:59,001 [51] ERROR App  
+ Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("</div>
+                                            </div>
+                                        [ERROR ->]</div>
+                                    </div>
+                                </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@302:40
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("        </div>
+                                        </div>
+                                    [ERROR ->]</div>
+                                </div>
+
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@303:36
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                </div>
+                                    </div>
+                                [ERROR ->]</div>
+
+                            </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@304:32
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                                </div>
+
+                            [ERROR ->]</div>
+                        </div>
+                        <div class="col-lg-8 dbb heighfix" *n"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@306:28
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+
+                            </div>
+                        [ERROR ->]</div>
+                        <div class="col-lg-8 dbb heighfix" *ngIf="isRatingClicked">
+        "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@307:24
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                            </div>
+                        </div>
+                    [ERROR ->]</div>
+                </div>
+            </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@354:20
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                        </div>
+                    </div>
+                [ERROR ->]</div>
+            </div>
+        </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@355:16
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                    </div>
+                </div>
+            [ERROR ->]</div>
+        </div>
+    </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@356:12
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                </div>
+            </div>
+        [ERROR ->]</div>
+    </div>
+</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@357:8
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+            </div>
+        </div>
+    [ERROR ->]</div>
+</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@358:4
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+        </div>
+    </div>
+[ERROR ->]</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@359:0
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:40:59,653 [51] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "table". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                              </tbody>
+                                            [ERROR ->]</table>
+                                        </div>
+                                        <!-"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@206:44
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("      </div>
+                                                                </div>
+              [ERROR ->]</div>
+            </div>
+          </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@375:14
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                                          </div>
+              </div>
+            [ERROR ->]</div>
+          </div>
+                                                                           "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@376:12
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+              </div>
+            </div>
+          [ERROR ->]</div>
+                                                                            </div>
+         "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@377:10
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("div>
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:41:26,266 [6] ERROR App  
+           </div>
+                                                                            [ERROR ->]</div>
+                                                                        </div>
+             "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@378:76
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                    </div>
+                                                                        [ERROR ->]</div>
+                                                                    </div>
+                 "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@379:72
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                        </div>
+                                                                    [ERROR ->]</div>
+                                                                </div>
+                     "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@380:68
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                            </div>
+                                                                [ERROR ->]</div>
+                                                                <div class="form-row">
+     "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@381:64
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:41:27,471 [6] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "ng-template". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                          </div>
+                                </div>
+                          [ERROR ->]</ng-template>
+                        </ng-container>
+                                            "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@232:26
+Unexpected closing tag "ng-container". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                          </div>
+                          </ng-template>
+                        [ERROR ->]</ng-container>
+                                                </tbody>
+                          "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@233:24
+Unexpected closing tag "tbody". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("template>
+                        </ng-container>
+                                                [ERROR ->]</tbody>
+                                            </table>
+                                     "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@234:48
+Unexpected closing tag "table". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                              </tbody>
+                                            [ERROR ->]</table>
+                                        </div>
+                                        <!-"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@235:44
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:41:27,860 [6] ERROR App  
+ Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                                </ng-template>
+
+                            [ERROR ->]</div>
+                        </div>
+                        <div class="col-lg-8 dbb" *ngIf="isSe"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@320:28
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+
+                            </div>
+                        [ERROR ->]</div>
+                        <div class="col-lg-8 dbb" *ngIf="isSettingsClicked">
+               "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@321:24
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("      </div>
+                                                                </div>
+              [ERROR ->]</div>
+            </div>
+          </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@404:14
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                                          </div>
+              </div>
+            [ERROR ->]</div>
+          </div>
+                                                                           "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@405:12
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+              </div>
+            </div>
+          [ERROR ->]</div>
+                                                                            </div>
+         "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@406:10
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("div>
+          </div>
+                                                                            [ERROR ->]</div>
+                                                                        </div>
+             "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@407:76
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                    </div>
+                                                                        [ERROR ->]</div>
+                                                                    </div>
+                 "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@408:72
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                        </div>
+                                                                    [ERROR ->]</div>
+                                                                </div>
+                     "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@409:68
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                            </div>
+                                                                [ERROR ->]</div>
+                                                                <div class="form-row">
+     "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@410:64
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                            </div>
+                        </div>
+                    [ERROR ->]</div>
+                </div>
+            </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@549:20
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                        </div>
+                    </div>
+                [ERROR ->]</div>
+            </div>
+        </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@550:16
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                    </div>
+                </div>
+            [ERROR ->]</div>
+        </div>
+    </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@551:12
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                </div>
+            </div>
+        [ERROR ->]</div>
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:42:52,934 [6] ERROR App  
+     </div>
+</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@552:8
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+            </div>
+        </div>
+    [ERROR ->]</div>
+</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@553:4
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+        </div>
+    </div>
+[ERROR ->]</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@554:0
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 16:42:54,738 [6] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 20:05:25,398 [18] ERROR App  
+ ERROR in 'timepicker' is not a known element:
+1. If 'timepicker' is an Angular component, then verify that it is part of this module.
+2. To allow any element add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. ("                                   <label>Help Time </label>
+                                      [ERROR ->]<timepicker formControlName="helpTime">
+                                      </timepicker>
+       ")
+Can't bind to 'bsValue' since it isn't a known property of 'input'. ("                   id="from-datepicker" bsDatepicker
+                                              [ERROR ->][bsValue]="fromDate">
+                                          <!-- <bs-datepicker-inline [bsValue]")
+Can't bind to 'bsValue' since it isn't a known property of 'input'. ("                     id="to-datepicker" bsDatepicker
+                                              [ERROR ->][bsValue]="toDate">
+                                      </div>
+
+")
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 20:05:33,114 [37] ERROR App  
+ ERROR in 'timepicker' is not a known element:
+1. If 'timepicker' is an Angular component, then verify that it is part of this module.
+2. To allow any element add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. ("                                   <label>Help Time </label>
+                                      [ERROR ->]<timepicker formControlName="helpTime">
+                                      </timepicker>
+       ")
+Can't bind to 'bsValue' since it isn't a known property of 'input'. ("                   id="from-datepicker" bsDatepicker
+                                              [ERROR ->][bsValue]="fromDate">
+                                          <!-- <bs-datepicker-inline [bsValue]")
+Can't bind to 'bsValue' since it isn't a known property of 'input'. ("                     id="to-datepicker" bsDatepicker
+                                              [ERROR ->][bsValue]="toDate">
+                                      </div>
+
+")
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 20:07:00,965 [36] ERROR App  
+     ERROR in src/app/customer/customer.component.html(256,35): Property 'editTicket' does not exist on type 'CustomerComponent'.
+    src/app/customer/customer.component.html(325,47): Property 'fromDate' does not exist on type 'CustomerComponent'.
+    src/app/customer/customer.component.html(333,47): Property 'toDate' does not exist on type 'CustomerComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 20:10:08,109 [33] ERROR App  
+     ERROR in src/app/customer/customer.component.html(325,47): Property 'fromDate' does not exist on type 'CustomerComponent'.
+    src/app/customer/customer.component.html(333,47): Property 'toDate' does not exist on type 'CustomerComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 20:36:58,795 [33] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 21:09:28,897 [6] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 21:59:01,495 [6] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 22:07:31,511 [23] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 22:31:37,499 [118] ERROR App  
+     ERROR in src/app/customer/customer.component.html(324,37): Property 'showFromCalendar' does not exist on type 'CustomerComponent'.
+    src/app/customer/customer.component.html(320,37): Property 'showCalendar' does not exist on type 'CustomerComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 22:36:25,444 [38] ERROR App  
+     ERROR in src/app/customer/customer.component.html(321,37): Property 'hideCalendar' does not exist on type 'CustomerComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 22:48:14,431 [38] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 22:53:45,661 [71] ERROR App  
+     ERROR in src/app/customer/customer.component.ts(368,5): error TS2322: Type 'string | number' is not assignable to type 'number'.
+      Type 'string' is not assignable to type 'number'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 23:03:10,540 [71] ERROR App  
+     ERROR in src/app/customer/customer.component.ts(269,26): error TS2339: Property 'updateFed' does not exist on type 'CustomerService'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 23:03:31,526 [71] ERROR App  
+     ERROR in src/app/customer/customer.component.ts(269,26): error TS2339: Property 'updateFed' does not exist on type 'CustomerService'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-28 23:46:18,657 [40] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 

@@ -32,14 +32,20 @@ export class HelperComponent implements OnInit {
   ticketModel: TicketModel = new TicketModel();
   helperModel: HelperModel = new HelperModel();
   skillModel: SkillModel = new SkillModel();
+  feedbackModel: FeedbackModel = new FeedbackModel();
   jobsCountModel: JobsCountModel = new JobsCountModel();
   helperCategoryList: Array<HelperCategoryModel>
   helperId: number;
+  customerId: number;
+  ticketId: number;
+  daysToCompleteJob: number;
 
   modalRef: BsModalRef;
 
   isHelperRequested: boolean = false;
   isSkillRequested: boolean = false;
+  rating: number = 4;
+  ratingDescription: string = '';
 
   constructor(
     private hireMeService: HireMeService,
@@ -47,7 +53,7 @@ export class HelperComponent implements OnInit {
     private helperService: HelperService,
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
 
   ) {
     this.pagination = new PaginationBase();
@@ -59,6 +65,8 @@ export class HelperComponent implements OnInit {
     this.getHelperById();
     this.getHelperCategory();
     this.getSkills();
+    this.getFeedbacksForHelper(this.helperId);
+    this.getTicketList();
   }
   //DASHBOARD START
 
@@ -80,8 +88,15 @@ export class HelperComponent implements OnInit {
   getTicketList() {
     this.hireMeService.getTicketListHelper(this.pagination, this.helperId).subscribe(
       result => {
-        console.log('result', result);
         this.ticketList = result.details;
+        console.log('tl', this.ticketList);
+        this.ticketList.forEach(element => {
+          if (element.ticketStatusId == 2) {
+            this.ticketModel = element;
+            this.daysToCompleteJob = this.calculateDaysCount(element.createdOn);
+            return;
+          }
+        });
       },
       error => {
         this.toastr.error('Error', error.message);
@@ -89,10 +104,18 @@ export class HelperComponent implements OnInit {
     );
   }
 
+  calculateDaysCount(createdOn: Date): number {
+    const today = new Date();
+    const createdOnConverted = new Date(createdOn);
+    let differenceInTime = today.getTime() - createdOnConverted.getTime();
+    differenceInTime = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+    console.log(differenceInTime);
+    return differenceInTime;
+  }
+
   getTicketById(id: number) {
     this.hireMeService.getTicketById(id).subscribe(
       result => {
-        console.log('result', result);
         this.ticketModel = result;
       },
       error => {
@@ -105,6 +128,18 @@ export class HelperComponent implements OnInit {
     this.hireMeService.approveTicket(id).subscribe(
       result => {
         console.log('result', result);
+        this.getTicketList();
+      },
+      error => {
+        this.toastr.error('Error', error.message);
+      }
+    );
+  }
+
+  rejectTicket(id: number) {
+    this.helperService.cancelTicket(id).subscribe(
+      result => {
+        this.toastr.success('Cancel Success', "Successfully rejected ticket!");
         this.getTicketList();
       },
       error => {
@@ -284,11 +319,28 @@ export class HelperComponent implements OnInit {
     this.helperService.getFeedbackByHelperId(id).subscribe(
       result => {
         this.feedbackList = result;
+        this.feedbackModel = result[0];
       },
       error => {
         this.toastr.error('Error', error.message);
       }
     );
+  }
+
+  getFeedbackById(id: number) {
+    this.helperService.getFeedbackById(id).subscribe(
+      result => {
+        this.feedbackModel = result;
+      },
+      error => {
+        this.toastr.error('Error', error.message);
+      }
+    )
+  }
+  openFeedbackModal(template: TemplateRef<any>, data) {
+    this.rating = data.rating;
+    this.ratingDescription = data.description;
+    this.modalRef = this.modalService.show(template);
   }
 
   //FEEDBACK END
@@ -302,7 +354,7 @@ export class HelperComponent implements OnInit {
   }
 
   showMyJobs() {
-    this.getTicketList();
+    //this.getTicketList();
     this.isDashboardClicked = false;
     this.isMyJobsClicked = true;
     this.isSettingsClicked = false;
@@ -325,7 +377,7 @@ export class HelperComponent implements OnInit {
   }
 
   showRatings() {
-    this.getFeedbacksForHelper(this.helperId);
+    // this.getFeedbacksForHelper(this.helperId);
     this.isDashboardClicked = false;
     this.isMyJobsClicked = false;
     this.isSettingsClicked = false;

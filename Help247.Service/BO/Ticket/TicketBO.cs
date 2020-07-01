@@ -18,6 +18,8 @@ namespace Help247.Service.BO.Ticket
         public string HelpTime { get; set; }
         public string Title { get; set; }
         public string Country { get; set; }
+        public bool HasFeedback { get; set; }
+
 
 
 

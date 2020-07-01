@@ -15,5 +15,6 @@ namespace Help247.Service.Services.Ticket
         Task<TicketBO> GetTicketsById(int id);
         Task<PaginationModel<TicketBO>> GetAllAsync(TicketSearchBO ticketSearchBO);
         Task<TicketCountBO> GetCountAllAsync(int helperId);
+        Task<TicketBO> PutTicketAsync(TicketBO ticketBO);
     }
 }
