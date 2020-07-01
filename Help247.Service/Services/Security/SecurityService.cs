@@ -125,7 +125,9 @@ namespace Help247.Service.Services.Security
                         Subject = "Welcome To Help 24/7",
                         IsBodyHtml = true,
                         Body = $"Hi {storeUser.UserName} , please click on the link below so that we can confirm your email address. <br/><br/>" +
-                        $"{confirmPasswordLink} <br/><br/>" +
+                        $"<a href='{confirmPasswordLink}' target='_blank'>Verify</a><br/><br/>" +
+                        $"If the link does not work, Please copy and paste the following link into your browser.<br/>" +
+                        $"{confirmPasswordLink}<br/><br/>" +
                         $"Happy Help!!!"
 
                     };

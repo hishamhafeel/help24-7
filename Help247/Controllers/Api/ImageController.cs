@@ -73,7 +73,23 @@ namespace Help247.Controllers.Api
                 {
                     throw new ArgumentException("Number of Image Url's exceeded. Limit is 5.");
                 }
-                var result = await imageService.PostImageForProfileSkillsAsync(mapper.Map<ImageUrlBO>(imageUrls));
+                var userId = User.GetClaim();
+                var result = await imageService.PostImageForProfileSkillsAsync(mapper.Map<ImageUrlBO>(imageUrls), userId);
+                return Ok(mapper.Map<List<ImageViewModel>>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
+        [Route("skills")]
+        [HttpGet]
+        public async Task<IActionResult> GetImageForProfileSkillsAsync(int helperId)
+        {
+            try
+            {
+                var result = await imageService.GetImageForProfileSkillsAsync(helperId);
                 return Ok(mapper.Map<List<ImageViewModel>>(result));
             }
             catch (Exception ex)

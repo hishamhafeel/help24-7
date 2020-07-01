@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Help247.Common.Pagination;
+using Help247.Common.Utility;
 using Help247.Service.BO.Helper;
 using Help247.Service.Services.Helper;
 using Help247.ViewModels.Helper;
@@ -57,7 +58,8 @@ namespace Help247.Controllers.Api
         {
             try
             {
-                var result = await helperService.PutAsync(mapper.Map<HelperBO>(helperViewModel));
+                var userId = User.GetClaim();
+                var result = await helperService.PutAsync(mapper.Map<HelperBO>(helperViewModel), userId);
                 return Ok(result);
             }
             catch (Exception ex)

@@ -31,8 +31,7 @@
                                                                                 [ngClass]="{ 'is-invalid': c.name.errors && isFormSubmitted }">
                                                                             <div *ngIf="c.name.errors"
                                                                                 class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.name.errors.required">
+                                                                                <div *ngIf="c.name.errors.required">
                                                                                     Name is required</div>
                                                                             </div>
                                                                         </div>
@@ -46,8 +45,7 @@
                                                                                 [ngClass]="{ 'is-invalid': c.phoneNo.errors && isFormSubmitted }">
                                                                             <div *ngIf="c.phoneNo.errors"
                                                                                 class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.phoneNo.errors.required">
+                                                                                <div *ngIf="c.phoneNo.errors.required">
                                                                                     Phone is required</div>
                                                                             </div>
                                                                         </div>
@@ -63,8 +61,7 @@
                                                                                 [ngClass]="{ 'is-invalid': c.email.errors && isFormSubmitted }">
                                                                             <div *ngIf="c.email.errors"
                                                                                 class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.email.errors.required">
+                                                                                <div *ngIf="c.email.errors.required">
                                                                                     Email is required</div>
                                                                             </div>
                                                                         </div>
@@ -95,8 +92,7 @@
                                                                                 [ngClass]="{ 'is-invalid': c.country.errors && isFormSubmitted }">
                                                                             <div *ngIf="c.country.errors"
                                                                                 class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.country.errors.required">
+                                                                                <div *ngIf="c.country.errors.required">
                                                                                     Country is required</div>
                                                                             </div>
                                                                         </div>
@@ -110,8 +106,7 @@
                                                                                 [ngClass]="{ 'is-invalid': c.state.errors && isFormSubmitted }">
                                                                             <div *ngIf="c.state.errors"
                                                                                 class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.state.errors.required">
+                                                                                <div *ngIf="c.state.errors.required">
                                                                                     State is required</div>
                                                                             </div>
                                                                         </div>
@@ -127,8 +122,7 @@
                                                                                 [ngClass]="{ 'is-invalid': c.city.errors && isFormSubmitted }">
                                                                             <div *ngIf="c.city.errors"
                                                                                 class="invalid-feedback">
-                                                                                <div
-                                                                                    *ngIf="c.city.errors.required">
+                                                                                <div *ngIf="c.city.errors.required">
                                                                                     City is required</div>
                                                                             </div>
 
@@ -138,7 +132,7 @@
                                                                         <div class="form-group">
                                                                             <label>Postal Code</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder=""
+                                                                                placeholder="Postal Code"
                                                                                 formControlName="postalCode"
                                                                                 [ngClass]="{ 'is-invalid': c.postalCode.errors && isFormSubmitted }">
                                                                             <div *ngIf="c.postalCode.errors"
@@ -155,11 +149,12 @@
                                                                         <div class="form-group">
                                                                             <label>Profile Picture</label>
                                                                             <label class="file">
-                                                                                <input type="file"
-                                                                                    class="form-control-file" #fileInput
-                                                                                    ng2FileSelect [uploader]="uploader"
+                                                                                <input class="form-control-file"
+                                                                                    type="file" ng2FileSelect
+                                                                                    [uploader]="uploader"
+                                                                                    (change)="fileChangeEvent()"
                                                                                     [ngClass]="{ 'is-invalid': c.profilePicUrl.errors && isFormSubmitted }"
-                                                                                    formControlName="profilePicUrl">
+                                                                                    formControlName="profilePicUrl" />
                                                                                 <span
                                                                                     class="file-custom">{{public_id}}</span>
                                                                                 <div *ngIf="c.profilePicUrl.errors"
@@ -182,7 +177,8 @@
                                                                     <div class="col">
                                                                     </div>
                                                                 </div>
-                                                                <button type="submit" class="btn redbtn" [disabled]="customerForm.invalid || isCustomerRequested">
+                                                                <button type="submit" class="btn redbtn"
+                                                                    [disabled]="customerForm.invalid || isCustomerRequested">
                                                                     <i class="fa fa-circle-o-notch fa-spin fa-fw"
                                                                         [hidden]="!isCustomerRequested"></i>
                                                                     {{isCustomerRequested ? 'Saving' : 'Save'}}
@@ -347,7 +343,7 @@
                                                                         <div class="form-group">
                                                                             <label>Postal Code</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder=""
+                                                                                placeholder="Postal Code"
                                                                                 formControlName="postalCode"
                                                                                 [ngClass]="{ 'is-invalid': h.postalCode.errors && isFormSubmitted }">
                                                                             <div *ngIf="h.postalCode.errors"
@@ -409,13 +405,13 @@
                                                                         <div class="form-group">
                                                                             <label>Profile Picture</label>
                                                                             <label class="file">
-                                                                                <input type="file"
-                                                                                    class="form-control-file" #fileInput
-                                                                                    ng2FileSelect [uploader]="uploader"
-                                                                                    formControlName="profilePicUrl"
-                                                                                    [ngClass]="{ 'is-invalid': h.profilePicUrl.errors && isFormSubmitted }">
-                                                                                <span
-                                                                                    class="file-custom">{{public_id}}</span>
+                                                                                    <input class="form-control-file"
+                                                                                    type="file" ng2FileSelect
+                                                                                    [uploader]="uploader"
+                                                                                    (change)="fileChangeEvent()"
+                                                                                    [ngClass]="{ 'is-invalid': h.profilePicUrl.errors && isFormSubmitted }"
+                                                                                    formControlName="profilePicUrl" />
+                                                                                <span class="file-custom">{{public_id}}</span>
                                                                                 <div *ngIf="h.profilePicUrl.errors"
                                                                                     class="invalid-feedback"
                                                                                     style="margin-top: 16px;">

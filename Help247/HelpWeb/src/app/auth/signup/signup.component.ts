@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.initSignUpForm();
+    sessionStorage.removeItem('user');
   }
 
   initSignUpForm() {
