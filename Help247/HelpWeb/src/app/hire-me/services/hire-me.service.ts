@@ -16,9 +16,9 @@ export class HireMeService extends BaseService {
     private http: HttpClient
   ) {
     super();
-   }
+  }
 
-   getHelperList(pagination: PaginationBase) {
+  getHelperList(pagination: PaginationBase) {
     return this.http
       .get<PaginationModel<HelperModel>>(
         `${this.baseEndPoint}/api/Helper/list?&skip=${
@@ -38,14 +38,14 @@ export class HireMeService extends BaseService {
       .pipe(catchError(this.server4xxError));
   }
 
-  assignTicket(model: any){
+  assignTicket(model: any) {
     return this.http
-    .post(
-      `${this.baseEndPoint}/api/Ticket/assign`,
-      model,
-      this.httpOptions
-    )
-    .pipe(catchError(this.server4xxError));
+      .post(
+        `${this.baseEndPoint}/api/Ticket/assign`,
+        model,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
   }
 
   getTicketListCustomer(pagination: PaginationBase, customerId: number) {

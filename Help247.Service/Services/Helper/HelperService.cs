@@ -43,18 +43,23 @@ namespace Help247.Service.Services.Helper
 
                 query = (!string.IsNullOrEmpty(helperSearchBO.SearchQuery))
                     ? query.Where(x => EF.Functions.Like(x.PhoneNo, helperSearchBO.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.FirstName.ToLower(), helperSearchBO.SearchQuery + "%") ||
-                                              EF.Functions.Like(x.LastName.ToLower(), helperSearchBO.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.Id.ToString(), helperSearchBO.SearchQuery + "%") ||
-                                             EF.Functions.Like(x.Email.ToLower(), helperSearchBO.SearchQuery + "%"))
+                                             EF.Functions.Like(x.FirstName.ToLower(), helperSearchBO.SearchQuery.ToLower() + "%") ||
+                                              EF.Functions.Like(x.LastName.ToLower(), helperSearchBO.SearchQuery.ToLower() + "%") ||
+                                             EF.Functions.Like(x.Id.ToString(), helperSearchBO.SearchQuery.ToLower() + "%") ||
+                                             EF.Functions.Like(x.Email.ToLower(), helperSearchBO.SearchQuery.ToLower() + "%") ||
+                                             EF.Functions.Like(x.Country.ToLower(), helperSearchBO.SearchQuery.ToLower() + "%") ||
+                                             EF.Functions.Like(x.State.ToLower(), helperSearchBO.SearchQuery.ToLower() + "%") ||
+                                             EF.Functions.Like(x.City.ToLower(), helperSearchBO.SearchQuery.ToLower() + "%")||
+                                             EF.Functions.Like(x.PhoneNo, helperSearchBO.SearchQuery + "%") ||
+                                             EF.Functions.Like(x.MobileNo, helperSearchBO.SearchQuery + "%"))
                     : query;
 
                 query = (!string.IsNullOrEmpty(helperSearchBO.Country)) 
-                    ? query.Where(x => EF.Functions.Like(x.City, helperSearchBO.City + "%")) 
+                    ? query.Where(x => EF.Functions.Like(x.Country, helperSearchBO.Country + "%")) 
                     : query;
 
                 query = (!string.IsNullOrEmpty(helperSearchBO.State))
-                    ? query.Where(x => EF.Functions.Like(x.City, helperSearchBO.State + "%"))
+                    ? query.Where(x => EF.Functions.Like(x.State, helperSearchBO.State + "%"))
                     : query;
 
                 query = (!string.IsNullOrEmpty(helperSearchBO.City))

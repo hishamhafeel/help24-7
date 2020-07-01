@@ -4,15 +4,13 @@ import { HireMeService } from '../services/hire-me.service';
 import { HelperModel } from 'src/app/helper/models/helper.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TicketModel } from '../models/ticket.model';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-open-ticket',
   templateUrl: './open-ticket.component.html',
-  styleUrls: ['./open-ticket.component.scss']
+  styleUrls: ['./open-ticket.component.scss'],
 })
 export class OpenTicketComponent implements OnInit {
-
   fromDate = new Date();
   toDate = new Date();
   openTicketForm: FormGroup;
@@ -27,14 +25,12 @@ export class OpenTicketComponent implements OnInit {
     private router: Router,
     private hireMeService: HireMeService,
     private fb: FormBuilder
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.initOpenTicketForm()
+      this.initOpenTicketForm();
       this.getHelper(this.id);
     });
     this.customerId = +localStorage.getItem('LoggedId');
@@ -51,16 +47,16 @@ export class OpenTicketComponent implements OnInit {
       contactNo2: ['+94772256634', [Validators.required]],
       otherRequirements: ['All other requirements', [Validators.required]],
       helpTime: [new Date(), [Validators.required]],
-      ticketStatusId: [1, [Validators.required]]
+      ticketStatusId: [1, [Validators.required]],
     });
   }
 
   getHelper(id) {
     this.hireMeService.getHelperById(id).subscribe(
-      result => {
+      (result) => {
         this.helperModel = result;
       },
-      error => {
+      (error) => {
         console.log('error', error);
       }
     );
@@ -76,14 +72,16 @@ export class OpenTicketComponent implements OnInit {
     this.ticketModel.helperId = this.id;
     this.ticketModel.customerId = this.customerId;
 
-    this.ticketModel.helpTime = await this.formatAMPM(this.openTicketForm.value.helpTime);
+    this.ticketModel.helpTime = await this.formatAMPM(
+      this.openTicketForm.value.helpTime
+    );
 
     this.hireMeService.assignTicket(this.ticketModel).subscribe(
-      result => {
+      (result) => {
         console.log('result', result);
         this.router.navigate(['customer']);
       },
-      error => {
+      (error) => {
         console.log('error', error);
       }
     );
@@ -99,5 +97,4 @@ export class OpenTicketComponent implements OnInit {
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
   }
-
 }

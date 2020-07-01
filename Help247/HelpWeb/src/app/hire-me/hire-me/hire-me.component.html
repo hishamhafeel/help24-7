@@ -97,14 +97,10 @@
                         <div class="hiresearcwrap">
                             <div class="form-inline">
                                 <input type="text" class="form-control col-lg-6 col-md-12 ht-search"
-                                    placeholder="Search for technicians or services">
-                                <button type="submit" class="btn hiresearch">Search</button>
-                                <select class="form-control col-lg-3 s-avlble">
-                                    <option selected>Select Avalibility</option>
-                                    <option>Avalibility</option>
-                                    <option>Not Avalibility</option>
-                                </select>
-                                <a href="" class="btnclr">CLEAR ALL</a>
+                                    placeholder="Search for technicians or services" [formControl]="searchQuery"
+                                    (keyup)="searchTerm$.next($event.target.value)">
+                                <button class="btn hiresearch" (click)="getHelper()">Search</button>
+                                <!-- <a href="" class="btnclr">CLEAR ALL</a> -->
 
                             </div>
                         </div>
@@ -139,6 +135,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div *ngIf="totalNoOfRecords == 0">
+                                    <p>No records found!</p>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +178,7 @@
 
 </div>
 
-
+<!-- 
 <div class="infobanner">
     <div class="container">
         <div class="col-lg-12 text-center">
@@ -190,4 +189,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

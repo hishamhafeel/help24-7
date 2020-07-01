@@ -6,9 +6,16 @@ export class HelperCategoryModel {
     shortDescription: string;
     iconUrl: string;
     imageUrl: string;
-    // servicesProvided: {
-    //     additionalProp1: string;
-    //     additionalProp2: string;
-    //     additionalProp3: string
-    // }
+    subServices: Array<SubServiceModel>;
+
+    constructor() {
+        this.subServices = new Array<SubServiceModel>();
+    }
+}
+
+export class SubServiceModel {
+    id: number;
+    name: string;
+    description: string
+    helperCategoryId: number;
 }

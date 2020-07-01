@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Help247.Data
 {
@@ -25,6 +26,11 @@ namespace Help247.Data
         public DbSet<Image> Images { get; set; }
         public DbSet<HelpCentre> HelpCentres { get; set; }
         public DbSet<SubService> SubServices { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<City> Cities { get; set; }
+        
+        
 
 
         protected override void OnModelCreating(ModelBuilder builder)

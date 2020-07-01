@@ -20,18 +20,23 @@
                                     <div class="mobiledrop">
                                         <p class="mdroptext">Select</p>
                                         <ul>
-                                            <li><a (click)="showDashboard()"><i
-                                                        class="sprite sprite-dashboard-icon"></i> Dashboard</a>
+                                            <li><a (click)="showDashboard()" class="cursorPointerSideBar"><i
+                                                        class="sprite sprite-dashboard-icon"></i>
+                                                    Dashboard</a>
                                             </li>
-                                            <li><a (click)="showMyJobs()"><i class="sprite sprite-mytickets-icon"></i>
+                                            <li><a (click)="showMyJobs()" class="cursorPointerSideBar"><i
+                                                        class="sprite sprite-mytickets-icon"></i>
                                                     My Jobs</a>
                                             </li>
-                                            <li><a (click)="showSettings()"><i class="sprite sprite-settings-icon"></i>
+                                            <li><a (click)="showSettings()" class="cursorPointerSideBar"><i
+                                                        class="sprite sprite-settings-icon"></i>
                                                     Settings</a></li>
-                                            <li><a (click)="showRatings()"><i
-                                                        class="sprite sprite-reviewsrate-icon"></i> Reviews &
+                                            <li><a (click)="showRatings()" class="cursorPointerSideBar"><i
+                                                        class="sprite sprite-reviewsrate-icon"></i>
+                                                    Reviews &
                                                     Ratings</a></li>
-                                            <li><a (click)="logout()"><i class="sprite sprite-logout-icon"></i> Log
+                                            <li><a (click)="logout()" class="cursorPointerSideBar"><i
+                                                        class="sprite sprite-logout-icon"></i> Log
                                                     out</a></li>
                                         </ul>
                                     </div>
@@ -52,23 +57,24 @@
                                     <div class="col-lg-12">
                                         <div class="dashinfo">
                                             <div class="row">
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-7" *ngIf="feedbackModel != null">
                                                     <div class="statusbox boxshadow">
                                                         <h5>Feedback of the last ticket you completed</h5>
-                                                        <p>At vero eos accusam et justo lorem ipsum dolor sit amet, at
-                                                            accusam lorem, amet et ipsum justo dolor, sit amet at vero
-                                                            eos</p>
+                                                        <p>{{feedbackModel.description}}</p>
                                                         <div class="statusinfo">
-                                                            <a href="" class="btn-red ">View</a>
+                                                            <a class="btn-red cursorPointer"
+                                                                (click)="showRatings()">View</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-5">
-                                                    <div class="seekingbox boxshadow text-center">
+                                                    <div class="seekingbox boxshadow text-center"
+                                                        *ngIf="jobsCountModel.pendingJobs != 0">
                                                         <h5>You have a new job waiting</h5>
                                                         <p>A new job is waiting for you. View the job and accept or
                                                             reject it</p>
-                                                        <a href="" class="btn-red">VIEW JOB</a>
+                                                        <a class="btn-red cursorPointer" (click)="showMyJobs()">VIEW
+                                                            JOB</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,7 +87,8 @@
                                             <div class="jobbox boxshadow text-center">
                                                 <h4>Completed Jobs</h4>
                                                 <h5 class="completed-lbl">
-                                                    <div class="job-number1">{{jobsCountModel.completedJobs}}</div>
+                                                    <div class="job-number1">{{jobsCountModel.completedJobs}}
+                                                    </div>
                                                 </h5>
                                             </div>
                                             <div class="jobbox boxshadow text-center">
@@ -111,30 +118,31 @@
                                 <div class="col-lg-12">
                                     <div class="jobsection">
                                         <div class="row">
-                                            <div class="col-lg-5">
+                                            <!-- <div class="col-lg-5">
                                                 <div class="pending-jobs boxshadow text-center">
                                                     <h5>You have two Pending Jobs</h5>
                                                     <p>At vero eos accusam et justo lorem ipsum dolor sit
                                                         lorem, amet et ipsum justo dolor.</p>
                                                     <hr />
-                                                    <p>At vero eos accusam et justo lorem ipsum dolor sit lorem, amet et
+                                                    <p>At vero eos accusam et justo lorem ipsum dolor sit lorem,
+                                                        amet et
                                                         ipsum justo dolor.</p>
 
                                                     <a href="" class="btn-red large">VIEW</a>
 
                                                 </div>
 
-                                            </div>
+                                            </div> -->
                                             <div class="col-lg-7">
                                                 <div class="reminder boxshadow">
                                                     <h4>Reminder! </h4>
-                                                    <h5>You have two more days to complete this accepted job</h5>
-                                                    <p>At vero eos accusam et justo lorem ipsum dolor sit amet, at
-                                                        accusamlorem, amet et ipsum justo dolor, sit amet at vero eos
-                                                    </p>
-                                                    <p>Help date : 10 Jan 2020</p>
+                                                    <h5>You have {{daysToCompleteJob}} more days to complete this
+                                                        accepted job</h5>
+                                                    <p>{{ticketModel.title}}</p>
+                                                    <p>Help date : {{ticketModel.createdOn | date:'short'}}</p>
                                                     <div class="remind">
-                                                        <a href="" class="btn-red large">VIEW</a>
+                                                        <a (click)="showMyJobs()"
+                                                            class="btn-red large cursorPointer">VIEW</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,8 +190,8 @@
                                                             <td data-label="Action">
                                                                 <a href="javascript:void(0)" class="btn-red small"
                                                                     (click)="approveTicket(data.id)">Accept</a>
-                                                                <a href="javascript:void(0)"
-                                                                    class="btn-red small">Reject</a>
+                                                                <a href="javascript:void(0)" class="btn-red small"
+                                                                    (click)="openModal(deleteTemplate, data)">Reject</a>
                                                             </td>
                                                         </tr>
                                                     </ng-container>
@@ -286,56 +294,49 @@
                                     </div>
                                 </div>
 
-                                <ng-template #template>
-                                    <div class="modal-header">
-                                        <h4 class="modal-title pull-left">Ticket Details</h4>
-                                        <button type="button" class="close pull-right" aria-label="Close"
-                                            (click)="modalRef.hide()">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablewrap t2">
+                                            <h2 class="subtitle3">Rejected Tickets</h2>
+                                            <table>
+
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Category</th>
+                                                        <th scope="col">Customer</th>
+                                                        <th scope="col">Help Date</th>
+                                                        <th scope="col">Help Time</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <ng-container *ngFor="let data of ticketList">
+                                                        <tr *ngIf="data.ticketStatusId==4">
+                                                            <td data-label="Title">{{data.title}}</td>
+                                                            <td data-label="Category">
+                                                                {{data.helper.helperCategory.name}}</td>
+                                                            <td data-label="Helper">{{data.helper.firstName}}
+                                                                {{data.helper.lastName}}</td>
+                                                            <td data-label="Help Date">
+                                                                {{data.helpDateFrom | date: 'mediumDate'}}</td>
+                                                            <td data-label="Help Time">{{data.helpTime}}</td>
+                                                            <td data-label="Action">
+                                                                <a href="javascript:void(0)" class="btn-red small"
+                                                                    data-toggle="modal" data-target="#view"
+                                                                    (click)="openModal(template, data)">View</a>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-container>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- <div class="pagiarrow">
+                                            <a href=""><img src="img/pagiarrow-prv.png"></a>
+                                            <a href=""><img src="img/pagiarrow-next.png"></a>
+                                        </div> -->
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            Title: {{ticketModel.title}}
-                                        </div>
-                                        <div class="row">
-                                            Category: {{ticketModel.helper.helperCategory.name}}
-                                        </div>
-                                        <div class="row">
-                                            Helper: {{ticketModel.helper.firstName}} {{ticketModel.helper.lastName}}
-                                        </div>
-                                        <div class="row">
-                                            Help Date From: {{ticketModel.helpDateFrom | date: 'mediumDate'}}
-                                        </div>
-                                        <div class="row">
-                                            Help Date To: {{ticketModel.helpDateTo | date: 'mediumDate'}}
-                                        </div>
-                                        <div class="row">
-                                            Help Time: {{ticketModel.helpTime}}
-                                        </div>
-                                        <div class="row">
-                                            Country: {{ticketModel.country}}
-                                        </div>
-                                        <div class="row">
-                                            State: {{ticketModel.state}}
-                                        </div>
-                                        <div class="row">
-                                            City: {{ticketModel.city}}
-                                        </div>
-                                        <div class="row">
-                                            Address: {{ticketModel.address}}
-                                        </div>
-                                        <div class="row">
-                                            Contact No 1: {{ticketModel.contactNo1}}
-                                        </div>
-                                        <div class="row">
-                                            Contact No 2: {{ticketModel.contactNo2}}
-                                        </div>
-                                        <div class="row">
-                                            Other Requirements: {{ticketModel.otherRequirements}}
-                                        </div>
-                                    </div>
-                                </ng-template>
+                                </div>
 
                             </div>
                         </div>
@@ -596,7 +597,8 @@
                                                                                 class="invalid-feedback">
                                                                                 <div
                                                                                     *ngIf="h.myService.errors.required">
-                                                                                    About my service is required</div>
+                                                                                    About my service is required
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -612,7 +614,8 @@
                                                             <h4>Skills</h4>
                                                             <div formArrayName="skills">
                                                                 <div class="row"
-                                                                    *ngFor="let skill of skills.controls; let i=index" style="margin-left: 10px;">
+                                                                    *ngFor="let skill of skills.controls; let i=index"
+                                                                    style="margin-left: 10px;">
                                                                     <div class="form-group">
                                                                         <label>Skill {{i+1}}:
                                                                             &nbsp;</label>
@@ -630,7 +633,8 @@
                                                                 <button (click)="addNewSkill()" class="btn redbtn">Add
                                                                     Skill</button>
                                                                 <button type="submit" class="btn redbtn mt-3"
-                                                                    (click)="onSkillSubmit()" [disabled]="isSkillRequested">
+                                                                    (click)="onSkillSubmit()"
+                                                                    [disabled]="isSkillRequested">
                                                                     <i class="fa fa-circle-o-notch fa-spin fa-fw"
                                                                         [hidden]="!isSkillRequested"></i>
                                                                     {{isSkillRequested ? 'Saving' : 'Save Skills'}}
@@ -696,10 +700,13 @@
                                                         <td data-label="Customer">{{feedback.customer.name}}</td>
                                                         <td data-label="Review">{{feedback.description}}</td>
                                                         <td data-label="Rating">{{feedback.rating}}</td>
-                                                        <td data-label="Date">{{feedback.createdOn | date:'mediumDate'}}
+                                                        <td data-label="Date">
+                                                            {{feedback.createdOn | date:'mediumDate'}}
                                                         </td>
                                                         <td data-label=""><a href="" class="btn-red small"
-                                                                data-toggle="modal" data-target="#rates">View</a></td>
+                                                                data-toggle="modal" data-target="#rates"
+                                                                (click)="openFeedbackModal(rates, feedback)">View</a>
+                                                        </td>
                                                     </tr>
 
 
@@ -722,3 +729,150 @@
         </div>
     </div>
 </div>
+
+<ng-template #template>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="">View Ticket</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row no-gutters">
+                <div class="col-lg-6 col-md-6">
+                    <div class="modelcol1">
+                        <div class="model-field">
+                            <div class="m-fieldtitle">Title</div>
+                            <div class="m-fieldvalue">{{ticketModel.title}}</div>
+                        </div>
+                        <div class="model-field">
+                            <div class="m-fieldtitle">Help Time</div>
+                            <div class="m-fieldvalue">{{ticketModel.helpTime}}</div>
+                        </div>
+                        <div class="model-field">
+                            <div class="m-fieldtitle">Category</div>
+                            <div class="m-fieldvalue">{{ticketModel.helper.helperCategory.name}}</div>
+                        </div>
+                        <div class="model-field">
+                            <div class="m-fieldtitle">Help Date</div>
+                            <div class="m-fieldvalue">{{ticketModel.createdOn}} </div>
+                        </div>
+                        <div class="model-field">
+                            <div class="m-fieldtitle">Contact Number/s</div>
+                            <div class="m-fieldvalue">{{ticketModel.contactNo1}} / {{ticketModel.contactNo2}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="modelcol2 text-center">
+                        <div class="tech-pro-img">
+                            <img src="{{ticketModel.customer.image.imageUrl}}" class="img-fluid">
+                        </div>
+                        <h6>{{ticketModel.customer.name}}</h6>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="feedback">
+                        <h5>Other Requirements</h5>
+                        <div class="feedtext">
+                            <p>{{ticketModel.otherRequirements}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #deleteTemplate>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Reject Ticket</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Are you sure you want to reject this ticket of title "{{ticketModel.title}}"?
+    </div>
+    <div class="modal-footer">
+        <a class="btn small pull-right" (click)="modalRef.hide()">Cancel</a>
+        <a class="btn-red small cursorPointer pull-right" (click)="rejectTicket(ticketModel.id)">Yes</a>
+    </div>
+</ng-template>
+
+<ng-template #rates>
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="">Review and Rating</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row no-gutters">
+                <div class="col-lg-12">
+                    <div class="r-feedback d-flex flex-column align-items-start">
+                        <h5>Rating</h5>
+                        <ngx-star-rating [(ngModel)]="rating" [id]="'rating'" [disabled]="true"></ngx-star-rating>
+                    </div>
+                </div>
+                <div class="col-lg-12 pb-3">
+                    <div class="r-feedback">
+                        <h5>Feedback</h5>
+                        <div class="r-feedtext">
+                            <textarea class="form-control" id="ratingDescription" rows="3"
+                                [(ngModel)]="ratingDescription" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- <ng-template #rates>
+    <div class="modal fade" id="rates" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">Review and Rating</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row no-gutters">
+                        <div class="col-lg-12">
+                            <div class="r-feedback">
+                                <h5>Rating</h5>
+                                <div class="ratewrap">
+                                    <select class="star-rating">
+                                        <option value="{{feedbackModel.rating}}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="r-feedback">
+                                <h5>Feedback</h5>
+                                <div class="r-feedtext">
+                                    <textarea class="form-control" id=""
+                                        rows="3"> {{feedbackModel.description}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</ng-template> -->

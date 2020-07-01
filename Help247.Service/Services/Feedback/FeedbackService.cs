@@ -112,25 +112,47 @@ namespace Help247.Service.Services.Feedback
 
         public async Task PostAsync(FeedbackBO feedbackBO, string userId)
         {
-            feedbackBO.CreatedById = userId;
-            feedbackBO.CreatedOn = DateTime.UtcNow;
-            await appDbContext.Feedbacks.AddAsync(mapper.Map<Help247.Data.Entities.Feedback>(feedbackBO));
-            await appDbContext.SaveChangesAsync();
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    var ticket = await appDbContext.Tickets.FirstAsync(x => x.Id == feedbackBO.TicketId);
+                    feedbackBO.CreatedById = userId;
+                    feedbackBO.CreatedOn = DateTime.UtcNow;
+
+                    await appDbContext.Feedbacks.AddAsync(mapper.Map<Help247.Data.Entities.Feedback>(feedbackBO));
+                    await appDbContext.SaveChangesAsync();
+
+                    ticket.HasFeedback = true;
+                    appDbContext.Tickets.Update(ticket);
+                    await appDbContext.SaveChangesAsync();
+
+                    await transaction.CommitAsync();
+                }
+                catch (Exception ex)
+                {
+                    await transaction.RollbackAsync();
+                    throw ex;                
+                }
+            }
+                
         }
 
         public async Task<FeedbackBO> PutAsync(FeedbackBO feedbackBO, string userId)
         {
             try
             {
-                var query = await appDbContext.Feedbacks.AsNoTracking().FirstOrDefaultAsync(x => x.Id == feedbackBO.Id);
+                var query = await appDbContext.Feedbacks.FirstOrDefaultAsync(x => x.Id == feedbackBO.Id);
                 if (query == null)
                 {
                     throw new FeedbackNotFoundException();
                 }
 
-                feedbackBO.EditedById = userId;
-                feedbackBO.EditedOn = DateTime.UtcNow;
-                appDbContext.Feedbacks.Update(mapper.Map<Help247.Data.Entities.Feedback>(feedbackBO));
+                query.EditedById = userId;
+                query.EditedOn = DateTime.UtcNow;
+                query.Description = feedbackBO.Description;
+                query.Rating = feedbackBO.Rating;
+                
                 await appDbContext.SaveChangesAsync();
                 return feedbackBO;
             }

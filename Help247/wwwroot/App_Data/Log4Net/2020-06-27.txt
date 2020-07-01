@@ -1,0 +1,426 @@
+
+ 
+ ************ 2020-06-27 13:42:53,490 [5] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 13:45:55,633 [5] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 13:50:31,650 [5] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 13:53:03,556 [57] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 13:54:37,588 [59] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:04:03,796 [59] ERROR App  
+ ERROR in 'star-rating' is not a known element:
+1. If 'star-rating' is an Angular component, then verify that it is part of this module.
+2. If 'star-rating' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("ass="r-feedback">
+                                <h5>Rating</h5>
+                                [ERROR ->]<star-rating value="5" totalstars="5" checkedcolor="red" uncheckedcolor="black"
+                    ")
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:04:14,952 [59] ERROR App  
+     ERROR in node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(32,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(33,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(34,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(35,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(36,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(37,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(43,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(44,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(45,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(46,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(47,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(48,9): error TS1086: An accessor cannot be declared in an ambient context.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:04:44,078 [59] ERROR App  
+ ERROR in 'star-rating' is not a known element:
+1. If 'star-rating' is an Angular component, then verify that it is part of this module.
+2. If 'star-rating' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("ass="r-feedback">
+                                <h5>Rating</h5>
+                                [ERROR ->]<star-rating value="5" totalstars="5" checkedcolor="red" uncheckedcolor="black"
+                    ")
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:04:55,588 [168] ERROR App  
+     ERROR in node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(32,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(33,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(34,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(35,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(36,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(37,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(43,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(44,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(45,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(46,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(47,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(48,9): error TS1086: An accessor cannot be declared in an ambient context.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:05:53,602 [168] ERROR App  
+     ERROR in node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(32,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(33,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(34,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(35,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(36,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(37,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(43,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(44,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(45,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(46,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(47,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(48,9): error TS1086: An accessor cannot be declared in an ambient context.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:06:04,219 [168] ERROR App  
+     ERROR in node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(32,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(33,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(34,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(35,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(36,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(37,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(43,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(44,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(45,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(46,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(47,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(48,9): error TS1086: An accessor cannot be declared in an ambient context.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:09:10,201 [168] ERROR App  
+     ERROR in node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(32,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(33,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(34,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(35,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(36,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(37,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(43,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(44,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(45,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(46,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(47,9): error TS1086: An accessor cannot be declared in an ambient context.
+    node_modules/ng-starrating/components/star-rating/star-rating.component.d.ts(48,9): error TS1086: An accessor cannot be declared in an ambient context.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:13:35,889 [168] ERROR App  
+ ERROR in ./node_modules/ng-starrating/fesm2015/ng-starrating.js
+Module build failed: Error: ENOENT: no such file or directory, open 'D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\ng-starrating\fesm2015\ng-starrating.js'
+    at Object.openSync (fs.js:440:3)
+    at Object.readFileSync (fs.js:342:35)
+    at Storage.provideSync (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:98:13)
+    at CachedInputFileSystem.readFileSync (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\enhanced-resolve\lib\CachedInputFileSystem.js:259:32)
+    at Observable._subscribe (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@ngtools\webpack\src\webpack-input-host.js:35:51)
+    at Observable._trySubscribe (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:44:25)
+    at Observable.subscribe (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@ngtools\webpack\node_modules\rxjs\internal\Observable.js:30:22)
+    at SyncDelegateHost._doSyncCall (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:22:20)
+    at SyncDelegateHost.read (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@angular-devkit\core\src\virtual-fs\host\sync.js:49:21)
+    at WebpackCompilerHost.readFileBuffer (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@ngtools\webpack\src\compiler_host.js:161:44)
+    at VirtualFileSystemDecorator.readFile (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\@ngtools\webpack\src\virtual_file_system_decorator.js:42:54)
+    at processResource (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\loader-runner\lib\LoaderRunner.js:202:11)
+    at iteratePitchingLoaders (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\loader-runner\lib\LoaderRunner.js:158:10)
+    at runLoaders (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\loader-runner\lib\LoaderRunner.js:365:2)
+    at NormalModule.doBuild (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\NormalModule.js:292:3)
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:16:10,773 [129] ERROR App  
+     at NormalModule.build (D:\Projects\Help\help24-7\Help247\HelpWeb\node_modules\webpack\lib\NormalModule.js:438:15)
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:16:11,057 [129] ERROR App  
+     ERROR in src/app/helper/helper.component.ts(14,37): error TS2307: Cannot find module 'ng-starrating'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:16:23,388 [129] ERROR App  
+     ERROR in src/app/helper/helper.component.ts(14,37): error TS2307: Cannot find module 'ng-starrating'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:20:20,580 [132] ERROR App  
+     ERROR in src/app/helper/helper.component.ts(14,37): error TS2307: Cannot find module 'ng-starrating'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:35:39,896 [132] ERROR App  
+     ERROR in src/app/helper/helper.component.html(844,41): Property 'ratingDescription' does not exist on type 'HelperComponent'.
+    src/app/helper/helper.component.html(844,41): Property 'ratingDescription' does not exist on type 'HelperComponent'.
+    src/app/helper/helper.component.html(845,40): Property 'submitFeedback' does not exist on type 'HelperComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:35:57,849 [132] ERROR App  
+     ERROR in src/app/helper/helper.component.ts(354,5): error TS2554: Expected 1 arguments, but got 0.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 16:48:57,121 [132] ERROR App  
+ ERROR in 'ngx-star-rating' is not a known element:
+1. If 'ngx-star-rating' is an Angular component, then verify that it is part of this module.
+2. If 'ngx-star-rating' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. ("ign-items-start">
+                                <h5>Rating</h5>
+                                [ERROR ->]<ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+                       ")
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 17:22:02,337 [156] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 18:18:29,134 [11] ERROR App  
+ ERROR in Can't bind to 'disabled' since it isn't a known property of 'a'. ("          data-target="#rates"
+                                                                    [ERROR ->][disabled]="data.hasFeedback == true"
+                                                              ")
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 18:43:42,268 [11] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 19:43:32,322 [11] ERROR App  
+     ERROR in src/app/customer/customer.component.html(84,73): Property 'customOptions' does not exist on type 'CustomerComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 20:02:55,454 [11] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 20:10:19,639 [51] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 21:29:50,526 [22] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 21:30:37,658 [22] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 21:41:17,688 [84] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 21:41:26,735 [28] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 22:00:27,509 [49] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "ng-template". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                    </div>
+                                                        [ERROR ->]</ng-template>
+                                                    </owl-carousel-o>
+              "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@147:56
+Unexpected closing tag "owl-carousel-o". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                </ng-template>
+                                                    [ERROR ->]</owl-carousel-o>
+                                                    <div class="vbtnwrap text-cent"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@148:52
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                                </div>
+                                            [ERROR ->]</div>
+                                        </div>
+                                        <div "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@155:44
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("</div>
+                                            </div>
+                                        [ERROR ->]</div>
+                                        <div class="col-lg-8 dbb heighfix" *ngIf="isMyTickets"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@156:40
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 22:00:33,816 [24] ERROR App  
+ Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("        </div>
+                                        </div>
+                                    [ERROR ->]</div>
+                                </div>
+                            </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@689:36
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                </div>
+                                    </div>
+                                [ERROR ->]</div>
+                            </div>
+                        </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@690:32
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                        </div>
+                                </div>
+                            [ERROR ->]</div>
+                        </div>
+                    </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@691:28
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                </div>
+                            </div>
+                        [ERROR ->]</div>
+                    </div>
+                </div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@692:24
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                            </div>
+                        </div>
+                    [ERROR ->]</div>
+                </div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@693:20
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                        </div>
+                    </div>
+                [ERROR ->]</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@694:16
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 22:00:34,197 [24] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "ng-template". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                    </div>
+                                                        [ERROR ->]</ng-template>
+                                                    </owl-carousel-o>
+              "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@147:56
+Unexpected closing tag "owl-carousel-o". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                </ng-template>
+                                                    [ERROR ->]</owl-carousel-o>
+                                                    <div class="vbtnwrap text-cent"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@148:52
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                                </div>
+                                            [ERROR ->]</div>
+                                        </div>
+                                        <div "): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@155:44
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("</div>
+                                            </div>
+                                        [ERROR ->]</div>
+                                        <div class="col-lg-8 dbb heighfix" *ngIf="isMyTickets"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@156:40
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 22:55:45,238 [48] ERROR App  
+ Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("        </div>
+                                        </div>
+                                    [ERROR ->]</div>
+                                </div>
+                            </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@689:36
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                </div>
+                                    </div>
+                                [ERROR ->]</div>
+                            </div>
+                        </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@690:32
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                        </div>
+                                </div>
+                            [ERROR ->]</div>
+                        </div>
+                    </div>
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@691:28
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("                                </div>
+                            </div>
+                        [ERROR ->]</div>
+                    </div>
+                </div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@692:24
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                            </div>
+                        </div>
+                    [ERROR ->]</div>
+                </div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@693:20
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+                        </div>
+                    </div>
+                [ERROR ->]</div>"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/customer/customer.component.html@694:16
+
+
+ ********** 
+ 
+
+ 
+ ************ 2020-06-27 22:55:46,172 [48] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 

@@ -3,6 +3,9 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { HelperModel } from '../helper/models/helper.model';
 import { HelperService } from '../shared/services/helper.service';
 import { PaginationBase } from '../shared/models/pagination-base.model';
+import { HelperCategoryModel } from '../helper/models/helper-category.model';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +15,10 @@ import { PaginationBase } from '../shared/models/pagination-base.model';
 export class HomeComponent implements OnInit {
 
   helperList: Array<HelperModel>;
+  helperCategoryList: Array<HelperCategoryModel>;
   pagination: PaginationBase;
 
+  searchTerm = new FormControl(null);
   noOfHelpers: number;
   noOfJobs: number;
   noOfClients: number;
@@ -62,16 +67,18 @@ export class HomeComponent implements OnInit {
   }
 
   constructor(
-    private helperService: HelperService
+    private helperService: HelperService,
+    private router: Router
   ) {
     this.pagination = new PaginationBase();
-   }
+  }
 
   ngOnInit(): void {
     this.getHelper();
+    this.getHelperCategory();
   }
 
-  getHelper(){
+  getHelper() {
     this.helperService.getHelperList(this.pagination).subscribe(
       result => {
         console.log('result', result);
@@ -81,6 +88,23 @@ export class HomeComponent implements OnInit {
         console.log('error', error);
       }
     );
+  }
+
+  getHelperCategory() {
+    this.pagination.take = 8;
+    this.helperService.getHelperCategoryList(this.pagination).subscribe(
+      result => {
+        console.log('result', result);
+        this.helperCategoryList = result.details;
+      },
+      error => {
+        console.log('error', error);
+      }
+    );
+  }
+
+  searchHelper() {
+    this.router.navigate(['/hire-me'], { queryParams: { search: this.searchTerm.value } });
   }
 
 }

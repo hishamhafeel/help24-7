@@ -27,53 +27,19 @@
                 </div>
             </ng-template>
         </owl-carousel-o>
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <div class="owl-carousel owl-theme hmbanner">
-            <div class="item">
-                <div class="banneritem"
-                    style="background-image: url(../../assets/images/hm-banner1.jpg); background-repeat: no-repeat;">
-                    <div class="bannertext">
-                        <h2>24/7 Here We will make things Easier</h2>
-                        <p>24/7 contacting your professional in one platform and make sure to keep your life
-                            balance.Hire Your Helper Here.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="banneritem"
-                    style="background-image: url(../../assets/images/hm-banner2.jpg); background-repeat: no-repeat;">
-                    <div class="bannertext">
-                        <h2>24/7 Here We will make things Easier</h2>
-                        <p>24/7 contacting your professional in one platform and make sure to keep your life
-                            balance.Hire Your Helper Here.</p>
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
     </div>
 </div>
 <div class="bannersearch">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-10">
-                <form class="form-inline hm-search">
+                <div class="form-inline hm-search">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search your technicians here ?">
+                        <input type="text" class="form-control" placeholder="Search your technicians here ?"
+                            [formControl]="searchTerm">
+                        <button type="submit" class="btn" (click)="searchHelper()">Search</button>
                     </div>
-                    <button type="submit" class="btn">Search</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -94,110 +60,15 @@
     <div class="service-boxwrap">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-2 sbb">
-                    <a href="">
+                <div class="col-lg-3 col-md-4 col-sm-2 sbb" *ngFor="let data of helperCategoryList">
+                    <a [routerLink]="['/services/sub-service', data.id]">
                         <div class="service-box">
                             <div class="serviceimg">
-                                <img src="../../assets/images/service-img-1.png" class="img-fluid">
+                                <img src="{{data.iconUrl}}" class="img-fluid">
                             </div>
                             <div class="service-content">
-                                <h4>IT / Telecommunication / Electrical Repair Services</h4>
-                                <p>Resolve your new technological task here</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-2 sbb">
-                    <a href="">
-                        <div class="service-box">
-                            <div class="serviceimg">
-                                <img src="../../assets/images/service-img-2.png" class="img-fluid">
-                            </div>
-                            <div class="service-content">
-                                <h4>Hospitality and Tourism</h4>
-                                <p>Make your destinations comfortable now</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-2 sbb">
-                    <a href="">
-                        <div class="service-box">
-                            <div class="serviceimg">
-                                <img src="../../assets/images/service-img-3.png" class="img-fluid">
-                            </div>
-                            <div class="service-content">
-                                <h4>Mass Media and Entertainment</h4>
-                                <p>Looking for Creative People, This is the right place</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-2 sbb">
-                    <a href="">
-                        <div class="service-box">
-                            <div class="serviceimg">
-                                <img src="../../assets/images/service-img-4.png" class="img-fluid">
-                            </div>
-                            <div class="service-content">
-                                <h4>Hot Jobs</h4>
-                                <p>We will help to facedaily challenges.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-2 sbb">
-                    <a href="">
-                        <div class="service-box">
-
-                            <div class="serviceimg">
-                                <img src="../../assets/images/service-img-5.png" class="img-fluid">
-                            </div>
-                            <div class="service-content">
-                                <h4>Vehicle Modificationand breakdown </h4>
-                                <p>No, Matter where you are,we will be on the way to help you.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-2 sbb">
-                    <a href="">
-                        <div class="service-box">
-                            <div class="serviceimg">
-                                <img src="../../assets/images/service-img-6.png" class="img-fluid">
-                            </div>
-                            <div class="service-content">
-                                <h4>Education and academic </h4>
-                                <p>We will tech how to find you</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-2 sbb">
-                    <a href="">
-                        <div class="service-box">
-                            <div class="serviceimg">
-                                <img src="../../assets/images/service-img-7.png" class="img-fluid">
-                            </div>
-                            <div class="service-content">
-                                <h4>Healthcare and Online Counselling</h4>
-                                <p>Find out your HealthCare Expertise here & Makeyour life balance </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-2 sbb">
-                    <a href="">
-                        <div class="service-box">
-                            <div class="serviceimg">
-                                <img src="../../assets/images/service-img-8.png" class="img-fluid">
-                            </div>
-                            <div class="service-content">
-                                <h4>Banking and other Financial Services </h4>
-                                <p>Learn how to invert your dreams.</p>
+                                <h4>{{data.name}}</h4>
+                                <p>{{data.shortDescription}}</p>
                             </div>
                         </div>
                     </a>
@@ -303,13 +174,12 @@
                     <div class="toprate-tec">
                         <h3 class="subtitle">Top Rated Helpers</h3>
                         <div class="toptechslider-wrap">
-                            <!-- <div class="owl-carousel owl-theme owl-sl" id="hmtoptech"> -->
                             <owl-carousel-o [options]="customOptions" id="hmtoptech">
                                 <ng-template carouselSlide *ngFor="let data of helperList">
                                     <div class="item">
                                         <div class="tech-item">
                                             <div class="techimg">
-                                                <img src="data.image.imageUrl>" class="img-fluid">
+                                                <img src="{{data.image.imageUrl}}" class="img-fluid">
                                             </div>
                                             <div class="techdetail">
                                                 <h5>{{data.firstName}} {{data.lastName}}</h5>
@@ -336,11 +206,7 @@
                                         </div>
                                     </div>
                                 </ng-template>
-
                             </owl-carousel-o>
-
-
-                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
@@ -395,7 +261,7 @@
             </div>
         </div>
     </div>
-    <div class="infobanner">
+    <!-- <div class="infobanner">
         <div class="container">
             <div class="col-lg-12 text-center">
                 <div class="infobanner-content">
@@ -406,7 +272,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 

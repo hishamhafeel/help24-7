@@ -7,13 +7,22 @@ import { CustomerModel } from './models/customer.model';
 import { CustomerService } from './services/customer.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+import {
+  FileUploader,
+  FileUploaderOptions,
+  ParsedResponseHeaders,
+} from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
+import { ToastrService } from 'ngx-toastr';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { HelperService } from '../shared/services/helper.service';
+import { HelperModel } from '../helper/models/helper.model';
+import { HelperCategoryModel } from '../helper/models/helper-category.model';
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  styleUrls: ['./customer.component.scss'],
 })
 export class CustomerComponent implements OnInit {
   isDashboardClicked: boolean = true;
@@ -24,23 +33,79 @@ export class CustomerComponent implements OnInit {
 
   ticketList: Array<TicketModel>;
   feedbackList: Array<FeedbackModel>;
+  helperList: Array<HelperModel>;
+  helperCategoryList: Array<HelperCategoryModel>;
   pagination: PaginationBase;
   customerForm: FormGroup;
   feedbackForm: FormGroup;
-  ticketModel: TicketModel;
+  ticketForm: FormGroup;
+  ticketModel: TicketModel = new TicketModel();
   feedbackModel: FeedbackModel = new FeedbackModel();
   customerModel: CustomerModel = new CustomerModel();
   customerId: number;
   ticketId: number;
   helperId: number;
-
   uploader: FileUploader;
   url: string;
-  public_id: string = "";
-
+  public_id: string = '';
   modalRef: BsModalRef;
-
   isCustomerRequested: boolean = false;
+  fromDate: Date;
+  toDate: Date;
+  rating: number = 4;
+  ratingDescription: string = '';
+  feedbackId: number;
+
+  customOptions: OwlOptions = {
+    loop: true,
+    nav: true,
+    dots: false,
+    items: 4,
+    navText: [
+      "<img src='../../assets/images/slider-prv.png'>",
+      "<img src='../../assets/images/slider-nxt.png'>",
+    ],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 3,
+      },
+      768: {
+        items: 3,
+      },
+      1024: {
+        items: 4,
+      },
+    },
+  };
+
+  helperOptions: OwlOptions = {
+    loop: true,
+    nav: true,
+    dots: false,
+    navText: [
+      "<img src='../../assets/images/slider-prv.png'>",
+      "<img src='../../assets/images/slider-nxt.png'>",
+    ],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 2,
+      },
+      768: {
+        items: 2,
+      },
+      1024: {
+        items: 3,
+      },
+    },
+  };
+
+  isEdit: boolean = false;
 
   constructor(
     private hireMeService: HireMeService,
@@ -48,7 +113,9 @@ export class CustomerComponent implements OnInit {
     private customerService: CustomerService,
     private fb: FormBuilder,
     private router: Router,
-    private cloudinary: Cloudinary
+    private cloudinary: Cloudinary,
+    private toastr: ToastrService,
+    private helperService: HelperService
   ) {
     this.pagination = new PaginationBase();
   }
@@ -56,18 +123,22 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
     this.customerId = +localStorage.getItem('LoggedId');
     this.getCustomerById();
-    
+    this.getTopHelpers();
+    this.getHelperCategory();
+
     const uploaderOptions: FileUploaderOptions = {
-      url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+      url: `https://api.cloudinary.com/v1_1/${
+        this.cloudinary.config().cloud_name
+        }/upload`,
       autoUpload: true,
       isHTML5: true,
       removeAfterUpload: true,
       headers: [
         {
           name: 'X-Requested-With',
-          value: 'XMLHttpRequest'
-        }
-      ]
+          value: 'XMLHttpRequest',
+        },
+      ],
     };
     this.uploader = new FileUploader(uploaderOptions);
 
@@ -84,37 +155,75 @@ export class CustomerComponent implements OnInit {
       return { fileItem, form };
     };
 
-    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
-      console.log("Image upload failed")
+    this.uploader.onErrorItem = (
+      item: any,
+      response: string,
+      status: number,
+      headers: ParsedResponseHeaders
+    ) => console.log('Image upload failed');
 
     // Update model on completion of uploading a file
-    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+    this.uploader.onCompleteItem = (
+      item: any,
+      response: string,
+      status: number,
+      headers: ParsedResponseHeaders
+    ) => {
       this.url = JSON.parse(response).url;
       this.uploader.progress = 100;
-    }
+    };
   }
 
-
-  //TICKET START
-  getTicketList() {
-    this.hireMeService.getTicketListCustomer(this.pagination, this.customerId).subscribe(
-      result => {
+  getTopHelpers() {
+    this.pagination.take = 10;
+    this.helperService.getHelperList(this.pagination).subscribe(
+      (result) => {
         console.log('result', result);
-        this.ticketList = result.details;
+        this.helperList = result.details;
+        console.log('hl', this.helperList);
       },
-      error => {
+      (error) => {
         console.log('error', error);
       }
     );
   }
 
+  getHelperCategory() {
+    this.pagination.take = 8;
+    this.helperService.getHelperCategoryList(this.pagination).subscribe(
+      (result) => {
+        this.helperCategoryList = result.details;
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+  }
+
+  //TICKET START
+  getTicketList() {
+    this.hireMeService
+      .getTicketListCustomer(this.pagination, this.customerId)
+      .subscribe(
+        (result) => {
+          console.log('result', result);
+          this.ticketList = result.details;
+        },
+        (error) => {
+          console.log('error', error);
+        }
+      );
+  }
+
   getTicketById(id: number) {
     this.hireMeService.getTicketById(id).subscribe(
-      result => {
-        console.log('result', result);
+      (result) => {
         this.ticketModel = result;
+        if (this.isEdit) {
+          this.patchTicketForm();
+        }
       },
-      error => {
+      (error) => {
         console.log('error', error);
       }
     );
@@ -122,11 +231,11 @@ export class CustomerComponent implements OnInit {
 
   completeTicket(id) {
     this.hireMeService.completeTicket(id).subscribe(
-      result => {
+      (result) => {
         console.log('result', result);
         this.getTicketList();
       },
-      error => {
+      (error) => {
         console.log('error', error);
       }
     );
@@ -147,7 +256,7 @@ export class CustomerComponent implements OnInit {
   initFeedbackForm() {
     this.feedbackForm = this.fb.group({
       description: [null, [Validators.required]],
-      rating: [null, [Validators.required]]
+      rating: [null, [Validators.required]],
     });
   }
 
@@ -161,26 +270,118 @@ export class CustomerComponent implements OnInit {
     this.feedbackModel.ticketId = this.ticketId;
 
     this.customerService.addFeedback(this.feedbackModel).subscribe(
-      result => {
-        console.log('result', result);
+      (result) => {
+        this.toastr.success('Feedback successfully submitted');
+        this.modalRef.hide();
         this.getCustomerById();
+        this.getTicketList();
       },
-      error => {
-        console.log('error', error);
+      (error) => {
+        this.toastr.error(error, error.Message);
       }
     );
   }
 
   getFeedbackList() {
-    this.customerService.getFeedbackList(this.pagination, this.customerId).subscribe(
-      result => {
-        console.log('result', result);
-        this.feedbackList = result.details;
+    this.customerService
+      .getFeedbackList(this.pagination, this.customerId)
+      .subscribe(
+        (result) => {
+          console.log('result', result);
+          this.feedbackList = result.details;
+        },
+        (error) => {
+          console.log('error', error);
+        }
+      );
+  }
+
+  openTicketModal(template: TemplateRef<any>, data) {
+    this.isEdit = true;
+    this.initTicketForm();
+    this.getTicketById(data.id);
+
+    this.modalRef = this.modalService.show(template);
+  }
+
+  initTicketForm() {
+    this.ticketForm = this.fb.group({
+      title: [null, [Validators.required]],
+      helpTime: [new Date(), [Validators.required]],
+      country: [null, [Validators.required]],
+      state: [null, [Validators.required]],
+      city: [null, [Validators.required]],
+      address: [null, [Validators.required]],
+      contactNo1: [null, [Validators.required]],
+      contactNo2: [null, [Validators.required]],
+      // helpDateFrom: [new Date(), [Validators.required]],
+      // helpDateTo: [new Date(), [Validators.required]],
+      otherRequirements: [null, [Validators.required]],
+    });
+  }
+
+  patchTicketForm() {
+    this.ticketForm.patchValue({
+      title: this.ticketModel.title,
+      helpTime: this.ticketModel.helpTime,
+      country: this.ticketModel.country,
+      state: this.ticketModel.state,
+      city: this.ticketModel.city,
+      address: this.ticketModel.address,
+      contactNo1: this.ticketModel.contactNo1,
+      contactNo2: this.ticketModel.contactNo2,
+      otherRequirements: this.ticketModel.otherRequirements,
+      // helpDateFrom: new Date(this.ticketModel.helpDateFrom),
+      // helpDateTo: new Date(this.ticketModel.helpDateTo),
+    });
+    this.fromDate = new Date(this.ticketModel.helpDateFrom);
+    this.toDate = new Date(this.ticketModel.helpDateTo);
+  }
+  async onTicketSubmit() {
+    if (this.ticketForm.invalid) {
+      return;
+    }
+    this.ticketModel.title = this.ticketForm.value.title;
+    this.ticketModel.helpTime = this.ticketForm.value.helpTime;
+    this.ticketModel.country = this.ticketForm.value.country;
+    this.ticketModel.helpDateFrom = this.fromDate;
+    this.ticketModel.helpDateTo = this.toDate;
+    this.ticketModel.state = this.ticketForm.value.state;
+    this.ticketModel.city = this.ticketForm.value.city;
+    this.ticketModel.address = this.ticketForm.value.address;
+    this.ticketModel.contactNo1 = this.ticketForm.value.contactNo1;
+    this.ticketModel.contactNo2 = this.ticketForm.value.contactNo2;
+    this.ticketModel.otherRequirements = this.ticketForm.value.otherRequirements;
+
+    this.customerService.updateTicket(this.ticketModel).subscribe(
+      (result) => {
+        this.toastr.success('Ticket successfully updated');
+        this.modalRef.hide();
+        this.getTicketList();
       },
-      error => {
-        console.log('error', error);
+      (error) => {
+        this.toastr.error('Error', error.message);
       }
     );
+  }
+
+  async formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  }
+
+  onChangeDateFrom(event: Date) {
+    this.fromDate = event;
+  }
+
+  onChangeDateTo(event: any) {
+    this.toDate = event;
   }
 
   //TICKET END
@@ -189,11 +390,11 @@ export class CustomerComponent implements OnInit {
 
   getCustomerById() {
     this.customerService.getCustomerById(this.customerId).subscribe(
-      result => {
+      (result) => {
         console.log('result', result);
         this.customerModel = result;
       },
-      error => {
+      (error) => {
         console.log('error', error);
       }
     );
@@ -210,7 +411,7 @@ export class CustomerComponent implements OnInit {
       city: [null, [Validators.required]],
       state: [null, [Validators.required]],
       postalCode: [null, [Validators.required]],
-      profilePicUrl: ['http://www.google5.com', [Validators.required]]
+      profilePicUrl: ['http://www.google5.com', [Validators.required]],
     });
   }
 
@@ -229,7 +430,7 @@ export class CustomerComponent implements OnInit {
       city: this.customerModel.city,
       state: this.customerModel.state,
       postalCode: this.customerModel.postalCode,
-      profilePicUrl: ['http://www.google5.com', [Validators.required]]
+      profilePicUrl: ['http://www.google5.com', [Validators.required]],
     });
   }
 
@@ -240,12 +441,12 @@ export class CustomerComponent implements OnInit {
     this.customerModel = this.customerForm.value;
     this.isCustomerRequested = true;
     this.customerService.updateCustomer(this.customerModel).subscribe(
-      result => {
+      (result) => {
         console.log('result', result);
         this.getCustomerById();
         this.isCustomerRequested = false;
       },
-      error => {
+      (error) => {
         console.log('error', error);
         this.isCustomerRequested = false;
       }
@@ -254,6 +455,70 @@ export class CustomerComponent implements OnInit {
 
   //CUSTOMER END
 
+  //FEEDBACK START
+
+  openReviewEditModal(template: TemplateRef<any>, feedbackId, helperId, ticketId) {
+    this.helperId = helperId;
+    this.ticketId = ticketId;
+    this.feedbackId = feedbackId;
+    this.initFeedbackForm();
+    this.getFeedback(feedbackId);
+    this.modalRef = this.modalService.show(template);
+  }
+
+  getFeedback(feedbackId: number) {
+    this.customerService.getFeedback(feedbackId).subscribe(
+      (result) => {
+        this.feedbackModel = result;
+        this.patchFeedbackForm();
+      },
+      (error) => {
+        this.toastr.error(error, error.Message);
+      });
+  }
+  patchFeedbackForm() {
+    this.feedbackForm.patchValue({
+      rating: this.feedbackModel.rating,
+      description: this.feedbackModel.description,
+    });
+  }
+  onFeedbackEdit() {
+    if (this.feedbackForm.invalid) {
+      return;
+    }
+    this.feedbackModel = this.feedbackForm.value;
+    this.feedbackModel.id = this.feedbackId;
+
+    this.customerService.updateFeedback(this.feedbackModel).subscribe(
+      (result) => {
+        this.toastr.success('Feedback successfully updated');
+        this.modalRef.hide();
+        this.getFeedbackList();
+      },
+      (error) => {
+        this.toastr.error(error, error.Message);
+      }
+    );
+  }
+
+  openReviewDeleteModal(template: TemplateRef<any>, feedbackId) {
+    this.feedbackId = feedbackId;
+    this.modalRef = this.modalService.show(template);
+  }
+
+  deleteFeedback() {
+    this.customerService.deleteFeedback(this.feedbackId).subscribe(
+      (result) => {
+        this.toastr.success('Feedback successfully deleted');
+        this.modalRef.hide();
+        this.getFeedbackList();
+      },
+      (error) => {
+        this.toastr.error(error, error.Message);
+      }
+    );
+  }
+  //FEEDBACK END
   showDashboard() {
     this.isDashboardClicked = true;
     this.isMyTicketsClicked = false;

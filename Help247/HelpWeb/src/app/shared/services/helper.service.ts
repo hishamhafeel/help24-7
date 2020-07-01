@@ -8,7 +8,7 @@ import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model
 import { HelperModel } from 'src/app/helper/models/helper.model';
 import { SkillModel } from 'src/app/helper/models/skills.model';
 import { JobsCountModel } from 'src/app/helper/models/jobs.model';
-import { FeedbackModel } from 'src/app/hire-me/models/ticket.model';
+import { FeedbackModel, TicketModel } from 'src/app/hire-me/models/ticket.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,15 @@ export class HelperService extends BaseService {
       .pipe(catchError(this.server4xxError));
   }
 
+  cancelTicket(id: number) {
+    return this.http
+      .put<TicketModel>(
+        `${this.baseEndPoint}/api/Ticket/cancel?&id=${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
   getSkill(id: number) {
     return this.http
       .get<SkillModel>(
@@ -61,6 +70,15 @@ export class HelperService extends BaseService {
         `${this.baseEndPoint}/api/HelperCategory/list?&skip=${
         pagination.skip
         }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getHelperCategoryById(id: number) {
+    return this.http
+      .get<HelperCategoryModel>(
+        `${this.baseEndPoint}/api/HelperCategory/${id}`,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));
@@ -94,4 +112,14 @@ export class HelperService extends BaseService {
       )
       .pipe(catchError(this.server4xxError));
   }
+
+  getFeedbackById(id: number) {
+    return this.http
+      .get<FeedbackModel>(
+        `${this.baseEndPoint}/api/Feedback/?id=${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
 }

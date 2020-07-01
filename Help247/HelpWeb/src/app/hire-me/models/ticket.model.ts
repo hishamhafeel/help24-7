@@ -1,4 +1,5 @@
 import { HelperModel } from 'src/app/helper/models/helper.model';
+import { CustomerModel } from 'src/app/customer/models/customer.model';
 
 export class TicketModel {
     id: number;
@@ -17,6 +18,14 @@ export class TicketModel {
     helperId: number;
     customerId: number;
     helper: HelperModel;
+    customer: CustomerModel;
+    createdOn: Date;
+    hasFeedback: boolean;
+
+    constructor() {
+        this.helper = new HelperModel();
+        this.customer = new CustomerModel();
+    }
 }
 
 export class FeedbackModel {

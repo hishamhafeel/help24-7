@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ServicesComponent
   },
   {
-    path: 'sub-service',
+    path: 'sub-service/:id',
     component: SubServiceComponent
   },
 ];

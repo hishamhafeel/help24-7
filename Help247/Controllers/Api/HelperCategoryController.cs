@@ -43,6 +43,7 @@ namespace Help247.Controllers.Api
 
         //GET: api/HelperCategory
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAsync(int id)
         {
             try

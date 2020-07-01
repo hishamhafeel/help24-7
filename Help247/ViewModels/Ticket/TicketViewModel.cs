@@ -35,6 +35,8 @@ namespace Help247.ViewModels.Ticket
         public int TicketStatusId { get; set; }
         public DateTime CreatedOn { get; set; }
         public string CreatedById { get; set; }
+        public bool HasFeedback { get; set; }
+
 
         public int CustomerId { get; set; }
 
