@@ -6,6 +6,7 @@ import { HelperComponent } from './helper.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -17,7 +18,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     ModalModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    NgxStarRatingModule
+    NgxStarRatingModule,
+    FileUploadModule
   ]
 })
 export class HelperModule { }

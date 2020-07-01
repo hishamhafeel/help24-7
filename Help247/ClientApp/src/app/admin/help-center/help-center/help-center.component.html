@@ -14,7 +14,7 @@
                                 <mat-expansion-panel *ngFor="let item of model.topics | keyvalue">
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>
-                                            {{item.key}}
+                                            {{item.key}} <mat-icon style="cursor: pointer;" (click)="openDialog(model, item.key)">edit</mat-icon>
                                         </mat-panel-title>
                                     </mat-expansion-panel-header>
                                     {{item.value}}
@@ -49,3 +49,21 @@
         </div>
     </div>
 </div>
+
+<!-- <ng-template #deleteDialog>
+    <h2 matDialogTitle>Are you sure you want to delete this helper service? This cannot be undone</h2>
+    <mat-dialog-actions align="end">
+        <button mat-flat-button matDialogClose="no">No</button>
+        <button mat-flat-button color="warn" matDialogClose="yes">Yes</button>
+    </mat-dialog-actions>
+</ng-template> -->
+
+
+
+<ng-template #callAPIDialog>
+    <h2 matDialogTitle>Are you sure you want to delete this helper service? This cannot be undone</h2>
+    <mat-dialog-actions align="end">
+        <button mat-flat-button matDialogClose="no">No</button>
+        <button mat-flat-button color="warn" matDialogClose="yes">Yes</button>
+    </mat-dialog-actions>
+</ng-template>

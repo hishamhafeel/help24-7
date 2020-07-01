@@ -11,7 +11,7 @@ namespace Help247.Service.Services.Customer
     {
         Task<PaginationModel<CustomerBO>> GetAllAsync(PaginationBase paginationBase);
         Task<CustomerBO> GetByIdAsync(int id);
-        Task<CustomerBO> PutAsync(CustomerBO customerBO);
+        Task<CustomerBO> PutAsync(CustomerBO customerBO, string userId);
         Task DeleteAsync(int id);
     }
 }

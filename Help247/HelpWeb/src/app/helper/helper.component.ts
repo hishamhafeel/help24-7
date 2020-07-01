@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 import { SkillModel } from './models/skills.model';
 import { JobsCountModel } from './models/jobs.model';
 import { ToastrService } from 'ngx-toastr';
+import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 
 @Component({
   selector: 'app-helper',
@@ -47,6 +49,18 @@ export class HelperComponent implements OnInit {
   rating: number = 4;
   ratingDescription: string = '';
 
+  uploader: FileUploader;
+  url: string;
+  urlList: Array<string> = [];
+  isUploadRequested: boolean = false;
+  public_id: string = "";
+  image1: string = "";
+  image2: string = "";
+  image3: string = "";
+  image4: string = "";
+  image5: string = "";
+  imageList: Array<string> = [];
+
   constructor(
     private hireMeService: HireMeService,
     private modalService: BsModalService,
@@ -54,9 +68,23 @@ export class HelperComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
-
+    private cloudinary: Cloudinary
   ) {
     this.pagination = new PaginationBase();
+
+    const uploaderOptions: FileUploaderOptions = {
+      url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+      autoUpload: false,
+      isHTML5: true,
+      removeAfterUpload: true,
+      headers: [
+        {
+          name: 'X-Requested-With',
+          value: 'XMLHttpRequest'
+        }
+      ]
+    };
+    this.uploader = new FileUploader(uploaderOptions);
   }
 
   ngOnInit(): void {
@@ -65,8 +93,23 @@ export class HelperComponent implements OnInit {
     this.getHelperById();
     this.getHelperCategory();
     this.getSkills();
+    this.getImages();
     this.getFeedbacksForHelper(this.helperId);
     this.getTicketList();
+
+    this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+      // Add Cloudinary's unsigned upload preset to the upload form
+      form.append('upload_preset', this.cloudinary.config().upload_preset);
+      form.append('folder', 'angular_sample');
+      if(this.public_id != ""){
+        form.append('public_id', this.public_id);
+      }
+      form.append('file', fileItem);
+
+      // Use default "withCredentials" value for CORS requests
+      fileItem.withCredentials = false;
+      return { fileItem, form };
+    };
   }
   //DASHBOARD START
 
@@ -194,7 +237,7 @@ export class HelperComponent implements OnInit {
       city: [null, [Validators.required]],
       state: [null, [Validators.required]],
       postalCode: [null, [Validators.required]],
-      profilePicUrl: ['http://www.rgoogle.com', [Validators.required]],
+      profilePicUrl: [null],
       experience: [null, [Validators.required]],
       aboutMe: [null, [Validators.required]],
       myService: [null, [Validators.required]],
@@ -219,12 +262,13 @@ export class HelperComponent implements OnInit {
       city: this.helperModel.city,
       state: this.helperModel.state,
       postalCode: this.helperModel.postalCode,
-      profilePicUrl: 'http://www.rgoogle.com',
+      //profilePicUrl: 'http://www.rgoogle.com',
       experience: this.helperModel.experience,
       aboutMe: this.helperModel.aboutMe,
       myService: this.helperModel.myService,
       helperCategoryId: this.helperModel.helperCategory.id,
     });
+    this.url = this.helperModel.image.imageUrl;
   }
 
   getSkills() {
@@ -298,6 +342,28 @@ export class HelperComponent implements OnInit {
     this.helperModel = this.helperForm.value;
     this.helperModel.experience = +this.helperForm.value.experience;
     this.isHelperRequested = true;
+    
+    if(this.uploader.queue.length == 0){
+      this.updateHelper();
+    }
+    else{
+      this.uploader.queue[0].upload();
+  
+      this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+        this.isHelperRequested = false;
+        console.log("Image upload failed");
+      }
+  
+      // Update model on completion of uploading a file
+      this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+        this.url = JSON.parse(response).url;
+        this.updateHelper();
+      }
+    }
+  }
+
+  updateHelper(){
+    this.helperModel.profilePicUrl = this.url;
     this.helperService.updateHelper(this.helperModel).subscribe(
       result => {
         console.log('result', result);
@@ -389,11 +455,83 @@ export class HelperComponent implements OnInit {
     localStorage.removeItem('TokenId');
     localStorage.removeItem('LoggedId');
     this.router.navigate(['/auth/login']);
-    // this.isDashboardClicked = false;
-    // this.isMyJobsClicked = false;
-    // this.isSettingsClicked = false;
-    // this.isRatingClicked = false;
-    // this.isLogoutClicked = true;
+  }
+
+  fileChangeEvent() {
+    this.public_id = `img_${Date.now()}`;
+  }
+
+  fileUpload(){
+    this.isUploadRequested = true;
+    this.uploader.uploadAll();
+    var count = this.uploader.queue.length;
+
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+      console.log("Image upload failed");
+    }
+
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      this.urlList.push(JSON.parse(response).url);
+      count--;
+      console.log(JSON.parse(response));
+      console.log(count);
+      if(count == 0){
+        this.postUpload();
+      }
+    }
+  }
+
+  getImages(){
+    this.helperService.getImages(this.helperId).subscribe(
+      result => {
+        console.log('Images', result);
+        this.imageList = [];
+        let self = this
+        result.forEach(function (value, i) {
+          self.imageList.push(value.imageUrl);
+          if(i == 0){
+            self.image1 = value.imageUrl.split("profile_pic/").pop();
+          }else if(i == 1){
+            self.image2 = value.imageUrl.split("profile_pic/").pop();
+          }else if(i == 2){
+            self.image3 = value.imageUrl.split("profile_pic/").pop();
+          }else if(i == 3){
+            self.image4 = value.imageUrl.split("profile_pic/").pop();
+          }else if(i == 4){
+            self.image5 = value.imageUrl.split("profile_pic/").pop();
+          }
+      });
+      },
+      error => {
+        this.toastr.error('Error', error.message);
+      }
+    );
+  }
+
+  postUpload(){
+    var imageListModel = {
+      imageUrls: this.urlList
+    }
+    this.helperService.uploadImages(imageListModel).subscribe(
+      result => {
+        console.log('result', result);
+        this.isUploadRequested = false;
+      },
+      error => {
+        console.log('error', error.message);
+        this.isUploadRequested = false;
+      }
+    );
+  }
+
+  onFileChanged(event, num) {
+    switch(num){
+      case 1: this.image1 = event.target.files[0].name; break;
+      case 2: this.image2 = event.target.files[0].name; break;
+      case 3: this.image3 = event.target.files[0].name; break;
+      case 4: this.image4 = event.target.files[0].name; break;
+      case 5: this.image5 = event.target.files[0].name; break;
+    }
   }
 
 

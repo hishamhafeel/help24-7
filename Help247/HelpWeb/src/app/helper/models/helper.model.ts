@@ -13,7 +13,7 @@ export class HelperModel {
     postalCode: string;
     addressLine: string;
     experience: number;
-    profilePic: string;
+    profilePicUrl: string;
     aboutMe: string;
     myService: string;
     helperCategoryId: number;

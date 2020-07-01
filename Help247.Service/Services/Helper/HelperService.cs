@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using Help247.Common.Constants;
 using Help247.Common.Pagination;
 using Help247.Common.Utility;
 using Help247.Data;
 using Help247.Data.Entities;
 using Help247.Service.BO.Helper;
+using Help247.Service.BO.Image;
 using Help247.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -103,30 +105,25 @@ namespace Help247.Service.Services.Helper
             }
         }
 
-        public async Task<HelperBO> PutAsync(HelperBO helperBO)
+        public async Task<HelperBO> PutAsync(HelperBO helperBO, string userId)
         {
             using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
                 try
                 {
                     var query = await appDbContext.Helpers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == helperBO.Id);
-                    var imageQuery = await appDbContext.Images.AsNoTracking().FirstOrDefaultAsync(x => x.ImageUrl == helperBO.ProfilePic);
+                    var imageQuery = await appDbContext.Images.FirstOrDefaultAsync(x => x.Email == helperBO.Email && x.ImageType == ImageType.ProfilePicture);
+
                     if (query == null)
                     {
                         throw new HelperNotFoundException();
                     }
-                    else if(imageQuery == null)
-                    {
-                        var existingImage = await appDbContext.Images.AsNoTracking().FirstAsync(x => x.Email == helperBO.Email);
-                        var newImage = new Help247.Data.Entities.Image()
-                        {
-                            Id = existingImage.Id,
-                            ImageUrl = helperBO.ProfilePic
-                        };
-                        appDbContext.Images.Update(newImage);
-                        await appDbContext.SaveChangesAsync();
-                    }
 
+                    imageQuery.ImageUrl = helperBO.ProfilePicUrl;
+                    await appDbContext.SaveChangesAsync();
+
+                    helperBO.ImageId = imageQuery.Id;
+                    helperBO.UserId = userId;
                     appDbContext.Helpers.Update(mapper.Map<Help247.Data.Entities.Helper>(helperBO));
                     await appDbContext.SaveChangesAsync();
 

@@ -13,11 +13,18 @@
                             Queue | Reviews & Ratings (24) </p>
                     </div>
                     <div class="tech-silder">
-                        <div class="owl-carousel owl-theme owl-tech" id="techslider">
+                        <!-- <div class="owl-carousel owl-theme owl-tech" id="techslider">
                             <div class="item"><img src="../../assets/images/jobdetail-slider.jpg"></div>
                             <div class="item"><img src="../../assets/images/jobdetail-slider.jpg"></div>
                             <div class="item"><img src="../../assets/images/jobdetail-slider.jpg"></div>
-                        </div>
+                        </div> -->
+                        <owl-carousel-o class="hmbanner" [options]="bannerOptions">
+                            <ng-template carouselSlide *ngFor="let data of imageList">
+                                <div class="item">
+                                    <img [src]="data">
+                                </div>
+                            </ng-template>
+                        </owl-carousel-o>
                     </div>
                     <div class="description-wrap">
                         <h5>Description about the service</h5>

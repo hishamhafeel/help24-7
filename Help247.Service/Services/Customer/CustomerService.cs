@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Help247.Common.Constants;
 using Help247.Common.Pagination;
 using Help247.Common.Utility;
 using Help247.Data;
+using Help247.Data.Entities;
 using Help247.Service.BO.Customer;
 using Help247.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -71,23 +73,35 @@ namespace Help247.Service.Services.Customer
             }
         }
 
-        public async Task<CustomerBO> PutAsync(CustomerBO customerBO)
+        public async Task<CustomerBO> PutAsync(CustomerBO customerBO, string userId)
         {
-            try
+            using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
-                var query = await appDbContext.Customers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == customerBO.Id);
-                if (query == null)
+                try
                 {
-                    throw new CustomerNotFoundException();
-                }
-                appDbContext.Customers.Update(mapper.Map<Help247.Data.Entities.Customer>(customerBO));
-                await appDbContext.SaveChangesAsync();
-                return customerBO;
-            }
-            catch (Exception ex)
-            {
+                    var query = await appDbContext.Customers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == customerBO.Id);
+                    var imageQuery = await appDbContext.Images.FirstOrDefaultAsync(x => x.Email == customerBO.Email && x.ImageType == ImageType.ProfilePicture);
 
-                throw ex;
+                    if (query == null)
+                    {
+                        throw new CustomerNotFoundException();
+                    }
+
+                    imageQuery.ImageUrl = customerBO.ProfilePicUrl;
+                    await appDbContext.SaveChangesAsync();
+
+                    customerBO.ImageId = imageQuery.Id;
+                    customerBO.UserId = userId;
+                    appDbContext.Customers.Update(mapper.Map<Help247.Data.Entities.Customer>(customerBO));
+                    await appDbContext.SaveChangesAsync();
+                    transaction.Commit();
+                    return customerBO;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
             }
         }
         public async Task DeleteAsync(int id)

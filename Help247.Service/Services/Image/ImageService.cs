@@ -43,8 +43,17 @@ namespace Help247.Service.Services.Image
             return mapper.Map<List<ImageBO>>(query);
         }
 
-        public async Task<List<ImageBO>> PostImageForProfileSkillsAsync(ImageUrlBO imageUrls)
+        public async Task<List<ImageBO>> PostImageForProfileSkillsAsync(ImageUrlBO imageUrls, string userId)
         {
+            var helper = await appDbContext.Helpers.AsNoTracking().FirstOrDefaultAsync(x => x.UserId == userId);
+
+            var query = await appDbContext.Images.AsQueryable().Where(x => x.HelperId == helper.Id && x.ImageType == ImageType.ProfileSkillsPicture).ToListAsync();
+
+            if (query.Count > 0)
+            {
+                appDbContext.Images.RemoveRange(query);
+            }
+
             var images = new List<Help247.Data.Entities.Image>();
 
             foreach (var item in imageUrls.ImageUrls)
@@ -53,7 +62,8 @@ namespace Help247.Service.Services.Image
                 {
                     ImageType = ImageType.ProfileSkillsPicture,
                     ImageUrl = item,
-                    Email = imageUrls.Email
+                    Email = helper.Email,
+                    HelperId = helper.Id
 
                 };
                 images.Add(image);
@@ -62,6 +72,13 @@ namespace Help247.Service.Services.Image
             await appDbContext.AddRangeAsync(images);
             await appDbContext.SaveChangesAsync();
             return mapper.Map<List<ImageBO>>(images);
+        }
+
+        public async Task<List<ImageBO>> GetImageForProfileSkillsAsync(int helperId)
+        {
+            var query = await appDbContext.Images.AsQueryable().Where(x => x.HelperId == helperId && x.ImageType == ImageType.ProfileSkillsPicture).ToListAsync();
+
+            return mapper.Map<List<ImageBO>>(query);
         }
 
         public async Task<List<ImageBO>> PostImageForHelperCategoryAsync(ImageHelperCatergoryBO imageBO)

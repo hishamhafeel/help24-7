@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { PaginationBase } from '../models/pagination-base.model';
 import { PaginationModel } from '../models/paginationModel';
 import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model';
-import { HelperModel } from 'src/app/helper/models/helper.model';
+import { HelperModel, ImageModel } from 'src/app/helper/models/helper.model';
 import { SkillModel } from 'src/app/helper/models/skills.model';
 import { JobsCountModel } from 'src/app/helper/models/jobs.model';
 import { FeedbackModel, TicketModel } from 'src/app/hire-me/models/ticket.model';
@@ -118,6 +118,22 @@ export class HelperService extends BaseService {
       .get<FeedbackModel>(
         `${this.baseEndPoint}/api/Feedback/?id=${id}`,
         this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+  
+  uploadImages(model){
+    return this.http
+      .post<Array<ImageModel>>(
+        `${this.baseEndPoint}/api/Image/skills`, model, this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getImages(id){
+    return this.http
+      .get<Array<ImageModel>>(
+        `${this.baseEndPoint}/api/Image/skills?helperId=` + id, this.httpOptions
       )
       .pipe(catchError(this.server4xxError));
   }

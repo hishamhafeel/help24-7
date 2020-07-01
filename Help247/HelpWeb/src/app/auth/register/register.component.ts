@@ -9,7 +9,6 @@ import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import { ToastrService } from 'ngx-toastr';
-import { ICountry, } from 'country-state-city';
 
 @Component({
   selector: 'app-register',
@@ -30,45 +29,18 @@ export class RegisterComponent implements OnInit {
 
   uploader: FileUploader;
   url: string;
-  fileName: string = "";
   public_id: string = "";
   isFormSubmitted: boolean = false;
 
   isHelperRequested: boolean = false;
   isCustomerRequested: boolean = false;
 
-  constructor(private toastr: ToastrService,
-    private cloudinary: Cloudinary,
-    private helperService: HelperService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private fb: FormBuilder,
-    private authService: AuthService) {
+  constructor(private toastr: ToastrService, private cloudinary: Cloudinary, private helperService: HelperService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
     this.pagination = new PaginationBase();
-  }
-
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.userType = +params.get('userType');
-    });
-    this.registerModel = JSON.parse(sessionStorage.getItem('user'));
-    if (this.userType == 3) {
-      this.initCustomerForm();
-      this.customerForm.patchValue({
-        email: this.registerModel.email
-      });
-    }
-    else {
-      this.getHelperCategory();
-      this.initHelperForm();
-      this.helperForm.patchValue({
-        email: this.registerModel.email
-      });
-    }
 
     const uploaderOptions: FileUploaderOptions = {
       url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
-      autoUpload: true,
+      autoUpload: false,
       isHTML5: true,
       removeAfterUpload: true,
       headers: [
@@ -79,27 +51,38 @@ export class RegisterComponent implements OnInit {
       ]
     };
     this.uploader = new FileUploader(uploaderOptions);
+  }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.userType = +params.get('userType');
+    });
+    this.registerModel = JSON.parse(sessionStorage.getItem('user'));
+    this.initCustomerForm();
+    this.initHelperForm();
+    if (this.userType == 3) {
+      this.customerForm.patchValue({
+        email: this.registerModel.email
+      });
+    }
+    else {
+      this.getHelperCategory();
+      this.helperForm.patchValue({
+        email: this.registerModel.email
+      });
+    }
 
     this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
-      this.generateFileName();
       // Add Cloudinary's unsigned upload preset to the upload form
       form.append('upload_preset', this.cloudinary.config().upload_preset);
       form.append('folder', 'angular_sample');
+      form.append('public_id', this.public_id);
       form.append('file', fileItem);
 
       // Use default "withCredentials" value for CORS requests
       fileItem.withCredentials = false;
       return { fileItem, form };
     };
-
-    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
-      console.log("Image upload failed")
-
-    // Update model on completion of uploading a file
-    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
-      this.url = JSON.parse(response).url;
-    }
-
   }
 
   initCustomerForm() {
@@ -165,12 +148,29 @@ export class RegisterComponent implements OnInit {
     this.customerModel.userName = this.registerModel.userName;
     this.customerModel.password = this.registerModel.password;
     this.customerModel.userType = this.userType;
-    this.customerModel.profilePicUrl = this.url;
     this.isCustomerRequested = true;
+
+    this.uploader.queue[0].upload();
+
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+      this.isCustomerRequested = false;
+      console.log("Image upload failed");
+    }
+
+    // Update model on completion of uploading a file
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      this.url = JSON.parse(response).url;
+      this.customerRegister();
+    }
+  }
+
+  customerRegister(){
+    this.customerModel.profilePicUrl = this.url;
     this.authService.register(this.customerModel).subscribe(
       result => {
         console.log('result', result);
         this.toastr.success('Success', 'Account successfully created! Please check your email to confirm');
+        sessionStorage.removeItem('user');
         setTimeout(() => {
           this.router.navigate(['auth/login']);
         }, 2000);
@@ -192,13 +192,31 @@ export class RegisterComponent implements OnInit {
     this.helperModel.userName = this.registerModel.userName;
     this.helperModel.password = this.registerModel.password;
     this.helperModel.userType = this.userType;
-    this.helperModel.profilePicUrl = this.url;
     this.helperModel.experience = +this.helperForm.value.experience;
+
     this.isHelperRequested = true;
+
+    this.uploader.queue[0].upload();
+
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+      this.isHelperRequested = false;
+      console.log("Image upload failed");
+    }
+
+    // Update model on completion of uploading a file
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      this.url = JSON.parse(response).url;
+      this.helperRegister();
+    }
+  }
+
+  helperRegister(){
+    this.helperModel.profilePicUrl = this.url;
     this.authService.register(this.helperModel).subscribe(
       result => {
         console.log('result', result);
         this.toastr.success('Success', 'Account successfully created! Please check your email to confirm');
+        sessionStorage.removeItem('user');
         setTimeout(() => {
           this.router.navigate(['auth/login']);
         }, 2000);
@@ -211,7 +229,7 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  generateFileName() {
+  fileChangeEvent() {
     this.public_id = `img_${Date.now()}`;
   }
 }

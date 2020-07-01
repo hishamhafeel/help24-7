@@ -12,6 +12,7 @@ export class CustomerModel {
     postalCode: string;
     userId: string;
     image: ImageModel;
+    profilePicUrl: string;
 
     constructor() {
         this.image = new ImageModel();

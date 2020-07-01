@@ -18,6 +18,8 @@ namespace Help247.Service.BO.Customer
         public string PostalCode { get; set; }
         public string UserId { get; set; }
         public ImageBO Image { get; set; }
+        public int? ImageId { get; set; }
+        public string ProfilePicUrl { get; set; }
 
     }
 }

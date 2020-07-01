@@ -21,11 +21,14 @@ namespace Help247.Service.BO.Helper
         public string PostalCode { get; set; }
         public string AddressLine { get; set; }
         public int Experience { get; set; }
-        public string ProfilePic { get; set; }
+        public string ProfilePicUrl { get; set; }
+        public int HelperCategoryId { get; set; }
         public string AboutMe { get; set; }
         public string MyService { get; set; }
         public DateTime CreatedOn { get; set; }
         public HelperCategoryBO HelperCategory { get; set; }
         public ImageBO Image { get; set; }
+        public int? ImageId { get; set; }
+        public string UserId { get; set; }
     }
 }

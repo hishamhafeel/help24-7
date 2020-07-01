@@ -11,7 +11,7 @@ namespace Help247.Service.Services.Helper
     {
         Task<PaginationModel<HelperBO>> GetAllAsync(HelperSearchBO helperSearchBO);
         Task<HelperBO> GetByIdAsync(int id);
-        Task<HelperBO> PutAsync(HelperBO helperBO);
+        Task<HelperBO> PutAsync(HelperBO helperBO, string userId);
         Task DeleteAsync(int id);
         //Task<List<HelperCategoryBO>> GetAllHelperCategoryAsync();
     }
