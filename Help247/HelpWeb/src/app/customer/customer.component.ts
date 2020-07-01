@@ -50,8 +50,11 @@ export class CustomerComponent implements OnInit {
   public_id: string = '';
   modalRef: BsModalRef;
   isCustomerRequested: boolean = false;
-  fromDate: any;
-  toDate: any;
+  fromDate: Date;
+  toDate: Date;
+  rating: number = 4;
+  ratingDescription: string = '';
+  feedbackId: number;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -126,7 +129,7 @@ export class CustomerComponent implements OnInit {
     const uploaderOptions: FileUploaderOptions = {
       url: `https://api.cloudinary.com/v1_1/${
         this.cloudinary.config().cloud_name
-      }/upload`,
+        }/upload`,
       autoUpload: true,
       isHTML5: true,
       removeAfterUpload: true,
@@ -311,8 +314,8 @@ export class CustomerComponent implements OnInit {
       address: [null, [Validators.required]],
       contactNo1: [null, [Validators.required]],
       contactNo2: [null, [Validators.required]],
-      helpDateFrom: [new Date(), [Validators.required]],
-      helpDateTo: [new Date(), [Validators.required]],
+      // helpDateFrom: [new Date(), [Validators.required]],
+      // helpDateTo: [new Date(), [Validators.required]],
       otherRequirements: [null, [Validators.required]],
     });
   }
@@ -371,6 +374,14 @@ export class CustomerComponent implements OnInit {
     minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
+  }
+
+  onChangeDateFrom(event: Date) {
+    this.fromDate = event;
+  }
+
+  onChangeDateTo(event: any) {
+    this.toDate = event;
   }
 
   //TICKET END
@@ -444,6 +455,70 @@ export class CustomerComponent implements OnInit {
 
   //CUSTOMER END
 
+  //FEEDBACK START
+
+  openReviewEditModal(template: TemplateRef<any>, feedbackId, helperId, ticketId) {
+    this.helperId = helperId;
+    this.ticketId = ticketId;
+    this.feedbackId = feedbackId;
+    this.initFeedbackForm();
+    this.getFeedback(feedbackId);
+    this.modalRef = this.modalService.show(template);
+  }
+
+  getFeedback(feedbackId: number) {
+    this.customerService.getFeedback(feedbackId).subscribe(
+      (result) => {
+        this.feedbackModel = result;
+        this.patchFeedbackForm();
+      },
+      (error) => {
+        this.toastr.error(error, error.Message);
+      });
+  }
+  patchFeedbackForm() {
+    this.feedbackForm.patchValue({
+      rating: this.feedbackModel.rating,
+      description: this.feedbackModel.description,
+    });
+  }
+  onFeedbackEdit() {
+    if (this.feedbackForm.invalid) {
+      return;
+    }
+    this.feedbackModel = this.feedbackForm.value;
+    this.feedbackModel.id = this.feedbackId;
+
+    this.customerService.updateFeedback(this.feedbackModel).subscribe(
+      (result) => {
+        this.toastr.success('Feedback successfully updated');
+        this.modalRef.hide();
+        this.getFeedbackList();
+      },
+      (error) => {
+        this.toastr.error(error, error.Message);
+      }
+    );
+  }
+
+  openReviewDeleteModal(template: TemplateRef<any>, feedbackId) {
+    this.feedbackId = feedbackId;
+    this.modalRef = this.modalService.show(template);
+  }
+
+  deleteFeedback() {
+    this.customerService.deleteFeedback(this.feedbackId).subscribe(
+      (result) => {
+        this.toastr.success('Feedback successfully deleted');
+        this.modalRef.hide();
+        this.getFeedbackList();
+      },
+      (error) => {
+        this.toastr.error(error, error.Message);
+      }
+    );
+  }
+  //FEEDBACK END
   showDashboard() {
     this.isDashboardClicked = true;
     this.isMyTicketsClicked = false;

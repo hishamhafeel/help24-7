@@ -8,10 +8,7 @@
               <div class="sidebar boxshadow">
                 <div class="sidebar-header">
                   <div class="profileimg">
-                    <img
-                      src="{{ customerModel.image.imageUrl }}"
-                      class="img-fluid"
-                    />
+                    <img src="{{ customerModel.image.imageUrl }}" class="img-fluid" />
                   </div>
                   <div class="profile-info">
                     <h3>{{ customerModel.name }}</h3>
@@ -23,37 +20,28 @@
                     <p class="mdroptext">Select</p>
                     <ul>
                       <li>
-                        <a
-                          (click)="showDashboard()"
-                          class="cursorPointerSideBar"
-                          ><i class="sprite sprite-dashboard-icon"></i>
-                          Dashboard</a
-                        >
+                        <a (click)="showDashboard()" class="cursorPointerSideBar"><i
+                            class="sprite sprite-dashboard-icon"></i>
+                          Dashboard</a>
                       </li>
                       <li>
-                        <a
-                          (click)="showMyTickets()"
-                          class="cursorPointerSideBar"
-                          ><i class="sprite sprite-mytickets-icon"></i> My
-                          Tickets</a
-                        >
+                        <a (click)="showMyTickets()" class="cursorPointerSideBar"><i
+                            class="sprite sprite-mytickets-icon"></i> My
+                          Tickets</a>
                       </li>
                       <li>
-                        <a (click)="showSettings()" class="cursorPointerSideBar"
-                          ><i class="sprite sprite-settings-icon"></i>
-                          Settings</a
-                        >
+                        <a (click)="showSettings()" class="cursorPointerSideBar"><i
+                            class="sprite sprite-settings-icon"></i>
+                          Settings</a>
                       </li>
                       <li>
-                        <a (click)="showRatings()" class="cursorPointerSideBar"
-                          ><i class="sprite sprite-reviewsrate-icon"></i>
-                          Reviews & Ratings</a
-                        >
+                        <a (click)="showRatings()" class="cursorPointerSideBar"><i
+                            class="sprite sprite-reviewsrate-icon"></i>
+                          Reviews & Ratings</a>
                       </li>
                       <li>
-                        <a (click)="logout()" class="cursorPointerSideBar"
-                          ><i class="sprite sprite-logout-icon"></i> Log out</a
-                        >
+                        <a (click)="logout()" class="cursorPointerSideBar"><i class="sprite sprite-logout-icon"></i> Log
+                          out</a>
                       </li>
                     </ul>
                   </div>
@@ -89,11 +77,7 @@
                             <p>
                               Select the technician and create your ticket now.
                             </p>
-                            <a
-                              class="btn-red cursorPointer"
-                              [routerLink]="['/hire-me']"
-                              >Open Ticket</a
-                            >
+                            <a class="btn-red cursorPointer" [routerLink]="['/hire-me']">Open Ticket</a>
                           </div>
                         </div>
                       </div>
@@ -105,21 +89,12 @@
                     <div class="toprate-tec boxshadow">
                       <h3 class="subtitle">Top Rated Techniciaons</h3>
                       <div class="toptechslider-wrap">
-                        <owl-carousel-o
-                          [options]="customOptions"
-                          id="hmtoptech"
-                        >
-                          <ng-template
-                            carouselSlide
-                            *ngFor="let data of helperList"
-                          >
+                        <owl-carousel-o [options]="customOptions" id="hmtoptech">
+                          <ng-template carouselSlide *ngFor="let data of helperList">
                             <div class="item">
                               <div class="tech-item">
                                 <div class="techimg">
-                                  <img
-                                    src="{{ data.image.imageUrl }}"
-                                    class="img-fluid"
-                                  />
+                                  <img src="{{ data.image.imageUrl }}" class="img-fluid" />
                                 </div>
                                 <div class="techdetail">
                                   <h5>
@@ -144,15 +119,10 @@
                                     </span>
                                   </div>
                                   <div class="techbtn-wrap">
-                                    <a
-                                      href="javascript:void(0)"
-                                      [routerLink]="[
+                                    <a href="javascript:void(0)" [routerLink]="[
                                         '/hire-me/open-ticket',
                                         data.id
-                                      ]"
-                                      class="btn-hire"
-                                      >Hire Me</a
-                                    >
+                                      ]" class="btn-hire">Hire Me</a>
                                   </div>
                                 </div>
                               </div>
@@ -161,11 +131,7 @@
                         </owl-carousel-o>
                       </div>
                       <div class="vbtnwrap text-center">
-                        <a
-                          [routerLink]="['/hire-me']"
-                          class="btn-red cursorPointer"
-                          >View More</a
-                        >
+                        <a [routerLink]="['/hire-me']" class="btn-red cursorPointer">View More</a>
                       </div>
                     </div>
                   </div>
@@ -185,19 +151,12 @@
                                 </div>
                                 <div class="serv-box">
                                   <div class="serv-img">
-                                    <img
-                                      src="{{ data.iconUrl }}"
-                                      class="img-fluid"
-                                    />
+                                    <img src="{{ data.iconUrl }}" class="img-fluid" />
                                   </div>
-                                  <a
-                                    [routerLink]="[
+                                  <a [routerLink]="[
                                       '/services/sub-service',
                                       data.id
-                                    ]"
-                                    class="btn-hire cursorPointer"
-                                    >Select</a
-                                  >
+                                    ]" class="btn-hire cursorPointer">Select</a>
                                 </div>
                               </div>
                             </div>
@@ -250,14 +209,9 @@
                                 {{ data.helpTime }}
                               </td>
                               <td data-label="Action">
-                                <a
-                                  href="javascript:void(0)"
-                                  class="btn-red small"
-                                  (click)="
+                                <a href="javascript:void(0)" class="btn-red small" (click)="
                                     openTicketModal(ticketTemplate, data)
-                                  "
-                                  >Edit</a
-                                >
+                                  ">Edit</a>
                               </td>
                             </tr>
                           </ng-container>
@@ -275,13 +229,8 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="">Edit Ticket</h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                        (click)="modalRef.hide()"
-                      >
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="modalRef.hide()">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -292,12 +241,8 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Title</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  placeholder="Title of the Ticket"
-                                  formControlName="title"
-                                />
+                                <input type="text" class="form-control" placeholder="Title of the Ticket"
+                                  formControlName="title" />
                               </div>
                             </div>
                           </div>
@@ -314,22 +259,16 @@
                                 <label>Help Dates</label>
                                 <div class="">
                                   <h6>From</h6>
-                                  <input
-                                    class="form-control"
-                                    id="from-datepicker"
-                                    bsDatepicker
-                                    [bsValue]="fromDate"
-                                  />
+                                  <input class="form-control" bsDatepicker [(ngModel)]="fromDate"
+                                    (ngModelChange)="onChangeDateFrom($event)" [bsConfig]="{ adaptivePosition: true }"
+                                    [ngModelOptions]="{standalone: true}" />
                                   <!-- <bs-datepicker-inline [bsValue]="bsInlineValue"></bs-datepicker-inline> -->
                                 </div>
                                 <div class="">
                                   <h6>To</h6>
-                                  <input
-                                    class="form-control"
-                                    id="to-datepicker"
-                                    bsDatepicker
-                                    [bsValue]="toDate"
-                                  />
+                                  <input class="form-control" bsDatepicker [(ngModel)]="toDate"
+                                    (ngModelChange)="onChangeDateTo($event)" [bsConfig]="{ adaptivePosition: true }"
+                                    [ngModelOptions]="{standalone: true}" />
                                 </div>
                               </div>
                             </div>
@@ -338,12 +277,8 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Country </label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  placeholder="Country"
-                                  formControlName="country"
-                                />
+                                <input type="text" class="form-control" placeholder="Country"
+                                  formControlName="country" />
                               </div>
                             </div>
                           </div>
@@ -352,23 +287,13 @@
                             <div class="col cgap">
                               <div class="form-group">
                                 <label>State </label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  placeholder="State"
-                                  formControlName="state"
-                                />
+                                <input type="text" class="form-control" placeholder="State" formControlName="state" />
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>City </label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  placeholder="City"
-                                  formControlName="city"
-                                />
+                                <input type="text" class="form-control" placeholder="City" formControlName="city" />
                               </div>
                             </div>
                           </div>
@@ -383,12 +308,8 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Address</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  placeholder="Address"
-                                  formControlName="address"
-                                />
+                                <input type="text" class="form-control" placeholder="Address"
+                                  formControlName="address" />
                               </div>
                             </div>
                           </div>
@@ -396,23 +317,15 @@
                             <div class="col cgap">
                               <div class="form-group">
                                 <label>Contact No 1 </label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  placeholder="+94"
-                                  formControlName="contactNo1"
-                                />
+                                <input type="text" class="form-control" placeholder="+94"
+                                  formControlName="contactNo1" />
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>Contact No 2 </label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  placeholder="+94"
-                                  formControlName="contactNo2"
-                                />
+                                <input type="text" class="form-control" placeholder="+94"
+                                  formControlName="contactNo2" />
                               </div>
                             </div>
                           </div>
@@ -421,21 +334,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Other Requirements</label>
-                                <textarea
-                                  class="form-control set-text"
-                                  rows="5"
+                                <textarea class="form-control set-text" rows="5"
                                   placeholder="Any other special requirements"
-                                  formControlName="otherRequirements"
-                                ></textarea>
+                                  formControlName="otherRequirements"></textarea>
                               </div>
                             </div>
                           </div>
 
-                          <button
-                            type="submit"
-                            class="btn redbtn"
-                            (click)="onTicketSubmit()"
-                          >
+                          <button type="submit" class="btn redbtn" (click)="onTicketSubmit()">
                             Update Ticket
                           </button>
                         </form>
@@ -477,12 +383,8 @@
                                 {{ data.helpTime }}
                               </td>
                               <td data-label="Action">
-                                <a
-                                  href="javascript:void(0)"
-                                  class="btn-red small"
-                                  (click)="completeTicket(data.id)"
-                                  >Complete</a
-                                >
+                                <a href="javascript:void(0)" class="btn-red small"
+                                  (click)="completeTicket(data.id)">Complete</a>
                               </td>
                             </tr>
                           </ng-container>
@@ -529,29 +431,15 @@
                                 {{ data.helpTime }}
                               </td>
                               <td data-label="Action">
-                                <a
-                                  href="javascript:void(0)"
-                                  class="btn-red small"
-                                  data-toggle="modal"
-                                  data-target="#view"
-                                  (click)="openModal(template, data)"
-                                  >View</a
-                                >
-                                <a
-                                  href="javascript:void(0)"
-                                  class="btn-red small"
-                                  data-toggle="modal"
-                                  (click)="
+                                <a href="javascript:void(0)" class="btn-red small" data-toggle="modal"
+                                  data-target="#view" (click)="openModal(template, data)">View</a>
+                                <a href="javascript:void(0)" class="btn-red small" data-toggle="modal" (click)="
                                     openReviewModal(
                                       reviewTemplate,
                                       data.id,
                                       data.helper.id
                                     )
-                                  "
-                                  data-target="#rates"
-                                  *ngIf="data.hasFeedback == false"
-                                  >+ Review</a
-                                >
+                                  " *ngIf="data.hasFeedback == false">+ Review</a>
                               </td>
                             </tr>
                           </ng-container>
@@ -569,13 +457,8 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="">View Ticket</h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                        (click)="modalRef.hide()"
-                      >
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="modalRef.hide()">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -619,10 +502,7 @@
                         <div class="col-lg-6 col-md-6">
                           <div class="modelcol2 text-center">
                             <div class="tech-pro-img">
-                              <img
-                                src="{{ ticketModel.customer.image.imageUrl }}"
-                                class="img-fluid"
-                              />
+                              <img src="{{ ticketModel.customer.image.imageUrl }}" class="img-fluid" />
                             </div>
                             <h6>{{ ticketModel.customer.name }}</h6>
                           </div>
@@ -644,44 +524,25 @@
                 <ng-template #reviewTemplate>
                   <div class="modal-header">
                     <h5 class="modal-title" id="">Review and Rating</h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                      (click)="modalRef.hide()"
-                    >
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      (click)="modalRef.hide()">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body" [formGroup]="feedbackForm">
                     <div class="row no-gutters">
                       <div class="col-lg-12">
-                        <div
-                          class="r-feedback d-flex flex-column align-items-start"
-                        >
+                        <div class="r-feedback d-flex flex-column align-items-start">
                           <h5>Rating</h5>
-                          <ngx-star-rating
-                            formControlName="rating"
-                            [id]="'rating'"
-                          ></ngx-star-rating>
+                          <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
                         </div>
                       </div>
                       <div class="col-lg-12">
                         <div class="r-feedback">
                           <h5>Feedback</h5>
                           <div class="r-feedtext">
-                            <textarea
-                              class="form-control"
-                              formControlName="description"
-                              id=""
-                              rows="3"
-                            ></textarea>
-                            <a
-                              class="btn-submit cursorPointer"
-                              (click)="onFeedbackSubmit()"
-                              >Submit</a
-                            >
+                            <textarea class="form-control" formControlName="description" id="" rows="3"></textarea>
+                            <a class="btn-submit cursorPointer" (click)="onFeedbackSubmit()">Submit</a>
                           </div>
                         </div>
                       </div>
@@ -706,28 +567,17 @@
                           <div class="settingwrap boxshadow">
                             <h4>Personal Settings</h4>
                             <div class="setting-form">
-                              <form
-                                [formGroup]="customerForm"
-                                (ngSubmit)="onCustomerSubmit()"
-                              >
+                              <form [formGroup]="customerForm" (ngSubmit)="onCustomerSubmit()">
                                 <div class="form-row">
                                   <div class="col cgap">
                                     <div class="form-group">
                                       <label>Name</label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="Full name"
-                                        formControlName="name"
-                                        [ngClass]="{
+                                      <input type="text" class="form-control" placeholder="Full name"
+                                        formControlName="name" [ngClass]="{
                                           'is-invalid':
                                             c.name.errors && c.name.dirty
-                                        }"
-                                      />
-                                      <div
-                                        *ngIf="c.name.errors"
-                                        class="invalid-feedback"
-                                      >
+                                        }" />
+                                      <div *ngIf="c.name.errors" class="invalid-feedback">
                                         <div *ngIf="c.name.errors.required">
                                           Name is required
                                         </div>
@@ -737,20 +587,12 @@
                                   <div class="col">
                                     <div class="form-group">
                                       <label>Phone</label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="+94"
-                                        formControlName="phoneNo"
-                                        [ngClass]="{
+                                      <input type="text" class="form-control" placeholder="+94"
+                                        formControlName="phoneNo" [ngClass]="{
                                           'is-invalid':
                                             c.phoneNo.errors && c.phoneNo.dirty
-                                        }"
-                                      />
-                                      <div
-                                        *ngIf="c.phoneNo.errors"
-                                        class="invalid-feedback"
-                                      >
+                                        }" />
+                                      <div *ngIf="c.phoneNo.errors" class="invalid-feedback">
                                         <div *ngIf="c.phoneNo.errors.required">
                                           Phone is required
                                         </div>
@@ -762,20 +604,12 @@
                                   <div class="col cgap">
                                     <div class="form-group">
                                       <label>Email Address</label>
-                                      <input
-                                        type="email"
-                                        class="form-control"
-                                        placeholder="Your Email"
-                                        formControlName="email"
-                                        [ngClass]="{
+                                      <input type="email" class="form-control" placeholder="Your Email"
+                                        formControlName="email" [ngClass]="{
                                           'is-invalid':
                                             c.email.errors && c.email.dirty
-                                        }"
-                                      />
-                                      <div
-                                        *ngIf="c.email.errors"
-                                        class="invalid-feedback"
-                                      >
+                                        }" />
+                                      <div *ngIf="c.email.errors" class="invalid-feedback">
                                         <div *ngIf="c.email.errors.required">
                                           Email is required
                                         </div>
@@ -785,24 +619,14 @@
                                   <div class="col">
                                     <div class="form-group">
                                       <label>Address</label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="Address"
-                                        formControlName="addressLine"
-                                        [ngClass]="{
+                                      <input type="text" class="form-control" placeholder="Address"
+                                        formControlName="addressLine" [ngClass]="{
                                           'is-invalid':
                                             c.addressLine.errors &&
                                             c.addressLine.dirty
-                                        }"
-                                      />
-                                      <div
-                                        *ngIf="c.addressLine.errors"
-                                        class="invalid-feedback"
-                                      >
-                                        <div
-                                          *ngIf="c.addressLine.errors.required"
-                                        >
+                                        }" />
+                                      <div *ngIf="c.addressLine.errors" class="invalid-feedback">
+                                        <div *ngIf="c.addressLine.errors.required">
                                           Address is required
                                         </div>
                                       </div>
@@ -813,20 +637,12 @@
                                   <div class="col cgap">
                                     <div class="form-group">
                                       <label>Country </label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="Country"
-                                        formControlName="country"
-                                        [ngClass]="{
+                                      <input type="text" class="form-control" placeholder="Country"
+                                        formControlName="country" [ngClass]="{
                                           'is-invalid':
                                             c.country.errors && c.country.dirty
-                                        }"
-                                      />
-                                      <div
-                                        *ngIf="c.country.errors"
-                                        class="invalid-feedback"
-                                      >
+                                        }" />
+                                      <div *ngIf="c.country.errors" class="invalid-feedback">
                                         <div *ngIf="c.country.errors.required">
                                           Country is required
                                         </div>
@@ -836,20 +652,12 @@
                                   <div class="col">
                                     <div class="form-group">
                                       <label>State</label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="State"
-                                        formControlName="state"
-                                        [ngClass]="{
+                                      <input type="text" class="form-control" placeholder="State"
+                                        formControlName="state" [ngClass]="{
                                           'is-invalid':
                                             c.state.errors && c.state.dirty
-                                        }"
-                                      />
-                                      <div
-                                        *ngIf="c.state.errors"
-                                        class="invalid-feedback"
-                                      >
+                                        }" />
+                                      <div *ngIf="c.state.errors" class="invalid-feedback">
                                         <div *ngIf="c.state.errors.required">
                                           State is required
                                         </div>
@@ -861,20 +669,12 @@
                                   <div class="col cgap">
                                     <div class="form-group">
                                       <label>City </label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="City"
-                                        formControlName="city"
+                                      <input type="text" class="form-control" placeholder="City" formControlName="city"
                                         [ngClass]="{
                                           'is-invalid':
                                             c.city.errors && c.city.dirty
-                                        }"
-                                      />
-                                      <div
-                                        *ngIf="c.city.errors"
-                                        class="invalid-feedback"
-                                      >
+                                        }" />
+                                      <div *ngIf="c.city.errors" class="invalid-feedback">
                                         <div *ngIf="c.city.errors.required">
                                           City is required
                                         </div>
@@ -884,24 +684,14 @@
                                   <div class="col">
                                     <div class="form-group">
                                       <label>Postal Code</label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="Postal Code"
-                                        formControlName="postalCode"
-                                        [ngClass]="{
+                                      <input type="text" class="form-control" placeholder="Postal Code"
+                                        formControlName="postalCode" [ngClass]="{
                                           'is-invalid':
                                             c.postalCode.errors &&
                                             c.postalCode.dirty
-                                        }"
-                                      />
-                                      <div
-                                        *ngIf="c.postalCode.errors"
-                                        class="invalid-feedback"
-                                      >
-                                        <div
-                                          *ngIf="c.postalCode.errors.required"
-                                        >
+                                        }" />
+                                      <div *ngIf="c.postalCode.errors" class="invalid-feedback">
+                                        <div *ngIf="c.postalCode.errors.required">
                                           Postal Code is required
                                         </div>
                                       </div>
@@ -913,44 +703,25 @@
                                     <div class="form-group">
                                       <label>Profile Picture</label>
                                       <label class="file">
-                                        <input
-                                          type="file"
-                                          class="form-control-file"
-                                          #fileInput
-                                          ng2FileSelect
-                                          [uploader]="uploader"
-                                        />
+                                        <input type="file" class="form-control-file" #fileInput ng2FileSelect
+                                          [uploader]="uploader" />
                                         <span class="file-custom">{{
                                           public_id
                                         }}</span>
                                       </label>
-                                      <div
-                                        class="progress"
-                                        style="height: 5px;"
-                                      >
-                                        <div
-                                          class="progress-bar"
-                                          role="progressbar"
-                                          [ngStyle]="{
+                                      <div class="progress" style="height: 5px;">
+                                        <div class="progress-bar" role="progressbar" [ngStyle]="{
                                             width: uploader.progress + '%'
-                                          }"
-                                        ></div>
+                                          }"></div>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="col"></div>
                                 </div>
-                                <button
-                                  type="submit"
-                                  class="btn redbtn"
-                                  [disabled]="
+                                <button type="submit" class="btn redbtn" [disabled]="
                                     customerForm.invalid || isCustomerRequested
-                                  "
-                                >
-                                  <i
-                                    class="fa fa-circle-o-notch fa-spin fa-fw"
-                                    [hidden]="!isCustomerRequested"
-                                  ></i>
+                                  ">
+                                  <i class="fa fa-circle-o-notch fa-spin fa-fw" [hidden]="!isCustomerRequested"></i>
                                   {{ isCustomerRequested ? "Saving" : "Save" }}
                                 </button>
                               </form>
@@ -961,21 +732,13 @@
                                 <div class="col cgap">
                                   <div class="form-group">
                                     <label>Password</label>
-                                    <input
-                                      type="password"
-                                      class="form-control"
-                                      placeholder="Enter Your Password"
-                                    />
+                                    <input type="password" class="form-control" placeholder="Enter Your Password" />
                                   </div>
                                 </div>
                                 <div class="col">
                                   <div class="form-group">
                                     <label>Verify Password</label>
-                                    <input
-                                      type="password"
-                                      class="form-control"
-                                      placeholder="Re-enter Password"
-                                    />
+                                    <input type="password" class="form-control" placeholder="Re-enter Password" />
                                   </div>
                                 </div>
                               </div>
@@ -1004,7 +767,7 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-12">
-                    <div class="tablewrap">
+                    <div class="tablewrap t2">
                       <table>
                         <thead>
                           <tr>
@@ -1026,14 +789,15 @@
                             <td data-label="Date">
                               {{ data.createdOn | date: "mediumDate" }}
                             </td>
-                            <td data-label="">
-                              <a
-                                href=""
-                                class="btn-red small"
-                                data-toggle="modal"
-                                data-target="#rates"
-                                >View</a
-                              >
+                            <td data-label="Action">
+                              <a href="javascript:void(0)" class="btn-red small" data-toggle="modal" (click)="openReviewEditModal(
+                                  editReview,
+                                  data.id,
+                                  data.helper.id,
+                                  data.ticketId
+                                )">View</a>
+                              <a href="javascript:void(0)" class="btn-red small"
+                                (click)="openReviewDeleteModal(deleteReviewTemplate, data.id)">Delete</a>
                             </td>
                           </tr>
                         </tbody>
@@ -1041,6 +805,51 @@
                     </div>
                   </div>
                 </div>
+
+                <ng-template #editReview>
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="">Review and Rating</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" [formGroup]="feedbackForm">
+                    <div class="row no-gutters">
+                      <div class="col-lg-12">
+                        <div class="r-feedback d-flex flex-column align-items-start">
+                          <h5>Rating</h5>
+                          <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="r-feedback">
+                          <h5>Feedback</h5>
+                          <div class="r-feedtext">
+                            <textarea class="form-control" formControlName="description" id="" rows="3"></textarea>
+                            <a class="btn-submit cursorPointer" (click)="onFeedbackEdit()">Submit</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+
+                <ng-template #deleteReviewTemplate>
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Delete Feedback</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Are you sure you want to delete this feedback?
+                  </div>
+                  <div class="modal-footer">
+                    <a class="btn small pull-right" (click)="modalRef.hide()">Cancel</a>
+                    <a class="btn-red small cursorPointer pull-right" (click)="deleteFeedback()">Yes</a>
+                  </div>
+                </ng-template>
               </div>
             </div>
           </div>

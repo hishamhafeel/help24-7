@@ -131,7 +131,7 @@ namespace Help247.Service.Services.Feedback
                 }
                 catch (Exception ex)
                 {
-                    transaction.RollbackAsync();
+                    await transaction.RollbackAsync();
                     throw ex;                
                 }
             }
@@ -142,15 +142,17 @@ namespace Help247.Service.Services.Feedback
         {
             try
             {
-                var query = await appDbContext.Feedbacks.AsNoTracking().FirstOrDefaultAsync(x => x.Id == feedbackBO.Id);
+                var query = await appDbContext.Feedbacks.FirstOrDefaultAsync(x => x.Id == feedbackBO.Id);
                 if (query == null)
                 {
                     throw new FeedbackNotFoundException();
                 }
 
-                feedbackBO.EditedById = userId;
-                feedbackBO.EditedOn = DateTime.UtcNow;
-                appDbContext.Feedbacks.Update(mapper.Map<Help247.Data.Entities.Feedback>(feedbackBO));
+                query.EditedById = userId;
+                query.EditedOn = DateTime.UtcNow;
+                query.Description = feedbackBO.Description;
+                query.Rating = feedbackBO.Rating;
+                
                 await appDbContext.SaveChangesAsync();
                 return feedbackBO;
             }

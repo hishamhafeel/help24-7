@@ -65,4 +65,32 @@ export class CustomerService extends BaseService {
       )
       .pipe(catchError(this.server4xxError));
   }
+
+  getFeedback(feedbackId: number) {
+    return this.http
+      .get<FeedbackModel>(
+        `${this.baseEndPoint}/api/Feedback/${feedbackId}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+  deleteFeedback(feedbackId: number) {
+    return this.http
+      .delete(
+        `${this.baseEndPoint}/api/Feedback/${feedbackId}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+  updateFeedback(feedback: FeedbackModel) {
+    return this.http
+      .put<FeedbackModel>(
+        `${this.baseEndPoint}/api/Feedback/`,
+        feedback,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+
 }
