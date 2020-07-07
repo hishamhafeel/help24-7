@@ -13,13 +13,26 @@ import { MatDialog } from '@angular/material';
 })
 export class HelpCenterComponent implements OnInit {
 
-  @ViewChild('callAPIDialog', {static: true}) callAPIDialog: TemplateRef<any>;
+  @ViewChild('callAPIDialog', { static: true }) callAPIDialog: TemplateRef<any>;
+  @ViewChild('deleteDialog', { static: true }) deleteDialog: TemplateRef<any>;
 
   pagination: PaginationBase;
   helpCenterModel: Array<HelpCenterModel>;
   updateModel: HelpCenterUpdateModel;
   isLoadingResults: boolean = true;
-  topics: {[key: string]: string};
+  topics: { [key: string]: string };
+  myKey = '';
+  myValue = '';
+  editSubId: number;
+  deleteSubId: number;
+
+  topic: [
+    {
+      id: number,
+      key: string,
+      value: string
+    }
+  ]
 
   title = new FormControl('');
   description = new FormControl('');
@@ -45,6 +58,22 @@ export class HelpCenterComponent implements OnInit {
     this.helpCenterService.getHelpCenter(this.pagination).subscribe(
       result => {
         this.helpCenterModel = result.details;
+
+        let i = 0;
+        this.helpCenterModel.forEach(model => {
+          let topics = Object.entries(model.topics);
+          let objArr = []
+          topics.forEach(function (value) {
+            let tempObj = { id: 0, key: '', value: '' };
+            tempObj.id = i++;
+            tempObj.key = value[0];
+            tempObj.value = value[1];
+            objArr.push(tempObj);
+          });
+          console.log(objArr);
+          model.topics2 = objArr;
+        });
+        console.log("FINAL", this.helpCenterModel);
         this.isLoadingResults = false;
       },
       error => {
@@ -54,13 +83,15 @@ export class HelpCenterComponent implements OnInit {
     );
   }
 
-  addValue(data){
+  addValue(data, addValue: boolean) {
     this.updateModel = new HelpCenterUpdateModel();
     this.updateModel = data;
 
     this.topics = {};
     this.topics = data.topics;
-    this.topics[this.title.value] = this.description.value;
+    if(addValue){
+      this.topics[this.title.value] = this.description.value;
+    }
     this.updateModel.topics = JSON.stringify(this.topics);
 
     this.helpCenterService.updateHelpCenter(this.updateModel).subscribe(
@@ -68,6 +99,8 @@ export class HelpCenterComponent implements OnInit {
         this.getAllHelpCenterList();
         this.title.reset();
         this.description.reset();
+        this.myKey = '';
+        this.myValue = '';
         this.notificationService.successMessage("Successfully updated!");
       },
       error => {
@@ -77,22 +110,62 @@ export class HelpCenterComponent implements OnInit {
     );
   }
 
-  openDialog(item, key): void {
-    console.log(item);
-    var obj = this.helpCenterModel.find(x=>x.id == item.id);
-    var test = this.getKeyByValue(obj.topics, key);
-    console.log(test);
+  openDialog(item): void {
+    this.helpCenterModel.forEach(element => {
+      var r = element.topics2.find(x=>x.id == item.id);
+      if(r != undefined){
+        this.myKey = r.key;
+        this.myValue = r.value;
+      }
+    });
+    this.editSubId = item.id;
+    
     const dialogRef = this.dialog.open(this.callAPIDialog, {
       width: '100vw'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // this.getAllHelpCenterList();
+      if (result !== undefined) {
+        if (result === 'yes') {
+          this.helpCenterModel.forEach(element => {
+            var r = element.topics2.find(x=>x.id == this.editSubId);
+            if(r != undefined){
+              delete element.topics[r.key];
+              element.topics[this.myKey] = this.myValue;
+              this.addValue(element, false);
+            }
+          });
+          this.editSubId = undefined;
+        } else if (result === 'no') {
+          //Do nothing
+        }
+      }
     });
   }
 
-  getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[JSON.stringify(key)] === value);
+  openDeleteDialog(item){
+    this.deleteSubId = item.id;
+    const dialogRef = this.dialog.open(this.deleteDialog, {
+      width: '100vw'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        if (result === 'yes') {
+          this.helpCenterModel.forEach(element => {
+            var r = element.topics2.find(x=>x.id == this.deleteSubId);
+            if(r != undefined){
+              delete element.topics[r.key];
+              this.addValue(element, false);
+            }
+          });
+          this.deleteSubId = undefined;
+        } else if (result === 'no') {
+          //Do nothing
+        }
+      }
+    });
   }
+
 
 }
