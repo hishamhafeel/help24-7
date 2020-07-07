@@ -3,6 +3,7 @@ export class HelpCenterModel {
     title: string;
     description: string;
     topics: {[key: string]: string};
+    topics2: Array<any> = [];
 }
 
 export class HelpCenterUpdateModel{

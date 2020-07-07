@@ -11,10 +11,14 @@
                         <mat-tab *ngFor="let model of helpCenterModel" label="{{ model.title}}">
                             {{ model.description}}
                             <mat-accordion class="example-headers-align">
-                                <mat-expansion-panel *ngFor="let item of model.topics | keyvalue">
+                                <mat-expansion-panel *ngFor="let item of model.topics2">
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>
-                                            {{item.key}} <mat-icon style="cursor: pointer;" (click)="openDialog(model, item.key)">edit</mat-icon>
+                                            {{item.key}}
+                                            <mat-icon style="cursor: pointer;" (click)="openDialog(item)">edit
+                                            </mat-icon>
+                                            <mat-icon style="cursor: pointer;" (click)="openDeleteDialog(item)">delete
+                                            </mat-icon>
                                         </mat-panel-title>
                                     </mat-expansion-panel-header>
                                     {{item.value}}
@@ -38,7 +42,7 @@
                                     </mat-form-field>
 
                                     <mat-action-row>
-                                        <button mat-button color="primary" (click)="addValue(model)">Add</button>
+                                        <button mat-button color="primary" (click)="addValue(model, true)">Add</button>
                                     </mat-action-row>
                                 </mat-expansion-panel>
                             </mat-accordion>
@@ -50,20 +54,48 @@
     </div>
 </div>
 
-<!-- <ng-template #deleteDialog>
-    <h2 matDialogTitle>Are you sure you want to delete this helper service? This cannot be undone</h2>
+<ng-template #deleteDialog>
+    <h2 matDialogTitle>Are you sure you want to delete this? This cannot be undone</h2>
     <mat-dialog-actions align="end">
         <button mat-flat-button matDialogClose="no">No</button>
         <button mat-flat-button color="warn" matDialogClose="yes">Yes</button>
     </mat-dialog-actions>
-</ng-template> -->
+</ng-template>
 
 
 
 <ng-template #callAPIDialog>
-    <h2 matDialogTitle>Are you sure you want to delete this helper service? This cannot be undone</h2>
-    <mat-dialog-actions align="end">
-        <button mat-flat-button matDialogClose="no">No</button>
-        <button mat-flat-button color="warn" matDialogClose="yes">Yes</button>
-    </mat-dialog-actions>
+    <div class="card">
+        <div class="card-header card-header-theme" style="display: flex;">
+            <mat-icon style="margin-right: 3px;">settings</mat-icon>
+            <h4 class="card-title">&nbsp;Edit</h4>
+        </div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field>
+                        <input matInput placeholder="Title" [(ngModel)]="myKey" type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <mat-form-field>
+                        <textarea matInput placeholder="Description" [(ngModel)]="myValue" type="text" rows="5"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <mat-dialog-actions align="end">
+                <button mat-flat-button matDialogClose="no">Cancel</button>
+                <button mat-flat-button color="warn" matDialogClose="yes">Save</button>
+            </mat-dialog-actions>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
 </ng-template>
