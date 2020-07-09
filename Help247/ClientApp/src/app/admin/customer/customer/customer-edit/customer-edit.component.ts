@@ -66,6 +66,13 @@ export class CustomerEditComponent implements OnInit {
     return this.customerForm.get('postalCode');
   }
 
+  get province() {
+    return this.customerForm.get('province');
+  }
+
+  get district() {
+    return this.customerForm.get('district');
+  }
   patchCustomerForm() {
     this.customerForm.patchValue({
       id: this.data.id,

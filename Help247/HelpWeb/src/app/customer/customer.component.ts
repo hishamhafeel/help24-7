@@ -62,8 +62,8 @@ export class CustomerComponent implements OnInit {
     dots: false,
     items: 4,
     navText: [
-      "<img src='../../assets/images/slider-prv.png'>",
-      "<img src='../../assets/images/slider-nxt.png'>",
+      "<img src='assets/images/slider-prv.png'>",
+      "<img src='assets/images/slider-nxt.png'>",
     ],
     responsive: {
       0: {
@@ -86,8 +86,8 @@ export class CustomerComponent implements OnInit {
     nav: true,
     dots: false,
     navText: [
-      "<img src='../../assets/images/slider-prv.png'>",
-      "<img src='../../assets/images/slider-nxt.png'>",
+      "<img src='assets/images/slider-prv.png'>",
+      "<img src='assets/images/slider-nxt.png'>",
     ],
     responsive: {
       0: {
@@ -123,7 +123,7 @@ export class CustomerComponent implements OnInit {
       url: `https://api.cloudinary.com/v1_1/${
         this.cloudinary.config().cloud_name
         }/upload`,
-      autoUpload: true,
+      autoUpload: false,
       isHTML5: true,
       removeAfterUpload: true,
       headers: [
@@ -142,7 +142,7 @@ export class CustomerComponent implements OnInit {
     this.getTopHelpers();
     this.getHelperCategory();
 
-    
+
 
     this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
       // Add Cloudinary's unsigned upload preset to the upload form
@@ -423,18 +423,18 @@ export class CustomerComponent implements OnInit {
     }
     this.customerModel = this.customerForm.value;
     this.isCustomerRequested = true;
-    
-    if(this.uploader.queue.length == 0){
+
+    if (this.uploader.queue.length == 0) {
       this.updateCustomer();
     }
-    else{
+    else {
       this.uploader.queue[0].upload();
-  
-      this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+
+      this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
         this.isCustomerRequested = false;
         console.log("Image upload failed");
       }
-  
+
       // Update model on completion of uploading a file
       this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
         this.url = JSON.parse(response).url;
@@ -443,7 +443,7 @@ export class CustomerComponent implements OnInit {
     }
   }
 
-  updateCustomer(){
+  updateCustomer() {
     this.customerModel.profilePicUrl = this.url;
     this.customerService.updateCustomer(this.customerModel).subscribe(
       result => {

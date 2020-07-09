@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     nav: true,
     dots: false,
     items: 4,
-    navText: ["<img src='../../assets/images/slider-prv.png'>", "<img src='../../assets/images/slider-nxt.png'>"],
+    navText: ["<img src='assets/images/slider-prv.png'>", "<img src='assets/images/slider-nxt.png'>"],
     responsive: {
       0: {
         items: 1
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
     nav: true,
     dots: false,
     items: 1,
-    navText: ["<img src='../../assets/images/hmbanner-prev.png'>", "<img src='../../assets/images/hmbanner-nxt.png'>"],
+    navText: ["<img src='assets/images/hmbanner-prev.png'>", "<img src='assets/images/hmbanner-nxt.png'>"],
     responsive: {
       0: {
         items: 1,

@@ -22,7 +22,7 @@ export class HelperDetailsComponent implements OnInit {
     nav: true,
     dots: false,
     items: 1,
-    navText: ["<img src='../../assets/images/hmbanner-prev.png'>", "<img src='../../assets/images/hmbanner-nxt.png'>"],
+    navText: ["<img src='assets/images/hmbanner-prev.png'>", "<img src='assets/images/hmbanner-nxt.png'>"],
     responsive: {
       0: {
         items: 1,
@@ -75,7 +75,7 @@ export class HelperDetailsComponent implements OnInit {
     );
   }
 
-  getImages(id){
+  getImages(id) {
     this.helperService.getImages(id).subscribe(
       result => {
         console.log('Images', result);

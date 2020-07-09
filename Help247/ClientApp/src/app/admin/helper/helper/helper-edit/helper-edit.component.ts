@@ -33,7 +33,8 @@ export class HelperEditComponent implements OnInit {
   initHelperForm() {
     this.helperForm = this.fb.group({
       id: [{ value: '', disabled: true }],
-      name: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       phoneNo: ['', Validators.required],
       email: ['', Validators.required],
       country: ['', Validators.required],

@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  baseEndPoint: 'https://localhost:44396'
-  // baseEndPoint: 'http://usamajumaloon-001-site1.ftempurl.com'
+  // baseEndPoint: 'https://localhost:44396'
+  baseEndPoint: 'http://hishamhafeel-001-site1.dtempurl.com'
+
 };
 
 /*

@@ -49,23 +49,28 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <mat-form-field>
-                        <input matInput placeholder="Icon" formControlName="iconUrl" type="text">
-                        <mat-error *ngIf="iconUrl.errors?.required">You must enter a value</mat-error>
-                    </mat-form-field>
+                    <label class="file">
+                        <input class="form-control-file" type="file" ng2FileSelect [uploader]="uploader"
+                            (change)="onFileChanged($event, 1)" [ngClass]="{ 'is-invalid': h.iconUrl.errors }"
+                            formControlName="iconUrl" placeholder="Icon" />
+                        <span class="file-custom">{{image1}}</span>
+                    </label>
+
                 </div>
                 <div class="col-md-6">
-                    <mat-form-field>
-                        <input matInput placeholder="Image" formControlName="imageUrl" type="text">
-                        <mat-error *ngIf="imageUrl.errors?.required">You must enter a value</mat-error>
-                    </mat-form-field>
+                    <label class="file">
+                        <input class="form-control-file" type="file" ng2FileSelect [uploader]="uploader2"
+                            (change)="onFileChanged($event, 2)" [ngClass]="{ 'is-invalid': h.imageUrl.errors }"
+                            formControlName="imageUrl" placeholder="Image" />
+                        <span class="file-custom">{{image2}}</span>
+                    </label>
                 </div>
             </div>
             <br>
             <br>
             <mat-label>Services Provided</mat-label>
             <div class="row" formArrayName="subServices"
-                *ngFor="let subservice of helperCategoryForm.get('subServices').controls; let i = index;"
+                *ngFor="let subservice of helperCategoryForm.get('subServices')['controls']; let i = index;"
                 style="margin-left: 8px;">
                 <div [formGroupName]="i">
                     <div class="col-md-12">

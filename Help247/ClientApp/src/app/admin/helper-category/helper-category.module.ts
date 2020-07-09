@@ -5,6 +5,8 @@ import { HelperCategoryRoutingModule } from './helper-category-routing.module';
 import { HelperCategoryComponent } from './helper-category/helper-category.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HelperCategoryEditComponent } from './helper-category/helper-category-edit/helper-category-edit.component';
+import { FileUploadModule } from "ng2-file-upload";
+
 
 
 @NgModule({
@@ -12,7 +14,8 @@ import { HelperCategoryEditComponent } from './helper-category/helper-category-e
   imports: [
     CommonModule,
     HelperCategoryRoutingModule,
-    SharedModule
+    SharedModule,
+    FileUploadModule
   ],
   entryComponents: [HelperCategoryEditComponent]
 })

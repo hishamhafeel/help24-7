@@ -4,6 +4,8 @@ import { HelperCategoryService } from '../../services/helper-category.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HelperCategoryModel, SubServiceModel } from '../../models/helper-category.model';
+import { Cloudinary } from '@cloudinary/angular-5.x';
+import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-helper-category-edit',
@@ -18,6 +20,13 @@ export class HelperCategoryEditComponent implements OnInit {
   isBlocked: boolean = false;
   subService: SubServiceModel;
   subServiceToSave: SubServiceModel;
+  uploader: FileUploader;
+  uploader2: FileUploader;
+  url: string;
+  url2: string;
+  image1: string = "";
+  image2: string = "";
+
   // servicesProvided: { [key: string]: string };
   // subServiceTitle = new FormControl('');
   // subServiceDescription = new FormControl('');
@@ -27,13 +36,54 @@ export class HelperCategoryEditComponent implements OnInit {
     private helperCategoryService: HelperCategoryService,
     private notificationService: NotificationService,
     private fb: FormBuilder,
+    private cloudinary: Cloudinary,
     public dialogRef: MatDialogRef<HelperCategoryEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: number) { }
+    @Inject(MAT_DIALOG_DATA) public data: number) {
+    const uploaderOptions: FileUploaderOptions = {
+      url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
+      autoUpload: false,
+      isHTML5: true,
+      removeAfterUpload: true,
+      headers: [
+        {
+          name: 'X-Requested-With',
+          value: 'XMLHttpRequest'
+        }
+      ]
+    };
+    this.uploader = new FileUploader(uploaderOptions);
+    this.uploader2 = new FileUploader(uploaderOptions);
+  }
+
 
   ngOnInit() {
     this.subServicesArr = new FormArray([]);
     this.initHelperForm();
     this.getHelperCategoryById(this.data);
+
+    this.uploader.onBuildItemForm = (fileItem: any, form: FormData): any => {
+      // Add Cloudinary's unsigned upload preset to the upload form
+      form.append('upload_preset', this.cloudinary.config().upload_preset);
+      form.append('folder', 'angular_sample');
+      form.append('file', fileItem);
+      form.append('public_id', this.image1);
+
+      // Use default "withCredentials" value for CORS requests
+      fileItem.withCredentials = false;
+      return { fileItem, form };
+    };
+
+    this.uploader2.onBuildItemForm = (fileItem: any, form: FormData): any => {
+      // Add Cloudinary's unsigned upload preset to the upload form
+      form.append('upload_preset', this.cloudinary.config().upload_preset);
+      form.append('folder', 'angular_sample');
+      form.append('file', fileItem);
+      form.append('public_id', this.image2);
+
+      // Use default "withCredentials" value for CORS requests
+      fileItem.withCredentials = false;
+      return { fileItem, form };
+    };
   }
 
   initHelperForm() {
@@ -43,8 +93,8 @@ export class HelperCategoryEditComponent implements OnInit {
       title: ['', Validators.required],
       shortDescription: ['', Validators.required],
       longDescription: ['', Validators.required],
-      iconUrl: ['', Validators.required],
-      imageUrl: ['', Validators.required],
+      iconUrl: [''],
+      imageUrl: [''],
       subServices: this.fb.array([])
     });
   }
@@ -106,8 +156,8 @@ export class HelperCategoryEditComponent implements OnInit {
       title: this.helperCategoryModel.title,
       shortDescription: this.helperCategoryModel.shortDescription,
       longDescription: this.helperCategoryModel.longDescription,
-      iconUrl: this.helperCategoryModel.iconUrl,
-      imageUrl: this.helperCategoryModel.imageUrl,
+      // iconUrl: this.helperCategoryModel.iconUrl,
+      // imageUrl: this.helperCategoryModel.imageUrl,
       //subServices: this.subServicesArr
     });
     this.helperCategoryModel.subServices.forEach(element => {
@@ -118,6 +168,14 @@ export class HelperCategoryEditComponent implements OnInit {
       });
       this.subServices.push(ser)
     });
+    this.url = this.helperCategoryModel.iconUrl;
+    this.image1 = this.helperCategoryModel.iconUrl.split("profile_pic/").pop();
+    this.url2 = this.helperCategoryModel.imageUrl;
+    this.image2 = this.helperCategoryModel.imageUrl.split("profile_pic/").pop();
+  }
+
+  get h() {
+    return this.helperCategoryForm.controls;
   }
 
   getHelperCategoryById(id: number) {
@@ -138,6 +196,52 @@ export class HelperCategoryEditComponent implements OnInit {
     this.helperCategoryModel = this.helperCategoryForm.value;
     this.helperCategoryModel.id = this.data;
 
+    if (this.uploader.queue.length != 0) {
+      this.uploadIconImage();
+    }
+    else if (this.uploader2.queue.length != 0) {
+      this.uploadServiceImage();
+    }
+    else {
+      this.helperCategorySave();
+    }
+  }
+
+  uploadIconImage() {
+    this.uploader.queue[0].upload();
+
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      console.log("Image upload failed");
+    }
+
+    // Update model on completion of uploading a file
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      this.url = JSON.parse(response).url;
+      if (this.uploader2.queue.length != 0) {
+        this.uploadServiceImage();
+      }
+      else {
+        this.helperCategorySave();
+      }
+    }
+  }
+
+  uploadServiceImage() {
+    this.uploader2.queue[0].upload();
+    this.uploader2.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      console.log("Image upload failed");
+    }
+
+    // Update model on completion of uploading a file
+    this.uploader2.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      this.url2 = JSON.parse(response).url;
+      this.helperCategorySave();
+    }
+  }
+
+  helperCategorySave() {
+    this.helperCategoryModel.iconUrl = this.url;
+    this.helperCategoryModel.imageUrl = this.url2;
     this.helperCategoryService.updateHelperCategory(this.helperCategoryModel).subscribe(
       () => {
         this.closeDialog();
@@ -166,14 +270,12 @@ export class HelperCategoryEditComponent implements OnInit {
     this.helperCategoryService.postSubService(this.subServiceToSave).subscribe(
       () => {
         this.notificationService.successMessage("Successfully updated Helper Category");
-        this.getHelperCategoryById(this.data);
+        // this.getHelperCategoryById(this.data);
       },
       error => {
         this.notificationService.errorMessage(error.message);
       }
     )
-
-    console.log(this.subServiceToSave);
   }
 
   updateSubService(i) {
@@ -203,5 +305,16 @@ export class HelperCategoryEditComponent implements OnInit {
   }
   closeDialog(): void {
     this.dialogRef.close();
+  }
+
+  // fileChangeEvent() {
+  //   this.public_id = `img_${Date.now()}`;
+  // }
+
+  onFileChanged(event, num) {
+    switch (num) {
+      case 1: this.image1 = event.target.files[0].name; break;
+      case 2: this.image2 = event.target.files[0].name; break;
+    }
   }
 }

@@ -49,17 +49,13 @@ const routes: Routes = [
         path: 'admin',
         loadChildren: './admin/create-admin/create-admin.module#CreateAdminModule',
         canActivate: [AuthGuardService]
-      },
-      {
-        path: 'image',
-        loadChildren: './admin/image-upload/image-upload.module#ImageUploadModule'
       }
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -9,62 +9,75 @@
                         <div class="card-header card-header-theme">
                             <h4 class="card-title mt-0">Pending Ticket List</h4>
                         </div>
-                        <table mat-table [dataSource]="pendingTicketDataSource">
+                        <table mat-table [dataSource]="pendingTicketDataSource" style="overflow-x: scroll;"
+                            class="table-responsive">
                             <!-- <ng-container matColumnDef="id">
                                 <th mat-header-cell *matHeaderCellDef> Id </th>
                                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                             </ng-container> -->
 
                             <ng-container matColumnDef="helper">
-                                <th mat-header-cell *matHeaderCellDef> Helper </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Helper </th>
                                 <td mat-cell *matCellDef="let element">
                                     {{element.helper.firstName}} {{element.helper.lastName}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="customer">
-                                <th mat-header-cell *matHeaderCellDef> Customer </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Customer </th>
                                 <td mat-cell *matCellDef="let element"> {{element.customer.name}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="title">
-                                <th mat-header-cell *matHeaderCellDef> Title </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 270px;"> Title </th>
                                 <td mat-cell *matCellDef="let element"> {{element.title}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateFrom">
-                                <th mat-header-cell *matHeaderCellDef> From </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: mediumDate}}
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> From </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: 'mediumDate'}}
                                 </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateTo">
-                                <th mat-header-cell *matHeaderCellDef> To </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: mediumDate}} </td>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> To </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: 'mediumDate'}}
+                                </td>
                             </ng-container>
 
                             <ng-container matColumnDef="country">
-                                <th mat-header-cell *matHeaderCellDef> Country </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Country </th>
                                 <td mat-cell *matCellDef="let element"> {{element.country}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="state">
-                                <th mat-header-cell *matHeaderCellDef> State </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> State </th>
                                 <td mat-cell *matCellDef="let element"> {{element.state}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="city">
-                                <th mat-header-cell *matHeaderCellDef> City </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> City </th>
                                 <td mat-cell *matCellDef="let element"> {{element.city}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="address">
-                                <th mat-header-cell *matHeaderCellDef> Address </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 300px;"> Address </th>
                                 <td mat-cell *matCellDef="let element"> {{element.address}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="contactNo1">
-                                <th mat-header-cell *matHeaderCellDef> Contact </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
                                 <td mat-cell *matCellDef="let element"> {{element.contactNo1}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="contactNo2">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
+                                <td mat-cell *matCellDef="let element"> {{element.contactNo2}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="otherRequirements">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 400px;"> Other Requirements
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.otherRequirements}} </td>
                             </ng-container>
 
                             <!-- <ng-container matColumnDef="edit">
@@ -87,8 +100,8 @@
                             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
 
-                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons [length]="paginator.length"
-                            (page)="getPagedHelpers($event)">
+                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons
+                            [length]="paginator.length">
                         </mat-paginator>
                     </div>
                 </div>
@@ -99,62 +112,75 @@
                         <div class="card-header card-header-theme">
                             <h4 class="card-title mt-0">Approved Ticket List</h4>
                         </div>
-                        <table mat-table [dataSource]="approvedTicketDataSource">
+                        <table mat-table [dataSource]="approvedTicketDataSource" style="overflow-x: scroll;"
+                            class="table-responsive">
                             <!-- <ng-container matColumnDef="id">
                                 <th mat-header-cell *matHeaderCellDef> Id </th>
                                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                             </ng-container> -->
 
                             <ng-container matColumnDef="helper">
-                                <th mat-header-cell *matHeaderCellDef> Helper </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Helper </th>
                                 <td mat-cell *matCellDef="let element">
                                     {{element.helper.firstName + element.helper.lastName}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="customer">
-                                <th mat-header-cell *matHeaderCellDef> Customer </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Customer </th>
                                 <td mat-cell *matCellDef="let element"> {{element.customer.name}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="title">
-                                <th mat-header-cell *matHeaderCellDef> Title </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 270px;"> Title </th>
                                 <td mat-cell *matCellDef="let element"> {{element.title}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateFrom">
-                                <th mat-header-cell *matHeaderCellDef> From </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: mediumDate}}
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> From </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: 'mediumDate'}}
                                 </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateTo">
-                                <th mat-header-cell *matHeaderCellDef> To </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: mediumDate}} </td>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> To </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: 'mediumDate'}}
+                                </td>
                             </ng-container>
 
                             <ng-container matColumnDef="country">
-                                <th mat-header-cell *matHeaderCellDef> Country </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Country </th>
                                 <td mat-cell *matCellDef="let element"> {{element.country}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="state">
-                                <th mat-header-cell *matHeaderCellDef> State </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> State </th>
                                 <td mat-cell *matCellDef="let element"> {{element.state}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="city">
-                                <th mat-header-cell *matHeaderCellDef> City </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> City </th>
                                 <td mat-cell *matCellDef="let element"> {{element.city}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="address">
-                                <th mat-header-cell *matHeaderCellDef> Address </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 300px;"> Address </th>
                                 <td mat-cell *matCellDef="let element"> {{element.address}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="contactNo1">
-                                <th mat-header-cell *matHeaderCellDef> Contact </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
                                 <td mat-cell *matCellDef="let element"> {{element.contactNo1}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="contactNo2">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
+                                <td mat-cell *matCellDef="let element"> {{element.contactNo2}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="otherRequirements">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 400px;"> Other Requirements
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.otherRequirements}} </td>
                             </ng-container>
 
                             <!-- <ng-container matColumnDef="edit">
@@ -177,8 +203,8 @@
                             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
 
-                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons [length]="paginator.length"
-                            (page)="getPagedHelpers($event)">
+                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons
+                            [length]="paginator.length">
                         </mat-paginator>
                     </div>
                 </div>
@@ -189,62 +215,75 @@
                         <div class="card-header card-header-theme">
                             <h4 class="card-title mt-0">Completed Ticket List</h4>
                         </div>
-                        <table mat-table [dataSource]="completedTicketDataSource">
+                        <table mat-table [dataSource]="completedTicketDataSource" style="overflow-x: scroll;"
+                            class="table-responsive">
                             <!-- <ng-container matColumnDef="id">
                                 <th mat-header-cell *matHeaderCellDef> Id </th>
                                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                             </ng-container> -->
 
                             <ng-container matColumnDef="helper">
-                                <th mat-header-cell *matHeaderCellDef> Helper </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Helper </th>
                                 <td mat-cell *matCellDef="let element">
                                     {{element.helper.firstName + element.helper.lastName}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="customer">
-                                <th mat-header-cell *matHeaderCellDef> Customer </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Customer </th>
                                 <td mat-cell *matCellDef="let element"> {{element.customer.name}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="title">
-                                <th mat-header-cell *matHeaderCellDef> Title </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 270px;"> Title </th>
                                 <td mat-cell *matCellDef="let element"> {{element.title}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateFrom">
-                                <th mat-header-cell *matHeaderCellDef> From </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: mediumDate}}
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> From </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: 'mediumDate'}}
                                 </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateTo">
-                                <th mat-header-cell *matHeaderCellDef> To </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: mediumDate}} </td>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> To </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: 'mediumDate'}}
+                                </td>
                             </ng-container>
 
                             <ng-container matColumnDef="country">
-                                <th mat-header-cell *matHeaderCellDef> Country </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Country </th>
                                 <td mat-cell *matCellDef="let element"> {{element.country}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="state">
-                                <th mat-header-cell *matHeaderCellDef> State </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> State </th>
                                 <td mat-cell *matCellDef="let element"> {{element.state}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="city">
-                                <th mat-header-cell *matHeaderCellDef> City </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> City </th>
                                 <td mat-cell *matCellDef="let element"> {{element.city}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="address">
-                                <th mat-header-cell *matHeaderCellDef> Address </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 300px;"> Address </th>
                                 <td mat-cell *matCellDef="let element"> {{element.address}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="contactNo1">
-                                <th mat-header-cell *matHeaderCellDef> Contact </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
                                 <td mat-cell *matCellDef="let element"> {{element.contactNo1}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="contactNo2">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
+                                <td mat-cell *matCellDef="let element"> {{element.contactNo2}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="otherRequirements">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 400px;"> Other Requirements
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.otherRequirements}} </td>
                             </ng-container>
 
                             <!-- <ng-container matColumnDef="edit">
@@ -267,8 +306,8 @@
                             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
 
-                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons [length]="paginator.length"
-                            (page)="getPagedHelpers($event)">
+                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons
+                            [length]="paginator.length">
                         </mat-paginator>
                     </div>
                 </div>
@@ -279,62 +318,74 @@
                         <div class="card-header card-header-theme">
                             <h4 class="card-title mt-0">Cancelled Ticket List</h4>
                         </div>
-                        <table mat-table [dataSource]="cancelledTicketDataSource">
+                        <table mat-table [dataSource]="cancelledTicketDataSource" style="overflow-x: scroll;"
+                            class="table-responsive">
                             <!-- <ng-container matColumnDef="id">
                                 <th mat-header-cell *matHeaderCellDef> Id </th>
                                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                             </ng-container> -->
 
                             <ng-container matColumnDef="helper">
-                                <th mat-header-cell *matHeaderCellDef> Helper </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Helper </th>
                                 <td mat-cell *matCellDef="let element">
                                     {{element.helper.firstName + element.helper.lastName}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="customer">
-                                <th mat-header-cell *matHeaderCellDef> Customer </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Customer </th>
                                 <td mat-cell *matCellDef="let element"> {{element.customer.name}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="title">
-                                <th mat-header-cell *matHeaderCellDef> Title </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 270px;"> Title </th>
                                 <td mat-cell *matCellDef="let element"> {{element.title}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateFrom">
-                                <th mat-header-cell *matHeaderCellDef> From </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: mediumDate}}
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> From </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: 'mediumDate'}}
                                 </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateTo">
-                                <th mat-header-cell *matHeaderCellDef> To </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: mediumDate}} </td>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> To </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: 'mediumDate'}}
+                                </td>
                             </ng-container>
 
                             <ng-container matColumnDef="country">
-                                <th mat-header-cell *matHeaderCellDef> Country </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Country </th>
                                 <td mat-cell *matCellDef="let element"> {{element.country}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="state">
-                                <th mat-header-cell *matHeaderCellDef> State </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> State </th>
                                 <td mat-cell *matCellDef="let element"> {{element.state}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="city">
-                                <th mat-header-cell *matHeaderCellDef> City </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> City </th>
                                 <td mat-cell *matCellDef="let element"> {{element.city}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="address">
-                                <th mat-header-cell *matHeaderCellDef> Address </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 300px;"> Address </th>
                                 <td mat-cell *matCellDef="let element"> {{element.address}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="contactNo1">
-                                <th mat-header-cell *matHeaderCellDef> Contact </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
                                 <td mat-cell *matCellDef="let element"> {{element.contactNo1}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="contactNo2">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
+                                <td mat-cell *matCellDef="let element"> {{element.contactNo2}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="otherRequirements" style="min-width: 400px;">
+                                <th mat-header-cell *matHeaderCellDef> Other Requirements </th>
+                                <td mat-cell *matCellDef="let element"> {{element.otherRequirements}} </td>
                             </ng-container>
 
                             <!-- <ng-container matColumnDef="edit">
@@ -357,8 +408,8 @@
                             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
 
-                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons [length]="paginator.length"
-                            (page)="getPagedHelpers($event)">
+                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons
+                            [length]="paginator.length">
                         </mat-paginator>
                     </div>
                 </div>
@@ -381,63 +432,76 @@
                             </div>
                         </div>
 
-                        <table mat-table [dataSource]="helpersTicketDataSource">
+                        <table mat-table [dataSource]="helpersTicketDataSource" style="overflow-x: scroll;"
+                            class="table-responsive">
                             <!-- <ng-container matColumnDef="id">
                                 <th mat-header-cell *matHeaderCellDef> Id </th>
                                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                             </ng-container> -->
 
                             <ng-container matColumnDef="helper">
-                                <th mat-header-cell *matHeaderCellDef> Helper </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Helper </th>
                                 <td mat-cell *matCellDef="let element">
                                     {{element.helper.firstName}} {{element.helper.lastName}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="customer">
-                                <th mat-header-cell *matHeaderCellDef> Customer </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Customer </th>
                                 <td mat-cell *matCellDef="let element"> {{element.customer.name}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="title">
-                                <th mat-header-cell *matHeaderCellDef> Title </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 270px;"> Title </th>
                                 <td mat-cell *matCellDef="let element"> {{element.title}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateFrom">
-                                <th mat-header-cell *matHeaderCellDef> From </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: mediumDate}}
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> From </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: 'mediumDate'}}
                                 </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateTo">
-                                <th mat-header-cell *matHeaderCellDef> To </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: mediumDate}} </td>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> To </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: 'mediumDate'}}
+                                </td>
                             </ng-container>
 
 
                             <ng-container matColumnDef="country">
-                                <th mat-header-cell *matHeaderCellDef> Country </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Country </th>
                                 <td mat-cell *matCellDef="let element"> {{element.country}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="state">
-                                <th mat-header-cell *matHeaderCellDef> State </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> State </th>
                                 <td mat-cell *matCellDef="let element"> {{element.state}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="city">
-                                <th mat-header-cell *matHeaderCellDef> City </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> City </th>
                                 <td mat-cell *matCellDef="let element"> {{element.city}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="address">
-                                <th mat-header-cell *matHeaderCellDef> Address </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 300px;"> Address </th>
                                 <td mat-cell *matCellDef="let element"> {{element.address}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="contactNo1">
-                                <th mat-header-cell *matHeaderCellDef> Contact </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
                                 <td mat-cell *matCellDef="let element"> {{element.contactNo1}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="contactNo2">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
+                                <td mat-cell *matCellDef="let element"> {{element.contactNo2}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="otherRequirements">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 400px;"> Other Requirements
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.otherRequirements}} </td>
                             </ng-container>
 
                             <!-- <ng-container matColumnDef="edit">
@@ -478,8 +542,8 @@
 
                         </table>
 
-                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons [length]="paginator.length"
-                            (page)="getPagedHelpers($event)">
+                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons
+                            [length]="paginator.length">
                         </mat-paginator>
                     </div>
                 </div>
@@ -502,63 +566,76 @@
                             </div>
                         </div>
 
-                        <table mat-table [dataSource]="customersTicketDataSource">
+                        <table mat-table [dataSource]="customersTicketDataSource" style="overflow-x: scroll;"
+                            class="table-responsive">
                             <!-- <ng-container matColumnDef="id">
                                 <th mat-header-cell *matHeaderCellDef> Id </th>
                                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
                             </ng-container> -->
 
                             <ng-container matColumnDef="helper">
-                                <th mat-header-cell *matHeaderCellDef> Helper </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Helper </th>
                                 <td mat-cell *matCellDef="let element">
                                     {{element.helper.firstName}} {{element.helper.lastName}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="customer">
-                                <th mat-header-cell *matHeaderCellDef> Customer </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Customer </th>
                                 <td mat-cell *matCellDef="let element"> {{element.customer.name}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="title">
-                                <th mat-header-cell *matHeaderCellDef> Title </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 270px;"> Title </th>
                                 <td mat-cell *matCellDef="let element"> {{element.title}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateFrom">
-                                <th mat-header-cell *matHeaderCellDef> From </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: mediumDate}}
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> From </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateFrom | date: 'mediumDate'}}
                                 </td>
                             </ng-container>
 
                             <ng-container matColumnDef="helpDateTo">
-                                <th mat-header-cell *matHeaderCellDef> To </th>
-                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: mediumDate}} </td>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 120px;"> To </th>
+                                <td mat-cell *matCellDef="let element"> {{element.helpDateTo | date: 'mediumDate'}}
+                                </td>
                             </ng-container>
 
 
                             <ng-container matColumnDef="country">
-                                <th mat-header-cell *matHeaderCellDef> Country </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Country </th>
                                 <td mat-cell *matCellDef="let element"> {{element.country}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="state">
-                                <th mat-header-cell *matHeaderCellDef> State </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> State </th>
                                 <td mat-cell *matCellDef="let element"> {{element.state}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="city">
-                                <th mat-header-cell *matHeaderCellDef> City </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> City </th>
                                 <td mat-cell *matCellDef="let element"> {{element.city}} </td>
                             </ng-container>
 
-                            <ng-container matColumnDef="address">
+                            <ng-container matColumnDef="address" style="min-width: 300px;">
                                 <th mat-header-cell *matHeaderCellDef> Address </th>
                                 <td mat-cell *matCellDef="let element"> {{element.address}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="contactNo1">
-                                <th mat-header-cell *matHeaderCellDef> Contact </th>
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
                                 <td mat-cell *matCellDef="let element"> {{element.contactNo1}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="contactNo2">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 160px;"> Contact </th>
+                                <td mat-cell *matCellDef="let element"> {{element.contactNo2}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="otherRequirements">
+                                <th mat-header-cell *matHeaderCellDef style="min-width: 400px;"> Other Requirements
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.otherRequirements}} </td>
                             </ng-container>
 
                             <!-- <ng-container matColumnDef="edit">
@@ -599,8 +676,8 @@
                                 [hidden]="customersTicketDataSource !== undefined"></tr>
 
                         </table>
-                        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons [length]="paginator.length"
-                            (page)="getPagedHelpers($event)"></mat-paginator>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons
+                            [length]="paginator.length"></mat-paginator>
                     </div>
                 </div>
             </mat-tab>

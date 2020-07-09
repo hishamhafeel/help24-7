@@ -16,10 +16,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <mat-form-field>
-                        <input matInput placeholder="Name" formControlName="name" type="text">
-                        <mat-error *ngIf="name.invalid">You must enter a value</mat-error>
+                        <input matInput placeholder="First Name" formControlName="firstName" type="text">
+                        <mat-error *ngIf="firstName.invalid">You must enter a value</mat-error>
                     </mat-form-field>
                 </div>
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <input matInput placeholder="Last Name" formControlName="lastName" type="text">
+                        <mat-error *ngIf="lastName.invalid">You must enter a value</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-5">
                     <mat-form-field>
                         <input matInput placeholder="E-mail" formControlName="email" type="email">

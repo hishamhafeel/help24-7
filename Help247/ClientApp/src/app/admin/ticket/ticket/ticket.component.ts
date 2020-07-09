@@ -50,7 +50,9 @@ export class TicketComponent implements OnInit {
     'state',
     'city',
     'address',
-    'contactNo1'
+    'contactNo1',
+    'contactNo2',
+    'otherRequirements'
   ];
 
   noData: string;
@@ -75,6 +77,8 @@ export class TicketComponent implements OnInit {
               this.HELPERS_TICKET_DETAILS
             );
             this.paginator.length = result.totalRecords;
+            this.helpersTicketDataSource.paginator = this.paginator;
+
             this.isLoadingResults = false;
           })
       });
@@ -92,6 +96,8 @@ export class TicketComponent implements OnInit {
               this.CUSTOMERS_TICKET_DETAILS
             );
             this.paginator.length = result.totalRecords;
+            this.customersTicketDataSource.paginator = this.paginator;
+
             this.isLoadingResults = false;
           })
       });
@@ -113,6 +119,7 @@ export class TicketComponent implements OnInit {
           this.PENDING_TICKET_DETAILS
         );
         this.paginator.length = result.totalRecords;
+        this.pendingTicketDataSource.paginator = this.paginator;
         this.isLoadingResults = false;
       },
       error => {
@@ -133,6 +140,7 @@ export class TicketComponent implements OnInit {
           this.APPROVED_TICKET_DETAILS
         );
         this.paginator.length = result.totalRecords;
+        this.approvedTicketDataSource.paginator = this.paginator;
         this.isLoadingResults = false;
       },
       error => {
@@ -153,6 +161,7 @@ export class TicketComponent implements OnInit {
           this.COMPLETED_TICKET_DETAILS
         );
         this.paginator.length = result.totalRecords;
+        this.completedTicketDataSource.paginator = this.paginator;
         this.isLoadingResults = false;
       },
       error => {
@@ -173,6 +182,7 @@ export class TicketComponent implements OnInit {
           this.CANCELLED_TICKET_DETAILS
         );
         this.paginator.length = result.totalRecords;
+        this.cancelledTicketDataSource.paginator = this.paginator;
         this.isLoadingResults = false;
       },
       error => {
@@ -198,6 +208,8 @@ export class TicketComponent implements OnInit {
           this.CUSTOMERS_TICKET_DETAILS
         );
         this.paginator.length = result.totalRecords;
+        this.customersTicketDataSource.paginator = this.paginator;
+        this.helpersTicketDataSource.paginator = this.paginator;
         this.isLoadingResults = false;
       },
       error => {
