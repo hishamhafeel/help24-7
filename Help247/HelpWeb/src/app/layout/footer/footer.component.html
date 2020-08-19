@@ -59,9 +59,14 @@
                         <div class="nletter-col2">
                             <form class="form-inline newsletter-wrap">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="E mail Address">
+                                    <input type="email" class="form-control" placeholder="E mail Address" #txtEmail>
+
                                 </div>
-                                <button type="submit" class="btn">Subscribe</button>
+                                <div class="invalid-feedback">
+                                    Invalid Email
+                                </div>
+                                <button type="submit" class="btn"
+                                    (click)="sendSubscriptionMail(txtEmail.value)">Subscribe</button>
                             </form>
                         </div>
 

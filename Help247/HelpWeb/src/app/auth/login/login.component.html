@@ -1,25 +1,29 @@
 <div class="content-box-wrap sign-wrap">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12" *ngIf="!isPasswordRequested && !isResetPassword">
                 <div class="signbox loginbox">
                     <h2>Login with 24/7 Helps</h2>
                     <p>Log in to manage personal details and tickets. Access data from any device</p>
                     <form [formGroup]="loginForm" (ngSubmit)="authenticateUser()">
                         <div class="form-group">
-                            <input type="text" class="form-control userbx" id="" placeholder="Enter Username" formControlName="username" [ngClass]="{ 'is-invalid': username.errors && username.dirty }">
+                            <input type="text" class="form-control userbx" id="" placeholder="Enter Username"
+                                formControlName="username"
+                                [ngClass]="{ 'is-invalid': username.errors && username.dirty }">
                             <div *ngIf="username.errors" class="invalid-feedback">
                                 <div *ngIf="username.errors.required">Username is required</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control passbx" id="" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': password.errors && password.dirty }">
+                            <input type="password" class="form-control passbx" id="" placeholder="Password"
+                                formControlName="password"
+                                [ngClass]="{ 'is-invalid': password.errors && password.dirty }">
                             <div *ngIf="password.errors" class="invalid-feedback">
                                 <div *ngIf="password.errors.required">Password is required</div>
                             </div>
                         </div>
                         <div class="form-group text-right">
-                            <a href="">Forgot Password?</a>
+                            <a (click)="forgotPasswordClicked()" href="javascript:void(0)">Forgot Password?</a>
                         </div>
                         <button type="submit" class="btn-sign" [disabled]="isLoginRequested">
                             <i class="fa fa-circle-o-notch fa-spin fa-fw" [hidden]="!isLoginRequested"></i>
@@ -32,6 +36,69 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-12" *ngIf="isPasswordRequested && !isResetPassword">
+                <div class="signbox loginbox">
+                    <h2>Find your email with 24/7 Helps</h2>
+                    <p>Enter your email</p>
+                    <form [formGroup]="resetForm" (submit)="SendForgotPasswordMail()">
+                        <div class="form-group">
+                            <input type="email" class="form-control userbx" id="" placeholder="Enter email"
+                                formControlName="email" [ngClass]="{ 'is-invalid': email.errors && email.dirty}">
+                            <div *ngIf="email.errors" class="invalid-feedback text-danger">
+                                <div *ngIf="email.errors.required">Email is required</div>
+                                <div *ngIf="email.errors.email">Email is invalid</div>
+                            </div>
+
+                            <!-- <input type="text" class="form-control userbx" id="" placeholder="Enter Username"
+                                formControlName="username"
+                                [ngClass]="{ 'is-invalid': username.errors && username.dirty }">
+                            <div *ngIf="username.errors" class="invalid-feedback">
+                                <div *ngIf="username.errors.required">Username is required</div>
+                            </div> -->
+                        </div>
+
+                        <button type="submit" class="btn-sign" [disabled]="isPasswordRequestedSubmit">
+                            <i class="fa fa-circle-o-notch fa-spin fa-fw" [hidden]="!isPasswordRequestedSubmit"></i>
+                            Send
+                        </button>
+                    </form>
+
+                    <div class="login-info">
+                        <a (click)="isPasswordRequested = false">Back</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" *ngIf="isResetPassword && !isPasswordRequested">
+                <div class="signbox loginbox">
+                    <h2>Reset your password with 24/7 Helps</h2>
+                    <p>Enter your password</p>
+                    <form [formGroup]="newPasswordForm" (ngSubmit)="resetPassword()">
+                        <div class="form-group">
+                            <input type="password" class="form-control userbx" id="" placeholder="Enter password"
+                                formControlName="newPassword"
+                                [ngClass]="{ 'is-invalid': newPassword.errors && newPassword.dirty }">
+                            <div *ngIf="newPassword.errors" class="invalid-feedback">
+                                <div *ngIf="newPassword.errors.required">Password is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control userbx" id="" placeholder="Enter password"
+                                formControlName="newPasswordConfirm"
+                                [ngClass]="{ 'is-invalid': newPasswordConfirm.errors && newPasswordConfirm.dirty }">
+                            <div *ngIf="newPasswordConfirm.errors" class="invalid-feedback">
+                                <div *ngIf="newPasswordConfirm.errors.required">Password is required</div>
+                            </div>
+                            <div *ngIf="newPasswordForm.hasError('mismatchedPasswords')" class="text-danger text-sm">
+                                Passwords do not match
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-sign" [disabled]="isPasswordRequestedSubmit">
+                            <i class="fa fa-circle-o-notch fa-spin fa-fw" [hidden]="!isPasswordRequestedSubmit"></i>
+                            Send
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>

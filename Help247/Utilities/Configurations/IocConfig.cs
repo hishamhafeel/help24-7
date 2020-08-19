@@ -4,6 +4,7 @@ using Help247.Service.Services.HelpCentre;
 using Help247.Service.Services.Helper;
 using Help247.Service.Services.HelperCategory;
 using Help247.Service.Services.Image;
+using Help247.Service.Services.Lookup;
 using Help247.Service.Services.Security;
 using Help247.Service.Services.Skill;
 using Help247.Service.Services.Ticket;
@@ -26,6 +27,7 @@ namespace Help247.Utilities.Configurations
             services.AddScoped<IHelpCentreService, HelpCentreService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<ISkillService, SkillService>();
+            services.AddScoped<ILookUpService, LookUpService>();
         }
     }
 }

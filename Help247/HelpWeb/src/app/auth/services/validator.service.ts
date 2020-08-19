@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, AbstractControl, FormGroup } from '@angular/forms';
 import { AuthService } from './auth.service';
 
 @Injectable()
@@ -39,5 +39,20 @@ export class ValidatorService {
                 resolve({ 'emailInUse': true });
             });
         });
+    }
+
+    matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
+        return (group: FormGroup): {
+            [key: string]: any
+        } => {
+            let password = group.controls[passwordKey];
+            let confirmPassword = group.controls[confirmPasswordKey];
+
+            if (password.value !== confirmPassword.value) {
+                return {
+                    mismatchedPasswords: true
+                };
+            }
+        }
     }
 }

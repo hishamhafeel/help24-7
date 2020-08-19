@@ -22,5 +22,6 @@ namespace Help247.ViewModels.Customer
         public string PostalCode { get; set; }
         public ImageViewModel Image { get; set; }
         public string ProfilePicUrl { get; set; }
+        public DateTime EditedOn { get; set; }
     }
 }

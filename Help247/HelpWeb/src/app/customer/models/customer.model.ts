@@ -13,6 +13,7 @@ export class CustomerModel {
     userId: string;
     image: ImageModel;
     profilePicUrl: string;
+    editedOn: Date;
 
     constructor() {
         this.image = new ImageModel();

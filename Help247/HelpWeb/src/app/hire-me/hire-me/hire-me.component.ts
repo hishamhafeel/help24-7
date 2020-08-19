@@ -7,6 +7,9 @@ import { ToastrService } from 'ngx-toastr';
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { ServicesModule } from 'src/app/services/services.module';
+import { HelperCategoryModel } from 'src/app/helper/models/helper-category.model';
+import { HelperCategoryDropDownModel, HelperPagination } from '../models/helperCategory.model';
 
 @Component({
   selector: 'app-hire-me',
@@ -16,19 +19,23 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class HireMeComponent implements OnInit {
 
   helperList: Array<HelperModel>;
-  pagination: PaginationBase;
+  pagination: HelperPagination;
   search: string = null;
   totalNoOfRecords: number = 0;
   searchQuery = new FormControl(null);
   searchTerm$ = new Subject<string>();
+  helperCategory: Array<HelperCategoryDropDownModel>;
+  checkBoxFilterArr: any = [];
+  p: number = 1;
 
 
   constructor(
     private hireMeService: HireMeService,
     private route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {
-    this.pagination = new PaginationBase();
+    this.pagination = new HelperPagination();
+    this.helperCategory = new Array<HelperCategoryDropDownModel>()
     this.searchTerm$.pipe(debounceTime(200))
       .pipe(distinctUntilChanged()).subscribe((data: any) => {
         if (data != "" && data) {
@@ -45,6 +52,7 @@ export class HireMeComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.search = params.get('search');
     })
+    this.getHelperCategories();
     this.getHelper();
 
   }
@@ -69,8 +77,34 @@ export class HireMeComponent implements OnInit {
     );
   }
 
+  getHelperCategories() {
+    this.hireMeService.getHelperCategory().subscribe(
+      result => {
+        this.helperCategory = result;
+      },
+      error => {
+        this.toastr.error('Error', error.message);
+      }
+    );
+  }
+
   patchSearch(term: string) {
     this.searchQuery.patchValue(term);
   }
 
+  getSelected(event) {
+    this.pagination.helperCategoryId = event.target.value;
+    this.getHelper();
+  }
+
+  filterCategory(value: string) {
+    if (this.checkBoxFilterArr.includes(value)) {
+      let index = this.checkBoxFilterArr.indexOf(value);
+      this.checkBoxFilterArr.splice(index, 1);
+    }
+    else {
+      this.checkBoxFilterArr.push(value);
+    }
+  }
 }
+

@@ -65,6 +65,20 @@ namespace Help247.Service.Services.HelperCategory
             }
         }
 
+        public async Task<List<HelperCategoryDropDownBO>> GetHelperCategories()
+        {
+            try
+            {
+                var query = appDbContext.HelperCategories.AsQueryable().Where(x => x.RecordState == Enums.RecordState.Active);
+                var result = await query.AsNoTracking().ToListAsync();
+                return mapper.Map<List<HelperCategoryDropDownBO>>(result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<HelperCategoryBO> PostCategoryAsync(HelperCategoryBO helperCategoryBO)
         {
             using (var transaction = await appDbContext.Database.BeginTransactionAsync())

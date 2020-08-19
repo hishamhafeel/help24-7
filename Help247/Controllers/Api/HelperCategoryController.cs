@@ -58,6 +58,21 @@ namespace Help247.Controllers.Api
 
         }
 
+        [HttpGet, Route("categories")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetCategoriesDropDown()
+        {
+            try
+            {
+                var result = await helperCategoryService.GetHelperCategories();
+                return Ok(ReadDropDown<HelperCategoryDropDownBO, int>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
         //POST: api/HelperCategory/
         [HttpPost]
         [Authorize(Roles = "Admin, SuperAdmin")]

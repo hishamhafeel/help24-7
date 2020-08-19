@@ -1,0 +1,93 @@
+
+ 
+ ************ 2020-07-12 00:23:48,057 [7] ERROR App  
+ ERROR in src/app/auth/login/login.component.ts:24:49 - error TS2304: Cannot find name 'ValidatorFn'.
+
+24 function ratingRange(min: number, max: number): ValidatorFn {
+                                                   ~~~~~~~~~~~
+src/app/auth/login/login.component.ts:139:52 - error TS2339: Property 'mu' does not exist on type 'typeof Validators'.
+
+139       email: ['', [Validators.required, Validators.mu]]
+                                                       ~~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 00:48:20,079 [20] ERROR App  
+     ERROR in src/app/auth/login/login.component.ts(130,52): error TS2339: Property 'mu' does not exist on type 'typeof Validators'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 00:49:57,720 [20] ERROR App  
+     ERROR in src/app/auth/login/login.component.html(79,70): Cannot invoke an expression whose type lacks a call signature. Type 'ValidationErrors' has no compatible call signatures.
+    src/app/auth/login/login.component.html(68,57): Property 'resetPassword' does not exist on type 'LoginComponent'. Did you mean 'isResetPassword'?
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 00:55:01,629 [20] ERROR App  
+     ERROR in src/app/auth/login/login.component.html(79,70): Cannot invoke an expression whose type lacks a call signature. Type 'ValidationErrors' has no compatible call signatures.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 02:17:38,282 [20] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 02:57:06,294 [20] ERROR App  
+     ERROR in src/app/auth/login/login.component.html(84,34): Property 'newPasswordConfirm' does not exist on type 'FormGroup'.
+    src/app/auth/login/login.component.html(84,34): Property 'newPasswordConfirm' does not exist on type 'FormGroup'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 02:59:15,227 [41] ERROR App  
+     ERROR in src/app/auth/login/login.component.ts(14,10): error TS2304: Cannot find name 'password'.
+    src/app/auth/login/login.component.ts(14,28): error TS2304: Cannot find name 'repeatPassword'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 13:23:02,128 [6] ERROR App  
+ ERROR in src/app/auth/login/login.component.ts:71:75 - error TS1005: ',' expected.
+
+71     }, { validator: matchingPasswords('newPassword', 'newPasswordConfirm'))
+                                                                             ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 13:23:09,417 [6] ERROR App  
+ ERROR in src/app/auth/login/login.component.ts:71:75 - error TS1005: ',' expected.
+
+71     }, { validator: matchingPasswords('newPassword', 'newPasswordConfirm'))
+                                                                             ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 13:23:27,419 [6] ERROR App  
+     ERROR in src/app/auth/login/login.component.ts(71,21): error TS2304: Cannot find name 'matchingPasswords'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-07-12 13:23:44,370 [22] ERROR App  
+     ERROR in src/app/auth/login/login.component.ts(71,21): error TS2304: Cannot find name 'matchingPasswords'.
+    
+ ********** 
+ 

@@ -3,6 +3,8 @@ import { BaseService } from 'src/app/core/services/base.service';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { LoginModel } from '../models/login.model';
+import { ForgotPasswordModel } from '../models/forgotPassword.model';
+import { ResetPasswordModel } from '../models/resetPassword.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +40,26 @@ export class AuthService extends BaseService {
       .post<LoginModel>(
         `${this.baseEndPoint}/api/Account/Authenticate`,
         loginModel,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  sendForgotPasswordMail(forgotPassword: ForgotPasswordModel) {
+    return this.http
+      .post(
+        `${this.baseEndPoint}/api/Account/forgotpassword`,
+        forgotPassword,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  resetPassword(resetPass: ResetPasswordModel) {
+    return this.http
+      .post(
+        `${this.baseEndPoint}/api/Account/resetpassword`,
+        resetPass,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));

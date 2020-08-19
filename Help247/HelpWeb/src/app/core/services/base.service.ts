@@ -15,7 +15,7 @@ export class BaseService {
     })
   };
   constructor(
-  ) {}
+  ) { }
 
   server4xxError(error: Response | any) {
     let isLogin = false;
@@ -35,10 +35,16 @@ export class BaseService {
         message: 'Invalid username or password',
         status: error.status
       };
-    } else if (
+    }
+    else if (error.status === 404) {
+      this.errorMessage = {
+        message: 'not found',
+        status: error.status
+      };
+    }
+    else if (
       error.status === 401 ||
       error.status === 403 ||
-      error.status === 404 ||
       error.status === 408
     ) {
       localStorage.removeItem('TokenId');
@@ -48,7 +54,7 @@ export class BaseService {
       };
     } else {
       this.errorMessage = {
-        message: error.error.message,
+        message: error.error,
         status: error.status
       };
     }

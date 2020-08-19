@@ -23,15 +23,31 @@
                         <p>Fill out this quick form and we willbe in touch with lightning speed</p>
                     </div>
                     <div class="contactwrap">
-                        <form>
+                        <form [formGroup]="contactForm" (submit)="submitContactForm()">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Name">
+                                <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                                <div *ngIf="!contactForm.get('name').valid && contactForm.get('name').touched"
+                                    class="text-danger">
+                                    <span *ngIf="contactForm.get('name').errors?.required">Name is required</span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Email Address">
+                                <input type="email" class="form-control" placeholder="Your Email Address"
+                                    formControlName="email">
+                                <div *ngIf="!contactForm.get('email').valid && contactForm.get('email').touched"
+                                    class="text-danger">
+                                    <span *ngIf="contactForm.get('email').errors?.required">Email is required</span>
+                                    <span *ngIf="contactForm.get('email').errors?.email">Invalid Email</span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Message"></textarea>
+                                <textarea class="form-control" placeholder="Message"
+                                    formControlName="description"></textarea>
+                                <div *ngIf="!contactForm.get('description').valid && contactForm.get('description').touched"
+                                    class="text-danger">
+                                    <span *ngIf="contactForm.get('description').errors?.maxlength">Limit is 500
+                                        characters</span>
+                                </div>
                             </div>
                             <button type="submit" class="btn contacts">Submit</button>
                         </form>

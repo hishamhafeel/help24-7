@@ -8,15 +8,12 @@ using Help247.Data;
 using Help247.Data.Entities;
 using Help247.Service.BO.Security;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -124,10 +121,9 @@ namespace Help247.Service.Services.Security
                         To = new[] { storeUser.Email },
                         Subject = "Welcome To Help 24/7",
                         IsBodyHtml = true,
-                        Body = $"Hi {storeUser.UserName} , please click on the link below so that we can confirm your email address. <br/><br/>" +
-                        $"<a href='{confirmPasswordLink}' target='_blank'>Verify</a><br/><br/>" +
+                        Body = $"Hi {storeUser.UserName} , please click on the link below so that we can confirm your email address." +
+                        $"{confirmPasswordLink}" +
                         $"If the link does not work, Please copy and paste the following link into your browser.<br/>" +
-                        $"{confirmPasswordLink}<br/><br/>" +
                         $"Happy Help!!!"
 
                     };
@@ -231,15 +227,24 @@ namespace Help247.Service.Services.Security
                     }
                     if (result.Succeeded)
                     {
+                        await userManager.UpdateAsync(user);
                         var roles = await userManager.GetRolesAsync(user);
                         int userId = 0;
                         if (roles[0] == Enums.UserType.Helper.ToString())
                         {
-                            userId = appDbContext.Helpers.First(x => x.UserId == user.Id).Id;
+                            var helper = appDbContext.Helpers.First(x => x.UserId == user.Id);
+                            userId = helper.Id;
+                            helper.EditedOn = DateTime.UtcNow;
+                            appDbContext.Helpers.Update(helper);
+                            await appDbContext.SaveChangesAsync();
                         }
                         else if (roles[0] == Enums.UserType.Customer.ToString())
                         {
-                            userId = appDbContext.Customers.First(x => x.UserId == user.Id).Id;
+                            var customer = appDbContext.Customers.First(x => x.UserId == user.Id);
+                            userId = customer.Id;
+                            customer.EditedOn = DateTime.UtcNow;
+                            appDbContext.Customers.Update(customer);
+                            await appDbContext.SaveChangesAsync();
                         }
 
                         var _options = new IdentityOptions();
@@ -276,7 +281,6 @@ namespace Help247.Service.Services.Security
                             TokenExpiration = token.ValidTo,
                             IsAdmin = user.IsAdmin
                         };
-
                         return results;
                     }
                 }
@@ -299,7 +303,7 @@ namespace Help247.Service.Services.Security
             if (user != null)
             {
                 var token = await userManager.GeneratePasswordResetTokenAsync(user);
-                var passwordReseLink = string.Concat(GlobalConfig.APIBaseUrl, $"/api/account/resetpassword?token={Base64UrlEncoder.Encode(token)}&email={user.Email}");
+                var passwordReseLink = string.Concat(GlobalConfig.PresentationBaseUrl, $"?token={Base64UrlEncoder.Encode(token)}&email={user.Email}");
 
                 var messageBuilder = new EmailBuilder(configuration)
                 {

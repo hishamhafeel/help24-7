@@ -12,7 +12,7 @@
                                     </div>
                                     <div class="profile-info">
                                         <h3>{{helperModel.firstName}} {{helperModel.lastName}}</h3>
-                                        <p>Last login was 4th June 2020</p>
+                                        <p>Last login was {{helperModel.editedOn | date: 'mediumDate'}}</p>
                                     </div>
 
                                 </div>
@@ -560,12 +560,13 @@
                                                                         <div class="form-group">
                                                                             <label>Profile Picture</label>
                                                                             <label class="file">
-                                                                                    <input class="form-control-file"
+                                                                                <input class="form-control-file"
                                                                                     type="file" ng2FileSelect
                                                                                     [uploader]="uploader"
                                                                                     (change)="fileChangeEvent()"
                                                                                     formControlName="profilePicUrl" />
-                                                                                <span class="file-custom">{{public_id}}</span>
+                                                                                <span
+                                                                                    class="file-custom">{{public_id}}</span>
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -653,59 +654,66 @@
                                                                         <div class="form-group">
                                                                             <label>Image 1</label>
                                                                             <label class="file">
-                                                                                    <input class="form-control-file"
+                                                                                <input class="form-control-file"
                                                                                     type="file" ng2FileSelect
                                                                                     (change)="onFileChanged($event, 1)"
-                                                                                    [uploader]="uploader"/>
-                                                                                <span class="file-custom">{{image1}}</span>
+                                                                                    [uploader]="uploader" />
+                                                                                <span
+                                                                                    class="file-custom">{{image1}}</span>
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Image 2</label>
                                                                             <label class="file">
-                                                                                    <input class="form-control-file"
+                                                                                <input class="form-control-file"
                                                                                     type="file" ng2FileSelect
                                                                                     (change)="onFileChanged($event, 2)"
-                                                                                    [uploader]="uploader"/>
-                                                                                <span class="file-custom">{{image2}}</span>
+                                                                                    [uploader]="uploader" />
+                                                                                <span
+                                                                                    class="file-custom">{{image2}}</span>
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Image 3</label>
                                                                             <label class="file">
-                                                                                    <input class="form-control-file"
+                                                                                <input class="form-control-file"
                                                                                     type="file" ng2FileSelect
                                                                                     (change)="onFileChanged($event, 3)"
                                                                                     [uploader]="uploader" />
-                                                                                <span class="file-custom">{{image3}}</span>
+                                                                                <span
+                                                                                    class="file-custom">{{image3}}</span>
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Image 4</label>
                                                                             <label class="file">
-                                                                                    <input class="form-control-file"
+                                                                                <input class="form-control-file"
                                                                                     type="file" ng2FileSelect
                                                                                     (change)="onFileChanged($event, 4)"
-                                                                                    [uploader]="uploader"/>
-                                                                                <span class="file-custom">{{image4}}</span>
+                                                                                    [uploader]="uploader" />
+                                                                                <span
+                                                                                    class="file-custom">{{image4}}</span>
                                                                             </label>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Image 5</label>
                                                                             <label class="file">
-                                                                                    <input class="form-control-file"
+                                                                                <input class="form-control-file"
                                                                                     type="file" ng2FileSelect
                                                                                     (change)="onFileChanged($event, 5)"
-                                                                                    [uploader]="uploader"/>
-                                                                                <span class="file-custom">{{image5}}</span>
+                                                                                    [uploader]="uploader" />
+                                                                                <span
+                                                                                    class="file-custom">{{image5}}</span>
                                                                             </label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                     </div>
                                                                 </div>
-                                                                <button (click)="fileUpload()" class="btn redbtn" [disabled]="isUploadRequested">
-                                                                    <i class="fa fa-circle-o-notch fa-spin fa-fw" [hidden]="!isUploadRequested"></i>
+                                                                <button (click)="fileUpload()" class="btn redbtn"
+                                                                    [disabled]="isUploadRequested">
+                                                                    <i class="fa fa-circle-o-notch fa-spin fa-fw"
+                                                                        [hidden]="!isUploadRequested"></i>
                                                                     {{isUploadRequested ? 'Uploading' : 'Add Images'}}
                                                                 </button>
                                                             </div>

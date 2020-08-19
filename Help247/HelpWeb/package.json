@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --servePath / --baseHref /home/",
-    "build": "ng build --baseHref /home/ ",
+    "start": "ng serve --servePath / --baseHref /app/",
+    "build": "ng build --baseHref /app/ ",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -30,6 +30,7 @@
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^5.5.0",
     "ngx-owl-carousel-o": "^2.1.1",
+    "ngx-pagination": "^5.0.0",
     "ngx-star-rating": "0.0.1",
     "ngx-toastr": "^11.3.3",
     "popper.js": "^1.16.1",

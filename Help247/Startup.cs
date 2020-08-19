@@ -229,7 +229,7 @@ namespace Help247
             });
 
             // for each angular client we want to host. 
-            app.Map(new PathString("/home"), client =>
+            app.Map(new PathString("/app"), client =>
             {
                 if (env.IsDevelopment())
                 {

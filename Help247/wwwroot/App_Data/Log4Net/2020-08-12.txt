@@ -1,0 +1,41 @@
+
+ 
+ ************ 2020-08-12 22:12:58,505 [5] ERROR App  
+ ERROR in src/app/contact-us/contact-us.component.ts:42:14 - error TS1005: ',' expected.
+
+42       result => {
+                ~~
+src/app/contact-us/contact-us.component.ts:42:17 - error TS1136: Property assignment expected.
+
+42       result => {
+                   ~
+src/app/contact-us/contact-us.component.ts:43:11 - error TS1005: ':' expected.
+
+43       this.toastr.success("Email sent successfully. You will be contacted soon.", "Success");
+             ~
+src/app/contact-us/contact-us.component.ts:43:93 - error TS1005: ',' expected.
+
+43       this.toastr.success("Email sent successfully. You will be contacted soon.", "Success");
+                                                                                               ~
+src/app/contact-us/contact-us.component.ts:49:5 - error TS1005: ',' expected.
+
+49     });
+       ~
+src/app/contact-us/contact-us.component.ts:49:6 - error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+
+49     });
+        ~
+src/app/contact-us/contact-us.component.ts:52:1 - error TS1128: Declaration or statement expected.
+
+52 }
+   ~
+
+ ********** 
+ 
+
+ 
+ ************ 2020-08-12 22:47:49,109 [8] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 

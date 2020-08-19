@@ -27,6 +27,10 @@ a.cursorPointerSideBar {
         pointer-events: none;
         owl-stage > div {
           pointer-events: none;
+          .owl-stage{
+            width: 375px;
+
+          }
         }
       }
     }
@@ -38,11 +42,23 @@ a.cursorPointerSideBar {
         position: absolute;
         left: -25px;
         top: -80px;
+        background-color: transparent;
+         color: #8a8282;
+        &:hover{
+         background-color: transparent;
+         color: #8a8282;
+        }
       }
       .owl-next {
         position: absolute;
         right: -25px;
         top: -80px;
+        background-color: transparent;
+         color: #8a8282;
+        &:hover{
+          background-color: transparent;
+          color: #8a8282;
+         }
       }
     }
   }

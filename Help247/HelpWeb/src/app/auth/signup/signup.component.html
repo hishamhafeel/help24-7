@@ -9,7 +9,7 @@
                         <div class="form-group">
                             <input type="email" class="form-control userbx" id="" placeholder="Enter E mail"
                                 formControlName="email" [ngClass]="{ 'is-invalid': f.email.errors && f.email.dirty }">
-                            <div *ngIf="f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors" class="invalid-feedback text-danger">
                                 <div *ngIf="f.email.errors.required">Email is required</div>
                                 <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                                 <div *ngIf="f.email.errors?.emailInUse">Email is already taken!</div>
@@ -19,7 +19,7 @@
                             <input type="text" class="form-control" id="" placeholder="Enter Username"
                                 formControlName="userName"
                                 [ngClass]="{ 'is-invalid': f.userName.errors && f.userName.dirty }">
-                            <div *ngIf="f.userName.errors" class="invalid-feedback">
+                            <div *ngIf="f.userName.errors" class="invalid-feedback text-danger">
                                 <div *ngIf="f.userName.errors.required">Username is required</div>
                                 <div *ngIf="f.userName.errors?.usernameInUse">Username is already taken!</div>
                             </div>
@@ -28,7 +28,7 @@
                             <input type="password" class="form-control passbx" id="" placeholder="Password"
                                 formControlName="password"
                                 [ngClass]="{ 'is-invalid': f.password.errors && f.password.dirty }">
-                            <div *ngIf="f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors" class="invalid-feedback text-danger">
                                 <div *ngIf="f.password.errors.required">Password is required</div>
                             </div>
                         </div>
@@ -39,16 +39,11 @@
                                 <option value=2>Helper</option>
                                 <option value=3>Customer</option>
                             </select>
-                            <div *ngIf="f.userType.errors" class="invalid-feedback">
+                            <div *ngIf="f.userType.errors" class="invalid-feedback text-danger">
                                 <div *ngIf="f.userType.errors.required">User Type is required</div>
                             </div>
                         </div>
-                        <div class="form-group form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input remenber-check" id="exampleCheck1">
-                                Remember Me</label>
-                        </div>
-                        <button type="submit" class="btn-sign">CREATE AN ACCOUNT</button>
+                        <button type="submit" class="btn-sign" [disabled]="!signupForm.valid">CREATE AN ACCOUNT</button>
                     </form>
 
                     <div class="login-info">

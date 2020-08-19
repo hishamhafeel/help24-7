@@ -1,0 +1,113 @@
+
+ 
+ ************ 2020-08-10 20:43:40,561 [8] ERROR App  
+ ERROR in Template parse errors:
+Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags ("
+
+
+[ERROR ->]</div>
+
+<!-- 
+"): D:/Projects/Help/help24-7/Help247/HelpWeb/src/app/hire-me/hire-me/hire-me.component.html@151:0
+
+ ********** 
+ 
+
+ 
+ ************ 2020-08-10 22:52:15,069 [5] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-08-10 23:03:50,502 [138] ERROR App  
+     ERROR in src/app/hire-me/hire-me/hire-me.component.html(76,64): Expected 2 arguments, but got 0.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-08-10 23:03:51,102 [140] ERROR App  
+ An exception occurred while iterating over the results of a query for context type 'Help247.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): The number of rows provided for a FETCH clause must be greater then zero.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.<>c__DisplayClass195_0.<ReadAsync>b__1(Task t)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeRetryable[T](Func`2 moreFunc, TaskCompletionSource`1 source, IDisposable objectToDispose)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:a01505a2-683a-4ad9-b726-b49c22fc24b0
+Error Number:10744,State:1,Class:15 ********** 
+ 
+Microsoft.Data.SqlClient.SqlException (0x80131904): The number of rows provided for a FETCH clause must be greater then zero.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.<>c__DisplayClass195_0.<ReadAsync>b__1(Task t)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeRetryable[T](Func`2 moreFunc, TaskCompletionSource`1 source, IDisposable objectToDispose)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:a01505a2-683a-4ad9-b726-b49c22fc24b0
+Error Number:10744,State:1,Class:15
+
+ 
+ ************ 2020-08-10 23:03:53,239 [140] ERROR App  
+ An unhandled exception has occurred while executing the request. ********** 
+ 
+System.Exception: The number of rows provided for a FETCH clause must be greater then zero.
+   at Help247.Service.Services.Helper.HelperService.GetAllAsync(HelperSearchBO helperSearchBO) in D:\Projects\Help\help24-7\Help247.Service\Services\Helper\HelperService.cs:line 83
+   at Help247.Controllers.Api.HelperController.GetAllAsync(HelperSearchViewModel helperSearch) in D:\Projects\Help\help24-7\Help247\Controllers\Api\HelperController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+ 
+ ************ 2020-08-10 23:11:12,293 [138] ERROR App  
+     ERROR in src/app/hire-me/hire-me/hire-me.component.html(76,64): Expected 2 arguments, but got 0.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-08-10 23:11:24,010 [126] ERROR App  
+     ERROR in src/app/hire-me/hire-me/hire-me.component.html(84,37): Property 'p' does not exist on type 'HireMeComponent'.
+    src/app/hire-me/hire-me/hire-me.component.html(138,58): Property 'p' does not exist on type 'HireMeComponent'.
+    
+ ********** 
+ 
+
+ 
+ ************ 2020-08-10 23:24:43,823 [126] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-08-10 23:47:43,235 [126] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 

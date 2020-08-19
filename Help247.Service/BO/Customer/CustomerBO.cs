@@ -20,6 +20,7 @@ namespace Help247.Service.BO.Customer
         public ImageBO Image { get; set; }
         public int? ImageId { get; set; }
         public string ProfilePicUrl { get; set; }
+        public DateTime EditedOn { get; set; }
 
     }
 }

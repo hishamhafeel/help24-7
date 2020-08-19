@@ -1,4 +1,5 @@
 ﻿using Help247.Common.Constants;
+using Help247.Common.Utility;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +68,20 @@ namespace Help247.Controllers.Api
             {
                 throw new Exception("tenant not founded");
             }
+        }
+
+        public List<DropDown<T>> ReadDropDown<TFrom, T>(List<TFrom> item) where TFrom : DropDownBo
+        {
+            var response = new List<DropDown<T>>();
+            foreach (var x in item)
+            {
+                response.Add(new DropDown<T>()
+                {
+                    Text = x.Name,
+                    Value = (T)Convert.ChangeType(x.Id, typeof(T))
+                });
+            }
+            return response;
         }
 
     }

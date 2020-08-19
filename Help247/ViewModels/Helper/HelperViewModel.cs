@@ -33,6 +33,8 @@ namespace Help247.ViewModels.Helper
         public HelperCategoryViewModel HelperCategory { get; set; }
         public ImageViewModel Image { get; set; }
         public DateTime CreatedOn { get; set; }
+        public DateTime EditedOn { get; set; }
+
 
     }
 }

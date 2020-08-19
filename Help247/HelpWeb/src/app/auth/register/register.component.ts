@@ -107,6 +107,7 @@ export class RegisterComponent implements OnInit {
     return this.helperForm.controls;
   }
 
+
   initHelperForm() {
     this.helperForm = this.fb.group({
       firstName: [null, [Validators.required]],
@@ -130,7 +131,6 @@ export class RegisterComponent implements OnInit {
   getHelperCategory() {
     this.helperService.getHelperCategoryList(this.pagination).subscribe(
       result => {
-        console.log('result', result);
         this.helperCategoryList = result.details;
       },
       error => {
@@ -152,7 +152,7 @@ export class RegisterComponent implements OnInit {
 
     this.uploader.queue[0].upload();
 
-    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
       this.isCustomerRequested = false;
       console.log("Image upload failed");
     }
@@ -164,7 +164,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  customerRegister(){
+  customerRegister() {
     this.customerModel.profilePicUrl = this.url;
     this.authService.register(this.customerModel).subscribe(
       result => {
@@ -198,7 +198,7 @@ export class RegisterComponent implements OnInit {
 
     this.uploader.queue[0].upload();
 
-    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
       this.isHelperRequested = false;
       console.log("Image upload failed");
     }
@@ -210,7 +210,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  helperRegister(){
+  helperRegister() {
     this.helperModel.profilePicUrl = this.url;
     this.authService.register(this.helperModel).subscribe(
       result => {

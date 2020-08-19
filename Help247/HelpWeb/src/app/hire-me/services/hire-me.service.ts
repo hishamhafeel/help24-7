@@ -6,6 +6,7 @@ import { PaginationModel } from 'src/app/shared/models/paginationModel';
 import { HelperModel } from 'src/app/helper/models/helper.model';
 import { catchError } from 'rxjs/operators';
 import { TicketModel } from '../models/ticket.model';
+import { HelperCategoryDropDownModel, HelperPagination } from '../models/helperCategory.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,13 @@ export class HireMeService extends BaseService {
     super();
   }
 
-  getHelperList(pagination: PaginationBase) {
+  getHelperList(pagination: HelperPagination) {
     return this.http
       .get<PaginationModel<HelperModel>>(
         `${this.baseEndPoint}/api/Helper/list?&skip=${
         pagination.skip
-        }&take=${pagination.take}&searchQuery=${pagination.searchQuery}`,
+        }&take=${pagination.take}&searchQuery=${pagination.searchQuery
+        }&HelperCategoryId=${pagination.helperCategoryId}`,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));
@@ -33,6 +35,15 @@ export class HireMeService extends BaseService {
     return this.http
       .get<HelperModel>(
         `${this.baseEndPoint}/api/Helper/${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  getHelperCategory() {
+    return this.http
+      .get<Array<HelperCategoryDropDownModel>>(
+        `${this.baseEndPoint}/api/HelperCategory/categories/`,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));

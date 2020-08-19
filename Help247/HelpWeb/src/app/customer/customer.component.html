@@ -12,7 +12,7 @@
                   </div>
                   <div class="profile-info">
                     <h3>{{ customerModel.name }}</h3>
-                    <p>Last login was 4th June 2020</p>
+                    <p>Last login was {{customerModel.editedOn | date: 'mediumDate'}}</p>
                   </div>
                 </div>
                 <div class="sidebar-links">
@@ -118,11 +118,9 @@
                                       <h6>{{ data.country }}</h6>
                                     </span>
                                   </div>
-                                  <div class="techbtn-wrap">
-                                    <a href="javascript:void(0)" [routerLink]="[
-                                        '/hire-me/open-ticket',
-                                        data.id
-                                      ]" class="btn-hire">Hire Me</a>
+                                  <div class="techbtn-wrap" style="z-index: 99999;">
+                                    <a href="javascript:void(0)" [routerLink]="['/hire-me/open-ticket', data.id]"
+                                      class="btn-hire">Hire Me</a>
                                   </div>
                                 </div>
                               </div>
@@ -144,7 +142,7 @@
                         <ng-container *ngFor="let data of helperCategoryList">
                           <ng-template carouselSlide [id]="data.id">
                             <div class="item">
-                              <div class="serivce-item boxshadow">
+                              <div class="serivce-item boxshadow" style="margin: 30px">
                                 <div class="serv-text">
                                   <h4>{{ data.name }}</h4>
                                   <p>{{ data.shortDescription }}</p>
@@ -700,26 +698,22 @@
                                 </div>
                                 <div class="form-row">
                                   <div class="col cgap">
-                                      <div class="form-group">
-                                          <label>Profile Picture</label>
-                                          <label class="file">
-                                                  <input class="form-control-file"
-                                                  type="file" ng2FileSelect
-                                                  [uploader]="uploader"
-                                                  (change)="fileChangeEvent()"
-                                                  formControlName="profilePicUrl" />
-                                              <span
-                                                  class="file-custom">{{public_id}}</span>
-                                          </label>
-                                      </div>
+                                    <div class="form-group">
+                                      <label>Profile Picture</label>
+                                      <label class="file">
+                                        <input class="form-control-file" type="file" ng2FileSelect [uploader]="uploader"
+                                          (change)="fileChangeEvent()" formControlName="profilePicUrl" />
+                                        <span class="file-custom">{{public_id}}</span>
+                                      </label>
+                                    </div>
                                   </div>
                                   <div class="col">
                                   </div>
-                              </div>
-                              <button type="submit" class="btn redbtn" [disabled]="customerForm.invalid || isCustomerRequested">
-                                <i class="fa fa-circle-o-notch fa-spin fa-fw"
-                                    [hidden]="!isCustomerRequested"></i>
-                                    {{isCustomerRequested ? 'Saving' : 'Save'}}</button>
+                                </div>
+                                <button type="submit" class="btn redbtn"
+                                  [disabled]="customerForm.invalid || isCustomerRequested">
+                                  <i class="fa fa-circle-o-notch fa-spin fa-fw" [hidden]="!isCustomerRequested"></i>
+                                  {{isCustomerRequested ? 'Saving' : 'Save'}}</button>
                               </form>
                             </div>
                             <div class="accsetting">

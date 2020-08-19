@@ -19,53 +19,27 @@
                     <div class="hire-sidebar">
                         <div class="hire-searchbox">
                             <h3>Services</h3>
-                            <div class="search-items">
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input search-check">
-                                        IT / Telecommunication / Electrical Repair Services</label>
-                                </div>
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input search-check">
-                                        Hospitality and Tourism</label>
-                                </div>
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input search-check">
-                                        Mass Media and Entertainment</label>
-                                </div>
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input search-check">
-                                        Hot Jobs</label>
-                                </div>
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input search-check">
-                                        Vehicle Modificationand breakdown </label>
-                                </div>
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input search-check">
-                                        Education and academic </label>
-                                </div>
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input search-check">
-                                        Healthcare and Online Counselling</label>
-                                </div>
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input search-check">
-                                        Banking and other Financial Services</label>
-                                </div>
-                                <a href="" class="btnclr">CLEAR ALL</a>
+                            <div class="search-items radio">
+                                <li class="form-check">
+                                    <input id="noneRadio" type="radio" (change)="getSelected($event)" value="0"
+                                        name="categoryRadio">
+                                    <label for="noneRadio" class="m-l-4 category-text">None</label>
+                                </li>
+                                <li *ngFor="let data of helperCategory; let i=index;" class="form-check">
+                                    <input type="radio" id="category{{i}}" (change)="getSelected($event)"
+                                        [value]="data.value" name="categoryRadio">
+                                    <label for="category{{i}}" class="m-l-4 category-text">{{data.text}}</label>
+                                </li>
+                                <!-- <li *ngFor="let data of helperCategory; let i=index;" class="form-check">
+                                    <label class=""><input type="checkbox" value="{{data.Name}}" #checkBox{{i}}
+                                            id="{{i}}-checkbox"
+                                            (click)="filterCategory(checkBox{{i}}.value)">{{data.Name}}</label>
+                                </li> -->
 
                             </div>
                         </div>
 
-                        <div class="hire-searchbox">
+                        <!-- <div class="hire-searchbox">
                             <h3>Counrty</h3>
                             <div class="search-items">
                                 <div class="form-group">
@@ -89,7 +63,7 @@
                                 </div>
                                 <a href="" class="btnclr">CLEAR ALL</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-9">
@@ -106,7 +80,8 @@
                         </div>
                         <div class="tech-lists">
                             <div class="techrow">
-                                <div class="col-tech" *ngFor="let data of helperList">
+                                <div class="col-tech"
+                                    *ngFor="let data of helperList | paginate: { itemsPerPage: 10, currentPage: p }">
                                     <div class="tech-item">
                                         <div class="techimg">
                                             <img src="{{data.image.imageUrl}}" class="img-fluid">
@@ -117,10 +92,11 @@
                                             <div class="tech-points">
                                                 <span class="tech-field">
                                                     <i class="sprite sprite-field-icon"></i>
-                                                    <h6><a href="">{{data.helperCategory.name}}</a>
+                                                    <h6><a href="javascript:void(0)"
+                                                            [routerLink]="['/services/sub-service', data.helperCategoryId]">{{data.helperCategory.name}}</a>
                                                     </h6>
                                                 </span>
-                                                <span class="tech-field">
+                                                <span class=" tech-field">
                                                     <i class="sprite sprite-city-icon"></i>
                                                     <h6>{{data.city}}</h6>
                                                 </span>
@@ -143,31 +119,10 @@
                         </div>
                         <div class="pagiwrap">
                             <nav>
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <span aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                <pagination-controls previousLabel="" nextLabel="" (pageChange)="p = $event">
+                                </pagination-controls>
                             </nav>
                         </div>
-
-
-
-
-
-
                     </div>
                 </div>
             </div>

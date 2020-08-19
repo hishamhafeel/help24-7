@@ -1,0 +1,60 @@
+
+ 
+ ************ 2020-08-13 22:13:56,021 [4] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-08-13 22:22:18,453 [80] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-08-13 22:38:10,285 [80] ERROR App  
+ ERROR in Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+    }
+    ^
+      Expected "{".
+   Γò╖
+37 Γöé     }
+   Γöé      ^
+   Γò╡
+  stdin 37:6  root stylesheet
+      in D:\Projects\Help\help24-7\Help247\HelpWeb\src\app\customer\customer.component.scss (line 37, column 6)
+ ********** 
+ 
+
+ 
+ ************ 2020-08-13 23:16:26,501 [80] ERROR App  
+ ERROR in Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+  }
+  ^
+      Expected "{".
+   Γò╖
+66 Γöé   }
+   Γöé    ^
+   Γò╡
+  stdin 66:4  root stylesheet
+      in D:\Projects\Help\help24-7\Help247\HelpWeb\src\app\customer\customer.component.scss (line 66, column 4)
+ ********** 
+ 
+
+ 
+ ************ 2020-08-13 23:23:06,010 [34] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 
+
+ 
+ ************ 2020-08-13 23:24:45,580 [59] ERROR App  
+ WARNING in Emitted no files.
+
+ ********** 
+ 

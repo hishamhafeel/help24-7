@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
-using MailKit.Net.Smtp;
 using MimeKit;
-using System.Security.Cryptography.X509Certificates;
-using System.Net.Security;
 using MailKit.Security;
 
 namespace Help247.Common.Mailer
@@ -46,7 +40,7 @@ namespace Help247.Common.Mailer
                     message.To.Add(new MailboxAddress(DisplayName, emailAddress));
                 }
                 message.Subject = messageBuilder.Subject;
-                message.Body = new TextPart("plain")
+                message.Body = new TextPart(MimeKit.Text.TextFormat.Html)
                 {
                     Text = messageBuilder.Body
                 };

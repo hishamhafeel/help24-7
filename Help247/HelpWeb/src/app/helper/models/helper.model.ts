@@ -21,6 +21,8 @@ export class HelperModel {
     userId: string;
     createdOn: Date;
     image: ImageModel;
+    editedOn: Date;
+
 
     constructor() {
         this.image = new ImageModel();

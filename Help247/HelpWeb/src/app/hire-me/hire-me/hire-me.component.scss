@@ -1,0 +1,46 @@
+.tech-lists{
+    h6 {
+        width: fit-content !important;
+    }
+} 
+
+.category-text{
+    font-size: 0.75rem !important;
+    margin-left: 0.25rem !important;
+}
+
+
+::ng-deep{
+    .ngx-pagination{
+        padding: 0;
+        margin: 0;
+        text-align: center !important;
+        li{
+            color: #ffffff !important;
+            background-color: #0e2a55 !important;
+            border: 1px solid #1f68b2 !important;
+            margin: 0 !important;
+            padding: 0.5rem 0.75rem;
+            &.current,
+            &:hover{
+                background-color: #ffffff !important;
+                color: #0e2a55 !important;    
+            }
+            &.disabled{
+
+            }
+            &.pagination-next{
+                border-radius: 0 3px 3px 0;
+                &::after{
+                    margin-left: 0 !important;
+                }
+            }
+            &.pagination-previous{
+                border-radius: 3px 0 0 3px;
+                &::before{
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+}

@@ -178,7 +178,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <button type="submit" class="btn redbtn"
-                                                                    [disabled]="customerForm.invalid || isCustomerRequested">
+                                                                    [disabled]="isCustomerRequested">
                                                                     <i class="fa fa-circle-o-notch fa-spin fa-fw"
                                                                         [hidden]="!isCustomerRequested"></i>
                                                                     {{isCustomerRequested ? 'Saving' : 'Save'}}
@@ -405,13 +405,14 @@
                                                                         <div class="form-group">
                                                                             <label>Profile Picture</label>
                                                                             <label class="file">
-                                                                                    <input class="form-control-file"
+                                                                                <input class="form-control-file"
                                                                                     type="file" ng2FileSelect
                                                                                     [uploader]="uploader"
                                                                                     (change)="fileChangeEvent()"
                                                                                     [ngClass]="{ 'is-invalid': h.profilePicUrl.errors && isFormSubmitted }"
                                                                                     formControlName="profilePicUrl" />
-                                                                                <span class="file-custom">{{public_id}}</span>
+                                                                                <span
+                                                                                    class="file-custom">{{public_id}}</span>
                                                                                 <div *ngIf="h.profilePicUrl.errors"
                                                                                     class="invalid-feedback"
                                                                                     style="margin-top: 16px;">
@@ -466,7 +467,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <button type="submit" class="btn redbtn"
-                                                                    [disabled]="helperForm.invalid || isHelperRequested">
+                                                                    [disabled]="isHelperRequested">
                                                                     <i class="fa fa-circle-o-notch fa-spin fa-fw"
                                                                         [hidden]="!isHelperRequested"></i>
                                                                     {{isHelperRequested ? 'Saving' : 'Save'}}

@@ -26,10 +26,6 @@ namespace Help247.Data
         public DbSet<Image> Images { get; set; }
         public DbSet<HelpCentre> HelpCentres { get; set; }
         public DbSet<SubService> SubServices { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<State> States { get; set; }
-        public DbSet<City> Cities { get; set; }
-        
         
 
 
@@ -60,7 +56,7 @@ namespace Help247.Data
             #endregion
 
             #region seed SuperAdmin
-            var adminId = Guid.NewGuid().ToString();
+            var adminId = "431fca8c-0fba-407e-846f-2248e7d139eb";
             User adminUser = new User
             {
                 Id = adminId,

@@ -5,19 +5,90 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repository\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <None Remove="Repository\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200301144140_AuditableEnityChanges.cs" />
+    <Compile Remove="Migrations\20200301144140_AuditableEnityChanges.Designer.cs" />
+    <Compile Remove="Migrations\20200505085335_Major changes to entities.cs" />
+    <Compile Remove="Migrations\20200505085335_Major changes to entities.Designer.cs" />
+    <Compile Remove="Migrations\20200505153947_helper category changes.cs" />
+    <Compile Remove="Migrations\20200505153947_helper category changes.Designer.cs" />
+    <Compile Remove="Migrations\20200505155251_User entity changes.cs" />
+    <Compile Remove="Migrations\20200505155251_User entity changes.Designer.cs" />
+    <Compile Remove="Migrations\20200505160038_User entity changes 2.cs" />
+    <Compile Remove="Migrations\20200505160038_User entity changes 2.Designer.cs" />
+    <Compile Remove="Migrations\20200507054939_Helper category services provided.cs" />
+    <Compile Remove="Migrations\20200507054939_Helper category services provided.Designer.cs" />
+    <Compile Remove="Migrations\20200507060427_Helper category name validation.cs" />
+    <Compile Remove="Migrations\20200507060427_Helper category name validation.Designer.cs" />
+    <Compile Remove="Migrations\20200507082002_HelpCentre.cs" />
+    <Compile Remove="Migrations\20200507082002_HelpCentre.Designer.cs" />
+    <Compile Remove="Migrations\20200507083553_HelpCentre update.cs" />
+    <Compile Remove="Migrations\20200507083553_HelpCentre update.Designer.cs" />
+    <Compile Remove="Migrations\20200508052212_Help centre made auditable.cs" />
+    <Compile Remove="Migrations\20200508052212_Help centre made auditable.Designer.cs" />
+    <Compile Remove="Migrations\20200508053438_Help centre seed.cs" />
+    <Compile Remove="Migrations\20200508053438_Help centre seed.Designer.cs" />
+    <Compile Remove="Migrations\20200604054735_ticket entity changes.cs" />
+    <Compile Remove="Migrations\20200604054735_ticket entity changes.Designer.cs" />
+    <Compile Remove="Migrations\20200604065707_db context modification .cs" />
+    <Compile Remove="Migrations\20200604065707_db context modification .Designer.cs" />
+    <Compile Remove="Migrations\20200606051100_Seed Super Admin.cs" />
+    <Compile Remove="Migrations\20200606051100_Seed Super Admin.Designer.cs" />
+    <Compile Remove="Migrations\20200609145036_seed super admin new.cs" />
+    <Compile Remove="Migrations\20200609145036_seed super admin new.Designer.cs" />
+    <Compile Remove="Migrations\20200609162024_customer entity.cs" />
+    <Compile Remove="Migrations\20200609162024_customer entity.Designer.cs" />
+    <Compile Remove="Migrations\20200611043407_Helper PhoneNo.cs" />
+    <Compile Remove="Migrations\20200611043407_Helper PhoneNo.Designer.cs" />
+    <Compile Remove="Migrations\20200611044809_ImageEntity Email.cs" />
+    <Compile Remove="Migrations\20200611044809_ImageEntity Email.Designer.cs" />
+    <Compile Remove="Migrations\20200611045755_ImageEntity Email_2.cs" />
+    <Compile Remove="Migrations\20200611045755_ImageEntity Email_2.Designer.cs" />
+    <Compile Remove="Migrations\20200611051950_ImageEntity Email reverse.cs" />
+    <Compile Remove="Migrations\20200611051950_ImageEntity Email reverse.Designer.cs" />
+    <Compile Remove="Migrations\20200611153920_Ticket entity update.cs" />
+    <Compile Remove="Migrations\20200611153920_Ticket entity update.Designer.cs" />
+    <Compile Remove="Migrations\20200613142151_Ticket updates further.cs" />
+    <Compile Remove="Migrations\20200613142151_Ticket updates further.Designer.cs" />
+    <Compile Remove="Migrations\20200613143942_Ticket updates userId.cs" />
+    <Compile Remove="Migrations\20200613143942_Ticket updates userId.Designer.cs" />
+    <Compile Remove="Migrations\20200616112926_Feedback_adding_Ticket.cs" />
+    <Compile Remove="Migrations\20200616112926_Feedback_adding_Ticket.Designer.cs" />
     <Compile Remove="Migrations\20200617141222_image for helper and customer.cs" />
     <Compile Remove="Migrations\20200617141222_image for helper and customer.Designer.cs" />
     <Compile Remove="Migrations\20200617142304_image for helper and customer.cs" />
     <Compile Remove="Migrations\20200617142304_image for helper and customer.Designer.cs" />
+    <Compile Remove="Migrations\20200617143036_image for helper and customer.cs" />
+    <Compile Remove="Migrations\20200617143036_image for helper and customer.Designer.cs" />
     <Compile Remove="Migrations\20200617151201_imageId in helper and customer.cs" />
     <Compile Remove="Migrations\20200617151201_imageId in helper and customer.Designer.cs" />
     <Compile Remove="Migrations\20200617152607_imageId in helper.cs" />
     <Compile Remove="Migrations\20200617152607_imageId in helper.Designer.cs" />
+    <Compile Remove="Migrations\20200617152833_imageId in helper.cs" />
+    <Compile Remove="Migrations\20200617152833_imageId in helper.Designer.cs" />
+    <Compile Remove="Migrations\20200617153101_imageId in customer.cs" />
+    <Compile Remove="Migrations\20200617153101_imageId in customer.Designer.cs" />
+    <Compile Remove="Migrations\20200619012426_subservices added.cs" />
+    <Compile Remove="Migrations\20200619012426_subservices added.Designer.cs" />
+    <Compile Remove="Migrations\20200627124645_AddedTicketHasFeedback.cs" />
+    <Compile Remove="Migrations\20200627124645_AddedTicketHasFeedback.Designer.cs" />
+    <Compile Remove="Migrations\20200706174405_RemovedCountryStateCity.cs" />
+    <Compile Remove="Migrations\20200706174405_RemovedCountryStateCity.Designer.cs" />
+    <Compile Remove="Migrations\20200813160028_AddedLastLoggedIn.cs" />
+    <Compile Remove="Migrations\20200813160028_AddedLastLoggedIn.Designer.cs" />
+    <Compile Remove="Migrations\20200813160710_AddedLastLoggedIn.cs" />
+    <Compile Remove="Migrations\20200813160710_AddedLastLoggedIn.Designer.cs" />
+    <Compile Remove="Migrations\20200813161301_AddedLastLoggedIn.cs" />
+    <Compile Remove="Migrations\20200813161301_AddedLastLoggedIn.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
 
   <ItemGroup>

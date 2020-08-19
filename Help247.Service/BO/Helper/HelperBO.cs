@@ -30,5 +30,6 @@ namespace Help247.Service.BO.Helper
         public ImageBO Image { get; set; }
         public int? ImageId { get; set; }
         public string UserId { get; set; }
+        public DateTime EditedOn { get; set; }
     }
 }
