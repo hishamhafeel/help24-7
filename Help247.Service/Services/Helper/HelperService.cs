@@ -124,6 +124,7 @@ namespace Help247.Service.Services.Helper
 
                     helperBO.ImageId = imageQuery.Id;
                     helperBO.UserId = userId;
+                    helperBO.EditedOn = DateTime.UtcNow;
                     appDbContext.Helpers.Update(mapper.Map<Help247.Data.Entities.Helper>(helperBO));
                     await appDbContext.SaveChangesAsync();
 

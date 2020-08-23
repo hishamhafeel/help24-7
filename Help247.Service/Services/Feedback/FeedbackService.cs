@@ -69,6 +69,24 @@ namespace Help247.Service.Services.Feedback
             }
         }
 
+        public async Task<FeedbackBO> GetByTicketIdAsync(int id)
+        {
+            try
+            {
+                var query = await appDbContext.Feedbacks.FirstOrDefaultAsync(x => x.TicketId == id);
+                if (query == null)
+                {
+                    throw new FeedbackNotFoundException();
+                }
+                return mapper.Map<FeedbackBO>(query);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public async Task<FeedbackBO> GetByIdAsync(int id)
         {
             try
@@ -95,7 +113,7 @@ namespace Help247.Service.Services.Feedback
                     .Include(x => x.Helper)
                     .Include(x => x.Customer)
                     .Include(x => x.Ticket)
-                    .Where(x => x.HelperId == id).OrderByDescending(x => x.Id).ToListAsync();
+                    .Where(x => x.HelperId == id && x.RecordState == Enums.RecordState.Active).OrderByDescending(x => x.Id).ToListAsync();
                 if (query == null)
                 {
                     throw new FeedbackNotFoundException();

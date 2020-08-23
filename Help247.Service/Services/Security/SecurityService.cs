@@ -322,6 +322,24 @@ namespace Help247.Service.Services.Security
             }
         }
 
+        public async Task ChangePasswordLoggedInAsync(ResetPassowordBO resetPassowordBO)
+        {
+            var user = await userManager.FindByEmailAsync(resetPassowordBO.Email);
+            if (user != null)
+            {
+                //var token = await userManager.GeneratePasswordResetTokenAsync(user);
+                PasswordHasher<User> ph = new PasswordHasher<User>();
+                user.PasswordHash = ph.HashPassword(user, resetPassowordBO.NewPassword);
+                await userManager.UpdateAsync(user);
+                await appDbContext.SaveChangesAsync();
+            }
+            else
+            {
+                throw new NullReferenceException("This email does not belong to any acccount");
+            }
+            
+        }
+
         public async Task ResetPasswordAsync(ResetPassowordBO resetPassowordBO)
         {
             var user = await userManager.FindByEmailAsync(resetPassowordBO.Email);

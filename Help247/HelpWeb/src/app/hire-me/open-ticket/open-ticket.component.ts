@@ -4,6 +4,7 @@ import { HireMeService } from '../services/hire-me.service';
 import { HelperModel } from 'src/app/helper/models/helper.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TicketModel } from '../models/ticket.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-open-ticket',
@@ -24,8 +25,9 @@ export class OpenTicketComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private hireMeService: HireMeService,
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -38,19 +40,22 @@ export class OpenTicketComponent implements OnInit {
 
   initOpenTicketForm() {
     this.openTicketForm = this.fb.group({
-      title: ['NewTitle', [Validators.required]],
-      country: ['Sri Lanka', [Validators.required]],
-      state: ['Hambantota', [Validators.required]],
-      city: ['Ambalantota', [Validators.required]],
-      address: ['311/1/A Malay Colony, Ambalantota', [Validators.required]],
-      contactNo1: ['+94552226589', [Validators.required]],
-      contactNo2: ['+94772256634', [Validators.required]],
-      otherRequirements: ['All other requirements', [Validators.required]],
-      helpTime: [new Date(), [Validators.required]],
+      title: ['', [Validators.required]],
+      country: ['', [Validators.required]],
+      state: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      contactNo1: ['', [Validators.required]],
+      contactNo2: [''],
+      otherRequirements: [''],
+      helpTime: [new Date()],
       ticketStatusId: [1, [Validators.required]],
     });
   }
 
+  get ticketForm() {
+    return this.openTicketForm.controls;
+  }
   getHelper(id) {
     this.hireMeService.getHelperById(id).subscribe(
       (result) => {
@@ -64,6 +69,7 @@ export class OpenTicketComponent implements OnInit {
 
   async onSubmit() {
     if (this.openTicketForm.invalid) {
+      this.toastr.error("Invalid ticket ", "Error")
       return;
     }
     this.ticketModel = this.openTicketForm.value;
@@ -78,11 +84,12 @@ export class OpenTicketComponent implements OnInit {
 
     this.hireMeService.assignTicket(this.ticketModel).subscribe(
       (result) => {
-        console.log('result', result);
+        this.toastr.success("Ticket successfully created", "Success")
         this.router.navigate(['customer']);
       },
       (error) => {
-        console.log('error', error);
+        this.toastr.error(error.Message, "Error")
+
       }
     );
   }

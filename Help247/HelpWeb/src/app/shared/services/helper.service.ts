@@ -47,6 +47,14 @@ export class HelperService extends BaseService {
       .pipe(catchError(this.server4xxError));
   }
 
+  getFeedbackByTicketId(id: number) {
+    return this.http
+      .get<FeedbackModel>(
+        `${this.baseEndPoint}/api/Feedback/ticketid?id=${id}`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
   getSkill(id: number) {
     return this.http
       .get<SkillModel>(
@@ -121,8 +129,8 @@ export class HelperService extends BaseService {
       )
       .pipe(catchError(this.server4xxError));
   }
-  
-  uploadImages(model){
+
+  uploadImages(model) {
     return this.http
       .post<Array<ImageModel>>(
         `${this.baseEndPoint}/api/Image/skills`, model, this.httpOptions
@@ -130,7 +138,7 @@ export class HelperService extends BaseService {
       .pipe(catchError(this.server4xxError));
   }
 
-  getImages(id){
+  getImages(id) {
     return this.http
       .get<Array<ImageModel>>(
         `${this.baseEndPoint}/api/Image/skills?helperId=` + id, this.httpOptions

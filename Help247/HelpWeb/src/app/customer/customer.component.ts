@@ -18,6 +18,11 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { HelperService } from '../shared/services/helper.service';
 import { HelperModel } from '../helper/models/helper.model';
 import { HelperCategoryModel } from '../helper/models/helper-category.model';
+import { ValidatorService } from '../auth/services/validator.service';
+import { ResetPasswordModel } from '../auth/models/resetPassword.model';
+import { AuthService } from '../auth/services/auth.service';
+import { ForgotPasswordModel } from '../auth/models/forgotPassword.model';
+import { TokenModel } from './models/token.model';
 
 @Component({
   selector: 'app-customer',
@@ -39,9 +44,13 @@ export class CustomerComponent implements OnInit {
   customerForm: FormGroup;
   feedbackForm: FormGroup;
   ticketForm: FormGroup;
+  accountForm: FormGroup;
   ticketModel: TicketModel = new TicketModel();
   feedbackModel: FeedbackModel = new FeedbackModel();
   customerModel: CustomerModel = new CustomerModel();
+  lastTicketModel: TicketModel = new TicketModel();
+  tokenModel: TokenModel = new TokenModel();
+  forgotPasswordModel: ForgotPasswordModel = new ForgotPasswordModel()
   customerId: number;
   ticketId: number;
   helperId: number;
@@ -55,7 +64,9 @@ export class CustomerComponent implements OnInit {
   rating: number = 4;
   ratingDescription: string = '';
   feedbackId: number;
-
+  resetPass: ResetPasswordModel;
+  token: string = null;
+  emailId: string = null;
   customOptions: OwlOptions = {
     loop: true,
     nav: true,
@@ -115,7 +126,9 @@ export class CustomerComponent implements OnInit {
     private router: Router,
     private cloudinary: Cloudinary,
     private toastr: ToastrService,
-    private helperService: HelperService
+    private helperService: HelperService,
+    public validatorService: ValidatorService,
+    private authService: AuthService
   ) {
     this.pagination = new PaginationBase();
 
@@ -138,6 +151,7 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerId = +localStorage.getItem('LoggedId');
+    this.getLastTicketDetails();
     this.getCustomerById();
     this.getTopHelpers();
     this.getHelperCategory();
@@ -157,6 +171,45 @@ export class CustomerComponent implements OnInit {
     };
   }
 
+  initAccountForm() {
+    this.accountForm = this.fb.group({
+      newPassword: ['', [Validators.required]],
+      newPasswordConfirm: ['', [Validators.required]]
+    }, { validator: this.validatorService.matchingPasswords('newPassword', 'newPasswordConfirm') })
+  }
+
+  get newPassword() {
+    return this.accountForm.get('newPassword');
+  }
+
+  get newPasswordConfirm() {
+    return this.accountForm.get('newPasswordConfirm');
+  }
+
+  resetPassword() {
+    this.resetPass = new ResetPasswordModel();
+    this.resetPass.email = this.customerModel.email;
+    this.forgotPasswordModel.email = this.customerModel.email;
+    this.resetPass.newPassword = this.newPasswordConfirm.value;
+
+    this.authService.changePasswordLoggedIn(this.resetPass).subscribe(
+      result => {
+        this.toastr.success("Password succesfully changed. Login with new password!", "Success");
+        this.logout()
+      },
+      error => {
+        this.toastr.error(error.message, "Failed");
+      }
+    );
+  }
+
+  getLastTicketDetails() {
+    this.customerService.getLastTicket().subscribe(
+      result => {
+        this.lastTicketModel = result;
+      }
+    );
+  }
   getTopHelpers() {
     this.pagination.take = 10;
     this.helperService.getHelperList(this.pagination).subscribe(
@@ -432,27 +485,29 @@ export class CustomerComponent implements OnInit {
 
       this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
         this.isCustomerRequested = false;
-        console.log("Image upload failed");
+        this.toastr.error("Image upload failed", "Error");
       }
 
       // Update model on completion of uploading a file
       this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
         this.url = JSON.parse(response).url;
+        this.toastr.success("Image upload successful", "Success");
         this.updateCustomer();
       }
     }
   }
 
   updateCustomer() {
+    debugger
     this.customerModel.profilePicUrl = this.url;
     this.customerService.updateCustomer(this.customerModel).subscribe(
       result => {
-        console.log('result', result);
+        this.toastr.success("Successfully saved profile settings", "Success");
         this.getCustomerById();
         this.isCustomerRequested = false;
       },
       error => {
-        console.log('error', error);
+        this.toastr.error(error.Message, "Error");
         this.isCustomerRequested = false;
       }
     );
@@ -543,6 +598,7 @@ export class CustomerComponent implements OnInit {
 
   showSettings() {
     this.initCustomerForm();
+    this.initAccountForm();
     this.patchCustomerForm();
     this.isDashboardClicked = false;
     this.isMyTicketsClicked = false;

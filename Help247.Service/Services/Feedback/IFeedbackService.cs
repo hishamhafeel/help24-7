@@ -13,5 +13,6 @@ namespace Help247.Service.Services.Feedback
         Task DeleteAsync(int id);
         Task<List<FeedbackBO>> GetByHelperAsync(int id);
         Task PostAsync(FeedbackBO feedbackBO, string userId);
+        Task<FeedbackBO> GetByTicketIdAsync(int id);
     }
 }

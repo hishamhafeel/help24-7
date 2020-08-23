@@ -92,6 +92,7 @@ namespace Help247.Service.Services.Customer
 
                     customerBO.ImageId = imageQuery.Id;
                     customerBO.UserId = userId;
+                    customerBO.EditedOn = DateTime.UtcNow;
                     appDbContext.Customers.Update(mapper.Map<Help247.Data.Entities.Customer>(customerBO));
                     await appDbContext.SaveChangesAsync();
                     transaction.Commit();
