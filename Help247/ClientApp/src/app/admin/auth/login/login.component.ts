@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
         this.openLock = true;
         setTimeout(() => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/helper']);
         }, 1500);
       },
       error => {
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
   }
 
   dashboard() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/helper']);
   }
 
 }

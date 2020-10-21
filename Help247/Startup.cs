@@ -44,8 +44,14 @@ namespace Help247
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Identity
-            services.AddIdentity<Help247.Data.Entities.User, IdentityRole>(opt => opt.SignIn.RequireConfirmedEmail = true)
-                        .AddRoles<IdentityRole>()
+            services.AddIdentity<Help247.Data.Entities.User, IdentityRole>(opt => {
+                            opt.SignIn.RequireConfirmedEmail = false;
+                            opt.Password.RequiredLength = 8;
+                            opt.Password.RequireLowercase = false;
+                            opt.Password.RequireUppercase = false;
+                            opt.Password.RequireNonAlphanumeric = false;
+                            opt.Password.RequireDigit = false;
+                        }).AddRoles<IdentityRole>()
                         .AddEntityFrameworkStores<AppDbContext>()
                         .AddDefaultTokenProviders();
 

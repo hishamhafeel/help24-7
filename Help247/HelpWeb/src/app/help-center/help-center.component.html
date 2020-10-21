@@ -18,15 +18,15 @@
         <div class="row">
             <div class="col-lg-7 col-md-12">
                 <div class="help-tabwrap">
-                    <a href="#terms" class="hc-tab">
+                    <a href="javascript:void(0)" class="hc-tab">
                         <div class="tabicon"><img src="assets/images/help-tab1.png"></div>
                         <h5>Terms & Conditions</h5>
                     </a>
-                    <a href="#privacy" class="hc-tab">
+                    <a href="javascript:void(0)" class="hc-tab">
                         <div class="tabicon"><img src="assets/images/help-tab2.png"></div>
                         <h5>Privacy Policy</h5>
                     </a>
-                    <a href="#faq" class="hc-tab">
+                    <a href="javascript:void(0)" class="hc-tab">
                         <div class="tabicon"><img src="assets/images/help-tab3.png"></div>
                         <h5>FAQ</h5>
                     </a>
@@ -44,7 +44,21 @@
 
                 <!--Accordion wrapper-->
                 <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
-
+                    <p *ngIf="model.title == 'Terms & Conditions'"> Welcome to 247helps.com!
+                        <br><br>
+                        These terms and conditions outline the rules and regulations for the use of 247helps.com's Website, located at  <span class="pseudolink" onclick="location='http://www.247helps.com'">http://247helps.com/.</span>
+                        <br><br>
+                        By accessing this website we assume you accept these terms and conditions. Do not continue to use 247helps.com if you do not agree to take all of the terms and conditions stated on this page. Our Terms and Conditions were created with the help of the Terms and Conditions Generator and the Free Terms & Conditions Generator.
+                        The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.
+                    </p>
+                    <p *ngIf="model.title == 'Privacy Policy'">
+                        At 247helps.com, accessible from 247helps.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by 247helps.com and how we use it.
+                        <br><br>
+                        If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
+                        <br><br>
+                        This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in 247helps.com. This policy is not applicable to any information collected offline or via channels other than this website.
+                         
+                    </p>
                     <!-- Accordion card -->
                     <div class="card" *ngFor="let item of model.topics | keyvalue">
 

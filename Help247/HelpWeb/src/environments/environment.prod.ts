@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  baseEndPoint: 'http://hishamhafeel-001-site1.dtempurl.com'
+  baseEndPoint: 'http://247helps.com'
+  // baseEndPoint: 'http://nimesh8291-001-site1.dtempurl.com'
 };

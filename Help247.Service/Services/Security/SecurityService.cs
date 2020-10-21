@@ -61,7 +61,8 @@ namespace Help247.Service.Services.Security
                     var user = await userManager.CreateAsync(storeUser, userBO.Password);
                     if (!user.Succeeded)
                     {
-                        return new UserBO();
+                        var error = user.Errors.ToList();
+                        throw new Exception(error[0].Description);
                     }
 
                     userBO.UserId = storeUser.Id;
@@ -131,15 +132,6 @@ namespace Help247.Service.Services.Security
 
                     await userManager.AddToRoleAsync(storeUser, userType);
 
-                    //var image = new Help247.Data.Entities.Image()
-                    //{
-                    //    ImageType = ImageType.ProfilePicture,
-                    //    ImageUrl = userBO.ProfilePicUrl,
-                    //    Email = userBO.Email 
-                    //};
-                    //await appDbContext.Images.AddAsync(image);
-                    //await appDbContext.SaveChangesAsync();
-
                     transaction.Commit();     
                      return userBO;
 
@@ -150,7 +142,8 @@ namespace Help247.Service.Services.Security
                     throw new Exception(ex.Message);
                 }
             }
-        }public async Task<UserBO> CreateAdminAsync(UserBO userBO)
+        }
+        public async Task<UserBO> CreateAdminAsync(UserBO userBO)
         {
             using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
@@ -178,7 +171,7 @@ namespace Help247.Service.Services.Security
                         Subject = "Welcome To Help 24/7",
                         IsBodyHtml = true,
                         Body = $"Hi {storeUser.UserName} , please click on the link below so that we can confirm your email address. <br/><br/>" +
-                        $"{confirmPasswordLink} <br/><br/>" +
+                        $"<a href='{confirmPasswordLink}'>Verify Account</a> <br/><br/>" +
                         $"Happy Help!!!"
 
                     };
