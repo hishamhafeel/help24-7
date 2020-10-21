@@ -7,6 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FileUploadModule } from 'ng2-file-upload';
+import { ValidatorService } from '../auth/services/validator.service';
 
 
 
@@ -20,6 +21,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     ReactiveFormsModule,
     NgxStarRatingModule,
     FileUploadModule
-  ]
+  ],
+  providers: [ValidatorService]
 })
 export class HelperModule { }

@@ -52,7 +52,15 @@
                                                                             <label>Title</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Title of the Ticket"
-                                                                                formControlName="title">
+                                                                                formControlName="title"
+                                                                                [ngClass]="{ 'is-invalid': ticketForm.title.errors && ticketForm.title.dirty }">
+                                                                            <div *ngIf="ticketForm.title.errors"
+                                                                                class="invalid-feedback text-danger">
+                                                                                <div
+                                                                                    *ngIf="ticketForm.title.errors?.required">
+                                                                                    Title is required
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -101,8 +109,16 @@
                                                                         <div class="form-group">
                                                                             <label>Country </label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="Cpuntry"
-                                                                                formControlName="country">
+                                                                                placeholder="Country"
+                                                                                formControlName="country"
+                                                                                [ngClass]="{ 'is-invalid': ticketForm.country.errors && ticketForm.country.dirty }">
+                                                                            <div *ngIf="ticketForm.country.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="ticketForm.country.errors.required">
+                                                                                    Country is required
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -113,7 +129,15 @@
                                                                             <label>State </label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="State"
-                                                                                formControlName="state">
+                                                                                formControlName="state"
+                                                                                [ngClass]="{ 'is-invalid': ticketForm.state.errors && ticketForm.state.dirty }">
+                                                                            <div *ngIf="ticketForm.state.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="ticketForm.state.errors.required">
+                                                                                    State is required
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -121,7 +145,15 @@
                                                                             <label>City </label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="City"
-                                                                                formControlName="city">
+                                                                                formControlName="city"
+                                                                                [ngClass]="{ 'is-invalid': ticketForm.city.errors && ticketForm.city.dirty }">
+                                                                            <div *ngIf="ticketForm.city.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="ticketForm.city.errors.required">
+                                                                                    City is required
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -138,7 +170,15 @@
                                                                             <label>Address</label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Address"
-                                                                                formControlName="address">
+                                                                                formControlName="address"
+                                                                                [ngClass]="{ 'is-invalid': ticketForm.address.errors && ticketForm.address.dirty }">
+                                                                            <div *ngIf="ticketForm.address.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="ticketForm.address.errors.required">
+                                                                                    Address is required
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -148,7 +188,15 @@
                                                                             <label>Contact No 1 </label>
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="+94"
-                                                                                formControlName="contactNo1">
+                                                                                formControlName="contactNo1"
+                                                                                [ngClass]="{ 'is-invalid': ticketForm.contactNo1.errors && ticketForm.contactNo1.dirty }">
+                                                                            <div *ngIf="ticketForm.contactNo1.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                    *ngIf="ticketForm.contactNo1.errors.required">
+                                                                                    Contact is required
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
@@ -173,7 +221,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <button type="submit" class="btn redbtn">Create
+                                                                <button type="submit" class="btn redbtn"
+                                                                    [disabled]="openTicketForm.invalid">Create
                                                                     Ticket</button>
                                                             </form>
                                                         </div>

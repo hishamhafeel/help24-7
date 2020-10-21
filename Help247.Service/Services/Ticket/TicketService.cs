@@ -305,6 +305,12 @@ namespace Help247.Service.Services.Ticket
             return mapper.Map<TicketBO>(query);
         }
 
+        public async Task<TicketBO> GetLastTicketDetailsAsync()
+        {
+            var query = await appDbContext.Tickets.OrderByDescending(x => x.Id).FirstAsync();
+            return mapper.Map<TicketBO>(query);
+        }
+
         public async Task<PaginationModel<TicketBO>> GetAllAsync(TicketSearchBO ticketSearchBO)
         {
             try
@@ -400,7 +406,7 @@ namespace Help247.Service.Services.Ticket
             query.ContactNo2 = ticketBO.ContactNo2;
             query.HelpDateFrom = ticketBO.HelpDateFrom;
             query.HelpDateTo = ticketBO.HelpDateTo;
-            query.HelpTime = ticketBO.HelpTime;
+            query.HelpTime = ticketBO.HelpTime.ToLower();
             query.OtherRequirements = ticketBO.OtherRequirements;
             query.Title = ticketBO.Title;
 

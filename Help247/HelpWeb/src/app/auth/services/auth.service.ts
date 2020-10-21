@@ -5,6 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { LoginModel } from '../models/login.model';
 import { ForgotPasswordModel } from '../models/forgotPassword.model';
 import { ResetPasswordModel } from '../models/resetPassword.model';
+import { TokenModel } from 'src/app/customer/models/token.model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,16 @@ export class AuthService extends BaseService {
       .post(
         `${this.baseEndPoint}/api/Account/forgotpassword`,
         forgotPassword,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
+
+  changePasswordLoggedIn(resetPass: ResetPasswordModel) {
+    return this.http
+      .post(
+        `${this.baseEndPoint}/api/Account/forgotpasswordloggedin`,
+        resetPass,
         this.httpOptions
       )
       .pipe(catchError(this.server4xxError));

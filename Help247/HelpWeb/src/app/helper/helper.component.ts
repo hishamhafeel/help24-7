@@ -13,6 +13,9 @@ import { JobsCountModel } from './models/jobs.model';
 import { ToastrService } from 'ngx-toastr';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
+import { ResetPasswordModel } from '../auth/models/resetPassword.model';
+import { ValidatorService } from '../auth/services/validator.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-helper',
@@ -40,7 +43,7 @@ export class HelperComponent implements OnInit {
   helperId: number;
   customerId: number;
   ticketId: number;
-  daysToCompleteJob: number;
+  daysToCompleteJob: number = 0;
 
   modalRef: BsModalRef;
 
@@ -60,6 +63,10 @@ export class HelperComponent implements OnInit {
   image4: string = "";
   image5: string = "";
   imageList: Array<string> = [];
+  feedbackString: string = null;
+  accountForm: FormGroup;
+  resetPass: any;
+  forgotPasswordModel: any;
 
   constructor(
     private hireMeService: HireMeService,
@@ -68,7 +75,9 @@ export class HelperComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
-    private cloudinary: Cloudinary
+    private cloudinary: Cloudinary,
+    public validatorService: ValidatorService,
+    private authService: AuthService
   ) {
     this.pagination = new PaginationBase();
 
@@ -101,7 +110,7 @@ export class HelperComponent implements OnInit {
       // Add Cloudinary's unsigned upload preset to the upload form
       form.append('upload_preset', this.cloudinary.config().upload_preset);
       form.append('folder', 'angular_sample');
-      if(this.public_id != ""){
+      if (this.public_id != "") {
         form.append('public_id', this.public_id);
       }
       form.append('file', fileItem);
@@ -165,6 +174,12 @@ export class HelperComponent implements OnInit {
         this.toastr.error('Error', error.message);
       }
     );
+
+    this.helperService.getFeedbackByTicketId(id).subscribe(
+      result => {
+        this.feedbackString = result.description;
+      }
+    );
   }
 
   approveTicket(id) {
@@ -194,6 +209,10 @@ export class HelperComponent implements OnInit {
   openModal(template: TemplateRef<any>, data) {
     this.getTicketById(data.id);
     this.modalRef = this.modalService.show(template);
+  }
+  closeModal() {
+    this.modalRef.hide();
+
   }
 
   //TICKET END
@@ -342,37 +361,71 @@ export class HelperComponent implements OnInit {
     this.helperModel = this.helperForm.value;
     this.helperModel.experience = +this.helperForm.value.experience;
     this.isHelperRequested = true;
-    
-    if(this.uploader.queue.length == 0){
+
+    if (this.uploader.queue.length == 0) {
       this.updateHelper();
     }
-    else{
+    else {
       this.uploader.queue[0].upload();
-  
-      this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+
+      this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
         this.isHelperRequested = false;
         console.log("Image upload failed");
       }
-  
+
       // Update model on completion of uploading a file
       this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
         this.url = JSON.parse(response).url;
+        this.toastr.success("Image uploaded successfully", "Success");
         this.updateHelper();
       }
     }
   }
 
-  updateHelper(){
+  updateHelper() {
     this.helperModel.profilePicUrl = this.url;
     this.helperService.updateHelper(this.helperModel).subscribe(
       result => {
-        console.log('result', result);
+        this.toastr.success("Helper profile successfully updated", "Success");
         this.getHelperById();
         this.isHelperRequested = false;
       },
       error => {
         this.isHelperRequested = false;
-        console.log('error', error.message);
+        this.toastr.error(error.message, "Error");
+      }
+    );
+  }
+
+  initAccountForm() {
+    this.accountForm = this.fb.group({
+      newPassword: ['', [Validators.required]],
+      newPasswordConfirm: ['', [Validators.required]]
+    }, { validator: this.validatorService.matchingPasswords('newPassword', 'newPasswordConfirm') })
+  }
+
+  get newPassword() {
+    return this.accountForm.get('newPassword');
+  }
+
+  get newPasswordConfirm() {
+    return this.accountForm.get('newPasswordConfirm');
+  }
+
+  resetPassword() {
+    debugger
+    this.resetPass = new ResetPasswordModel();
+    this.resetPass.email = this.helperModel.email;
+    this.forgotPasswordModel.email = this.helperModel.email;
+    this.resetPass.newPassword = this.newPasswordConfirm.value;
+
+    this.authService.changePasswordLoggedIn(this.resetPass).subscribe(
+      result => {
+        this.toastr.success("Password succesfully changed. Login with new password!", "Success");
+        this.logout()
+      },
+      error => {
+        this.toastr.error(error.message, "Failed");
       }
     );
   }
@@ -430,6 +483,7 @@ export class HelperComponent implements OnInit {
 
   showSettings() {
     this.initHelperForm();
+    this.initAccountForm();
     this.initSkillsForm();
     this.patchHelperForm();
     if (this.skillModel != null) {
@@ -461,12 +515,12 @@ export class HelperComponent implements OnInit {
     this.public_id = `img_${Date.now()}`;
   }
 
-  fileUpload(){
+  fileUpload() {
     this.isUploadRequested = true;
     this.uploader.uploadAll();
     var count = this.uploader.queue.length;
 
-    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>{
+    this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
       console.log("Image upload failed");
     }
 
@@ -475,13 +529,13 @@ export class HelperComponent implements OnInit {
       count--;
       console.log(JSON.parse(response));
       console.log(count);
-      if(count == 0){
+      if (count == 0) {
         this.postUpload();
       }
     }
   }
 
-  getImages(){
+  getImages() {
     this.helperService.getImages(this.helperId).subscribe(
       result => {
         console.log('Images', result);
@@ -489,18 +543,18 @@ export class HelperComponent implements OnInit {
         let self = this
         result.forEach(function (value, i) {
           self.imageList.push(value.imageUrl);
-          if(i == 0){
+          if (i == 0) {
             self.image1 = value.imageUrl.split("profile_pic/").pop();
-          }else if(i == 1){
+          } else if (i == 1) {
             self.image2 = value.imageUrl.split("profile_pic/").pop();
-          }else if(i == 2){
+          } else if (i == 2) {
             self.image3 = value.imageUrl.split("profile_pic/").pop();
-          }else if(i == 3){
+          } else if (i == 3) {
             self.image4 = value.imageUrl.split("profile_pic/").pop();
-          }else if(i == 4){
+          } else if (i == 4) {
             self.image5 = value.imageUrl.split("profile_pic/").pop();
           }
-      });
+        });
       },
       error => {
         this.toastr.error('Error', error.message);
@@ -508,7 +562,7 @@ export class HelperComponent implements OnInit {
     );
   }
 
-  postUpload(){
+  postUpload() {
     var imageListModel = {
       imageUrls: this.urlList
     }
@@ -525,7 +579,7 @@ export class HelperComponent implements OnInit {
   }
 
   onFileChanged(event, num) {
-    switch(num){
+    switch (num) {
       case 1: this.image1 = event.target.files[0].name; break;
       case 2: this.image2 = event.target.files[0].name; break;
       case 3: this.image3 = event.target.files[0].name; break;

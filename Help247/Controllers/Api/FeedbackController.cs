@@ -74,6 +74,27 @@ namespace Help247.Controllers.Api
 
         }
 
+        // GET: api/Feedback/helper
+        [Route("ticketid")]
+        [HttpGet]
+        public async Task<IActionResult> GetByTicketIdAsync([FromQuery]int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentException("Invalid helper id");
+                }
+                var result = await feedbackService.GetByTicketIdAsync(id);
+                return Ok(mapper.Map<FeedbackViewModel>(result));
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+
+        }
+
         //POST: api/Feedback
         [HttpPost]
         [Authorize(Roles = "Customer, SuperAdmin")]

@@ -18,5 +18,6 @@ namespace Help247.Service.Services.Security
         Task<UserBO> CreateAdminAsync(UserBO userBO);
         Task<PaginationModel<AdminUserBO>> GetAdminListAsync(PaginationBase paginationBase);
         Task<UserBO> DeleteAdminAsync(string userId);
+        Task ChangePasswordLoggedInAsync(ResetPassowordBO resetPassowordBO);
     }
 }

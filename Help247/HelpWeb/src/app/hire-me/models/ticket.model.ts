@@ -37,4 +37,5 @@ export class FeedbackModel {
     ticketId: number;
     createdOn: Date;
     helper: HelperModel;
+    customer: CustomerModel;
 }

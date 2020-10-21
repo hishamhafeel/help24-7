@@ -74,6 +74,14 @@ export class CustomerService extends BaseService {
       )
       .pipe(catchError(this.server4xxError));
   }
+  getLastTicket() {
+    return this.http
+      .get<TicketModel>(
+        `${this.baseEndPoint}/api/Ticket/lastticket`,
+        this.httpOptions
+      )
+      .pipe(catchError(this.server4xxError));
+  }
   deleteFeedback(feedbackId: number) {
     return this.http
       .delete(

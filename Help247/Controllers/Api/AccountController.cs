@@ -160,6 +160,21 @@ namespace Help247.Controllers.Api
             }
         }
 
+        [Route("forgotpasswordloggedin")]
+        [HttpPost]
+        public async Task<IActionResult> ChangePasswordLoggedIn([FromBody]ResetPasswordViewModel resetPasswordViewModel)
+        {
+            try
+            {
+                await securityService.ChangePasswordLoggedInAsync(mapper.Map<ResetPassowordBO>(resetPasswordViewModel));
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex);
+            }
+        }
+
         [Route("resetpassword")]
         [HttpPost]
         [AllowAnonymous]

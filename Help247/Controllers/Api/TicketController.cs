@@ -99,6 +99,22 @@ namespace Help247.Controllers.Api
             }
         }
 
+        [Route("lastticket")]
+        [HttpGet]
+        public async Task<IActionResult> GetLastTicketDetailsAsync()
+        {
+            try
+            {
+                var result = await ticketService.GetLastTicketDetailsAsync();
+                return Ok(mapper.Map<TicketViewModel>(result));
+            }
+            catch (Exception ex)
+            {
+
+                return HandleException(ex);
+            }
+        }
+
         // POST: api/ticker/assign
         [Route("assign")]
         [HttpPost]

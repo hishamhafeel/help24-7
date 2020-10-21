@@ -10,11 +10,14 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { HttpClientModule } from '@angular/common/http';
+import { ValidatorService } from '../auth/services/validator.service';
 
 @NgModule({
   declarations: [CustomerComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     CustomerRoutingModule,
     ModalModule.forRoot(),
     FormsModule,
@@ -25,5 +28,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
   ],
+  providers: [ValidatorService,]
 })
-export class CustomerModule {}
+export class CustomerModule { }
