@@ -50,7 +50,8 @@
             <div class="col-lg-12">
                 <div class="section-title">
                     <h3>Services We Provide</h3>
-                    <p>We will provide numerous number of professional throughout unlimited sectors. Find out services and choose your helper here.
+                    <p>We will provide numerous number of professional throughout unlimited sectors. Find out services
+                        and choose your helper here.
                     </p>
                 </div>
             </div>
@@ -143,7 +144,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <a class="play-1" href="https://www.youtube.com/watch?v=vpO8sZDxOGI">
+                    <a class="play-1" data-toggle="modal" data-target="#videoModal" type="button">
                         <div class="introimg">
                             <img src="assets/images/hmvideoimg.jpg" class="img-fluid">
                         </div>
@@ -160,12 +161,29 @@
                             <p>Through this, our customer is able to navigate and get helps for themselves. My Team will
                                 cooperate with numerous sector to make sure customer satisfaction. </p>
                         </div>
-                        <a href="" class="readmore">Read More</a>
+                        <a href="javascript:void(0)" class="readmore" [routerLink]="['/about-us']">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   <iframe src="https://www.youtube.com/embed/vpO8sZDxOGI" width='852' height='480' allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="hmtiotech">
         <div class="container">
             <div class="row">
@@ -185,7 +203,9 @@
                                                 <div class="tech-points">
                                                     <span class="tech-field">
                                                         <i class="sprite sprite-field-icon"></i>
-                                                        <h6><a href="">{{data.helperCategory.name}}</a></h6>
+                                                        <h6><a
+                                                                [routerLink]="['/services/sub-service', data.helperCategory.id]">{{data.helperCategory.name}}</a>
+                                                        </h6>
                                                     </span>
                                                     <span class="tech-field">
                                                         <i class="sprite sprite-city-icon"></i>
@@ -229,7 +249,8 @@
                         <img src="assets/images/whychoose-icon1.png" class="img-fluid">
                         <div class="wc-box-content">
                             <h6>Trust and Safety</h6>
-                            <p>As per our polices and term and conditions, our protocols engaged make sure your safety and trust.
+                            <p>As per our polices and term and conditions, our protocols engaged make sure your safety
+                                and trust.
                             </p>
                         </div>
                     </div>
@@ -239,7 +260,8 @@
                         <img src="assets/images/whychoose-icon2.png" class="img-fluid">
                         <div class="wc-box-content">
                             <h6>24/7 Support</h6>
-                            <p>Our Team dedicated you to provide our services any situation and any time period .We looking for help through 24/7 customer support team.
+                            <p>Our Team dedicated you to provide our services any situation and any time period .We
+                                looking for help through 24/7 customer support team.
                             </p>
                         </div>
                     </div>
@@ -249,7 +271,8 @@
                         <img src="assets/images/whychoose-icon3.png" class="img-fluid">
                         <div class="wc-box-content">
                             <h6>Customer Satisfaction</h6>
-                            <p>Customer is our asset, our procedure depend on you. We will measure to keep our services favour of our customers.
+                            <p>Customer is our asset, our procedure depend on you. We will measure to keep our services
+                                favour of our customers.
                             </p>
                         </div>
                     </div>

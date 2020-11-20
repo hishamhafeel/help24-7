@@ -34,6 +34,9 @@ export class RegisterComponent implements OnInit {
 
   isHelperRequested: boolean = false;
   isCustomerRequested: boolean = false;
+  helperPhoneNum: string = "+94";
+  customerPhoneNum: string  = "+94";
+  helperPhoneNum2: string  = "+94";
 
   constructor(private toastr: ToastrService, private cloudinary: Cloudinary, private helperService: HelperService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private authService: AuthService) {
     this.pagination = new PaginationBase();
@@ -48,7 +51,8 @@ export class RegisterComponent implements OnInit {
           name: 'X-Requested-With',
           value: 'XMLHttpRequest'
         }
-      ]
+      ],
+      allowedMimeType: ['image/jpeg', 'image/png', 'image/bmp']
     };
     this.uploader = new FileUploader(uploaderOptions);
   }
@@ -88,7 +92,7 @@ export class RegisterComponent implements OnInit {
   initCustomerForm() {
     this.customerForm = this.fb.group({
       name: [null, [Validators.required]],
-      phoneNo: [null, [Validators.required]],
+      phoneNo: [null, [Validators.required, Validators.pattern("^[0-9]*$")]],
       email: [null, [Validators.required]],
       addressLine: [null, [Validators.required]],
       country: [null, [Validators.required]],
@@ -112,8 +116,8 @@ export class RegisterComponent implements OnInit {
     this.helperForm = this.fb.group({
       firstName: [null, [Validators.required]],
       lastName: [null, [Validators.required]],
-      phoneNo: [null, [Validators.required]],
-      mobileNo: [null, [Validators.required]],
+      phoneNo: [null, [Validators.required, Validators.pattern("^[0-9]*$")]],
+      mobileNo: [null, [Validators.required, Validators.pattern("^[0-9]*$")]],
       email: [null, [Validators.required]],
       addressLine: [null, [Validators.required]],
       country: [null, [Validators.required]],
@@ -148,8 +152,14 @@ export class RegisterComponent implements OnInit {
     this.customerModel.userName = this.registerModel.userName;
     this.customerModel.password = this.registerModel.password;
     this.customerModel.userType = this.userType;
+    this.customerModel.phoneNo = this.customerPhoneNum + this.customerForm.controls.phoneNo.value;
     this.isCustomerRequested = true;
 
+    if(this.uploader.queue.length <= 0){
+      this.toastr.error("Error", "Invalid Profile Picture. Please use image types.");
+      this.isCustomerRequested = false;
+      return;
+    }
     this.uploader.queue[0].upload();
 
     this.uploader.onErrorItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
@@ -193,8 +203,16 @@ export class RegisterComponent implements OnInit {
     this.helperModel.password = this.registerModel.password;
     this.helperModel.userType = this.userType;
     this.helperModel.experience = +this.helperForm.value.experience;
+    this.helperModel.mobileNo = this.helperPhoneNum + this.helperForm.controls.mobileNo.value;
+    this.helperModel.phoneNo = this.helperPhoneNum2 + this.helperForm.controls.phoneNo.value;
 
     this.isHelperRequested = true;
+
+    if(this.uploader.queue.length <= 0){
+      this.toastr.error("Error", "Invalid Profile Picture. Please use image types.");
+      this.isHelperRequested = false;
+      return;
+    }
 
     this.uploader.queue[0].upload();
 
@@ -231,5 +249,30 @@ export class RegisterComponent implements OnInit {
 
   fileChangeEvent() {
     this.public_id = `img_${Date.now()}`;
+  }
+
+
+  hasError($event) {
+  }
+  getNumber($event) {
+  }
+  telInputObject(obj) {
+    obj.setCountry('lk');
+  }
+  onCountryChange($event) {
+    if ($event.dialCode) {
+      this.helperPhoneNum = "+" + $event.dialCode;
+    }
+  }
+  onCountryChange2($event) {
+    if ($event.dialCode) {
+      this.helperPhoneNum2 = "+" + $event.dialCode;
+    }
+  }
+
+  onCountryChangeCus($event) {
+    if ($event.dialCode) {
+      this.customerPhoneNum = "+" + $event.dialCode;
+    }
   }
 }

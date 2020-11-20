@@ -91,7 +91,8 @@ export class HelperComponent implements OnInit {
           name: 'X-Requested-With',
           value: 'XMLHttpRequest'
         }
-      ]
+      ],
+      allowedMimeType: ['image/jpeg', 'image/png', 'image/bmp']
     };
     this.uploader = new FileUploader(uploaderOptions);
   }
@@ -363,6 +364,7 @@ export class HelperComponent implements OnInit {
     this.isHelperRequested = true;
 
     if (this.uploader.queue.length == 0) {
+      this.toastr.error("Error", "Invalid Profile Picture. Please upload image type.")
       this.updateHelper();
     }
     else {

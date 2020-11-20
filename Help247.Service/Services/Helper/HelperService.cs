@@ -68,7 +68,7 @@ namespace Help247.Service.Services.Helper
 
                 var totalNumberOfRecord = await query.AsNoTracking().CountAsync();
 
-                query = query.OrderByDescending(x => x.Id).Skip(helperSearchBO.Skip).Take(helperSearchBO.Take);
+                query = query.OrderByDescending(x => x.Id)/*.Skip(helperSearchBO.Skip).Take(helperSearchBO.Take)*/;
                 var result = await query.AsNoTracking().ToListAsync();
                 var resultSet = new PaginationModel<HelperBO>()
                 {
@@ -122,10 +122,10 @@ namespace Help247.Service.Services.Helper
                     imageQuery.ImageUrl = helperBO.ProfilePicUrl;
                     await appDbContext.SaveChangesAsync();
 
-                    helperBO.ImageId = imageQuery.Id;
-                    helperBO.UserId = userId;
-                    helperBO.EditedOn = DateTime.UtcNow;
-                    appDbContext.Helpers.Update(mapper.Map<Help247.Data.Entities.Helper>(helperBO));
+                    query = mapper.Map<Help247.Data.Entities.Helper>(helperBO);
+                    query.ImageId = imageQuery.Id;
+                    query.UserId = userId;
+                    query.EditedOn = DateTime.UtcNow;
                     await appDbContext.SaveChangesAsync();
 
                     transaction.Commit();

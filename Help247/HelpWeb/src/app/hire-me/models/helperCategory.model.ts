@@ -11,6 +11,7 @@ export class HelperPagination extends PaginationBase {
     constructor() {
         super();
         this.helperCategoryId = 0;
+        this.take = 12;
     }
 
 }

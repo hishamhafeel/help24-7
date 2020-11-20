@@ -27,9 +27,20 @@
                         <div class="form-group">
                             <input type="password" class="form-control passbx" id="" placeholder="Password"
                                 formControlName="password"
-                                [ngClass]="{ 'is-invalid': f.password.errors && f.password.dirty }">
+                                [ngClass]="{ 'is-invalid': (f.password.errors && f.password.dirty)}">
                             <div *ngIf="f.password.errors" class="invalid-feedback text-danger">
                                 <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control passbx" id="" placeholder="Re-enter Passwoord"
+                                formControlName="password2"
+                                [ngClass]="{ 'is-invalid': (f.password2.errors && f.password2.dirty ) || signupForm.hasError('mismatchedPasswords')}">
+                            <div *ngIf="f.password2.errors" class="invalid-feedback text-danger">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                            <div *ngIf="signupForm.hasError('mismatchedPasswords')" class="invalid-feedback text-danger">
+                                Passwords do not match
                             </div>
                         </div>
                         <div class="form-group">

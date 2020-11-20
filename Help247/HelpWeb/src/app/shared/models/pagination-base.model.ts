@@ -8,5 +8,5 @@ export class PaginationBase {
         this.take = 10;
         this.searchQuery = '';
         this.orderBy = '';
-    }
+    } 
 }  

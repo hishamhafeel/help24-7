@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ValidatorService } from './services/validator.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FileUploadModule } from "ng2-file-upload";
+import { Ng2TelInputModule } from 'ng2-tel-input';
 
 @NgModule({
   declarations: [LoginComponent, SignupComponent, RegisterComponent],
@@ -17,6 +18,7 @@ import { FileUploadModule } from "ng2-file-upload";
     ReactiveFormsModule,
     FormsModule,
     FileUploadModule,
+    Ng2TelInputModule
 
   ],
   providers: [

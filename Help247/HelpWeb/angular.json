@@ -36,7 +36,8 @@
               "src/assets/css/custom-styles.css",
               "src/styles.scss",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "./node_modules/ngx-toastr/toastr.css"
+              "./node_modules/ngx-toastr/toastr.css",
+              "./node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -45,6 +46,7 @@
               "src/assets/js/jquery.yu2fvl.min.js",
               "src/assets/js/jquery.easy_number_animate.min.js",
               "src/assets/js/jquery.simpleLoadMore.min.js",
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js",
               "src/assets/js/custom.js"
             ]
           },

@@ -145,6 +145,7 @@ export class CustomerComponent implements OnInit {
           value: 'XMLHttpRequest',
         },
       ],
+      allowedMimeType: ['image/jpeg', 'image/png', 'image/bmp']
     };
     this.uploader = new FileUploader(uploaderOptions);
   }
@@ -349,7 +350,7 @@ export class CustomerComponent implements OnInit {
       city: [null, [Validators.required]],
       address: [null, [Validators.required]],
       contactNo1: [null, [Validators.required]],
-      contactNo2: [null, [Validators.required]],
+      contactNo2: [null],
       // helpDateFrom: [new Date(), [Validators.required]],
       // helpDateTo: [new Date(), [Validators.required]],
       otherRequirements: [null, [Validators.required]],
@@ -478,7 +479,9 @@ export class CustomerComponent implements OnInit {
     this.isCustomerRequested = true;
 
     if (this.uploader.queue.length == 0) {
-      this.updateCustomer();
+      this.toastr.error("Error", "Invalid Profile Picture. Please upload image type.")
+      this.updateCustomer();  
+
     }
     else {
       this.uploader.queue[0].upload();

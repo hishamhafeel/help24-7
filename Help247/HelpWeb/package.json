@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --servePath / --baseHref /app/",
-    "build": "ng build --baseHref /app/ ",
+    "start": "ng serve --servePath / --baseHref /home/",
+    "build": "ng build --baseHref /home/ ",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,9 +25,11 @@
     "bootstrap": "^4.5.0",
     "cloudinary-core": "^2.8.2",
     "country-state-city": "^1.0.4",
+    "intl-tel-input": "^17.0.8",
     "jquery": "^3.5.1",
     "jwt-decode": "^2.2.0",
     "ng2-file-upload": "^1.4.0",
+    "ng2-tel-input": "^2.3.0",
     "ngx-bootstrap": "^5.5.0",
     "ngx-owl-carousel-o": "^2.1.1",
     "ngx-pagination": "^5.0.0",

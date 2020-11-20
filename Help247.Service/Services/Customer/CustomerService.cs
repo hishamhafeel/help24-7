@@ -74,12 +74,12 @@ namespace Help247.Service.Services.Customer
         }
 
         public async Task<CustomerBO> PutAsync(CustomerBO customerBO, string userId)
-        {
+       {
             using (var transaction = await appDbContext.Database.BeginTransactionAsync())
             {
                 try
                 {
-                    var query = await appDbContext.Customers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == customerBO.Id);
+                    var query = await appDbContext.Customers.FirstOrDefaultAsync(x => x.Id == customerBO.Id);
                     var imageQuery = await appDbContext.Images.FirstOrDefaultAsync(x => x.Email == customerBO.Email && x.ImageType == ImageType.ProfilePicture);
 
                     if (query == null)
@@ -90,10 +90,10 @@ namespace Help247.Service.Services.Customer
                     imageQuery.ImageUrl = customerBO.ProfilePicUrl;
                     await appDbContext.SaveChangesAsync();
 
-                    customerBO.ImageId = imageQuery.Id;
-                    customerBO.UserId = userId;
-                    customerBO.EditedOn = DateTime.UtcNow;
-                    appDbContext.Customers.Update(mapper.Map<Help247.Data.Entities.Customer>(customerBO));
+                    query = mapper.Map<Help247.Data.Entities.Customer>(customerBO);
+                    query.ImageId = imageQuery.Id;
+                    query.UserId = userId;
+                    query.EditedOn = DateTime.UtcNow;
                     await appDbContext.SaveChangesAsync();
                     transaction.Commit();
                     return customerBO;

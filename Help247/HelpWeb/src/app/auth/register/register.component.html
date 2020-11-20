@@ -28,8 +28,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Full name"
                                                                                 formControlName="name"
-                                                                                [ngClass]="{ 'is-invalid': c.name.errors && isFormSubmitted }">
-                                                                            <div *ngIf="c.name.errors"
+                                                                                [ngClass]="{ 'is-invalid': c.name.errors && isFormSubmitted  || c.name.errors && c.name.dirty }">
+                                                                            <div *ngIf="c.name.errors && c.name.dirty || c.name.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="c.name.errors.required">
                                                                                     Name is required</div>
@@ -38,15 +38,23 @@
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
-                                                                            <label>Phone</label>
+                                                                            <label class="phone-num">Phone</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94"
+                                                                                maxlength="10" placeholder="+94"
                                                                                 formControlName="phoneNo"
-                                                                                [ngClass]="{ 'is-invalid': c.phoneNo.errors && isFormSubmitted }">
-                                                                            <div *ngIf="c.phoneNo.errors"
+                                                                                [ngClass]="{ 'is-invalid': c.phoneNo.errors && isFormSubmitted || c.phoneNo.errors && c.phoneNo.dirty }"
+                                                                                ng2TelInput
+                                                                                [ng2TelInputOptions]="{initialCountry: 'in'}"
+                                                                                (hasError)="hasError($event)"
+                                                                                (ng2TelOutput)="getNumber($event)"
+                                                                                (intlTelInputObject)="telInputObject($event)"
+                                                                                (countryChange)="onCountryChangeCus($event)">
+                                                                            <div *ngIf="c.phoneNo.errors && c.phoneNo.dirty || c.phoneNo.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="c.phoneNo.errors.required">
                                                                                     Phone is required</div>
+                                                                                <div *ngIf="c.phoneNo.errors.pattern">
+                                                                                    Numbers only allowed</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -58,8 +66,8 @@
                                                                             <input type="email" class="form-control"
                                                                                 placeholder="Your Email"
                                                                                 formControlName="email"
-                                                                                [ngClass]="{ 'is-invalid': c.email.errors && isFormSubmitted }">
-                                                                            <div *ngIf="c.email.errors"
+                                                                                [ngClass]="{ 'is-invalid': c.email.errors && isFormSubmitted || c.email.errors && c.email.dirty }">
+                                                                            <div *ngIf="c.email.errors && c.email.dirty || c.email.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="c.email.errors.required">
                                                                                     Email is required</div>
@@ -72,8 +80,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Address"
                                                                                 formControlName="addressLine"
-                                                                                [ngClass]="{ 'is-invalid': c.addressLine.errors && isFormSubmitted }">
-                                                                            <div *ngIf="c.addressLine.errors"
+                                                                                [ngClass]="{ 'is-invalid': c.addressLine.errors && isFormSubmitted || c.addressLine.errors && c.addressLine.dirty }">
+                                                                            <div *ngIf="c.addressLine.errors && c.addressLine.dirty || c.addressLine.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div
                                                                                     *ngIf="c.addressLine.errors.required">
@@ -89,8 +97,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Country"
                                                                                 formControlName="country"
-                                                                                [ngClass]="{ 'is-invalid': c.country.errors && isFormSubmitted }">
-                                                                            <div *ngIf="c.country.errors"
+                                                                                [ngClass]="{ 'is-invalid': c.country.errors && isFormSubmitted || c.country.errors && c.country.dirty }">
+                                                                            <div *ngIf="c.country.errors && c.country.dirty || c.country.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="c.country.errors.required">
                                                                                     Country is required</div>
@@ -103,8 +111,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="State"
                                                                                 formControlName="state"
-                                                                                [ngClass]="{ 'is-invalid': c.state.errors && isFormSubmitted }">
-                                                                            <div *ngIf="c.state.errors"
+                                                                                [ngClass]="{ 'is-invalid': c.state.errors && isFormSubmitted || c.state.errors && c.state.dirty }">
+                                                                            <div *ngIf="c.state.errors && c.state.dirty || c.state.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="c.state.errors.required">
                                                                                     State is required</div>
@@ -119,8 +127,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="City"
                                                                                 formControlName="city"
-                                                                                [ngClass]="{ 'is-invalid': c.city.errors && isFormSubmitted }">
-                                                                            <div *ngIf="c.city.errors"
+                                                                                [ngClass]="{ 'is-invalid': c.city.errors && isFormSubmitted || c.city.errors && c.city.dirty}">
+                                                                            <div *ngIf="c.city.errors && c.city.dirty || c.city.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="c.city.errors.required">
                                                                                     City is required</div>
@@ -134,8 +142,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Postal Code"
                                                                                 formControlName="postalCode"
-                                                                                [ngClass]="{ 'is-invalid': c.postalCode.errors && isFormSubmitted }">
-                                                                            <div *ngIf="c.postalCode.errors"
+                                                                                [ngClass]="{ 'is-invalid': c.postalCode.errors && isFormSubmitted || c.postalCode.errors && c.postalCode.dirty }">
+                                                                            <div *ngIf="c.postalCode.errors && c.postalCode.dirty || c.postalCode.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div
                                                                                     *ngIf="c.postalCode.errors.required">
@@ -153,11 +161,11 @@
                                                                                     type="file" ng2FileSelect
                                                                                     [uploader]="uploader"
                                                                                     (change)="fileChangeEvent()"
-                                                                                    [ngClass]="{ 'is-invalid': c.profilePicUrl.errors && isFormSubmitted }"
+                                                                                    [ngClass]="{ 'is-invalid': c.profilePicUrl.errors && isFormSubmitted || c.profilePicUrl.errors && c.profilePicUrl.dirty }"
                                                                                     formControlName="profilePicUrl" />
                                                                                 <span
                                                                                     class="file-custom">{{public_id}}</span>
-                                                                                <div *ngIf="c.profilePicUrl.errors"
+                                                                                <div *ngIf="c.profilePicUrl.errors && c.profilePicUrl.dirty || c.profilePicUrl.errors && isFormSubmitted"
                                                                                     class="invalid-feedback"
                                                                                     style="margin-top: 16px;">
                                                                                     <div
@@ -209,8 +217,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Full name"
                                                                                 formControlName="firstName"
-                                                                                [ngClass]="{ 'is-invalid': h.firstName.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.firstName.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.firstName.errors && isFormSubmitted || h.firstName.errors && h.firstName.dirty }">
+                                                                            <div *ngIf="h.firstName.errors && h.firstName.dirty || h.firstName.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div
                                                                                     *ngIf="h.firstName.errors.required">
@@ -224,8 +232,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Last Name"
                                                                                 formControlName="lastName"
-                                                                                [ngClass]="{ 'is-invalid': h.lastName.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.lastName.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.lastName.errors && isFormSubmitted || h.lastName.errors && h.lastName.dirty }">
+                                                                            <div *ngIf="h.lastName.errors && h.lastName.dirty || h.lastName.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="h.lastName.errors.required">
                                                                                     Last Name is required</div>
@@ -236,29 +244,43 @@
                                                                 <div class="form-row">
                                                                     <div class="col cgap">
                                                                         <div class="form-group">
-                                                                            <label>Phone</label>
+                                                                            <label class="phone-num">Phone</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94"
-                                                                                formControlName="phoneNo"
-                                                                                [ngClass]="{ 'is-invalid': h.phoneNo.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.phoneNo.errors"
+                                                                                maxlength="10" formControlName="phoneNo"
+                                                                                ng2TelInput
+                                                                                [ng2TelInputOptions]="{initialCountry: 'lk'}"
+                                                                                (hasError)="hasError($event)"
+                                                                                (ng2TelOutput)="getNumber($event)"
+                                                                                (intlTelInputObject)="telInputObject($event)"
+                                                                                (countryChange)="onCountryChange2($event)"
+                                                                                [ngClass]="{ 'is-invalid': h.phoneNo.errors && isFormSubmitted || h.phoneNo.errors && h.phoneNo.dirty }">
+                                                                            <div *ngIf="h.phoneNo.errors && h.phoneNo.dirty || h.phoneNo.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="h.phoneNo.errors.required">
                                                                                     Phone is required</div>
+                                                                                <div *ngIf="h.phoneNo.errors.pattern">
+                                                                                    Numbers only allowed</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
-                                                                            <label>Mobile</label>
+                                                                            <label class="phone-num">Mobile</label>
                                                                             <input type="text" class="form-control"
-                                                                                placeholder="+94"
-                                                                                formControlName="mobileNo"
-                                                                                [ngClass]="{ 'is-invalid': h.mobileNo.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.mobileNo.errors"
+                                                                                maxlength="10"
+                                                                                formControlName="mobileNo" ng2TelInput
+                                                                                [ng2TelInputOptions]="{initialCountry: 'lk'}"
+                                                                                (hasError)="hasError($event)"
+                                                                                (ng2TelOutput)="getNumber($event)"
+                                                                                (intlTelInputObject)="telInputObject($event)"
+                                                                                (countryChange)="onCountryChange($event)"
+                                                                                [ngClass]="{ 'is-invalid': h.mobileNo.errors && isFormSubmitted || h.mobileNo.errors && h.mobileNo.dirty}">
+                                                                            <div *ngIf="h.mobileNo.errors && h.mobileNo.dirty || h.mobileNo.errors && isFormSubmitted" 
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="h.mobileNo.errors.required">
                                                                                     Mobile is required</div>
+                                                                                <div *ngIf="h.mobileNo.errors.pattern">
+                                                                                    Numbers only allowed</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -270,8 +292,8 @@
                                                                             <input type="email" class="form-control"
                                                                                 placeholder="Your Email"
                                                                                 formControlName="email"
-                                                                                [ngClass]="{ 'is-invalid': h.email.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.email.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.email.errors && isFormSubmitted || h.email.errors && h.email.dirty }">
+                                                                            <div *ngIf="h.email.errors && h.email.dirty || h.email.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="h.email.errors.required">
                                                                                     Email is required</div>
@@ -284,8 +306,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Address"
                                                                                 formControlName="addressLine"
-                                                                                [ngClass]="{ 'is-invalid': h.addressLine.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.addressLine.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.addressLine.errors && isFormSubmitted || h.addressLine.errors && h.addressLine.dirty}">
+                                                                            <div *ngIf="h.addressLine.errors && h.addressLine.dirty || h.addressLine.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div
                                                                                     *ngIf="h.addressLine.errors.required">
@@ -301,8 +323,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Country"
                                                                                 formControlName="country"
-                                                                                [ngClass]="{ 'is-invalid': h.country.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.country.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.country.errors && isFormSubmitted || h.country.errors && h.country.dirty}">
+                                                                            <div *ngIf="h.country.errors && h.country.dirty || h.country.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="h.country.errors.required">
                                                                                     Country is required</div>
@@ -315,8 +337,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="State"
                                                                                 formControlName="state"
-                                                                                [ngClass]="{ 'is-invalid': h.state.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.state.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.state.errors && isFormSubmitted || h.state.errors && h.state.dirty}">
+                                                                            <div *ngIf="h.state.errors && h.state.dirty || h.state.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="h.state.errors.required">
                                                                                     State is required</div>
@@ -331,8 +353,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="City"
                                                                                 formControlName="city"
-                                                                                [ngClass]="{ 'is-invalid': h.city.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.city.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.city.errors && isFormSubmitted || h.city.errors && h.city.dirty}">
+                                                                            <div *ngIf="h.city.errors && h.city.dirty || h.city.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="h.city.errors.required">City
                                                                                     is required</div>
@@ -345,8 +367,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Postal Code"
                                                                                 formControlName="postalCode"
-                                                                                [ngClass]="{ 'is-invalid': h.postalCode.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.postalCode.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.postalCode.errors && isFormSubmitted || h.postalCode.errors && h.postalCode.dirty}">
+                                                                            <div *ngIf="h.postalCode.errors && h.postalCode.dirty || h.postalCode.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div
                                                                                     *ngIf="h.postalCode.errors.required">
@@ -367,9 +389,9 @@
                                                                                         type="radio" [value]="model.id"
                                                                                         id=""
                                                                                         formControlName="helperCategoryId"
-                                                                                        [ngClass]="{ 'is-invalid': h.helperCategoryId.errors && isFormSubmitted }">
+                                                                                        [ngClass]="{ 'is-invalid': h.helperCategoryId.errors && isFormSubmitted || h.helperCategoryId.errors && h.helperCategoryId.dirty}">
                                                                                     {{model.name}}
-                                                                                    <div *ngIf="h.helperCategoryId.errors"
+                                                                                    <div *ngIf="h.helperCategoryId.errors && h.helperCategoryId.dirty || h.helperCategoryId.errors && isFormSubmitted"
                                                                                         class="invalid-feedback">
                                                                                         <div
                                                                                             *ngIf="h.helperCategoryId.errors.required">
@@ -389,8 +411,8 @@
                                                                             <input type="text" class="form-control"
                                                                                 placeholder="Years of Experience"
                                                                                 formControlName="experience"
-                                                                                [ngClass]="{ 'is-invalid': h.experience.errors && isFormSubmitted }">
-                                                                            <div *ngIf="h.experience.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.experience.errors && isFormSubmitted || h.experience.errors && h.experience.dirty}">
+                                                                            <div *ngIf="h.experience.errors && h.experience.dirty || h.experience.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div
                                                                                     *ngIf="h.experience.errors.required">
@@ -409,11 +431,11 @@
                                                                                     type="file" ng2FileSelect
                                                                                     [uploader]="uploader"
                                                                                     (change)="fileChangeEvent()"
-                                                                                    [ngClass]="{ 'is-invalid': h.profilePicUrl.errors && isFormSubmitted }"
+                                                                                    [ngClass]="{ 'is-invalid': h.profilePicUrl.errors && isFormSubmitted || h.profilePicUrl.errors && h.profilePicUrl.dirty}"
                                                                                     formControlName="profilePicUrl" />
                                                                                 <span
                                                                                     class="file-custom">{{public_id}}</span>
-                                                                                <div *ngIf="h.profilePicUrl.errors"
+                                                                                <div *ngIf="h.profilePicUrl.errors && h.profilePicUrl.dirty || h.profilePicUrl.errors && isFormSubmitted"
                                                                                     class="invalid-feedback"
                                                                                     style="margin-top: 16px;">
                                                                                     <div
@@ -440,8 +462,8 @@
                                                                             <textarea class="form-control set-text"
                                                                                 placeholder="Description About your self"
                                                                                 formControlName="aboutMe"
-                                                                                [ngClass]="{ 'is-invalid': h.aboutMe.errors && isFormSubmitted }"></textarea>
-                                                                            <div *ngIf="h.aboutMe.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.aboutMe.errors && isFormSubmitted || h.aboutMe.errors && h.aboutMe.dirty}"></textarea>
+                                                                            <div *ngIf="h.aboutMe.errors && h.aboutMe.dirty || h.aboutMe.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div *ngIf="h.aboutMe.errors.required">
                                                                                     About your self is required</div>
@@ -456,8 +478,8 @@
                                                                             <textarea class="form-control set-text"
                                                                                 placeholder="Description about the service provided"
                                                                                 formControlName="myService"
-                                                                                [ngClass]="{ 'is-invalid': h.myService.errors && isFormSubmitted }"></textarea>
-                                                                            <div *ngIf="h.myService.errors"
+                                                                                [ngClass]="{ 'is-invalid': h.myService.errors && isFormSubmitted || h.myService.errors && h.myService.dirty}"></textarea>
+                                                                            <div *ngIf="h.myService.errors && h.myService.dirty || h.myService.errors && isFormSubmitted"
                                                                                 class="invalid-feedback">
                                                                                 <div
                                                                                     *ngIf="h.myService.errors.required">

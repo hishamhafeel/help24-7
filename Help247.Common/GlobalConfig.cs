@@ -8,7 +8,7 @@ namespace Help247.Common
     {
         //Production
         public static string APIBaseUrl = "http://247helps.com";
-        public static string PresentationBaseUrl = "http://www.247helps.com/app/auth/login";
+        public static string PresentationBaseUrl = "http://www.247helps.com/auth/login";
 
         //Development
         //public static string APIBaseUrl = "https://localhost:44936";

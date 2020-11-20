@@ -40,8 +40,9 @@ export class SignupComponent implements OnInit {
         }
       ],
       password: ['', [Validators.required]],
+      password2: ['', [Validators.required]],
       userType: [2, [Validators.required]]
-    });
+    }, { validator: this.validatorService.matchingPasswords('password', 'password2') });
   }
 
   onSubmit() {

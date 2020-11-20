@@ -11,6 +11,7 @@ import { TokenInterceptor } from './auth/token-inteceptor';
 import { Cloudinary } from 'cloudinary-core/cloudinary-core-shrinkwrap';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { ToastrModule } from 'ngx-toastr';
+import {Ng2TelInputModule} from 'ng2-tel-input';
 
 const cloudConfig = {
   cloud_name: 'help247',
@@ -40,7 +41,8 @@ const cloudinaryLib = {
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
-    })
+    }),
+    Ng2TelInputModule
   ],
   providers: [
     {

@@ -79,7 +79,7 @@ namespace Help247.Service.Services.Ticket
                 try
                 {
                     var dateOfEdit = DateTime.UtcNow;
-                    var query = await appDbContext.Tickets.AsNoTracking().FirstOrDefaultAsync(x => x.Id == ticketId);
+                    var query = await appDbContext.Tickets.FirstOrDefaultAsync(x => x.Id == ticketId);
                     switch (query.TicketStatusId)
                     {
                         case (int)Enums.TicketStatus.None:
@@ -94,47 +94,49 @@ namespace Help247.Service.Services.Ticket
                             throw new ArgumentException("Help has been cancelled");
                     }
                    
-                    var ticket = new Help247.Data.Entities.Ticket
-                    {
-                        Id = query.Id,
-                        CreatedById = query.CreatedById,
-                        CreatedOn = query.CreatedOn,
-                        CustomerId = query.CustomerId,
-                        HelperId = query.HelperId,
-                        TicketStatusId = 2,
-                        EditedById =userId,
-                        EditedOn = dateOfEdit,
-                        RecordState = query.RecordState,
-                        City = query.City,
-                        State= query.State,
-                        Address= query.Address,
-                        ContactNo1 = query.ContactNo1,
-                        ContactNo2 = query.ContactNo2,
-                        Title = query.Title,
-                        Country = query.Country,
-                        HelpTime = query.HelpTime,
-                        OtherRequirements = query.OtherRequirements,
-                        HasFeedback = query.HasFeedback
-                    };
-                    appDbContext.Tickets.Update(ticket);
+                    //var ticket = new Help247.Data.Entities.Ticket
+                    //{
+                    //    Id = query.Id,
+                    //    CreatedById = query.CreatedById,
+                    //    CreatedOn = query.CreatedOn,
+                    //    CustomerId = query.CustomerId,
+                    //    HelperId = query.HelperId,
+                    //    TicketStatusId = 2,
+                    //    EditedById =userId,
+                    //    EditedOn = dateOfEdit,
+                    //    RecordState = query.RecordState,
+                    //    City = query.City,
+                    //    State= query.State,
+                    //    Address= query.Address,
+                    //    ContactNo1 = query.ContactNo1,
+                    //    ContactNo2 = query.ContactNo2,
+                    //    Title = query.Title,
+                    //    Country = query.Country,
+                    //    HelpTime = query.HelpTime,
+                    //    OtherRequirements = query.OtherRequirements,
+                    //    HasFeedback = query.HasFeedback
+                    //};
+
+                    //appDbContext.Tickets.Update(ticket);
+                    query.TicketStatusId = 2;
                     await appDbContext.SaveChangesAsync();
 
                     var ticketHistory = new TicketHistory()
                     {
-                        HelperId = ticket.HelperId,
-                        CustomerId = ticket.CustomerId,
-                        TicketId = ticket.Id,
-                        CurrentTicketStatusId = ticket.TicketStatusId,
-                        CreatedById = ticket.CreatedById,
-                        CreatedOn = ticket.CreatedOn,
-                        EditedById = ticket.EditedById,
-                        EditedOn = ticket.EditedOn
+                        HelperId = query.HelperId,
+                        CustomerId = query.CustomerId,
+                        TicketId = query.Id,
+                        CurrentTicketStatusId = query.TicketStatusId,
+                        CreatedById = query.CreatedById,
+                        CreatedOn = query.CreatedOn,
+                        EditedById = query.EditedById,
+                        EditedOn = query.EditedOn
                     };
                     await appDbContext.TicketHistories.AddAsync(ticketHistory);
                     await appDbContext.SaveChangesAsync();
 
                     transaction.Commit();
-                    return mapper.Map<TicketBO>(ticket);
+                    return mapper.Map<TicketBO>(query);
                 }
                 catch (Exception ex)
                 {
@@ -151,7 +153,7 @@ namespace Help247.Service.Services.Ticket
                 try
                 {
                     var dateOfEdit = DateTime.UtcNow;
-                    var query = await appDbContext.Tickets.AsNoTracking().FirstOrDefaultAsync(x => x.Id == ticketId);
+                    var query = await appDbContext.Tickets.FirstOrDefaultAsync(x => x.Id == ticketId);
                     if (query == null)
                     {
                         throw new ArgumentException("Ticket not found in database");
@@ -165,48 +167,49 @@ namespace Help247.Service.Services.Ticket
                         throw new ArgumentException("Ticket already terminated");
 
                     }
-                    var ticket = new Help247.Data.Entities.Ticket
-                    {
-                        Id = query.Id,
-                        CreatedById = query.CreatedById,
-                        CreatedOn = query.CreatedOn,
-                        CustomerId = query.CustomerId,
-                        HelperId = query.HelperId,
-                        TicketStatusId = 3,
-                        EditedById = userId,
-                        EditedOn = dateOfEdit,
-                        RecordState = query.RecordState,
-                        City = query.City,
-                        State = query.State,
-                        Address = query.Address,
-                        ContactNo1 = query.ContactNo1,
-                        ContactNo2 = query.ContactNo2,
-                        Title = query.Title,
-                        Country = query.Country,
-                        HelpTime = query.HelpTime,
-                        OtherRequirements = query.OtherRequirements,
-                        HasFeedback = query.HasFeedback
+                    //var ticket = new Help247.Data.Entities.Ticket
+                    //{
+                    //    Id = query.Id,
+                    //    CreatedById = query.CreatedById,
+                    //    CreatedOn = query.CreatedOn,
+                    //    CustomerId = query.CustomerId,
+                    //    HelperId = query.HelperId,
+                    //    TicketStatusId = 3,
+                    //    EditedById = userId,
+                    //    EditedOn = dateOfEdit,
+                    //    RecordState = query.RecordState,
+                    //    City = query.City,
+                    //    State = query.State,
+                    //    Address = query.Address,
+                    //    ContactNo1 = query.ContactNo1,
+                    //    ContactNo2 = query.ContactNo2,
+                    //    Title = query.Title,
+                    //    Country = query.Country,
+                    //    HelpTime = query.HelpTime,
+                    //    OtherRequirements = query.OtherRequirements,
+                    //    HasFeedback = query.HasFeedback
 
-                    };
-                    appDbContext.Tickets.Update(ticket);
+                    //};
+                    //appDbContext.Tickets.Update(ticket);
+                    query.TicketStatusId = 3;
                     await appDbContext.SaveChangesAsync();
 
                     var ticketHistory = new TicketHistory()
                     {
-                        HelperId = ticket.HelperId,
-                        CustomerId = ticket.CustomerId,
-                        TicketId = ticket.Id,
-                        CurrentTicketStatusId = ticket.TicketStatusId,
-                        CreatedById = ticket.CreatedById,
-                        CreatedOn = ticket.CreatedOn,
-                        EditedById = ticket.EditedById,
-                        EditedOn = ticket.EditedOn
+                        HelperId = query.HelperId,
+                        CustomerId = query.CustomerId,
+                        TicketId = query.Id,
+                        CurrentTicketStatusId = query.TicketStatusId,
+                        CreatedById = query.CreatedById,
+                        CreatedOn = query.CreatedOn,
+                        EditedById = query.EditedById,
+                        EditedOn = query.EditedOn
                     };
                     await appDbContext.TicketHistories.AddAsync(ticketHistory);
                     await appDbContext.SaveChangesAsync();
 
                     transaction.Commit();
-                    return mapper.Map<TicketBO>(ticket);
+                    return mapper.Map<TicketBO>(query);
                 }
                 catch (Exception ex)
                 {
@@ -223,7 +226,7 @@ namespace Help247.Service.Services.Ticket
                 try
                 {
                     var dateOfEdit = DateTime.UtcNow;
-                    var query = appDbContext.Tickets.AsNoTracking().FirstOrDefault(x => x.Id == ticketId);
+                    var query = appDbContext.Tickets.FirstOrDefault(x => x.Id == ticketId);
                     if (query == null)
                     {
                         throw new ArgumentException("Ticket not found in database");
@@ -232,47 +235,48 @@ namespace Help247.Service.Services.Ticket
                     {
                         throw new ArgumentException("Ticket status is not valid. Ticket must be in HelpRequest status.");
                     }
-                    var ticket = new Help247.Data.Entities.Ticket
-                    {
-                        Id = query.Id,
-                        CreatedById = query.CreatedById,
-                        CreatedOn = query.CreatedOn,
-                        CustomerId = query.CustomerId,
-                        HelperId = query.HelperId,
-                        TicketStatusId = 4,
-                        EditedById = userId,
-                        EditedOn = dateOfEdit,
-                        RecordState = query.RecordState,
-                        City = query.City,
-                        State = query.State,
-                        Address = query.Address,
-                        ContactNo1 = query.ContactNo1,
-                        ContactNo2 = query.ContactNo2,
-                        Title = query.Title,
-                        Country = query.Country,
-                        HelpTime = query.HelpTime,
-                        OtherRequirements = query.OtherRequirements,
-                        HasFeedback = query.HasFeedback
-                    };
-                    appDbContext.Tickets.Update(ticket);
+                    //var ticket = new Help247.Data.Entities.Ticket
+                    //{
+                    //    Id = query.Id,
+                    //    CreatedById = query.CreatedById,
+                    //    CreatedOn = query.CreatedOn,
+                    //    CustomerId = query.CustomerId,
+                    //    HelperId = query.HelperId,
+                    //    TicketStatusId = 4,
+                    //    EditedById = userId,
+                    //    EditedOn = dateOfEdit,
+                    //    RecordState = query.RecordState,
+                    //    City = query.City,
+                    //    State = query.State,
+                    //    Address = query.Address,
+                    //    ContactNo1 = query.ContactNo1,
+                    //    ContactNo2 = query.ContactNo2,
+                    //    Title = query.Title,
+                    //    Country = query.Country,
+                    //    HelpTime = query.HelpTime,
+                    //    OtherRequirements = query.OtherRequirements,
+                    //    HasFeedback = query.HasFeedback
+                    //};
+                    //appDbContext.Tickets.Update(ticket);
+                    query.TicketStatusId = 4;
                     await appDbContext.SaveChangesAsync();
 
                     var ticketHistory = new TicketHistory()
                     {
-                        HelperId = ticket.HelperId,
-                        CustomerId = ticket.CustomerId,
-                        TicketId = ticket.Id,
-                        CurrentTicketStatusId = ticket.TicketStatusId,
-                        CreatedById = ticket.CreatedById,
-                        CreatedOn = ticket.CreatedOn,
-                        EditedById = ticket.EditedById,
-                        EditedOn = ticket.EditedOn
+                        HelperId = query.HelperId,
+                        CustomerId = query.CustomerId,
+                        TicketId = query.Id,
+                        CurrentTicketStatusId = query.TicketStatusId,
+                        CreatedById = query.CreatedById,
+                        CreatedOn = query.CreatedOn,
+                        EditedById = query.EditedById,
+                        EditedOn = query.EditedOn
                     };
                     await appDbContext.TicketHistories.AddAsync(ticketHistory);
                     await appDbContext.SaveChangesAsync();
 
                     transaction.Commit();
-                    return mapper.Map<TicketBO>(ticket);
+                    return mapper.Map<TicketBO>(query);
                 }
                 catch (Exception ex)
                 {
