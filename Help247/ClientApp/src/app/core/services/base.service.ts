@@ -15,7 +15,7 @@ export abstract class BaseService {
     })
   };
   constructor(
-  ) {}
+  ) { }
 
   server4xxError(error: Response | any) {
     let isLogin = false;
